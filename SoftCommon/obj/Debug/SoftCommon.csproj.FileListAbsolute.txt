@@ -1,0 +1,8 @@
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\bin\Debug\SoftCommon.dll
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\bin\Debug\SoftCommon.pdb
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\bin\Debug\EPPlus.dll
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\bin\Debug\NPOI.dll
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\obj\Debug\SoftCommon.csproj.CoreCompileInputs.cache
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\obj\Debug\SoftCommon.csproj.CopyComplete
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\obj\Debug\SoftCommon.dll
+C:\Users\魏欣\Desktop\销售管理系统最新\SoftCommon\obj\Debug\SoftCommon.pdb
