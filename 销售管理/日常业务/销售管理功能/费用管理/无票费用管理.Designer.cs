@@ -64,6 +64,8 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.复核状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.复核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNoTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetSaleDetails)).BeginInit();
@@ -94,7 +96,9 @@
             this.SumMoney,
             this.Status,
             this.审核人,
-            this.审核时间});
+            this.审核时间,
+            this.复核状态,
+            this.复核人});
             this.dgvNoTicket.Location = new System.Drawing.Point(82, 304);
             this.dgvNoTicket.Margin = new System.Windows.Forms.Padding(7);
             this.dgvNoTicket.Name = "dgvNoTicket";
@@ -154,9 +158,9 @@
             this.cmbStatus.IntegralHeight = false;
             this.cmbStatus.Items.AddRange(new object[] {
             "",
-            "未审核",
-            "审核已通过",
-            "审核未通过"});
+            "未复核",
+            "复核已通过",
+            "复核未通过"});
             this.cmbStatus.Location = new System.Drawing.Point(844, 48);
             this.cmbStatus.Margin = new System.Windows.Forms.Padding(7);
             this.cmbStatus.Name = "cmbStatus";
@@ -432,6 +436,20 @@
             this.审核时间.Name = "审核时间";
             this.审核时间.Width = 169;
             // 
+            // 复核状态
+            // 
+            this.复核状态.DataPropertyName = "P2";
+            this.复核状态.HeaderText = "复核状态";
+            this.复核状态.Name = "复核状态";
+            this.复核状态.Width = 169;
+            // 
+            // 复核人
+            // 
+            this.复核人.DataPropertyName = "P3";
+            this.复核人.HeaderText = "复核人";
+            this.复核人.Name = "复核人";
+            this.复核人.Width = 142;
+            // 
             // 无票费用管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
@@ -488,5 +506,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 复核状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 复核人;
     }
 }

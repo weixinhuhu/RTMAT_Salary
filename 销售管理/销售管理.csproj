@@ -505,11 +505,17 @@
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="审核\无票费用申请审核.cs">
+    <Compile Include="审核\无票费用申请审批.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="审核\无票费用申请审核.Designer.cs">
-      <DependentUpon>无票费用申请审核.cs</DependentUpon>
+    <Compile Include="审核\无票费用申请审批.Designer.cs">
+      <DependentUpon>无票费用申请审批.cs</DependentUpon>
+    </Compile>
+    <Compile Include="审核\无票费用申请复核.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="审核\无票费用申请复核.Designer.cs">
+      <DependentUpon>无票费用申请复核.cs</DependentUpon>
     </Compile>
     <Compile Include="审核\消费卡申请审核.cs">
       <SubType>UserControl</SubType>
@@ -1161,8 +1167,11 @@
     <EmbeddedResource Include="Main\UserControlBase.resx">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="审核\无票费用申请审核.resx">
-      <DependentUpon>无票费用申请审核.cs</DependentUpon>
+    <EmbeddedResource Include="审核\无票费用申请审批.resx">
+      <DependentUpon>无票费用申请审批.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="审核\无票费用申请复核.resx">
+      <DependentUpon>无票费用申请复核.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="审核\消费卡申请审核.resx">
       <DependentUpon>消费卡申请审核.cs</DependentUpon>

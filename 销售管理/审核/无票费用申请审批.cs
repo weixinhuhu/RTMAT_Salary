@@ -13,9 +13,9 @@ using Soft.Common;
 
 namespace 销售管理.审核
 {
-    public partial class 无票费用申请审核 : 销售管理.UserControlBase
+    public partial class 无票费用申请审批 : 销售管理.UserControlBase
     {
-        public 无票费用申请审核()
+        public 无票费用申请审批()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace 销售管理.审核
         /// 刷新查询数据
         /// </summary>
         private void refresh() {
-            string mSql =  @" SELECT a.[Id] ,
+            string mSql = @" SELECT a.[Id] ,
                     c.[UserName] ,
                     b.[CompanyName] ,
                     a.[ProjectName] ,
@@ -36,7 +36,7 @@ namespace 销售管理.审核
                     a.[SalaryDate] ,
                     a.[Status] ,
                     d.UserName[AuditId] ,
-                    a.[AuditDate]
+                    a.[AuditDate]                
             FROM[dbo].T_NoTicket a
                     LEFT JOIN T_Users c ON a.UserName = c.id
                     LEFT JOIN T_Users d ON a.AuditId = d.id
@@ -57,7 +57,7 @@ namespace 销售管理.审核
            
             if (cmbHasAudit.Text != string.Empty)
             {                               
-               mC3 = " and a.status='" + cmbHasAudit.Text + "'";                               
+               mC3 = " and a.Status='" + cmbHasAudit.Text + "'";                               
             }
             if (CBoxDept.Text != string.Empty)
             {
@@ -112,7 +112,7 @@ namespace 销售管理.审核
 
         private void btnAudit_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("确认审核通过？", "提示", MessageBoxButtons.YesNo))
+            if (DialogResult.Yes == MessageBox.Show("确认审批通过？", "提示", MessageBoxButtons.YesNo))
             {
 
                 int ret = 0;
@@ -128,17 +128,17 @@ namespace 销售管理.审核
 
                 if (auditString == "")
                 {
-                    Dlg.ShowErrorInfoAndHelp("没有选择要审核的记录");
+                    Dlg.ShowErrorInfoAndHelp("没有选择要审批的记录");
                     return;
                 }
-               
-                string mSql = string.Format("UPDATE T_NoTicket SET Status = '{0}',AuditId = '{1}', AuditDate = GETDATE()  WHERE Id IN ({2})", "审核已通过", Classes.PubClass.UserId, auditString);
+
+                string mSql = string.Format("UPDATE T_NoTicket SET Status = '{0}',AuditId = '{1}',P2='{3}', AuditDate = GETDATE()  WHERE Id IN ({2})", "审批已通过", Classes.PubClass.UserId, auditString, "未复核");
                 ret = SqlHelper.ExecuteNonQuery(mSql);
                 if (ret > 0)
                 {
-                    Dlg.ShowOKInfo("保存成功");     
+                    Dlg.ShowOKInfo("保存成功");
                     //刷新页面
-                    refresh();                   
+                    refresh();
                 }
                 else
                 {
@@ -150,7 +150,7 @@ namespace 销售管理.审核
 
         private void btnAudit2_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("确认审核不通过？", "提示", MessageBoxButtons.YesNo))
+            if (DialogResult.Yes == MessageBox.Show("确认审批不通过？", "提示", MessageBoxButtons.YesNo))
             {
 
                 int ret = 0;
@@ -165,11 +165,11 @@ namespace 销售管理.审核
                 auditString = auditString.TrimEnd(',');
                 if (auditString == "")
                 {
-                    Dlg.ShowErrorInfoAndHelp("没有选择要审核的记录");
+                    Dlg.ShowErrorInfoAndHelp("没有选择要审批的记录");
                     return;
                 }
 
-                string mSql = string.Format("UPDATE T_NoTicket SET Status = '{0}',AuditId = '{1}', AuditDate = GETDATE()  WHERE (Id IN ({2}))", "审核未通过", Classes.PubClass.UserId, auditString);
+                string mSql = string.Format("UPDATE T_NoTicket SET Status = '{0}',AuditId = '{1}', AuditDate = GETDATE()  WHERE (Id IN ({2}))", "审批未通过", Classes.PubClass.UserId, auditString);
 
                 ret = SqlHelper.ExecuteNonQuery(mSql);
                 if (ret > 0)
@@ -195,6 +195,9 @@ namespace 销售管理.审核
             }
         }
 
+        private void dgvNoTicketAudit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

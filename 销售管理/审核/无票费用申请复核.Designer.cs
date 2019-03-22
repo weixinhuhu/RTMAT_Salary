@@ -1,6 +1,6 @@
 ﻿namespace 销售管理.审核
 {
-    partial class 无票费用申请审核
+    partial class 无票费用申请复核
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -59,6 +59,8 @@
             this.SingerFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.复核状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.复核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tMealsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetMeals)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -178,7 +180,7 @@
             this.btnAudit2.Name = "btnAudit2";
             this.btnAudit2.Size = new System.Drawing.Size(243, 54);
             this.btnAudit2.TabIndex = 7;
-            this.btnAudit2.Text = "批量审核不通过";
+            this.btnAudit2.Text = "批量复核不通过";
             this.btnAudit2.UseVisualStyleBackColor = true;
             this.btnAudit2.Click += new System.EventHandler(this.btnAudit2_Click);
             // 
@@ -190,7 +192,7 @@
             this.btnAudit.Name = "btnAudit";
             this.btnAudit.Size = new System.Drawing.Size(259, 54);
             this.btnAudit.TabIndex = 7;
-            this.btnAudit.Text = "批量审核通过";
+            this.btnAudit.Text = "批量复核通过";
             this.btnAudit.UseVisualStyleBackColor = true;
             this.btnAudit.Click += new System.EventHandler(this.btnAudit_Click);
             // 
@@ -199,9 +201,9 @@
             this.cmbHasAudit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHasAudit.FormattingEnabled = true;
             this.cmbHasAudit.Items.AddRange(new object[] {
-            "未审核",
-            "审核已通过",
-            "审核未通过"});
+            "未复核",
+            "复核已通过",
+            "复核未通过"});
             this.cmbHasAudit.Location = new System.Drawing.Point(633, 153);
             this.cmbHasAudit.Margin = new System.Windows.Forms.Padding(7);
             this.cmbHasAudit.Name = "cmbHasAudit";
@@ -228,7 +230,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 27);
             this.label5.TabIndex = 0;
-            this.label5.Text = "审核状态";
+            this.label5.Text = "复核状态";
             // 
             // label3
             // 
@@ -292,7 +294,9 @@
             this.SumMoney,
             this.SingerFlag,
             this.审核人,
-            this.审核时间});
+            this.审核时间,
+            this.复核状态,
+            this.复核人});
             this.dgvNoTicketAudit.Location = new System.Drawing.Point(70, 335);
             this.dgvNoTicketAudit.Margin = new System.Windows.Forms.Padding(7);
             this.dgvNoTicketAudit.Name = "dgvNoTicketAudit";
@@ -300,6 +304,7 @@
             this.dgvNoTicketAudit.ShowEditingIcon = false;
             this.dgvNoTicketAudit.Size = new System.Drawing.Size(2182, 1212);
             this.dgvNoTicketAudit.TabIndex = 10;
+            this.dgvNoTicketAudit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNoTicketAudit_CellContentClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -359,31 +364,45 @@
             // SingerFlag
             // 
             this.SingerFlag.DataPropertyName = "Status";
-            this.SingerFlag.HeaderText = "审核状态";
+            this.SingerFlag.HeaderText = "审批状态";
             this.SingerFlag.Name = "SingerFlag";
             this.SingerFlag.Width = 169;
             // 
             // 审核人
             // 
             this.审核人.DataPropertyName = "AuditId";
-            this.审核人.HeaderText = "审核人";
+            this.审核人.HeaderText = "审批人";
             this.审核人.Name = "审核人";
             this.审核人.Width = 142;
             // 
             // 审核时间
             // 
             this.审核时间.DataPropertyName = "AuditDate";
-            this.审核时间.HeaderText = "审核时间";
+            this.审核时间.HeaderText = "审批时间";
             this.审核时间.Name = "审核时间";
             this.审核时间.Width = 169;
             // 
-            // 无票费用申请审核
+            // 复核状态
+            // 
+            this.复核状态.DataPropertyName = "P2";
+            this.复核状态.HeaderText = "复核状态";
+            this.复核状态.Name = "复核状态";
+            this.复核状态.Width = 169;
+            // 
+            // 复核人
+            // 
+            this.复核人.DataPropertyName = "P3";
+            this.复核人.HeaderText = "复核人";
+            this.复核人.Name = "复核人";
+            this.复核人.Width = 142;
+            // 
+            // 无票费用申请复核
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.Controls.Add(this.dgvNoTicketAudit);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(16);
-            this.Name = "无票费用申请审核";
+            this.Name = "无票费用申请复核";
             this.Load += new System.EventHandler(this.消费卡申请审核_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
@@ -428,5 +447,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 复核状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 复核人;
     }
 }

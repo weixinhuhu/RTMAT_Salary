@@ -35,10 +35,13 @@ namespace 销售管理.日常业务
                     a.[SalaryDate] ,
                     a.[Status] ,
                     d.UserName [AuditId] ,
-                    a.[AuditDate]
+                    a.[AuditDate],
+                    a.p2,
+                    e.UserName[p3]
             FROM    [dbo].T_NoTicket a
                     LEFT JOIN T_Users c ON a.UserName = c.id
                     LEFT JOIN T_Users d ON a.AuditId = d.id
+                    LEFT JOIN T_Users e ON a.p3 = e.id
                     LEFT JOIN dbo.T_Customers b ON a.CustomerName = b.id
             WHERE   1 = 1 and P1='正常'";
 
@@ -64,7 +67,7 @@ namespace 销售管理.日常业务
 
             if (cmbStatus.Text != string.Empty)
             {
-                mSql += " and a.Status  like '%" + cmbStatus.Text.Trim() + "%'";
+                mSql += " and a.P2  like '%" + cmbStatus.Text.Trim() + "%'";
             }
 
             if (dtpStart.Checked == true)
@@ -99,20 +102,24 @@ namespace 销售管理.日常业务
 
         private void 销售明细管理_Load(object sender, EventArgs e)
         {         
-            cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+            cmbUserName.DataSource = new T_UsersTableAdapter().GetData();
             cmbUserName.DisplayMember = "UserName";
             cmbUserName.ValueMember = "id";
             cmbUserName.SelectedIndex = -1;
 
             CmbDepartmentName.DisplayMember = "VcName";
-            CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); ;
+            CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); 
             CmbDepartmentName.SelectedIndex = -1;
 
 
-            if (!Common.AuthenticateRight.AuthOperation(110301) && !CommonClass.SttUser.blSuperUser)
+            if (!Common.AuthenticateRight.AuthOperation(111301) && !CommonClass.SttUser.blSuperUser)
             {
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
                 cmbUserName.Enabled = false;
+
+                CmbDepartmentName.Text = SqlHelper.ExecuteScalar(" SELECT DepartmentName FROM [dbo].[T_Users] where id="+ Classes.PubClass.UserId).ToString();       
+                CmbDepartmentName.Enabled = false;
+           
             }
             
             DateTime dt = DateTime.Now;
@@ -161,7 +168,7 @@ namespace 销售管理.日常业务
             if (e.RowIndex >= 0)
             {
 
-                if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审核")
+                if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批")
                 {
                     if (e.ColumnIndex == dgvNoTicket.Columns["ColModify"].Index)//修改
                     {
@@ -169,13 +176,13 @@ namespace 销售管理.日常业务
                         无票费用录入 mForm = new 无票费用录入();
                         mForm.mId = Convert.ToInt64(dgvNoTicket.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
                         mForm.ShowDialog();
-
+                        refresh();
                     }
                     if (e.ColumnIndex == dgvNoTicket.Columns["ColDel"].Index)//删除
                     {
                         if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
                         {
-                            if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审核")
+                            if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批")
                             {
                                 string mSql = string.Format("UPDATE T_NoTicket SET P1 = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvNoTicket.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
                                 int ret = SqlHelper.ExecuteNonQuery(mSql);

@@ -7,6 +7,7 @@ using 销售管理.DAL.DataSetCustomersTableAdapters;
 using System.Data.SqlClient;
 using 销售管理.日常业务.销售管理功能;
 using System.Data;
+using Common;
 
 namespace 销售管理.日常业务
 {
@@ -69,7 +70,7 @@ namespace 销售管理.日常业务
 
             if (mId == -1)
             {
-                ret = new T_NoTicketTableAdapter().Insert((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtProjectName.Text, Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, "未审核", null, null,"正常");
+                ret = new T_NoTicketTableAdapter().Insert((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtProjectName.Text, Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, "未审批", null, null,"正常");
 
             }
             else
@@ -96,8 +97,15 @@ namespace 销售管理.日常业务
             //获取销售名单
             cmbUserName.DisplayMember = "UserName";
             cmbUserName.ValueMember = "id";
-            cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+            cmbUserName.DataSource = new T_UsersTableAdapter().GetData();
             cmbUserName.SelectedIndex = -1;
+
+            if (!Common.AuthenticateRight.AuthOperation(111301) && !CommonClass.SttUser.blSuperUser)
+            {
+                cmbUserName.SelectedValue = Classes.PubClass.UserId;
+                cmbUserName.Enabled = false;      
+            }
+
 
             if (mId == -1)
             {
