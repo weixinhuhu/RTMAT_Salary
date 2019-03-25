@@ -62,7 +62,7 @@
             this.项目名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.审核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuditId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.复核状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.复核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,7 +95,7 @@
             this.项目名称,
             this.SumMoney,
             this.Status,
-            this.审核人,
+            this.AuditId,
             this.审核时间,
             this.复核状态,
             this.复核人});
@@ -418,21 +418,21 @@
             // Status
             // 
             this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "审核状态";
+            this.Status.HeaderText = "审批状态";
             this.Status.Name = "Status";
             this.Status.Width = 169;
             // 
-            // 审核人
+            // AuditId
             // 
-            this.审核人.DataPropertyName = "AuditId";
-            this.审核人.HeaderText = "审核人";
-            this.审核人.Name = "审核人";
-            this.审核人.Width = 142;
+            this.AuditId.DataPropertyName = "AuditId";
+            this.AuditId.HeaderText = "审批人";
+            this.AuditId.Name = "AuditId";
+            this.AuditId.Width = 142;
             // 
             // 审核时间
             // 
             this.审核时间.DataPropertyName = "AuditDate";
-            this.审核时间.HeaderText = "审核时间";
+            this.审核时间.HeaderText = "审批时间";
             this.审核时间.Name = "审核时间";
             this.审核时间.Width = 169;
             // 
@@ -504,7 +504,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 项目名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 审核人;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuditId;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 复核状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 复核人;

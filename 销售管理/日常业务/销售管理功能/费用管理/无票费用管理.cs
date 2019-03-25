@@ -101,27 +101,65 @@ namespace 销售管理.日常业务
         }
 
         private void 销售明细管理_Load(object sender, EventArgs e)
-        {         
-            cmbUserName.DataSource = new T_UsersTableAdapter().GetData();
-            cmbUserName.DisplayMember = "UserName";
-            cmbUserName.ValueMember = "id";
-            cmbUserName.SelectedIndex = -1;
+        {
+            //cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+            //cmbUserName.DisplayMember = "UserName";
+            //cmbUserName.ValueMember = "id";
+            //cmbUserName.SelectedIndex = -1;
 
-            CmbDepartmentName.DisplayMember = "VcName";
-            CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); 
-            CmbDepartmentName.SelectedIndex = -1;
+            //CmbDepartmentName.DisplayMember = "VcName";
+            //CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); 
+            //CmbDepartmentName.SelectedIndex = -1;
 
 
-            if (!Common.AuthenticateRight.AuthOperation(111301) && !CommonClass.SttUser.blSuperUser)
+            //if (!Common.AuthenticateRight.AuthOperation(111301) && !CommonClass.SttUser.blSuperUser)
+            //{
+            //    cmbUserName.SelectedValue = Classes.PubClass.UserId;
+            //    cmbUserName.Enabled = false;
+
+            //    CmbDepartmentName.Text = SqlHelper.ExecuteScalar(" SELECT DepartmentName FROM [dbo].[T_Users] where id="+ Classes.PubClass.UserId).ToString();       
+            //    CmbDepartmentName.Enabled = false;
+
+            //}
+
+            //按配置权限显示数据
+
+            if (Common.AuthenticateRight.AuthOperation(111301) || CommonClass.SttUser.blSuperUser) //查看全部
             {
+                cmbUserName.DataSource = new T_UsersTableAdapter().GetData();
+                cmbUserName.DisplayMember = "UserName";
+                cmbUserName.ValueMember = "id";
+                cmbUserName.SelectedIndex = -1;
+
+                CmbDepartmentName.DisplayMember = "VcName";
+                CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]");
+                CmbDepartmentName.SelectedIndex = -1;
+            }
+            else if (Common.AuthenticateRight.AuthOperation(111302)) //查看销售
+            {
+                cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+                cmbUserName.DisplayMember = "UserName";
+                cmbUserName.ValueMember = "id";
+                cmbUserName.SelectedIndex = -1;
+
+                CmbDepartmentName.DisplayMember = "VcName";
+                CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment] WHERE VcName LIKE '%销售%' ");
+                CmbDepartmentName.SelectedIndex = -1;
+
+            }
+            else {//普通销售人员
+                cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+                cmbUserName.DisplayMember = "UserName";
+                cmbUserName.ValueMember = "id";
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
                 cmbUserName.Enabled = false;
 
-                CmbDepartmentName.Text = SqlHelper.ExecuteScalar(" SELECT DepartmentName FROM [dbo].[T_Users] where id="+ Classes.PubClass.UserId).ToString();       
+                CmbDepartmentName.Text = SqlHelper.ExecuteScalar(" SELECT DepartmentName FROM [dbo].[T_Users] where id=" + Classes.PubClass.UserId).ToString();
                 CmbDepartmentName.Enabled = false;
-           
+
             }
-            
+
+
             DateTime dt = DateTime.Now;
             dtpStart.Value = dt.AddMonths(-dt.Month + 1).AddDays(-dt.Day + 1);
         }
