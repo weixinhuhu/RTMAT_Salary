@@ -33,6 +33,7 @@ namespace 销售管理.审核
                     b.[CompanyName] ,
                     a.[ProjectName] ,
                     a.[SumMoney] ,
+                    a.[SumMoney]*1.28 '含税金额' ,
                     a.[SalaryDate] ,
                     a.[Status] ,
                     d.UserName[AuditId] ,

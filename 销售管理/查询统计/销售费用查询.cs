@@ -58,7 +58,6 @@ namespace 销售管理.查询统计
                                                AND b.Status = '审核已通过'
                                                AND HasStockOut = '已出库'" + sDept + " )";
 
-
                 if (dtpStart.Checked == true)
                 {
                     sDept = " and b.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
@@ -67,7 +66,7 @@ namespace 销售管理.查询统计
                 fee4 = @"( SELECT     ISNULL(SUM(CONVERT(DECIMAL(18, 2), b.[SumMoney])), 0)
                                       FROM      [dbo].T_NoTicket b
                                       WHERE     c.id = b.UserName
-                                                AND b.Status = '审核已通过'
+                                                AND b.P2 = '复核已通过'
                                                 AND P1 = '正常'" + sDept + " )";
 
                 if (dtpStart.Checked == true)
@@ -228,7 +227,7 @@ namespace 销售管理.查询统计
                                 LEFT JOIN T_Users d ON a.AuditId = d.id
                                 LEFT JOIN dbo.T_Customers b ON a.CustomerName = b.id
                         WHERE   1 = 1 
-                        AND a.Status = '审核已通过' AND P1='正常'";
+                        AND   a.P2 = '复核已通过' AND P1='正常'";
 
                     mSql1 = @"  UNION ALL
                                 SELECT '总计' ,
@@ -241,7 +240,7 @@ namespace 销售管理.查询统计
                                 LEFT JOIN T_Users d ON a.AuditId = d.id
                                 LEFT JOIN dbo.T_Customers b ON a.CustomerName = b.id
                         WHERE   1 = 1 
-                        AND a.Status = '审核已通过' AND P1='正常'";
+                        AND a.P2 = '复核已通过'  AND P1='正常'";
 
                 }
 
@@ -378,41 +377,42 @@ namespace 销售管理.查询统计
                         WHERE 1=1 ";
                             break;
                     }
+             
+                }
+                if (cmbUserName.Text.Trim() != "")
+                {
+                    mSql += " and c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
+                    mSql1 += " and c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
+                }
 
-                    if (cmbUserName.Text.Trim() != "")
+                if (CmbDepartmentName.Text != string.Empty)
+                {
+                    mSql += " and c.DepartmentName ='" + CmbDepartmentName.Text + "'";
+                    mSql1 += " and c.DepartmentName ='" + CmbDepartmentName.Text + "'";
+                }
+
+                if (dtpStart.Checked == true)
+                {
+                    if (cmbFeeType.Text.Trim() == "餐费" || cmbFeeType.Text.Trim() == "礼品")
                     {
-                        mSql += " and c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
-                        mSql1 += " and c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
+                        mSql += " and a.RecDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+                        mSql1 += " and a.RecDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+
                     }
-
-                    if (CmbDepartmentName.Text != string.Empty)
+                    else if (cmbFeeType.Text.Trim() == "产品赠送")
                     {
-                        mSql += " and c.DepartmentName ='" + CmbDepartmentName.Text + "'";
-                        mSql1 += " and c.DepartmentName ='" + CmbDepartmentName.Text + "'";
+                        mSql += " and a.SaleDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+                        mSql1 += " and a.SaleDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+
                     }
-
-                    if (dtpStart.Checked == true)
+                    else
                     {
-                        if (cmbFeeType.Text.Trim() == "餐费" || cmbFeeType.Text.Trim() == "礼品")
-                        {
-                            mSql += " and a.RecDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
-                            mSql1 += " and a.RecDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+                        mSql += " and a.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+                        mSql1 += " and a.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
 
-                        }
-                        else if (cmbFeeType.Text.Trim() == "产品赠送")
-                        {
-                            mSql += " and a.SaleDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
-                            mSql1 += " and a.SaleDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
-
-                        }
-                        else
-                        {
-                            mSql += " and a.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
-                            mSql1 += " and a.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
-
-                        }
                     }
                 }
+
                 mSql += mSql1;
                 SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
                 SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);

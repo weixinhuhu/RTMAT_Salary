@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvNoTicket = new System.Windows.Forms.DataGridView();
             this.tSaleDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetSaleDetails = new 销售管理.DAL.DataSetSaleDetails();
@@ -61,6 +62,7 @@
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.项目名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.含税金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuditId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +96,7 @@
             this.CompanyName,
             this.项目名称,
             this.SumMoney,
+            this.含税金额,
             this.Status,
             this.AuditId,
             this.审核时间,
@@ -415,6 +418,16 @@
             this.SumMoney.Name = "SumMoney";
             this.SumMoney.Width = 169;
             // 
+            // 含税金额
+            // 
+            this.含税金额.DataPropertyName = "含税金额";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.含税金额.DefaultCellStyle = dataGridViewCellStyle3;
+            this.含税金额.HeaderText = "含税金额";
+            this.含税金额.Name = "含税金额";
+            this.含税金额.Width = 169;
+            // 
             // Status
             // 
             this.Status.DataPropertyName = "Status";
@@ -503,6 +516,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn 项目名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 含税金额;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn AuditId;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核时间;

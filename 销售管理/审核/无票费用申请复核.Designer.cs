@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tMealsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetMeals = new 销售管理.DAL.DataSetMeals();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,6 +57,7 @@
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.项目名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.含税金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -292,6 +294,7 @@
             this.CompanyName,
             this.项目名称,
             this.SumMoney,
+            this.含税金额,
             this.SingerFlag,
             this.审核人,
             this.审核时间,
@@ -360,6 +363,16 @@
             this.SumMoney.HeaderText = "申请金额";
             this.SumMoney.Name = "SumMoney";
             this.SumMoney.Width = 169;
+            // 
+            // 含税金额
+            // 
+            this.含税金额.DataPropertyName = "含税金额";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.含税金额.DefaultCellStyle = dataGridViewCellStyle2;
+            this.含税金额.HeaderText = "含税金额";
+            this.含税金额.Name = "含税金额";
+            this.含税金额.Width = 169;
             // 
             // SingerFlag
             // 
@@ -444,6 +457,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn 项目名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 含税金额;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核时间;

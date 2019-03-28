@@ -108,4 +108,3 @@ C:\Users\魏欣\Desktop\销售管理系统20190320\销售管理系统最新\Soft
 C:\Users\魏欣\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.csproj.CopyComplete
 C:\Users\魏欣\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.dll
 C:\Users\魏欣\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.pdb
-C:\Users\魏欣\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.csprojAssemblyReference.cache
