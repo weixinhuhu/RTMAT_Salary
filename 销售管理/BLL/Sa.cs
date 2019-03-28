@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using 销售管理.DAL.DataSetGiftStockOutTableAdapters;
 using 销售管理.DAL.DataSetMealsTableAdapters;
 
@@ -25,5 +22,20 @@ namespace 销售管理.BLL
             }
             
         }
+
+        public static int GetNoTicketUnFAuditCount()
+        {
+          string  sql= @"SELECT count(Id) FROM  T_NoTicket where P2='未复核' AND P1='正常'";
+          return Convert.ToInt32(Common.SqlHelper.ExecuteScalar(sql));
+        }
+        public static int GetNoTicketUnAuditCount()
+        {
+            string sql = @"SELECT count(Id) FROM  T_NoTicket where status='未审批' AND P1='正常'";
+            return Convert.ToInt32(Common.SqlHelper.ExecuteScalar(sql));
+        }
+
+
+
+
     }
 }

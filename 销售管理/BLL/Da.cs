@@ -32,9 +32,10 @@ where a.IntContractID={0}", contractId);
                 foreach (DataRow mRow in mTable.Rows)
                 {
                     Common.CommonClass.UserRightList.Add(Convert.ToInt32(mRow["mkbh"]));
-                }
-            
+                }          
         }
+
+
 
         //public static List<ZdAllStatu> GetZdAllStatusByType(MYDBEntities2 mydb, string typeName, bool addAllString)
         //{

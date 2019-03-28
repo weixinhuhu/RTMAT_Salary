@@ -220,7 +220,8 @@ namespace 销售管理.查询统计
                     mSql = @" SELECT  c.[UserName] '销售员',
                                 b.[CompanyName] '客户名称',
                                 a.[ProjectName]  '项目名称',
-                                Convert(decimal(18,2),a.[SumMoney])*1.28     '总金额' ,
+                                Convert(decimal(18,2),a.[SumMoney])     '申请金额' ,
+                                Convert(decimal(18,2),a.[SumMoney]*1.28 )    '含税金额' ,
                                 a.[SalaryDate] '日期'     
                         FROM    [dbo].T_NoTicket a
                                 LEFT JOIN T_Users c ON a.UserName = c.id
@@ -232,8 +233,9 @@ namespace 销售管理.查询统计
                     mSql1 = @"  UNION ALL
                                 SELECT '总计' ,
                                             NULL ,
-                                            NULL ,                                   
-                                            ISNULL(SUM(CONVERT(DECIMAL(18, 2), a.[SumMoney])*1.28), 0) ,  
+                                            NULL ,     
+                                            ISNULL(SUM(CONVERT(DECIMAL(18, 2), a.[SumMoney])), 0) ,  
+                                            ISNULL(SUM(CONVERT(DECIMAL(18, 2), a.[SumMoney]*1.28)), 0) ,  
                                             NULL
                                 FROM    [dbo].T_NoTicket a
                                 LEFT JOIN T_Users c ON a.UserName = c.id

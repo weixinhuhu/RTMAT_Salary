@@ -199,7 +199,9 @@ namespace 销售管理
             {
                 int giftUnAuditCount = BLL.Sa.GetGiftLeaderUnAuditCount();
                 int mealUnAuditCount = BLL.Sa.GetMealLeaderUnAuditCount();
-                if (giftUnAuditCount > 0 || mealUnAuditCount > 0)
+                int NoTicketUnAuditCount = BLL.Sa.GetNoTicketUnAuditCount();
+                int NoTicketUnFAuditCount = BLL.Sa.GetNoTicketUnFAuditCount();
+                if (giftUnAuditCount > 0 || mealUnAuditCount > 0 || NoTicketUnAuditCount > 0 || NoTicketUnFAuditCount > 0)
                 {
                     using (提示 mForm = new 提示())
                     {

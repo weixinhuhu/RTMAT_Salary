@@ -27,8 +27,9 @@ namespace 销售管理.日常业务.销售管理功能
         {
             int giftUnAuditCount = BLL.Sa.GetGiftLeaderUnAuditCount();
             int mealUnAuditCount = BLL.Sa.GetMealLeaderUnAuditCount();
-
-            labTips.Text = string.Format("礼品未审核数目:{0}\r\n餐费未审核数目:{1}",giftUnAuditCount,mealUnAuditCount);
+            int NoTicketUnAuditCount = BLL.Sa.GetNoTicketUnAuditCount();
+            int NoTicketUnFAuditCount = BLL.Sa.GetNoTicketUnFAuditCount();
+            labTips.Text = string.Format("礼品未审核数目:{0}\r\n餐费未审核数目:{1}\r\n无票费用未审批数目:{2}\r\n无票费用未复核数目:{3}", giftUnAuditCount,mealUnAuditCount, NoTicketUnAuditCount,NoTicketUnFAuditCount);
         }
 
         private void btnOK_Click(object sender, EventArgs e)
