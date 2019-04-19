@@ -81,6 +81,7 @@ namespace 销售管理.日常业务
                 DataTable mTable = SqlHelper.GetData(mSql);
                 DataRow mRow = mTable.NewRow();
                 mRow["SumMoney"] = mTable.Compute("sum(SumMoney)", "true");
+                mRow["含税金额"] = mTable.Compute("sum(含税金额)", "true");
                 mTable.Rows.Add(mRow);
                 dgvNoTicket.DataSource = mTable;
                 dgvNoTicket.Rows[dgvNoTicket.Rows.Count - 1].Cells["ColDel"] = new DataGridViewTextBoxCell();
@@ -207,7 +208,7 @@ namespace 销售管理.日常业务
             if (e.RowIndex >= 0)
             {
 
-                if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批")
+                if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批"|| Common.AuthenticateRight.AuthOperation(111303) || CommonClass.SttUser.blSuperUser)
                 {
                     if (e.ColumnIndex == dgvNoTicket.Columns["ColModify"].Index)//修改
                     {
@@ -221,7 +222,7 @@ namespace 销售管理.日常业务
                     {
                         if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
                         {
-                            if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批")
+                            if (dgvNoTicket.Rows[e.RowIndex].Cells["Status"].Value.ToString() == "未审批" || Common.AuthenticateRight.AuthOperation(111304) || CommonClass.SttUser.blSuperUser)
                             {
                                 string mSql = string.Format("UPDATE T_NoTicket SET P1 = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvNoTicket.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
                                 int ret = SqlHelper.ExecuteNonQuery(mSql);

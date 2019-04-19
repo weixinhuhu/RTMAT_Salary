@@ -88,12 +88,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReports.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
-            this.dgvReports.Location = new System.Drawing.Point(64, 265);
-            this.dgvReports.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvReports.Location = new System.Drawing.Point(81, 341);
+            this.dgvReports.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.RowTemplate.Height = 23;
             this.dgvReports.ShowEditingIcon = false;
-            this.dgvReports.Size = new System.Drawing.Size(1714, 954);
+            this.dgvReports.Size = new System.Drawing.Size(2181, 1227);
             this.dgvReports.TabIndex = 1;
             this.dgvReports.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerBills_CellContentClick);
             this.dgvReports.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvSaleDetails_RowsAdded);
@@ -126,21 +126,21 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(64, 51);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Location = new System.Drawing.Point(81, 66);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1714, 184);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(2181, 237);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
             // rbdetail
             // 
             this.rbdetail.AutoSize = true;
-            this.rbdetail.Location = new System.Drawing.Point(570, 121);
-            this.rbdetail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rbdetail.Location = new System.Drawing.Point(725, 156);
+            this.rbdetail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.rbdetail.Name = "rbdetail";
-            this.rbdetail.Size = new System.Drawing.Size(98, 25);
+            this.rbdetail.Size = new System.Drawing.Size(124, 31);
             this.rbdetail.TabIndex = 43;
             this.rbdetail.TabStop = true;
             this.rbdetail.Text = "明细表";
@@ -150,10 +150,10 @@
             // rbSum
             // 
             this.rbSum.AutoSize = true;
-            this.rbSum.Location = new System.Drawing.Point(720, 121);
-            this.rbSum.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rbSum.Location = new System.Drawing.Point(916, 156);
+            this.rbSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.rbSum.Name = "rbSum";
-            this.rbSum.Size = new System.Drawing.Size(98, 25);
+            this.rbSum.Size = new System.Drawing.Size(124, 31);
             this.rbSum.TabIndex = 42;
             this.rbSum.TabStop = true;
             this.rbSum.Text = "汇总表";
@@ -162,6 +162,7 @@
             // 
             // cmbFeeType
             // 
+            this.cmbFeeType.BackColor = System.Drawing.Color.White;
             this.cmbFeeType.DropDownHeight = 300;
             this.cmbFeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFeeType.FormattingEnabled = true;
@@ -175,20 +176,20 @@
             "广告宣传",
             "薪资",
             "办公费用"});
-            this.cmbFeeType.Location = new System.Drawing.Point(128, 122);
-            this.cmbFeeType.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbFeeType.Location = new System.Drawing.Point(163, 157);
+            this.cmbFeeType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbFeeType.Name = "cmbFeeType";
-            this.cmbFeeType.Size = new System.Drawing.Size(285, 29);
+            this.cmbFeeType.Size = new System.Drawing.Size(362, 35);
             this.cmbFeeType.TabIndex = 41;
             this.cmbFeeType.SelectedIndexChanged += new System.EventHandler(this.cmbFeeType_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1552, 37);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Location = new System.Drawing.Point(1975, 48);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 61);
+            this.button1.Size = new System.Drawing.Size(179, 78);
             this.button1.TabIndex = 40;
             this.button1.Text = "导出EXCEL";
             this.button1.UseVisualStyleBackColor = true;
@@ -210,20 +211,20 @@
             "商务经理",
             "商务助理",
             "生产与质量"});
-            this.CmbDepartmentName.Location = new System.Drawing.Point(543, 50);
-            this.CmbDepartmentName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CmbDepartmentName.Location = new System.Drawing.Point(691, 64);
+            this.CmbDepartmentName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.CmbDepartmentName.Name = "CmbDepartmentName";
-            this.CmbDepartmentName.Size = new System.Drawing.Size(317, 29);
+            this.CmbDepartmentName.Size = new System.Drawing.Size(402, 35);
             this.CmbDepartmentName.TabIndex = 13;
             this.CmbDepartmentName.ValueMember = "Id";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(438, 54);
-            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label7.Location = new System.Drawing.Point(557, 69);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 21);
+            this.label7.Size = new System.Drawing.Size(120, 27);
             this.label7.TabIndex = 12;
             this.label7.Text = "所属部门";
             // 
@@ -232,10 +233,10 @@
             this.cmbUserName.DropDownHeight = 300;
             this.cmbUserName.FormattingEnabled = true;
             this.cmbUserName.IntegralHeight = false;
-            this.cmbUserName.Location = new System.Drawing.Point(130, 51);
-            this.cmbUserName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbUserName.Location = new System.Drawing.Point(165, 66);
+            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(285, 29);
+            this.cmbUserName.Size = new System.Drawing.Size(362, 35);
             this.cmbUserName.TabIndex = 4;
             this.cmbUserName.SelectedIndexChanged += new System.EventHandler(this.cmbUserName_SelectedIndexChanged);
             this.cmbUserName.SelectionChangeCommitted += new System.EventHandler(this.cmbUserName_SelectionChangeCommitted);
@@ -243,10 +244,10 @@
             // btnSerch
             // 
             this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSerch.Location = new System.Drawing.Point(1377, 37);
-            this.btnSerch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSerch.Location = new System.Drawing.Point(1753, 48);
+            this.btnSerch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSerch.Name = "btnSerch";
-            this.btnSerch.Size = new System.Drawing.Size(141, 61);
+            this.btnSerch.Size = new System.Drawing.Size(179, 78);
             this.btnSerch.TabIndex = 3;
             this.btnSerch.Text = "查询";
             this.btnSerch.UseVisualStyleBackColor = true;
@@ -255,57 +256,57 @@
             // dtpEnd
             // 
             this.dtpEnd.Checked = false;
-            this.dtpEnd.Location = new System.Drawing.Point(1054, 121);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpEnd.Location = new System.Drawing.Point(1341, 156);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(217, 31);
+            this.dtpEnd.Size = new System.Drawing.Size(275, 38);
             this.dtpEnd.TabIndex = 2;
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(1049, 50);
-            this.dtpStart.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpStart.Location = new System.Drawing.Point(1335, 64);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ShowCheckBox = true;
-            this.dtpStart.Size = new System.Drawing.Size(222, 31);
+            this.dtpStart.Size = new System.Drawing.Size(281, 38);
             this.dtpStart.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(771, 45);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(981, 58);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 21);
+            this.label5.Size = new System.Drawing.Size(0, 27);
             this.label5.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(977, 58);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(1243, 75);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 21);
+            this.label4.Size = new System.Drawing.Size(66, 27);
             this.label4.TabIndex = 0;
             this.label4.Text = "日期";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 127);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(29, 163);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 21);
+            this.label2.Size = new System.Drawing.Size(120, 27);
             this.label2.TabIndex = 0;
             this.label2.Text = "费用类别";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(29, 72);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 21);
+            this.label1.Size = new System.Drawing.Size(93, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "销售员";
             // 
@@ -333,12 +334,12 @@
             this.薪资,
             this.办公费用,
             this.合计});
-            this.dgvSumFee.Location = new System.Drawing.Point(64, 265);
-            this.dgvSumFee.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvSumFee.Location = new System.Drawing.Point(81, 341);
+            this.dgvSumFee.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvSumFee.Name = "dgvSumFee";
             this.dgvSumFee.RowTemplate.Height = 23;
             this.dgvSumFee.ShowEditingIcon = false;
-            this.dgvSumFee.Size = new System.Drawing.Size(1714, 954);
+            this.dgvSumFee.Size = new System.Drawing.Size(2181, 1227);
             this.dgvSumFee.TabIndex = 3;
             // 
             // 销售员
@@ -346,7 +347,7 @@
             this.销售员.DataPropertyName = "销售员";
             this.销售员.HeaderText = "销售员";
             this.销售员.Name = "销售员";
-            this.销售员.Width = 114;
+            this.销售员.Width = 142;
             // 
             // 差旅费
             // 
@@ -356,7 +357,7 @@
             this.差旅费.DefaultCellStyle = dataGridViewCellStyle1;
             this.差旅费.HeaderText = "差旅费";
             this.差旅费.Name = "差旅费";
-            this.差旅费.Width = 114;
+            this.差旅费.Width = 142;
             // 
             // 餐费
             // 
@@ -366,7 +367,7 @@
             this.餐费.DefaultCellStyle = dataGridViewCellStyle2;
             this.餐费.HeaderText = "餐费";
             this.餐费.Name = "餐费";
-            this.餐费.Width = 93;
+            this.餐费.Width = 115;
             // 
             // 礼品
             // 
@@ -376,7 +377,7 @@
             this.礼品.DefaultCellStyle = dataGridViewCellStyle3;
             this.礼品.HeaderText = "礼品";
             this.礼品.Name = "礼品";
-            this.礼品.Width = 93;
+            this.礼品.Width = 115;
             // 
             // 无票费用
             // 
@@ -386,7 +387,7 @@
             this.无票费用.DefaultCellStyle = dataGridViewCellStyle4;
             this.无票费用.HeaderText = "无票费用";
             this.无票费用.Name = "无票费用";
-            this.无票费用.Width = 135;
+            this.无票费用.Width = 169;
             // 
             // 产品赠送
             // 
@@ -396,7 +397,7 @@
             this.产品赠送.DefaultCellStyle = dataGridViewCellStyle5;
             this.产品赠送.HeaderText = "产品赠送";
             this.产品赠送.Name = "产品赠送";
-            this.产品赠送.Width = 135;
+            this.产品赠送.Width = 169;
             // 
             // 广告宣传
             // 
@@ -406,7 +407,7 @@
             this.广告宣传.DefaultCellStyle = dataGridViewCellStyle6;
             this.广告宣传.HeaderText = "广告宣传";
             this.广告宣传.Name = "广告宣传";
-            this.广告宣传.Width = 135;
+            this.广告宣传.Width = 169;
             // 
             // 薪资
             // 
@@ -416,7 +417,7 @@
             this.薪资.DefaultCellStyle = dataGridViewCellStyle7;
             this.薪资.HeaderText = "薪资";
             this.薪资.Name = "薪资";
-            this.薪资.Width = 93;
+            this.薪资.Width = 115;
             // 
             // 办公费用
             // 
@@ -426,7 +427,7 @@
             this.办公费用.DefaultCellStyle = dataGridViewCellStyle8;
             this.办公费用.HeaderText = "办公费用";
             this.办公费用.Name = "办公费用";
-            this.办公费用.Width = 135;
+            this.办公费用.Width = 169;
             // 
             // 合计
             // 
@@ -436,15 +437,15 @@
             this.合计.DefaultCellStyle = dataGridViewCellStyle9;
             this.合计.HeaderText = "合计";
             this.合计.Name = "合计";
-            this.合计.Width = 93;
+            this.合计.Width = 115;
             // 
             // 销售费用查询
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.Controls.Add(this.dgvSumFee);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvReports);
-            this.Margin = new System.Windows.Forms.Padding(11, 11, 11, 11);
+            this.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
             this.Name = "销售费用查询";
             this.Load += new System.EventHandler(this.销售明细管理_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
