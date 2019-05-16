@@ -94,7 +94,7 @@ namespace 销售管理.日常业务
             CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); ;
             CmbDepartmentName.SelectedIndex = -1;
 
-            if (!Common.AuthenticateRight.AuthOperation(110301) && !CommonClass.SttUser.blSuperUser)
+            if (!Common.AuthenticateRight.AuthOperation(111801) && !CommonClass.SttUser.blSuperUser)
             {
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
                 cmbUserName.Enabled = false;
