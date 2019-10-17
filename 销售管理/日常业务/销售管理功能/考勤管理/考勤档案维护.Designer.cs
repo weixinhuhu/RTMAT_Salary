@@ -31,7 +31,6 @@
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgv1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button2 = new System.Windows.Forms.Button();
@@ -68,9 +67,9 @@
             this.btnSearch.Location = new System.Drawing.Point(65, 141);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(176, 48);
+            this.btnSearch.Size = new System.Drawing.Size(283, 48);
             this.btnSearch.TabIndex = 20;
-            this.btnSearch.Text = "选择文件";
+            this.btnSearch.Text = "选择待导入考勤文件";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -91,17 +90,6 @@
             this.dgv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv1.Size = new System.Drawing.Size(1820, 994);
             this.dgv1.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(270, 141);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 48);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "数据导入";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // openFileDialog1
             // 
@@ -207,7 +195,7 @@
             this.lbcount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbcount.ForeColor = System.Drawing.Color.Red;
             this.lbcount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbcount.Location = new System.Drawing.Point(482, 139);
+            this.lbcount.Location = new System.Drawing.Point(394, 141);
             this.lbcount.Name = "lbcount";
             this.lbcount.Size = new System.Drawing.Size(0, 42);
             this.lbcount.TabIndex = 36;
@@ -226,7 +214,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgv1);
@@ -236,7 +223,6 @@
             this.Controls.SetChildIndex(this.dgv1, 0);
             this.Controls.SetChildIndex(this.btnSearch, 0);
             this.Controls.SetChildIndex(this.btnExcel, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.button2, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
@@ -260,7 +246,6 @@
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgv1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button2;

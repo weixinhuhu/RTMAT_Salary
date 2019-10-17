@@ -20,21 +20,29 @@ namespace 销售管理.日常业务
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //初始化dgv
+            dgv1.DataSource = null;
+            lbcount.Text = "数据导入中，请耐心等待。。。。。。";
+
             DataSet ds = new DataSet();
-            this.openFileDialog1.Filter = "*.xls;*.xlsx|*.xls;*.xlsx";
-            openFileDialog1.FileName = "";
+            this.openFileDialog1.Filter = "*.xls|*.xls";
+            openFileDialog1.FileName = "";          
             openFileDialog1.ShowDialog();
-            if (openFileDialog1.FileNames.Length == 0)
+            if (openFileDialog1.FileNames.Length == 0 || openFileDialog1.FileName=="")
             {
                 MessageBox.Show("请选择文件！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lbcount.Text = "";
                 return;
             }
-            
+     
             DataTable table = Classes.ExcelDeport.ImportFromExcel(openFileDialog1.FileName, "Sheet1", 0);
             ds.Tables.Add(table);
             dgv1.DataSource = ds.Tables[0];
             DataGridViewColumn c = new DataGridViewColumn();
-            lbcount.Text = "待导入数据条数： "+ dgv1.RowCount+"条";
+        
+            //插入数据库          
+            InsertDB();
+            
         }
 
 
@@ -52,37 +60,50 @@ namespace 销售管理.日常业务
 
 
 
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
+        private void InsertDB() {
             String CardNum;
+           
             int ret;
+            int i = 0;
+            String ErrMsg = "";
 
             //判断数据源有无数据
             if (dgv1.RowCount == 0)
             {
-                 MessageBox.Show("无数据导入！");
+                lbcount.Text = "";
+                MessageBox.Show("无数据导入！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+          
             Cursor = Cursors.WaitCursor;
 
-            ////删除历史数据
-            //try
-            //{
-            //    ret = new EmployCardRecordTableAdapter().DeleteQuery();
-            //}
-            //catch (Exception)
-            //{
-            //    Cursor = Cursors.Default;
-            //    MessageBox.Show("数据库操作异常！");
-            //}
+            //删除历史数据
+            try
+            {
+                ret = new EmployCardRecordTableAdapter().DeleteQuery();
+            }
+            catch (Exception)
+            {
+                lbcount.Text = "";
+                Cursor = Cursors.Default;
+                MessageBox.Show("数据库操作异常！");
+                return;
+            }
 
+            if (dgv1.Columns.Count != 1)
+            {
+                lbcount.Text = "";
+                MessageBox.Show("请核对导入的考勤文件是否有误", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Cursor = Cursors.Default;
+                return;
+             }
 
             foreach (DataGridViewRow mRow in dgv1.Rows)
             {
                 if (mRow.Cells[0].Value.ToString().Length > 22)
                 {
+
                     try
                     {
                         CardNum = mRow.Cells[0].Value.ToString().Substring(0, 8);
@@ -93,17 +114,34 @@ namespace 销售管理.日常业务
                             mRow.Cells[0].Value.ToString().Substring(20, 2) + ":" +
                             mRow.Cells[0].Value.ToString().Substring(22, 2));
                         ret = new EmployCardRecordTableAdapter().Insert(CardNum, dt, DateTime.Now, DateTime.Now);
-
+                        i = i + 1;
                     }
                     catch (Exception)
-                    {
-                        Cursor = Cursors.Default;
-                        MessageBox.Show("解析异常，请核实数据！错误行数： " + mRow);
+                    {                        
+                        ErrMsg = ErrMsg + "\n\r " + "第"+ (mRow.Index+2).ToString()+ "行";
                     }
                 }
+                else {
+                    ErrMsg = ErrMsg + "\n\r " + "第" + (mRow.Index + 2).ToString() + "行";
+                }
             }
+
+            if (ErrMsg == "")
+            {
+                MessageBox.Show("导入完成！" + "导入数据: " + i+"条", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else {
+               MessageBox.Show("导入完成！" + "导入数据: " + i + "条" + "\n\r"+"未导入数据信息： " + ErrMsg , "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+         
+            lbcount.Text = "原始数据数据条数： " + dgv1.RowCount + "条";
             Cursor = Cursors.Default;
-            MessageBox.Show("原始数据导入成功！", "共导入数据 " + dgv1.RowCount + "条");
+           
+        }
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            InsertDB();
         }
 
         private void Button2_Click(object sender, EventArgs e)
