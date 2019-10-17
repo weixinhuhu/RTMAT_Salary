@@ -186,6 +186,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetCustomers.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DataSetEmployCardRecord.cs">
+      <DependentUpon>DataSetEmployCardRecord.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DataSetEmployCardRecord.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmployCardRecord.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DataSetEmployInfo.cs">
+      <DependentUpon>DataSetEmployInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DataSetEmployInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmployInfo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DataSetExpenseAllocation.cs">
       <DependentUpon>DataSetExpenseAllocation.xsd</DependentUpon>
     </Compile>
@@ -529,6 +545,18 @@
     <Compile Include="审核\礼品出库审核.Designer.cs">
       <DependentUpon>礼品出库审核.cs</DependentUpon>
     </Compile>
+    <Compile Include="审核\费用分配审核-领导 -无代理商费用.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="审核\费用分配审核-领导 -无代理商费用.Designer.cs">
+      <DependentUpon>费用分配审核-领导 -无代理商费用.cs</DependentUpon>
+    </Compile>
+    <Compile Include="审核\费用分配审核-领导 -有代理商费用.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="审核\费用分配审核-领导 -有代理商费用.Designer.cs">
+      <DependentUpon>费用分配审核-领导 -有代理商费用.cs</DependentUpon>
+    </Compile>
     <Compile Include="审核\采购合同审核-部门经理.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -732,6 +760,24 @@
     </Compile>
     <Compile Include="日常业务\销售管理功能\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\员工档案管理.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\员工档案管理.Designer.cs">
+      <DependentUpon>员工档案管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\员工档案录入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\员工档案录入.Designer.cs">
+      <DependentUpon>员工档案录入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\考勤档案维护.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\考勤管理\考勤档案维护.Designer.cs">
+      <DependentUpon>考勤档案维护.cs</DependentUpon>
     </Compile>
     <Compile Include="日常业务\销售管理功能\费用管理\办公费用录入.cs">
       <SubType>Form</SubType>
@@ -1179,6 +1225,12 @@
     <EmbeddedResource Include="审核\礼品出库审核.resx">
       <DependentUpon>礼品出库审核.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="审核\费用分配审核-领导 -无代理商费用.resx">
+      <DependentUpon>费用分配审核-领导 -无代理商费用.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="审核\费用分配审核-领导 -有代理商费用.resx">
+      <DependentUpon>费用分配审核-领导 -有代理商费用.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="审核\采购合同审核-部门经理.resx">
       <DependentUpon>采购合同审核-部门经理.cs</DependentUpon>
     </EmbeddedResource>
@@ -1281,6 +1333,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\考勤管理\员工档案管理.resx">
+      <DependentUpon>员工档案管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\考勤管理\员工档案录入.resx">
+      <DependentUpon>员工档案录入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\考勤管理\考勤档案维护.resx">
+      <DependentUpon>考勤档案维护.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\费用管理\办公费用录入.resx">
       <DependentUpon>办公费用录入.cs</DependentUpon>
@@ -1509,6 +1570,28 @@
     </None>
     <None Include="DAL\DataSetCustomers.xss">
       <DependentUpon>DataSetCustomers.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DataSetEmployCardRecord.xsc">
+      <DependentUpon>DataSetEmployCardRecord.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DataSetEmployCardRecord.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmployCardRecord.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DataSetEmployCardRecord.xss">
+      <DependentUpon>DataSetEmployCardRecord.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DataSetEmployInfo.xsc">
+      <DependentUpon>DataSetEmployInfo.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DataSetEmployInfo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmployInfo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DataSetEmployInfo.xss">
+      <DependentUpon>DataSetEmployInfo.xsd</DependentUpon>
     </None>
     <None Include="DAL\DataSetExpenseAllocation.xsc">
       <DependentUpon>DataSetExpenseAllocation.xsd</DependentUpon>
@@ -1853,7 +1936,7 @@
       <VersionMajor>2</VersionMajor>
       <VersionMinor>4</VersionMinor>
       <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
+      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

@@ -147,5 +147,10 @@ FROM T_Invoice AS a LEFT OUTER JOIN
         {
 
         }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -89,13 +89,14 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(60, 40);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1870, 200);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速搜索";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // label7
             // 
@@ -117,7 +118,7 @@
             "未通过",
             "审核中"});
             this.cmbStatus.Location = new System.Drawing.Point(512, 140);
-            this.cmbStatus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(6);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(242, 32);
             this.cmbStatus.TabIndex = 8;
@@ -136,7 +137,7 @@
             // 
             this.dtp2.Checked = false;
             this.dtp2.Location = new System.Drawing.Point(796, 74);
-            this.dtp2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtp2.Margin = new System.Windows.Forms.Padding(6);
             this.dtp2.Name = "dtp2";
             this.dtp2.Size = new System.Drawing.Size(242, 35);
             this.dtp2.TabIndex = 6;
@@ -160,7 +161,7 @@
             this.cmbUserName.DropDownWidth = 200;
             this.cmbUserName.FormattingEnabled = true;
             this.cmbUserName.Location = new System.Drawing.Point(1148, 74);
-            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6);
             this.cmbUserName.Name = "cmbUserName";
             this.cmbUserName.Size = new System.Drawing.Size(276, 32);
             this.cmbUserName.TabIndex = 4;
@@ -170,7 +171,7 @@
             // 
             this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSerch.Location = new System.Drawing.Point(1702, 58);
-            this.btnSerch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSerch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSerch.Name = "btnSerch";
             this.btnSerch.Size = new System.Drawing.Size(126, 72);
             this.btnSerch.TabIndex = 3;
@@ -182,7 +183,7 @@
             // 
             this.dtp1.Checked = false;
             this.dtp1.Location = new System.Drawing.Point(512, 74);
-            this.dtp1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtp1.Margin = new System.Windows.Forms.Padding(6);
             this.dtp1.Name = "dtp1";
             this.dtp1.ShowCheckBox = true;
             this.dtp1.Size = new System.Drawing.Size(242, 35);
@@ -201,7 +202,7 @@
             // txtInoviceNo
             // 
             this.txtInoviceNo.Location = new System.Drawing.Point(202, 140);
-            this.txtInoviceNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtInoviceNo.Margin = new System.Windows.Forms.Padding(6);
             this.txtInoviceNo.Name = "txtInoviceNo";
             this.txtInoviceNo.Size = new System.Drawing.Size(196, 35);
             this.txtInoviceNo.TabIndex = 1;
@@ -219,7 +220,7 @@
             // txtCusName
             // 
             this.txtCusName.Location = new System.Drawing.Point(202, 76);
-            this.txtCusName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCusName.Margin = new System.Windows.Forms.Padding(6);
             this.txtCusName.Name = "txtCusName";
             this.txtCusName.Size = new System.Drawing.Size(196, 35);
             this.txtCusName.TabIndex = 1;
@@ -270,7 +271,7 @@
             this.statusDataGridViewTextBoxColumn});
             this.dgvInvoice.DataSource = this.tInvoiceQBindingSource;
             this.dgvInvoice.Location = new System.Drawing.Point(60, 252);
-            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvInvoice.Margin = new System.Windows.Forms.Padding(6);
             this.dgvInvoice.Name = "dgvInvoice";
             this.dgvInvoice.ReadOnly = true;
             this.dgvInvoice.RowTemplate.Height = 23;
@@ -391,7 +392,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.Controls.Add(this.dgvInvoice);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.Margin = new System.Windows.Forms.Padding(12);
             this.Name = "申请开票";
             this.Load += new System.EventHandler(this.申请开票_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
