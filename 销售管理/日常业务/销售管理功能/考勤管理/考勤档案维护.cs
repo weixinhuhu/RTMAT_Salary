@@ -22,10 +22,10 @@ namespace 销售管理.日常业务
         {
             //初始化dgv
             dgv1.DataSource = null;
-            lbcount.Text = "数据导入中，请耐心等待。。。。。。";
+            lbcount.Text = "数据导入中，请耐心等待";
 
             DataSet ds = new DataSet();
-            this.openFileDialog1.Filter = "*.xls|*.xls";
+            this.openFileDialog1.Filter = "txt文件（*.txt)|*.txt";
             openFileDialog1.FileName = "";          
             openFileDialog1.ShowDialog();
             if (openFileDialog1.FileNames.Length == 0 || openFileDialog1.FileName=="")
@@ -34,12 +34,18 @@ namespace 销售管理.日常业务
                 lbcount.Text = "";
                 return;
             }
-     
-            DataTable table = Classes.ExcelDeport.ImportFromExcel(openFileDialog1.FileName, "Sheet1", 0);
-            ds.Tables.Add(table);
-            dgv1.DataSource = ds.Tables[0];
-            DataGridViewColumn c = new DataGridViewColumn();
-        
+
+            //txt 导入
+            var dt = new DataTable();
+            dt.Columns.Add("考勤数据", typeof(string));
+            foreach (var line in System.IO.File.ReadAllLines(openFileDialog1.FileName))
+            {
+                dt.Rows.Add(line);
+            }
+            this.dgv1.DataSource = dt;
+
+
+
             //插入数据库          
             InsertDB();
             
@@ -135,7 +141,7 @@ namespace 销售管理.日常业务
 
             }
          
-            lbcount.Text = "原始数据数据条数： " + dgv1.RowCount + "条";
+            lbcount.Text = "原始数据条数： " + dgv1.RowCount + "条";
             Cursor = Cursors.Default;
            
         }

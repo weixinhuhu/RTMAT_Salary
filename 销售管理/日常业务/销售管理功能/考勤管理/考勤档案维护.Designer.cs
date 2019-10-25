@@ -195,7 +195,7 @@
             this.lbcount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbcount.ForeColor = System.Drawing.Color.Red;
             this.lbcount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbcount.Location = new System.Drawing.Point(394, 141);
+            this.lbcount.Location = new System.Drawing.Point(462, 140);
             this.lbcount.Name = "lbcount";
             this.lbcount.Size = new System.Drawing.Size(0, 42);
             this.lbcount.TabIndex = 36;
