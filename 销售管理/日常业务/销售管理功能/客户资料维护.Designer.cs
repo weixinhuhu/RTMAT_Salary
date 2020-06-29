@@ -64,7 +64,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -392,32 +391,21 @@
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Location = new System.Drawing.Point(331, 242);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(66, 28);
+            this.checkBox1.Size = new System.Drawing.Size(90, 28);
             this.checkBox1.TabIndex = 18;
-            this.checkBox1.Text = "水";
+            this.checkBox1.Text = "铁锂";
             this.checkBox1.UseVisualStyleBackColor = false;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Location = new System.Drawing.Point(428, 242);
+            this.checkBox2.Location = new System.Drawing.Point(427, 242);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(66, 28);
+            this.checkBox2.Size = new System.Drawing.Size(90, 28);
             this.checkBox2.TabIndex = 19;
-            this.checkBox2.Text = "电";
+            this.checkBox2.Text = "三元";
             this.checkBox2.UseVisualStyleBackColor = false;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Location = new System.Drawing.Point(526, 241);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(66, 28);
-            this.checkBox3.TabIndex = 20;
-            this.checkBox3.Text = "气";
-            this.checkBox3.UseVisualStyleBackColor = false;
             // 
             // 客户资料维护
             // 
@@ -427,7 +415,6 @@
             this.BackgroundImage = global::销售管理.Properties.Resources.smallback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1355, 859);
-            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label15);
@@ -511,6 +498,5 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

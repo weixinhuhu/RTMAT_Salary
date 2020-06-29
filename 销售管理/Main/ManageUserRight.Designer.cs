@@ -51,15 +51,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvRY = new System.Windows.Forms.DataGridView();
-            this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColLoginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDepartmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColIntRoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAreaCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColUserStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbRYAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbLock = new System.Windows.Forms.ToolStripButton();
@@ -76,6 +67,15 @@
             this.tsbDel = new System.Windows.Forms.ToolStripButton();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ColID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColLoginName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDepartmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColIntRoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAreaCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColUserStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,10 +104,10 @@
             this.tvRight.ImageIndex = 0;
             this.tvRight.ImageList = this.imageList1;
             this.tvRight.Location = new System.Drawing.Point(0, 0);
-            this.tvRight.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tvRight.Margin = new System.Windows.Forms.Padding(6);
             this.tvRight.Name = "tvRight";
             this.tvRight.SelectedImageIndex = 0;
-            this.tvRight.Size = new System.Drawing.Size(1056, 1002);
+            this.tvRight.Size = new System.Drawing.Size(1056, 999);
             this.tvRight.TabIndex = 1;
             this.tvRight.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvRight_AfterCheck);
             // 
@@ -125,7 +125,7 @@
             this.TabCtrl.Controls.Add(this.tabPage1);
             this.TabCtrl.Controls.Add(this.tabPage2);
             this.TabCtrl.Location = new System.Drawing.Point(40, 64);
-            this.TabCtrl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TabCtrl.Margin = new System.Windows.Forms.Padding(6);
             this.TabCtrl.Name = "TabCtrl";
             this.TabCtrl.SelectedIndex = 0;
             this.TabCtrl.Size = new System.Drawing.Size(1620, 1100);
@@ -139,9 +139,9 @@
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Controls.Add(this.toolStrip2);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage1.Size = new System.Drawing.Size(1604, 1053);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "系统用户";
@@ -154,13 +154,13 @@
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 45);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 48);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1592, 1002);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1592, 999);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // groupBox1
@@ -168,9 +168,9 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1580, 178);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -199,7 +199,7 @@
             this.tableLayoutPanel2.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 34);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -217,7 +217,7 @@
             this.cmbDepart.FormattingEnabled = true;
             this.cmbDepart.IntegralHeight = false;
             this.cmbDepart.Location = new System.Drawing.Point(126, 87);
-            this.cmbDepart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbDepart.Margin = new System.Windows.Forms.Padding(6);
             this.cmbDepart.Name = "cmbDepart";
             this.cmbDepart.Size = new System.Drawing.Size(366, 32);
             this.cmbDepart.TabIndex = 1;
@@ -228,7 +228,7 @@
             // 
             this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtUserName.Location = new System.Drawing.Point(1157, 17);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(6);
             this.txtUserName.MaxLength = 50;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(368, 35);
@@ -249,7 +249,7 @@
             // 
             this.txtLoginName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtLoginName.Location = new System.Drawing.Point(659, 17);
-            this.txtLoginName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtLoginName.Margin = new System.Windows.Forms.Padding(6);
             this.txtLoginName.MaxLength = 50;
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(366, 35);
@@ -280,8 +280,9 @@
             // txtAreaCode
             // 
             this.txtAreaCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtAreaCode.Enabled = false;
             this.txtAreaCode.Location = new System.Drawing.Point(659, 86);
-            this.txtAreaCode.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtAreaCode.Margin = new System.Windows.Forms.Padding(6);
             this.txtAreaCode.MaxLength = 10;
             this.txtAreaCode.Name = "txtAreaCode";
             this.txtAreaCode.Size = new System.Drawing.Size(366, 35);
@@ -308,7 +309,7 @@
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.IntegralHeight = false;
             this.cmbRole.Location = new System.Drawing.Point(1157, 87);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(6);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(368, 32);
             this.cmbRole.TabIndex = 1;
@@ -340,7 +341,7 @@
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtID.Location = new System.Drawing.Point(126, 17);
-            this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtID.Margin = new System.Windows.Forms.Padding(6);
             this.txtID.MaxLength = 4;
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
@@ -352,10 +353,10 @@
             this.groupBox2.Controls.Add(this.dgvRY);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(6, 196);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox2.Size = new System.Drawing.Size(1580, 800);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox2.Size = new System.Drawing.Size(1580, 797);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "用户列表";
@@ -378,90 +379,17 @@
             this.ColUserStatus});
             this.dgvRY.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRY.Location = new System.Drawing.Point(6, 34);
-            this.dgvRY.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvRY.Margin = new System.Windows.Forms.Padding(6);
             this.dgvRY.MultiSelect = false;
             this.dgvRY.Name = "dgvRY";
             this.dgvRY.ReadOnly = true;
+            this.dgvRY.RowHeadersWidth = 82;
             this.dgvRY.RowTemplate.Height = 23;
             this.dgvRY.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRY.Size = new System.Drawing.Size(1568, 760);
+            this.dgvRY.Size = new System.Drawing.Size(1568, 757);
             this.dgvRY.TabIndex = 1;
             this.dgvRY.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRY_CellClick);
             this.dgvRY.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRY_CellContentClick);
-            // 
-            // ColID
-            // 
-            this.ColID.DataPropertyName = "Id";
-            this.ColID.HeaderText = "ID";
-            this.ColID.Name = "ColID";
-            this.ColID.ReadOnly = true;
-            this.ColID.Width = 79;
-            // 
-            // ColLoginName
-            // 
-            this.ColLoginName.DataPropertyName = "LoginName";
-            this.ColLoginName.HeaderText = "登陆名称";
-            this.ColLoginName.Name = "ColLoginName";
-            this.ColLoginName.ReadOnly = true;
-            this.ColLoginName.Width = 151;
-            // 
-            // ColUserName
-            // 
-            this.ColUserName.DataPropertyName = "UserName";
-            this.ColUserName.HeaderText = "姓名";
-            this.ColUserName.Name = "ColUserName";
-            this.ColUserName.ReadOnly = true;
-            this.ColUserName.Width = 103;
-            // 
-            // ColDepartmentID
-            // 
-            this.ColDepartmentID.DataPropertyName = "IntDepartmentID";
-            this.ColDepartmentID.HeaderText = "DepartmentID";
-            this.ColDepartmentID.Name = "ColDepartmentID";
-            this.ColDepartmentID.ReadOnly = true;
-            this.ColDepartmentID.Visible = false;
-            this.ColDepartmentID.Width = 102;
-            // 
-            // ColDepartmentName
-            // 
-            this.ColDepartmentName.DataPropertyName = "部门名称";
-            this.ColDepartmentName.HeaderText = "部门名称";
-            this.ColDepartmentName.Name = "ColDepartmentName";
-            this.ColDepartmentName.ReadOnly = true;
-            this.ColDepartmentName.Width = 151;
-            // 
-            // ColIntRoleID
-            // 
-            this.ColIntRoleID.DataPropertyName = "IntRoleID";
-            this.ColIntRoleID.HeaderText = "RoleID";
-            this.ColIntRoleID.Name = "ColIntRoleID";
-            this.ColIntRoleID.ReadOnly = true;
-            this.ColIntRoleID.Visible = false;
-            this.ColIntRoleID.Width = 66;
-            // 
-            // ColRoleName
-            // 
-            this.ColRoleName.DataPropertyName = "角色名";
-            this.ColRoleName.HeaderText = "角色名";
-            this.ColRoleName.Name = "ColRoleName";
-            this.ColRoleName.ReadOnly = true;
-            this.ColRoleName.Width = 127;
-            // 
-            // ColAreaCode
-            // 
-            this.ColAreaCode.DataPropertyName = "userChar";
-            this.ColAreaCode.HeaderText = "区域代码";
-            this.ColAreaCode.Name = "ColAreaCode";
-            this.ColAreaCode.ReadOnly = true;
-            this.ColAreaCode.Width = 151;
-            // 
-            // ColUserStatus
-            // 
-            this.ColUserStatus.DataPropertyName = "userstatus";
-            this.ColUserStatus.HeaderText = "状态";
-            this.ColUserStatus.Name = "ColUserStatus";
-            this.ColUserStatus.ReadOnly = true;
-            this.ColUserStatus.Width = 103;
             // 
             // toolStrip2
             // 
@@ -476,8 +404,7 @@
             this.tsbResetPass});
             this.toolStrip2.Location = new System.Drawing.Point(6, 6);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip2.Size = new System.Drawing.Size(1592, 39);
+            this.toolStrip2.Size = new System.Drawing.Size(1592, 42);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -541,9 +468,9 @@
             this.tabPage2.Controls.Add(this.splitContainer1);
             this.tabPage2.Controls.Add(this.toolStrip1);
             this.tabPage2.Location = new System.Drawing.Point(8, 39);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(6);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(6);
             this.tabPage2.Size = new System.Drawing.Size(1604, 1053);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "系统角色";
@@ -552,8 +479,8 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(6, 45);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.splitContainer1.Location = new System.Drawing.Point(6, 48);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -563,7 +490,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tvRight);
-            this.splitContainer1.Size = new System.Drawing.Size(1592, 1002);
+            this.splitContainer1.Size = new System.Drawing.Size(1592, 999);
             this.splitContainer1.SplitterDistance = 528;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 1;
@@ -574,9 +501,9 @@
             this.tvRYZ.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvRYZ.HideSelection = false;
             this.tvRYZ.Location = new System.Drawing.Point(0, 0);
-            this.tvRYZ.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tvRYZ.Margin = new System.Windows.Forms.Padding(6);
             this.tvRYZ.Name = "tvRYZ";
-            this.tvRYZ.Size = new System.Drawing.Size(528, 1002);
+            this.tvRYZ.Size = new System.Drawing.Size(528, 999);
             this.tvRYZ.TabIndex = 0;
             this.tvRYZ.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvRYZ_AfterSelect);
             // 
@@ -591,8 +518,7 @@
             this.tsbSave});
             this.toolStrip1.Location = new System.Drawing.Point(6, 6);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1592, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(1592, 42);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -632,17 +558,101 @@
             this.tsbSave.Text = "保存";
             this.tsbSave.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
+            // ColID
+            // 
+            this.ColID.DataPropertyName = "Id";
+            this.ColID.HeaderText = "ID";
+            this.ColID.MinimumWidth = 10;
+            this.ColID.Name = "ColID";
+            this.ColID.ReadOnly = true;
+            this.ColID.Width = 79;
+            // 
+            // ColLoginName
+            // 
+            this.ColLoginName.DataPropertyName = "LoginName";
+            this.ColLoginName.HeaderText = "登陆名称";
+            this.ColLoginName.MinimumWidth = 10;
+            this.ColLoginName.Name = "ColLoginName";
+            this.ColLoginName.ReadOnly = true;
+            this.ColLoginName.Width = 151;
+            // 
+            // ColUserName
+            // 
+            this.ColUserName.DataPropertyName = "UserName";
+            this.ColUserName.HeaderText = "姓名";
+            this.ColUserName.MinimumWidth = 10;
+            this.ColUserName.Name = "ColUserName";
+            this.ColUserName.ReadOnly = true;
+            this.ColUserName.Width = 103;
+            // 
+            // ColDepartmentID
+            // 
+            this.ColDepartmentID.DataPropertyName = "IntDepartmentID";
+            this.ColDepartmentID.HeaderText = "DepartmentID";
+            this.ColDepartmentID.MinimumWidth = 10;
+            this.ColDepartmentID.Name = "ColDepartmentID";
+            this.ColDepartmentID.ReadOnly = true;
+            this.ColDepartmentID.Visible = false;
+            this.ColDepartmentID.Width = 199;
+            // 
+            // ColDepartmentName
+            // 
+            this.ColDepartmentName.DataPropertyName = "部门名称";
+            this.ColDepartmentName.HeaderText = "部门名称";
+            this.ColDepartmentName.MinimumWidth = 10;
+            this.ColDepartmentName.Name = "ColDepartmentName";
+            this.ColDepartmentName.ReadOnly = true;
+            this.ColDepartmentName.Width = 151;
+            // 
+            // ColIntRoleID
+            // 
+            this.ColIntRoleID.DataPropertyName = "IntRoleID";
+            this.ColIntRoleID.HeaderText = "RoleID";
+            this.ColIntRoleID.MinimumWidth = 10;
+            this.ColIntRoleID.Name = "ColIntRoleID";
+            this.ColIntRoleID.ReadOnly = true;
+            this.ColIntRoleID.Visible = false;
+            this.ColIntRoleID.Width = 127;
+            // 
+            // ColRoleName
+            // 
+            this.ColRoleName.DataPropertyName = "角色名";
+            this.ColRoleName.HeaderText = "角色名";
+            this.ColRoleName.MinimumWidth = 10;
+            this.ColRoleName.Name = "ColRoleName";
+            this.ColRoleName.ReadOnly = true;
+            this.ColRoleName.Width = 127;
+            // 
+            // ColAreaCode
+            // 
+            this.ColAreaCode.DataPropertyName = "userChar";
+            this.ColAreaCode.HeaderText = "区域代码";
+            this.ColAreaCode.MinimumWidth = 10;
+            this.ColAreaCode.Name = "ColAreaCode";
+            this.ColAreaCode.ReadOnly = true;
+            this.ColAreaCode.Visible = false;
+            this.ColAreaCode.Width = 151;
+            // 
+            // ColUserStatus
+            // 
+            this.ColUserStatus.DataPropertyName = "userstatus";
+            this.ColUserStatus.HeaderText = "状态";
+            this.ColUserStatus.MinimumWidth = 10;
+            this.ColUserStatus.Name = "ColUserStatus";
+            this.ColUserStatus.ReadOnly = true;
+            this.ColUserStatus.Width = 103;
+            // 
             // ManageUserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.BackgroundImage = global::销售管理.Properties.Resources.smallback;
             this.Controls.Add(this.TabCtrl);
-            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.Margin = new System.Windows.Forms.Padding(12);
             this.Name = "ManageUserRight";
             this.Size = new System.Drawing.Size(1700, 1200);
             this.Load += new System.EventHandler(this.ManageUserRight_Load);
-            this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.TabCtrl, 0);
+            this.Controls.SetChildIndex(this.btnClose, 0);
             this.TabCtrl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -704,6 +714,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripButton tsbResetPass;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.ComboBox cmbDepart;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLoginName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColUserName;
@@ -713,6 +724,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRoleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAreaCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColUserStatus;
-        private System.Windows.Forms.ComboBox cmbDepart;
     }
 }

@@ -80,14 +80,6 @@ namespace 销售管理.日常业务
                         {
                             checkBox2.Checked = false;
                         }
-                        if (mRow.CustomersType.Substring(2, 1) == "1")
-                        {
-                            checkBox3.Checked = true;
-                        }
-                        else
-                        {
-                            checkBox3.Checked = false;
-                        }
                     }
                                  
                     txtBusinessTel.Text = mRow.BusinessContactTel;
@@ -183,15 +175,7 @@ namespace 销售管理.日常业务
             {
                 CustomersType += "0";
             }
-            if (checkBox3.Checked == true)
-            {
-                CustomersType += "1";
-            }
-            else
-            {
-                CustomersType += "0";
-            }
- 
+           
             if (mId > -1)
             {
                 T_CustomersTableAdapter adapter = new T_CustomersTableAdapter();

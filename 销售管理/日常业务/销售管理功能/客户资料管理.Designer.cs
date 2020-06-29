@@ -109,12 +109,13 @@
             this.DeliverPhone,
             this.DeliverContactAddress});
             this.dgvContact.DataSource = this.tCustomersBindingSource;
-            this.dgvContact.Location = new System.Drawing.Point(61, 277);
-            this.dgvContact.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.dgvContact.Location = new System.Drawing.Point(52, 246);
+            this.dgvContact.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvContact.Name = "dgvContact";
             this.dgvContact.ReadOnly = true;
+            this.dgvContact.RowHeadersWidth = 82;
             this.dgvContact.RowTemplate.Height = 23;
-            this.dgvContact.Size = new System.Drawing.Size(2191, 1240);
+            this.dgvContact.Size = new System.Drawing.Size(1878, 1102);
             this.dgvContact.TabIndex = 1;
             this.dgvContact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContact_CellContentClick);
             this.dgvContact.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvContact_RowsAdded);
@@ -124,6 +125,7 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
@@ -133,133 +135,149 @@
             // 
             this.ColModify.Frozen = true;
             this.ColModify.HeaderText = "";
+            this.ColModify.MinimumWidth = 10;
             this.ColModify.Name = "ColModify";
             this.ColModify.ReadOnly = true;
             this.ColModify.Text = "修改";
             this.ColModify.UseColumnTextForButtonValue = true;
-            this.ColModify.Width = 5;
+            this.ColModify.Width = 10;
             // 
             // ColDel
             // 
             this.ColDel.Frozen = true;
             this.ColDel.HeaderText = "";
+            this.ColDel.MinimumWidth = 10;
             this.ColDel.Name = "ColDel";
             this.ColDel.ReadOnly = true;
             this.ColDel.Text = "删除";
             this.ColDel.UseColumnTextForButtonValue = true;
-            this.ColDel.Width = 5;
+            this.ColDel.Width = 10;
             // 
             // OperName
             // 
             this.OperName.DataPropertyName = "OperName1";
             this.OperName.HeaderText = "所属销售";
+            this.OperName.MinimumWidth = 10;
             this.OperName.Name = "OperName";
             this.OperName.ReadOnly = true;
-            this.OperName.Width = 132;
+            this.OperName.Width = 118;
             // 
             // companyNameDataGridViewTextBoxColumn
             // 
             this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
             this.companyNameDataGridViewTextBoxColumn.HeaderText = "公司名称";
+            this.companyNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
             this.companyNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.companyNameDataGridViewTextBoxColumn.Width = 132;
+            this.companyNameDataGridViewTextBoxColumn.Width = 118;
             // 
             // companyAddressDataGridViewTextBoxColumn
             // 
             this.companyAddressDataGridViewTextBoxColumn.DataPropertyName = "CompanyAddress";
             this.companyAddressDataGridViewTextBoxColumn.HeaderText = "公司地址";
+            this.companyAddressDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.companyAddressDataGridViewTextBoxColumn.Name = "companyAddressDataGridViewTextBoxColumn";
             this.companyAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.companyAddressDataGridViewTextBoxColumn.Width = 132;
+            this.companyAddressDataGridViewTextBoxColumn.Width = 118;
             // 
             // BusinessContactName
             // 
             this.BusinessContactName.DataPropertyName = "BusinessContactName";
             this.BusinessContactName.HeaderText = "商务负责人";
+            this.BusinessContactName.MinimumWidth = 10;
             this.BusinessContactName.Name = "BusinessContactName";
             this.BusinessContactName.ReadOnly = true;
-            this.BusinessContactName.Width = 156;
+            this.BusinessContactName.Width = 140;
             // 
             // BusinessContactTel
             // 
             this.BusinessContactTel.DataPropertyName = "BusinessContactTel";
             this.BusinessContactTel.HeaderText = "商务负责人座机";
+            this.BusinessContactTel.MinimumWidth = 10;
             this.BusinessContactTel.Name = "BusinessContactTel";
             this.BusinessContactTel.ReadOnly = true;
-            this.BusinessContactTel.Width = 181;
+            this.BusinessContactTel.Width = 161;
             // 
             // BusinessContactPhone
             // 
             this.BusinessContactPhone.DataPropertyName = "BusinessContactPhone";
             this.BusinessContactPhone.HeaderText = "商务负责人手机";
+            this.BusinessContactPhone.MinimumWidth = 10;
             this.BusinessContactPhone.Name = "BusinessContactPhone";
             this.BusinessContactPhone.ReadOnly = true;
-            this.BusinessContactPhone.Width = 181;
+            this.BusinessContactPhone.Width = 161;
             // 
             // BusinessContactEmail
             // 
             this.BusinessContactEmail.DataPropertyName = "BusinessContactEmail";
             this.BusinessContactEmail.HeaderText = "商务负责人邮箱";
+            this.BusinessContactEmail.MinimumWidth = 10;
             this.BusinessContactEmail.Name = "BusinessContactEmail";
             this.BusinessContactEmail.ReadOnly = true;
-            this.BusinessContactEmail.Width = 181;
+            this.BusinessContactEmail.Width = 161;
             // 
             // techContactNameDataGridViewTextBoxColumn
             // 
             this.techContactNameDataGridViewTextBoxColumn.DataPropertyName = "TechContactName";
             this.techContactNameDataGridViewTextBoxColumn.HeaderText = "技术负责人";
+            this.techContactNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.techContactNameDataGridViewTextBoxColumn.Name = "techContactNameDataGridViewTextBoxColumn";
             this.techContactNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.techContactNameDataGridViewTextBoxColumn.Width = 156;
+            this.techContactNameDataGridViewTextBoxColumn.Width = 140;
             // 
             // techContactTelDataGridViewTextBoxColumn
             // 
             this.techContactTelDataGridViewTextBoxColumn.DataPropertyName = "TechContactTel";
             this.techContactTelDataGridViewTextBoxColumn.HeaderText = "技术负责人座机";
+            this.techContactTelDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.techContactTelDataGridViewTextBoxColumn.Name = "techContactTelDataGridViewTextBoxColumn";
             this.techContactTelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.techContactTelDataGridViewTextBoxColumn.Width = 181;
+            this.techContactTelDataGridViewTextBoxColumn.Width = 161;
             // 
             // techContactPhoneDataGridViewTextBoxColumn
             // 
             this.techContactPhoneDataGridViewTextBoxColumn.DataPropertyName = "TechContactPhone";
             this.techContactPhoneDataGridViewTextBoxColumn.HeaderText = "技术负责人手机";
+            this.techContactPhoneDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.techContactPhoneDataGridViewTextBoxColumn.Name = "techContactPhoneDataGridViewTextBoxColumn";
             this.techContactPhoneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.techContactPhoneDataGridViewTextBoxColumn.Width = 181;
+            this.techContactPhoneDataGridViewTextBoxColumn.Width = 161;
             // 
             // techContactEmailDataGridViewTextBoxColumn
             // 
             this.techContactEmailDataGridViewTextBoxColumn.DataPropertyName = "TechContactEmail";
             this.techContactEmailDataGridViewTextBoxColumn.HeaderText = "技术负责人邮箱";
+            this.techContactEmailDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.techContactEmailDataGridViewTextBoxColumn.Name = "techContactEmailDataGridViewTextBoxColumn";
             this.techContactEmailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.techContactEmailDataGridViewTextBoxColumn.Width = 181;
+            this.techContactEmailDataGridViewTextBoxColumn.Width = 161;
             // 
             // DeliverName
             // 
             this.DeliverName.DataPropertyName = "DeliverName";
             this.DeliverName.HeaderText = "收件人";
+            this.DeliverName.MinimumWidth = 10;
             this.DeliverName.Name = "DeliverName";
             this.DeliverName.ReadOnly = true;
-            this.DeliverName.Width = 132;
+            this.DeliverName.Width = 118;
             // 
             // DeliverPhone
             // 
             this.DeliverPhone.DataPropertyName = "DeliverPhone";
             this.DeliverPhone.HeaderText = "收件人手机";
+            this.DeliverPhone.MinimumWidth = 10;
             this.DeliverPhone.Name = "DeliverPhone";
             this.DeliverPhone.ReadOnly = true;
-            this.DeliverPhone.Width = 156;
+            this.DeliverPhone.Width = 140;
             // 
             // DeliverContactAddress
             // 
             this.DeliverContactAddress.DataPropertyName = "DeliverAddress";
             this.DeliverContactAddress.HeaderText = "收件人地址";
+            this.DeliverContactAddress.MinimumWidth = 10;
             this.DeliverContactAddress.Name = "DeliverContactAddress";
             this.DeliverContactAddress.ReadOnly = true;
-            this.DeliverContactAddress.Width = 156;
+            this.DeliverContactAddress.Width = 140;
             // 
             // tCustomersBindingSource
             // 
@@ -297,11 +315,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtComName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(61, 45);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.groupBox1.Location = new System.Drawing.Point(52, 40);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.groupBox1.Size = new System.Drawing.Size(2191, 214);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(1878, 190);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速搜索";
@@ -309,9 +327,9 @@
             // rbNo
             // 
             this.rbNo.AutoSize = true;
-            this.rbNo.Location = new System.Drawing.Point(1399, 119);
+            this.rbNo.Location = new System.Drawing.Point(1199, 106);
             this.rbNo.Name = "rbNo";
-            this.rbNo.Size = new System.Drawing.Size(70, 31);
+            this.rbNo.Size = new System.Drawing.Size(65, 28);
             this.rbNo.TabIndex = 26;
             this.rbNo.TabStop = true;
             this.rbNo.Text = "否";
@@ -321,9 +339,9 @@
             // rbYes
             // 
             this.rbYes.AutoSize = true;
-            this.rbYes.Location = new System.Drawing.Point(1300, 118);
+            this.rbYes.Location = new System.Drawing.Point(1114, 105);
             this.rbYes.Name = "rbYes";
-            this.rbYes.Size = new System.Drawing.Size(70, 31);
+            this.rbYes.Size = new System.Drawing.Size(65, 28);
             this.rbYes.TabIndex = 25;
             this.rbYes.TabStop = true;
             this.rbYes.Text = "是";
@@ -334,10 +352,10 @@
             // 
             this.lbyYseNo.AutoSize = true;
             this.lbyYseNo.BackColor = System.Drawing.Color.Transparent;
-            this.lbyYseNo.Location = new System.Drawing.Point(1097, 124);
-            this.lbyYseNo.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lbyYseNo.Location = new System.Drawing.Point(940, 110);
+            this.lbyYseNo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbyYseNo.Name = "lbyYseNo";
-            this.lbyYseNo.Size = new System.Drawing.Size(174, 27);
+            this.lbyYseNo.Size = new System.Drawing.Size(154, 24);
             this.lbyYseNo.TabIndex = 23;
             this.lbyYseNo.Text = "是否有效客户";
             this.lbyYseNo.Visible = false;
@@ -348,22 +366,21 @@
             this.CmbCustomersType.FormattingEnabled = true;
             this.CmbCustomersType.Items.AddRange(new object[] {
             "",
-            "水",
-            "电",
-            "气"});
-            this.CmbCustomersType.Location = new System.Drawing.Point(874, 117);
+            "铁锂",
+            "三元"});
+            this.CmbCustomersType.Location = new System.Drawing.Point(749, 104);
             this.CmbCustomersType.Name = "CmbCustomersType";
-            this.CmbCustomersType.Size = new System.Drawing.Size(140, 35);
+            this.CmbCustomersType.Size = new System.Drawing.Size(121, 32);
             this.CmbCustomersType.TabIndex = 22;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(740, 120);
-            this.label15.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label15.Location = new System.Drawing.Point(634, 107);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(120, 27);
+            this.label15.Size = new System.Drawing.Size(106, 24);
             this.label15.TabIndex = 21;
             this.label15.Text = "客户分类";
             // 
@@ -373,10 +390,10 @@
             this.cmbCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCity.FormattingEnabled = true;
             this.cmbCity.IntegralHeight = false;
-            this.cmbCity.Location = new System.Drawing.Point(457, 117);
-            this.cmbCity.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.cmbCity.Location = new System.Drawing.Point(392, 104);
+            this.cmbCity.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Size = new System.Drawing.Size(228, 35);
+            this.cmbCity.Size = new System.Drawing.Size(196, 32);
             this.cmbCity.TabIndex = 14;
             this.cmbCity.SelectedIndexChanged += new System.EventHandler(this.cmbCity_SelectedIndexChanged);
             // 
@@ -386,10 +403,10 @@
             this.cmbPromary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPromary.FormattingEnabled = true;
             this.cmbPromary.IntegralHeight = false;
-            this.cmbPromary.Location = new System.Drawing.Point(215, 117);
-            this.cmbPromary.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.cmbPromary.Location = new System.Drawing.Point(184, 104);
+            this.cmbPromary.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbPromary.Name = "cmbPromary";
-            this.cmbPromary.Size = new System.Drawing.Size(228, 35);
+            this.cmbPromary.Size = new System.Drawing.Size(196, 32);
             this.cmbPromary.TabIndex = 13;
             this.cmbPromary.SelectedIndexChanged += new System.EventHandler(this.cmbPromary_SelectedIndexChanged);
             // 
@@ -397,10 +414,10 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(21, 124);
-            this.label14.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label14.Location = new System.Drawing.Point(18, 110);
+            this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(174, 27);
+            this.label14.Size = new System.Drawing.Size(154, 24);
             this.label14.TabIndex = 15;
             this.label14.Text = "公司所在区域";
             // 
@@ -408,10 +425,10 @@
             // 
             this.cmbUserName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUserName.FormattingEnabled = true;
-            this.cmbUserName.Location = new System.Drawing.Point(1433, 45);
-            this.cmbUserName.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.cmbUserName.Location = new System.Drawing.Point(1228, 40);
+            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(277, 35);
+            this.cmbUserName.Size = new System.Drawing.Size(238, 32);
             this.cmbUserName.TabIndex = 4;
             this.cmbUserName.SelectedIndexChanged += new System.EventHandler(this.cmbUserName_SelectedIndexChanged);
             this.cmbUserName.DataSourceChanged += new System.EventHandler(this.cmbUserName_DataSourceChanged);
@@ -420,10 +437,10 @@
             // 
             this.llAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.llAdd.AutoSize = true;
-            this.llAdd.Location = new System.Drawing.Point(1909, 155);
-            this.llAdd.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.llAdd.Location = new System.Drawing.Point(1636, 138);
+            this.llAdd.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.llAdd.Name = "llAdd";
-            this.llAdd.Size = new System.Drawing.Size(174, 27);
+            this.llAdd.Size = new System.Drawing.Size(154, 24);
             this.llAdd.TabIndex = 3;
             this.llAdd.TabStop = true;
             this.llAdd.Text = "添加客户资料";
@@ -432,10 +449,10 @@
             // btnSerch
             // 
             this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSerch.Location = new System.Drawing.Point(1904, 63);
-            this.btnSerch.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnSerch.Location = new System.Drawing.Point(1632, 56);
+            this.btnSerch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSerch.Name = "btnSerch";
-            this.btnSerch.Size = new System.Drawing.Size(196, 76);
+            this.btnSerch.Size = new System.Drawing.Size(168, 68);
             this.btnSerch.TabIndex = 2;
             this.btnSerch.Text = "查找";
             this.btnSerch.UseVisualStyleBackColor = true;
@@ -443,74 +460,74 @@
             // 
             // txtTechName
             // 
-            this.txtTechName.Location = new System.Drawing.Point(1048, 45);
-            this.txtTechName.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtTechName.Location = new System.Drawing.Point(898, 40);
+            this.txtTechName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtTechName.Name = "txtTechName";
-            this.txtTechName.Size = new System.Drawing.Size(228, 38);
+            this.txtTechName.Size = new System.Drawing.Size(196, 35);
             this.txtTechName.TabIndex = 1;
             // 
             // txtBusinessName
             // 
-            this.txtBusinessName.Location = new System.Drawing.Point(635, 45);
-            this.txtBusinessName.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtBusinessName.Location = new System.Drawing.Point(544, 40);
+            this.txtBusinessName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtBusinessName.Name = "txtBusinessName";
-            this.txtBusinessName.Size = new System.Drawing.Size(228, 38);
+            this.txtBusinessName.Size = new System.Drawing.Size(196, 35);
             this.txtBusinessName.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1295, 52);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label4.Location = new System.Drawing.Point(1110, 46);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 27);
+            this.label4.Size = new System.Drawing.Size(106, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "所属销售";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(882, 52);
-            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label3.Location = new System.Drawing.Point(756, 46);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 27);
+            this.label3.Size = new System.Drawing.Size(130, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "技术负责人";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(469, 52);
-            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label2.Location = new System.Drawing.Point(402, 46);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 27);
+            this.label2.Size = new System.Drawing.Size(130, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "商务负责人";
             // 
             // txtComName
             // 
-            this.txtComName.Location = new System.Drawing.Point(215, 45);
-            this.txtComName.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.txtComName.Location = new System.Drawing.Point(184, 40);
+            this.txtComName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtComName.Name = "txtComName";
-            this.txtComName.Size = new System.Drawing.Size(228, 38);
+            this.txtComName.Size = new System.Drawing.Size(196, 35);
             this.txtComName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 52);
-            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label1.Location = new System.Drawing.Point(66, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 27);
+            this.label1.Size = new System.Drawing.Size(106, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "公司名称";
             // 
             // 客户资料管理
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvContact);
-            this.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.Name = "客户资料管理";
             this.Load += new System.EventHandler(this.客户资料管理_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
