@@ -3,20 +3,20 @@
 using System.Windows.Forms;
 using 销售管理.DAL.DataSetUsersTableAdapters;
 using 销售管理.DAL.DataSetAdvertisingFeeTableAdapters;
+using 销售管理.DAL.DataSetFeeTypeTableAdapters;
+using 销售管理.DAL.DataSetBusinessFeeTableAdapters;
 using System.Data;
 
 namespace 销售管理.日常业务
 {
-    public partial class 广告宣传费用录入 : Form
+    public partial class 业务费用录入 : Form
     {
-        public 广告宣传费用录入()
+        public 业务费用录入()
         {
             InitializeComponent();
         }
         public long mId = -1;
-        private long ProductId = -1;
-        private long CityId = -1;
-
+     
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,29 +32,30 @@ namespace 销售管理.日常业务
            
             if (string.IsNullOrEmpty(dtpDate1.Text.Trim()) == true)
             {
-                toolTip1.Show("请输入分摊日期！", dtpDate1, 0, dtpDate1.Height, 2000);
+                toolTip1.Show("请输入报销日期！", dtpDate1, 0, dtpDate1.Height, 2000);
                 return;
             }
-            if (string.IsNullOrEmpty(TxtProjectName.Text.Trim()) == true)
-            {
-                toolTip1.Show("请输入费用说明！", TxtProjectName, 0, TxtProjectName.Height, 2000);
-                return;
-            }
+            //if (string.IsNullOrEmpty(TxtProjectName.Text.Trim()) == true)
+            //{
+            //    toolTip1.Show("请输入费用说明！", TxtProjectName, 0, TxtProjectName.Height, 2000);
+            //    return;
+            //}
             if (string.IsNullOrEmpty(TxtSumMoney.Text.Trim()) == true)
             {
-                toolTip1.Show("请输入分摊金额！", TxtSumMoney, 0, TxtSumMoney.Height, 2000);
+                toolTip1.Show("请输入报销金额！", TxtSumMoney, 0, TxtSumMoney.Height, 2000);
                 return;
             }
             if (Classes.PubClass.IsDecimalSign(TxtSumMoney.Text.Trim()) == false)
             {
-                toolTip1.Show("请输入正确的分摊金额！", TxtSumMoney, 0, TxtSumMoney.Height, 2000);
+                toolTip1.Show("请输入正确的报销金额！", TxtSumMoney, 0, TxtSumMoney.Height, 2000);
                 return;     
             }
 
             int ret = 0;
+
             if (mId == -1)
             {
-                 ret = new T_AdvertisingFeeTableAdapter().Insert((long)cmbUserName.SelectedValue, TxtProjectName.Text, Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date);
+                 ret = new T_BusinessFeeTableAdapter().Insert((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date,DateTime.Now,Classes.PubClass.UserId, "正常");
             }
             else
             {
@@ -82,6 +83,11 @@ namespace 销售管理.日常业务
             cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
             cmbUserName.SelectedIndex = -1;
 
+            //获取费用类型
+            cmbFeeType.DisplayMember = "FeeTypeName";
+            cmbFeeType.ValueMember = "id";
+            cmbFeeType.DataSource = new T_FeeTypeTableAdapter().GetFeeTypeName();
+            cmbFeeType.SelectedIndex = -1;
             if (mId == -1)
             {
             }

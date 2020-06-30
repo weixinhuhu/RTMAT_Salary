@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using 销售管理.DAL.DataSetSaleDetailsTableAdapters;
 using 销售管理.DAL.DataSetUsersTableAdapters;
 using Common;
 using 销售管理.日常业务.销售管理功能;
 namespace 销售管理.日常业务
 {
-    public partial class 广告宣传费用管理 : 销售管理.UserControlBase
+    public partial class 业务费用管理 : 销售管理.UserControlBase
     {
-        public 广告宣传费用管理()
+        public 业务费用管理()
         {
             InitializeComponent();
         }
@@ -94,15 +88,6 @@ namespace 销售管理.日常业务
             DateTime dt = DateTime.Now;
             dtpStart.Value = dt.AddMonths(-dt.Month + 1).AddDays(-dt.Day + 1);
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            using (产品赠送明细录入 mForm = new 产品赠送明细录入())
-            {
-                mForm.ShowDialog();
-            }
-
-        }
-       
 
         private void dgvSaleDetails_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -126,7 +111,7 @@ namespace 销售管理.日常业务
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (广告宣传费用录入 mForm = new 广告宣传费用录入())
+            using (业务费用录入 mForm = new 业务费用录入())
             {
                 mForm.ShowDialog();
             }
@@ -138,7 +123,7 @@ namespace 销售管理.日常业务
             {
                 if (e.ColumnIndex == dgvAdvertisingFee.Columns["ColModify"].Index)
                 {
-                    广告宣传费用录入 mForm = new 广告宣传费用录入();
+                    业务费用录入 mForm = new 业务费用录入();
                     mForm.mId = Convert.ToInt64(dgvAdvertisingFee.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
                     mForm.ShowDialog();
                 }

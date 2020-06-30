@@ -2961,8 +2961,6 @@ C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销�
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.员工档案录入.resources
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.考勤档案维护.resources
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.办公费用录入.resources
-C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.广告宣传费用录入.resources
-C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.广告宣传费用管理.resources
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.无票费用录入.resources
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.无票费用管理.resources
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.薪资录入.resources
@@ -3027,3 +3025,5 @@ C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销�
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.csproj.CopyComplete
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.exe
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.pdb
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.业务费用录入.resources
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.业务费用管理.resources
