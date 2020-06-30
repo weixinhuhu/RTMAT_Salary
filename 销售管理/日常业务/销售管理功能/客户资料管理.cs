@@ -21,13 +21,15 @@ namespace 销售管理.日常业务
 
         private void 客户资料管理_Load(object sender, EventArgs e)
         {
-            rbYes.Checked = true;
             //添加省市cmb
             var mTable1 = new T_PromaryTableAdapter().GetData();
             cmbPromary.DisplayMember = "proName";
             cmbPromary.ValueMember = "proID";
             cmbPromary.DataSource = mTable1;
             cmbPromary.SelectedIndex = -1;
+
+            //设置授权额度列右对齐
+            dgvContact.Columns["CustomersCredit"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             tCustomersBindingSource.DataSource = t_CustomersTableAdapter.GetDataAndCountByUserId(Classes.PubClass.UserId);
 
@@ -50,128 +52,7 @@ namespace 销售管理.日常业务
         {
             string mSql, mSql1;
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
-
-
-            //if (rbYes.Checked == true)
-            //{
-            //    mSql = @"SELECT  A.id ,
-            //                b.UserName opername1,
-            //                A.CompanyName ,
-            //                A.CompanyAddress ,
-            //                A.BusinessContactName ,
-            //                A.BusinessContactTel ,
-            //                A.BusinessContactPhone ,
-            //                A.BusinessContactEmail ,
-            //                A.TechContactName ,
-            //                A.TechContactTel ,
-            //                A.TechContactPhone ,
-            //                A.TechContactEmail ,
-            //                b.UserName ,
-            //                A.DeliverName ,
-            //                A.DeliverAddress ,
-            //                A.DeliverPhone
-            //        FROM    dbo.T_Customers A
-            //                LEFT JOIN T_Users b ON A.OperName = b.id
-            //                LEFT JOIN T_City c ON A.CityID = c.ID
-            //                LEFT JOIN ( SELECT  MAX(SaleDate) LastSaleDate ,
-            //                                            CustomerName
-            //                                    FROM    dbo.T_SaleDetails
-            //                                    GROUP BY CustomerName
-            //                                  ) d ON a.id = d.CustomerName
-            //                WHERE Status='正常' AND  DATEDIFF(YEAR, d.LastSaleDate, GETDATE())<=2";
-            //    mSql1 = @"   UNION ALL
-            //                    SELECT  NULL ,
-            //                            '总计' ,
-            //                            CONVERT(VARCHAR(20), COUNT(*)) ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL
-            //                    FROM    T_Customers a
-            //                            LEFT JOIN T_City c ON a.CityID = c.ID
-            //                            LEFT JOIN T_Users b ON A.OperName = b.id
-            //                            LEFT JOIN ( SELECT  MAX(SaleDate) LastSaleDate ,
-            //                                            CustomerName
-            //                                    FROM    dbo.T_SaleDetails
-            //                                    GROUP BY CustomerName
-            //                                  ) d ON a.id = d.CustomerName
-            //                WHERE Status='正常' AND  DATEDIFF(YEAR, d.LastSaleDate, GETDATE())<=2";
-            //}
-            //else {
-            //    mSql = @"SELECT  A.id ,
-            //                b.UserName opername1,
-            //                A.CompanyName ,
-            //                A.CompanyAddress ,
-            //                A.BusinessContactName ,
-            //                A.BusinessContactTel ,
-            //                A.BusinessContactPhone ,
-            //                A.BusinessContactEmail ,
-            //                A.TechContactName ,
-            //                A.TechContactTel ,
-            //                A.TechContactPhone ,
-            //                A.TechContactEmail ,
-            //                b.UserName ,
-            //                A.DeliverName ,
-            //                A.DeliverAddress ,
-            //                A.DeliverPhone
-            //        FROM    dbo.T_Customers A
-            //                LEFT JOIN T_Users b ON A.OperName = b.id
-            //                LEFT JOIN T_City c ON A.CityID = c.ID
-            //        WHERE  Status='正常' AND A.id NOT IN (
-            //                                    SELECT  A.id
-            //                                    FROM    dbo.T_Customers A
-            //                                            LEFT JOIN T_Users b ON A.OperName = b.id
-            //                                            LEFT JOIN T_City c ON A.CityID = c.ID
-            //                                            LEFT JOIN ( SELECT  MAX(SaleDate) LastSaleDate ,
-            //                                                                CustomerName
-            //                                                        FROM    dbo.T_SaleDetails
-            //                                                        GROUP BY CustomerName
-            //                                                      ) d ON A.id = d.CustomerName
-            //                                    WHERE   DATEDIFF(YEAR, d.LastSaleDate, GETDATE()) <= 2 )";
-            //    mSql1 = @"   UNION ALL
-            //                    SELECT  NULL ,
-            //                            '总计' ,
-            //                            CONVERT(VARCHAR(20), COUNT(*)) ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL ,
-            //                            NULL
-            //                    FROM    T_Customers a
-            //                            LEFT JOIN T_City c ON a.CityID = c.ID
-            //                            LEFT JOIN T_Users b ON A.OperName = b.id
-            //                    WHERE Status='正常' AND   A.id NOT IN (
-            //                                    SELECT  A.id
-            //                                    FROM    dbo.T_Customers A
-            //                                            LEFT JOIN T_Users b ON A.OperName = b.id
-            //                                            LEFT JOIN T_City c ON A.CityID = c.ID
-            //                                            LEFT JOIN ( SELECT  MAX(SaleDate) LastSaleDate ,
-            //                                                                CustomerName
-            //                                                        FROM    dbo.T_SaleDetails
-            //                                                        GROUP BY CustomerName
-            //                                                      ) d ON A.id = d.CustomerName
-            //                                    WHERE   DATEDIFF(YEAR, d.LastSaleDate, GETDATE()) <= 2 )";           
-            //}
-
-
-
+          
             //20190328
             mSql = @"SELECT  A.id ,
                             b.UserName opername1,
@@ -188,7 +69,8 @@ namespace 销售管理.日常业务
                             b.UserName ,
                             A.DeliverName ,
                             A.DeliverAddress ,
-                            A.DeliverPhone
+                            A.DeliverPhone ,
+                            A.CustomersCredit
                     FROM    dbo.T_Customers A
                             LEFT JOIN T_Users b ON A.OperName = b.id
                             LEFT JOIN T_City c ON A.CityID = c.ID                          
@@ -199,6 +81,7 @@ namespace 销售管理.日常业务
                                         '总计' ,
                                         CONVERT(VARCHAR(20), COUNT(*)) ,
                                         NULL ,
+                                        NUll ,
                                         NULL ,
                                         NULL ,
                                         NULL ,
@@ -213,9 +96,8 @@ namespace 销售管理.日常业务
                                         NULL
                                 FROM    T_Customers a
                                         LEFT JOIN T_City c ON a.CityID = c.ID
-                                        LEFT JOIN T_Users b ON A.OperName = b.id                                       
+                                        LEFT JOIN T_Users b ON A.OperName = b.id                   
                             WHERE Status='正常'";
-
 
             if (cmbUserName.Text.Trim() != "" && cmbUserName.Text.Trim() != "全部")
             {
@@ -268,6 +150,7 @@ namespace 销售管理.日常业务
             {
                 adapter.Fill(mTable);
                 dgvContact.DataSource = mTable;
+                
                 if (mTable.Rows.Count < 1)
                 {
                     MessageBox.Show("没有记录");
@@ -331,9 +214,7 @@ namespace 销售管理.日常业务
         private void dgvContact_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (dgvContact.Rows.Count > 0)
-            {
-                //屏蔽客户详情
-                if (rbYes.Checked == true) {
+            {             
                     if (!Common.AuthenticateRight.AuthOperation(110101) && Common.CommonClass.SttUser.blSuperUser == false)
                     {
                         foreach (DataGridViewRow mRow in dgvContact.Rows)
@@ -345,9 +226,8 @@ namespace 销售管理.日常业务
                                     dgvContact.Rows[mRow.Index].Cells[i].Value = "";
                                 }
                             }
-                        }            
-                }             
-          }
+                        } 
+                     }
 
                 if (dgvContact.Rows[dgvContact.Rows.Count - 1].Cells["OperName"].Value.ToString() == "总计")
                 {

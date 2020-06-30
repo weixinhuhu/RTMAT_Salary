@@ -36,56 +36,54 @@
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(548, 275);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Cancel.Location = new System.Drawing.Point(592, 281);
+            this.Cancel.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(172, 40);
+            this.Cancel.Size = new System.Drawing.Size(188, 46);
             this.Cancel.TabIndex = 3;
             this.Cancel.Text = "取消(&C)";
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // OK
             // 
-            this.OK.Location = new System.Drawing.Point(365, 275);
-            this.OK.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.OK.Location = new System.Drawing.Point(392, 281);
+            this.OK.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(172, 40);
+            this.OK.Size = new System.Drawing.Size(188, 46);
             this.OK.TabIndex = 2;
             this.OK.Text = "确定(&O)";
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(317, 132);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtPassword.Location = new System.Drawing.Point(349, 180);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(400, 31);
+            this.txtPassword.Size = new System.Drawing.Size(436, 35);
             this.txtPassword.TabIndex = 1;
             // 
             // txtLoginName
             // 
-            this.txtLoginName.Location = new System.Drawing.Point(317, 61);
-            this.txtLoginName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtLoginName.Location = new System.Drawing.Point(349, 57);
+            this.txtLoginName.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.txtLoginName.Name = "txtLoginName";
-            this.txtLoginName.Size = new System.Drawing.Size(400, 31);
+            this.txtLoginName.Size = new System.Drawing.Size(436, 35);
             this.txtLoginName.TabIndex = 0;
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PasswordLabel.Location = new System.Drawing.Point(314, 97);
-            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.PasswordLabel.Location = new System.Drawing.Point(344, 143);
+            this.PasswordLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(403, 40);
+            this.PasswordLabel.Size = new System.Drawing.Size(440, 37);
             this.PasswordLabel.TabIndex = 5;
             this.PasswordLabel.Text = "密码(&P)";
             this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -93,10 +91,10 @@
             // UsernameLabel
             // 
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameLabel.Location = new System.Drawing.Point(314, 26);
-            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.UsernameLabel.Location = new System.Drawing.Point(346, 17);
+            this.UsernameLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(403, 40);
+            this.UsernameLabel.Size = new System.Drawing.Size(440, 37);
             this.UsernameLabel.TabIndex = 4;
             this.UsernameLabel.Text = "登录名(&U)";
             this.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -104,52 +102,23 @@
             // LogoPictureBox
             // 
             this.LogoPictureBox.Image = global::销售管理.Properties.Resources.rt150;
-            this.LogoPictureBox.Location = new System.Drawing.Point(4, 21);
-            this.LogoPictureBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.LogoPictureBox.Location = new System.Drawing.Point(5, 7);
+            this.LogoPictureBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.LogoPictureBox.Name = "LogoPictureBox";
-            this.LogoPictureBox.Size = new System.Drawing.Size(303, 290);
+            this.LogoPictureBox.Size = new System.Drawing.Size(331, 331);
             this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogoPictureBox.TabIndex = 7;
             this.LogoPictureBox.TabStop = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 21;
-            this.comboBox1.Items.AddRange(new object[] {
-            "融通高科（内网）",
-            "融通高科（公网）",
-            "融通新材料"});
-            this.comboBox1.Location = new System.Drawing.Point(317, 199);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(397, 29);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(311, 164);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 40);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "数据源";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // LoginForm1
             // 
             this.AcceptButton = this.OK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::销售管理.Properties.Resources.smallback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(749, 323);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(796, 342);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.txtPassword);
@@ -159,7 +128,7 @@
             this.Controls.Add(this.LogoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm1";
@@ -182,7 +151,5 @@
         internal System.Windows.Forms.Label PasswordLabel;
         internal System.Windows.Forms.Label UsernameLabel;
         internal System.Windows.Forms.PictureBox LogoPictureBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        internal System.Windows.Forms.Label label1;
     }
 }

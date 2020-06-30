@@ -110,10 +110,7 @@ namespace 销售管理
             string file = System.Windows.Forms.Application.ExecutablePath;
             Configuration config = ConfigurationManager.OpenExeConfiguration(file);
             String StrDB = ConfigurationManager.AppSettings["key1"];
-            if (StrDB != null)
-            {
-                comboBox1.Text = StrDB;
-            }
+            
             isLogined = false;
         }
 
@@ -218,60 +215,6 @@ namespace 销售管理
         {
             数据源切换 mForm = new 数据源切换();
             mForm.ShowDialog();
-        }
-
-        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            String strConn = "";
-            String keyValue = "";
-            String keyValue1 = "";
-            String IP = "";
-            String Port = "";
-            String DataBase = "";
-           
-            if (comboBox1.SelectedIndex == 0)
-            {
-                keyValue = "融通高科（内网）";
-                keyValue1 = "DBInfo.xml";
-                IP = "192.168.10.126";
-                Port = "1488";
-                DataBase = "MYDB";
-                strConn = "Data Source=192.168.10.126,1488;Initial Catalog=MYDB;Persist Security Info=True;User ID=sa;Password=sasa";
-            }   
-            if (comboBox1.SelectedIndex == 1)
-            {
-                keyValue = "融通高科（公网）";
-                keyValue1 = "DBInfo.xml";
-                IP = "111.198.24.26";
-                Port = "1488";
-                DataBase = "MYDB";
-                strConn = "Data Source=111.198.24.26,1488;Initial Catalog=MYDB;Persist Security Info=True;User ID=sa;Password=sasa";
-
-                ////测试
-                //DataBase = "RT_MYDB";
-                //strConn = "Data Source=127.0.0.1;Initial Catalog=RT_MYDB;Persist Security Info=True;User ID=sa;Password=sasa";
-            }
-            if (comboBox1.SelectedIndex == 2)
-            {
-                keyValue = "融通新材料";
-                keyValue1 = "DBInfo.xml";
-                IP = "192.168.1.189";
-                Port = "1433";
-                DataBase = "MYDB_RT_MAT";
-                strConn = "Data Source=192.168.1.189,1433;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User ID=sa;Password=sasa";
-            }
-
-
-            //更新DBInfo
-            SaveXML(IP,Port, DataBase);
-            UpdateAppConfig("key1", keyValue);
-            UpdateAppConfig("key2", keyValue1);
-            //更新销售管理软件config
-            UpdateConnectionStringsConfig("销售管理.Properties.Settings.mydbConnectionString", strConn, "System.Data.SqlClient", "销售管理.exe");
-            //更新升级config
-            UpdateConnectionStringsConfig("升级.Properties.Settings.mydbConnectionString", strConn, "System.Data.SqlClient", "升级.exe");
-            MessageBox.Show("数据源切换成功！请重新登陆系统。");
-            Close();
         }
     }
 }

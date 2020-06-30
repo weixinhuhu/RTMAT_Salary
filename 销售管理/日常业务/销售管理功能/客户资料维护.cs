@@ -89,6 +89,7 @@ namespace 销售管理.日常业务
                     txtTechTel.Text = mRow.TechContactTel;
                     txtTechPhone.Text = mRow.TechContactPhone;
                     txtTechEmail.Text = mRow.TechContactEmail;
+                    txtCustomersCredit.Text = mRow.CustomersCredit.ToString();
                 }
                 else
                 {
@@ -190,7 +191,7 @@ namespace 销售管理.日常业务
                     }
                 }
 
-                int ret = adapter.UpdateById(txtComName.Text.Trim(), txtComAddr.Text.Trim(), txtBusinessName.Text.Trim(), txtBusinessTel.Text.Trim(), txtBusinessPhone.Text.Trim(), txtBusinessEmail.Text.Trim(), txtTechName.Text.Trim(), txtTechTel.Text.Trim(), txtTechPhone.Text.Trim(), txtTechEmail.Text.Trim(), txtDeliverName.Text.Trim(), txtDeliverAddr.Text.Trim(), txtDeliverPhone.Text.Trim(), (long)cmbCity.SelectedValue, CustomersType, mId);
+                int ret = adapter.UpdateById(txtComName.Text.Trim(), txtComAddr.Text.Trim(), txtBusinessName.Text.Trim(), txtBusinessTel.Text.Trim(), txtBusinessPhone.Text.Trim(), txtBusinessEmail.Text.Trim(), txtTechName.Text.Trim(), txtTechTel.Text.Trim(), txtTechPhone.Text.Trim(), txtTechEmail.Text.Trim(), txtDeliverName.Text.Trim(), txtDeliverAddr.Text.Trim(), txtDeliverPhone.Text.Trim(), (long)cmbCity.SelectedValue, CustomersType,txtCustomersCredit.Text.Trim(), mId);
                 if (ret > 0)
                 {
                     MessageBox.Show("修改成功");
@@ -215,7 +216,7 @@ namespace 销售管理.日常业务
                 }
                 else
                 {
-                    int ret = adapter.Insert(txtComName.Text.Trim(), txtComAddr.Text.Trim(), txtBusinessName.Text.Trim(), txtBusinessTel.Text.Trim(), txtBusinessPhone.Text.Trim(), txtBusinessEmail.Text.Trim(), txtTechName.Text.Trim(), txtTechTel.Text.Trim(), txtTechPhone.Text.Trim(), txtTechEmail.Text.Trim(), txtDeliverName.Text.Trim(), txtDeliverAddr.Text.Trim(), txtDeliverPhone.Text.Trim(), (long)cmbCity.SelectedValue, Classes.PubClass.UserId, "正常", CustomersType);
+                    int ret = adapter.Insert(txtComName.Text.Trim(), txtComAddr.Text.Trim(), txtBusinessName.Text.Trim(), txtBusinessTel.Text.Trim(), txtBusinessPhone.Text.Trim(), txtBusinessEmail.Text.Trim(), txtTechName.Text.Trim(), txtTechTel.Text.Trim(), txtTechPhone.Text.Trim(), txtTechEmail.Text.Trim(), txtDeliverName.Text.Trim(), txtDeliverAddr.Text.Trim(), txtDeliverPhone.Text.Trim(), (long)cmbCity.SelectedValue, Classes.PubClass.UserId, "正常", CustomersType, txtCustomersCredit.Text.Trim());
                     if (ret > 0)
                     {
                         MessageBox.Show("添加成功");
@@ -257,6 +258,11 @@ namespace 销售管理.日常业务
         }
 
         private void cmbCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }

@@ -12,7 +12,7 @@ namespace 销售管理.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,51 +26,8 @@ namespace 销售管理.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\DBMeter.mdb;Persist " +
-            "Security Info=True;Jet OLEDB:Database Password=meiyoumima2011")]
-        public string DBMeterConnectionString {
-            get {
-                return ((string)(this["DBMeterConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\bin\\Debug\\DBMeter.md" +
-            "b;Persist Security Info=True;Jet OLEDB:Database Password=meiyoumima2011")]
-        public string DBMeterConnectionString1 {
-            get {
-                return ((string)(this["DBMeterConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"metadata=res://*/DAL.ModelDa.csdl|res://*/DAL.ModelDa.ssdl|res://*/DAL.ModelDa.msl;provider=System.Data.SqlClient;provider connection string=""data source=192.168.1.126;initial catalog=MYDB;user id=sa;password=sasa;MultipleActiveResultSets=True;App=EntityFramework"";  providerName=""System.Data.EntityClient""")]
-        public string MYDBEntities2 {
-            get {
-                return ((string)(this["MYDBEntities2"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.10.126,1488;Initial Catalog=MYDB_RT_MAT;Persist Security Info" +
-            "=True;User ID=sa;Password=sasa")]
-        public string MYDB_RT_MATConnectionString {
-            get {
-                return ((string)(this["MYDB_RT_MATConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.10.126:1488;Initial Catalog=MYDB;Persist Security Info=True;U" +
-            "ser ID=sa;Password=sasa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB;Persist Security Info=True;User ID=sa;" +
+            "Password=sasa")]
         public string mydbConnectionString {
             get {
                 return ((string)(this["mydbConnectionString"]));
@@ -80,11 +37,22 @@ namespace 销售管理.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.10.126,1488;Initial Catalog=mydb;Persist Security Info=True;U" +
-            "ser ID=sa;Password=sasa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User" +
+            " ID=sa;Password=sasa")]
         public string mydbConnectionString1 {
             get {
                 return ((string)(this["mydbConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User" +
+            " ID=sa;Password=sasa")]
+        public string DBMeterConnectionString1 {
+            get {
+                return ((string)(this["DBMeterConnectionString1"]));
             }
         }
     }

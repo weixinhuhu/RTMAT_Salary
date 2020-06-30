@@ -116,3 +116,10 @@ C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\Soft
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.dll
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.pdb
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.csprojAssemblyReference.cache
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\bin\x86\Debug\SoftCommon.dll
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\bin\x86\Debug\SoftCommon.pdb
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\bin\x86\Debug\EPPlus.dll
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\bin\x86\Debug\NPOI.dll
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.csproj.CopyComplete
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.dll
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\SoftCommon\obj\x86\Debug\SoftCommon.pdb
