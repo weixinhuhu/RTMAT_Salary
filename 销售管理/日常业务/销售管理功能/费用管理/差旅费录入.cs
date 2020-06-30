@@ -71,11 +71,11 @@ namespace 销售管理.日常业务
             int ret = 0;
             if (mId == -1)
             {
-                ret = new T_TravelExpensesTableAdapter().Insert((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtPorjectName.Text, Convert.ToDecimal(Txt1.Text), Convert.ToDecimal(Txt2.Text), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date);
+                ret = new T_TravelExpensesTableAdapter().Insert((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtPorjectName.Text, Convert.ToDecimal(Txt1.Text), Convert.ToDecimal(Txt2.Text), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, "正常");
             }
             else
             {
-                ret = new T_TravelExpensesTableAdapter().UpdateById((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtPorjectName.Text, Convert.ToDecimal(Txt1.Text), Convert.ToDecimal(Txt2.Text), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date,mId);
+                ret = new T_TravelExpensesTableAdapter().UpdateById((long)cmbUserName.SelectedValue, (long)cmbCustomerName.SelectedValue, TxtPorjectName.Text, Convert.ToDecimal(Txt1.Text), Convert.ToDecimal(Txt2.Text), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, "正常", mId);
             }
 
             if (ret > 0)

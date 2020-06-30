@@ -4,6 +4,9 @@
 
     partial class DataSetTravelExpenses
     {
+        partial class T_TravelExpensesDataTable
+        {
+        }
     }
 }
 

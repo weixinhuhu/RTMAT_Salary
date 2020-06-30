@@ -1712,7 +1712,7 @@ SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[13];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[15];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel, BusinessContactPhone, BusinessContactEmail, TechContactName, TechContactTel, TechContactPhone, TechContactEmail, DeliverName, DeliverAddress, DeliverPhone, CityID, OperName, Status, CustomersType, CustomersCredit FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName";
@@ -1727,13 +1727,21 @@ SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel,
             this._commandCollection[2].CommandText = @"SELECT BusinessContactEmail, BusinessContactName, BusinessContactPhone, BusinessContactTel, CityID, CompanyAddress, CompanyName, CustomersCredit, CustomersType, DeliverAddress, DeliverName, DeliverPhone, OperName, Status, TechContactEmail, TechContactName, TechContactPhone, TechContactTel, id FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[3].CommandText = @"SELECT BusinessContactEmail, BusinessContactName, BusinessContactPhone, BusinessContactTel, CityID, CompanyAddress, CompanyName, CustomersCredit, CustomersType, DeliverAddress, DeliverName, DeliverPhone, OperName, Status, TechContactEmail, TechContactName, TechContactPhone, TechContactTel, id FROM T_Customers WHERE (Status = '正常' OR Status IS NULL) AND EXISTS (SELECT id, LoginName, PassWord, UserName, OperRight, UserChar, DepartmentName, UserStatus FROM T_Users WHERE (id = @Id) AND (OperRight = '领导')) OR (Status = '正常' OR Status IS NULL) AND (OperName = @Id) ORDER BY CompanyName";
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel, BusinessContactPhone, BusinessContactEmail, TechContactName, TechContactTel, TechContactPhone, TechContactEmail, DeliverName, DeliverAddress, DeliverPhone, CityID, OperName, Status, CustomersType, CustomersCredit FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "OperName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[4].CommandText = @"SELECT a.id, a.CompanyName, b.UserName AS opername1, a.CompanyAddress, 
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel, BusinessContactPhone, BusinessContactEmail, TechContactName, TechContactTel, TechContactPhone, TechContactEmail, DeliverName, DeliverAddress, DeliverPhone, CityID, OperName, Status, CustomersType, CustomersCredit FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[5].CommandText = @"SELECT BusinessContactEmail, BusinessContactName, BusinessContactPhone, BusinessContactTel, CityID, CompanyAddress, CompanyName, CustomersCredit, CustomersType, DeliverAddress, DeliverName, DeliverPhone, OperName, Status, TechContactEmail, TechContactName, TechContactPhone, TechContactTel, id FROM T_Customers WHERE (Status = '正常' OR Status IS NULL) AND EXISTS (SELECT id, LoginName, PassWord, UserName, OperRight, UserChar, DepartmentName, UserStatus FROM T_Users WHERE (id = @Id) AND (OperRight = '领导')) OR (Status = '正常' OR Status IS NULL) AND (OperName = @Id) ORDER BY CompanyName";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "OperName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[6].CommandText = @"SELECT a.id, a.CompanyName, b.UserName AS opername1, a.CompanyAddress, 
       a.BusinessContactName, a.BusinessContactTel, a.BusinessContactPhone, 
       a.BusinessContactEmail, a.TechContactName, a.TechContactTel, 
       a.TechContactPhone, a.TechContactEmail, a.DeliverName, a.DeliverAddress, 
@@ -1751,11 +1759,11 @@ SELECT 9999999999 AS Expr1, CONVERT(varchar(20), COUNT(*))
 FROM T_Customers
 WHERE (Status = '正常' OR
       Status IS NULL) AND (OperName = @Userid)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Userid", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[5].CommandText = @"SELECT a.BusinessContactEmail, a.BusinessContactName, a.BusinessContactPhone, 
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Userid", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[7].CommandText = @"SELECT a.BusinessContactEmail, a.BusinessContactName, a.BusinessContactPhone, 
       a.BusinessContactTel, a.CityID, a.CompanyAddress, a.CompanyName, 
       a.DeliverAddress, a.DeliverName, a.DeliverPhone, b.UserName, a.TechContactEmail, 
       a.TechContactName, a.TechContactPhone, a.TechContactTel, a.id
@@ -1763,39 +1771,39 @@ FROM T_Customers AS a LEFT OUTER JOIN
       T_Users AS b ON a.OperName = b.id
 WHERE (a.CompanyName = @CompanyName)
 and ((Status = '正常') OR (Status IS NULL))";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[6].CommandText = @"SELECT   a.id, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
-WHERE  (a.CompanyName =@CompanyName)  and (b.UserName = @UserName)
-and ((Status = '正常') OR (Status IS NULL))";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[7].CommandText = @"SELECT   a.id, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
-WHERE  (a.CompanyName LIKE '%' + @CompanyName + '%')
-and ((Status = '正常') OR (Status IS NULL))";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
             this._commandCollection[8].CommandText = @"SELECT   a.id, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
-WHERE  (a.CompanyName LIKE '%' + @CompanyName + '%')  and (b.UserName = @UserName)
+WHERE  (a.CompanyName =@CompanyName)  and (b.UserName = @UserName)
 and ((Status = '正常') OR (Status IS NULL))";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[9].CommandText = @"SELECT BusinessContactEmail, BusinessContactName, BusinessContactPhone, BusinessContactTel, CityID, CompanyAddress, CompanyName, CustomersCredit, CustomersType, DeliverAddress, DeliverName, DeliverPhone, OperName, Status, TechContactEmail, TechContactName, TechContactPhone, TechContactTel, id FROM T_Customers WHERE (id = @Id) AND (Status = '正常' OR Status IS NULL)";
+            this._commandCollection[9].CommandText = @"SELECT   a.id, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
+WHERE  (a.CompanyName LIKE '%' + @CompanyName + '%')
+and ((Status = '正常') OR (Status IS NULL))";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[10].CommandText = @"SELECT a.id, a.CompanyName, b.UserName AS opername1, a.CompanyAddress, 
+            this._commandCollection[10].CommandText = @"SELECT   a.id, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
+WHERE  (a.CompanyName LIKE '%' + @CompanyName + '%')  and (b.UserName = @UserName)
+and ((Status = '正常') OR (Status IS NULL))";
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[11].CommandText = @"SELECT BusinessContactEmail, BusinessContactName, BusinessContactPhone, BusinessContactTel, CityID, CompanyAddress, CompanyName, CustomersCredit, CustomersType, DeliverAddress, DeliverName, DeliverPhone, OperName, Status, TechContactEmail, TechContactName, TechContactPhone, TechContactTel, id FROM T_Customers WHERE (id = @Id) AND (Status = '正常' OR Status IS NULL)";
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[12].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[12].CommandText = @"SELECT a.id, a.CompanyName, b.UserName AS opername1, a.CompanyAddress, 
       a.BusinessContactName, a.BusinessContactTel, a.BusinessContactPhone, 
       a.BusinessContactEmail, a.TechContactName, a.TechContactTel, 
       a.TechContactPhone, a.TechContactEmail, a.DeliverName, a.DeliverAddress, 
@@ -1805,19 +1813,19 @@ FROM T_Customers AS a LEFT OUTER JOIN
 WHERE (a.OperName = @Userid) AND (a.Status = '正常' OR
       a.Status IS NULL) order by a.CompanyName
 ";
-            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Userid", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "OperName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[11].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[11].CommandText = @"SELECT   a.id,b.Username opername1, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
+            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Userid", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "OperName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[13].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[13].CommandText = @"SELECT   a.id,b.Username opername1, a.CompanyName, a.CompanyAddress,a.BusinessContactName, a.BusinessContactTel,a.BusinessContactPhone, a.BusinessContactEmail, a.TechContactName, a.TechContactTel, a.TechContactPhone,a.TechContactEmail, b.UserName,a.delivername,a.deliveraddress,a.deliverphone FROM  T_Customers a left join t_users b on a.opername=b.id
 WHERE   (b.UserName = @UserName)
 and ((Status = '正常') OR (Status IS NULL))
 ";
-            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "opername1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[12].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
-            this._commandCollection[12].CommandText = @"UPDATE T_Customers
+            this._commandCollection[13].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "opername1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[14].Connection = new global::System.Data.SqlClient.SqlConnection(global::销售管理.Properties.Settings.Default.mydbConnectionString);
+            this._commandCollection[14].CommandText = @"UPDATE T_Customers
 SET CompanyName = @CompanyName, CompanyAddress = @CompanyAddress, 
       BusinessContactName = @BusinessContactName, 
       BusinessContactTel = @BusinessContactTel, 
@@ -1830,24 +1838,24 @@ SET CompanyName = @CompanyName, CompanyAddress = @CompanyAddress,
 WHERE (id = @Original_id)
 and ((Status = '正常') OR (Status IS NULL))  
 ";
-            this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyAddress", global::System.Data.SqlDbType.NVarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactTel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactTel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverAddress", global::System.Data.SqlDbType.NVarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomersType", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CustomersType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomersCredit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustomersCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[14].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyAddress", global::System.Data.SqlDbType.NVarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactTel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BusinessContactEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "BusinessContactEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactTel", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechContactEmail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TechContactEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverName", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverAddress", global::System.Data.SqlDbType.NVarChar, 250, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DeliverPhone", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "DeliverPhone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CityID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomersType", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "CustomersType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomersCredit", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CustomersCredit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1901,9 +1909,57 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(DataSetCustomers.T_CustomersDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataBy3() {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(DataSetCustomers.T_CustomersDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataBy4() {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetCustomers.T_CustomersDataTable GetAllDataByUserId(global::System.Nullable<long> Id) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Id.Value));
             }
@@ -1920,7 +1976,7 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetCustomers.T_CustomersDataTable GetDataAndCountByUserId(global::System.Nullable<long> Userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((Userid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Userid.Value));
             }
@@ -1937,46 +1993,6 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetCustomers.T_CustomersDataTable GetDataByComName(string CompanyName) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((CompanyName == null)) {
-                throw new global::System.ArgumentNullException("CompanyName");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompanyName));
-            }
-            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetCustomers.T_CustomersDataTable GetDataByComNameUserName(string CompanyName, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
-            if ((CompanyName == null)) {
-                throw new global::System.ArgumentNullException("CompanyName");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompanyName));
-            }
-            if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
-            }
-            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetCustomers.T_CustomersDataTable GetDataByFuzzyComName(string CompanyName) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
             if ((CompanyName == null)) {
                 throw new global::System.ArgumentNullException("CompanyName");
@@ -1993,7 +2009,7 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetCustomers.T_CustomersDataTable GetDataByFuzzyComNameUserName(string CompanyName, string UserName) {
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataByComNameUserName(string CompanyName, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[8];
             if ((CompanyName == null)) {
                 throw new global::System.ArgumentNullException("CompanyName");
@@ -2016,8 +2032,48 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetCustomers.T_CustomersDataTable GetDataById(long Id) {
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataByFuzzyComName(string CompanyName) {
             this.Adapter.SelectCommand = this.CommandCollection[9];
+            if ((CompanyName == null)) {
+                throw new global::System.ArgumentNullException("CompanyName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompanyName));
+            }
+            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataByFuzzyComNameUserName(string CompanyName, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[10];
+            if ((CompanyName == null)) {
+                throw new global::System.ArgumentNullException("CompanyName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CompanyName));
+            }
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetCustomers.T_CustomersDataTable GetDataById(long Id) {
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Id));
             DataSetCustomers.T_CustomersDataTable dataTable = new DataSetCustomers.T_CustomersDataTable();
             this.Adapter.Fill(dataTable);
@@ -2029,7 +2085,7 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetCustomers.T_CustomersDataTable GetDataByUserId(global::System.Nullable<long> Userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[12];
             if ((Userid.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Userid.Value));
             }
@@ -2046,7 +2102,7 @@ and ((Status = '正常') OR (Status IS NULL))
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetCustomers.T_CustomersDataTable GetDataByUserName(string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[11];
+            this.Adapter.SelectCommand = this.CommandCollection[13];
             if ((UserName == null)) {
                 throw new global::System.ArgumentNullException("UserName");
             }
@@ -2819,7 +2875,7 @@ and ((Status = '正常') OR (Status IS NULL))
                     string CustomersType, 
                     string CustomersCredit, 
                     long Original_id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[14];
             if ((CompanyName == null)) {
                 throw new global::System.ArgumentNullException("CompanyName");
             }

@@ -52,7 +52,7 @@ namespace 销售管理.日常业务
         {
             string mSql, mSql1;
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
-          
+
             //20190328
             mSql = @"SELECT  A.id ,
                             b.UserName opername1,
@@ -150,7 +150,7 @@ namespace 销售管理.日常业务
             {
                 adapter.Fill(mTable);
                 dgvContact.DataSource = mTable;
-                
+
                 if (mTable.Rows.Count < 1)
                 {
                     MessageBox.Show("没有记录");
@@ -214,20 +214,20 @@ namespace 销售管理.日常业务
         private void dgvContact_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (dgvContact.Rows.Count > 0)
-            {             
-                    if (!Common.AuthenticateRight.AuthOperation(110101) && Common.CommonClass.SttUser.blSuperUser == false)
+            {
+                if (!Common.AuthenticateRight.AuthOperation(110101) && Common.CommonClass.SttUser.blSuperUser == false)
+                {
+                    foreach (DataGridViewRow mRow in dgvContact.Rows)
                     {
-                        foreach (DataGridViewRow mRow in dgvContact.Rows)
+                        if (dgvContact.Rows[mRow.Index].Cells["OperName"].Value.ToString() != Classes.PubClass.UserName)
                         {
-                            if (dgvContact.Rows[mRow.Index].Cells["OperName"].Value.ToString() != Classes.PubClass.UserName)
+                            for (int i = 5; i < dgvContact.Columns.Count; i++)
                             {
-                                for (int i = 5; i < dgvContact.Columns.Count; i++)
-                                {
-                                    dgvContact.Rows[mRow.Index].Cells[i].Value = "";
-                                }
+                                dgvContact.Rows[mRow.Index].Cells[i].Value = "";
                             }
-                        } 
-                     }
+                        }
+                    }
+                }
 
                 if (dgvContact.Rows[dgvContact.Rows.Count - 1].Cells["OperName"].Value.ToString() == "总计")
                 {
@@ -264,7 +264,7 @@ namespace 销售管理.日常业务
 
         private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

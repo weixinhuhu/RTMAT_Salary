@@ -5,7 +5,7 @@
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="mydbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="mydbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.销售管理.Properties.Settings.GlobalReference.Default.mydbConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="mydbConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="mydbConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.销售管理.Properties.Settings.GlobalReference.Default.mydbConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="mydbConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="mydbConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.销售管理.Properties.Settings.GlobalReference.Default.mydbConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="T_CustomersTableAdapter" GeneratorDataComponentClassName="T_CustomersTableAdapter" Name="T_Customers" UserDataComponentName="T_CustomersTableAdapter">
@@ -192,6 +192,22 @@ WHERE   (id = @Id)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="mydbConnectionString1 (Settings)" DbObjectName="MYDB_RT_MAT.dbo.T_Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel, BusinessContactPhone, BusinessContactEmail, TechContactName, TechContactTel, TechContactPhone, TechContactEmail, DeliverName, DeliverAddress, DeliverPhone, CityID, OperName, Status, CustomersType, CustomersCredit FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="mydbConnectionString1 (Settings)" DbObjectName="MYDB_RT_MAT.dbo.T_Customers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="GetDataBy4" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, CompanyName, CompanyAddress, BusinessContactName, BusinessContactTel, BusinessContactPhone, BusinessContactEmail, TechContactName, TechContactTel, TechContactPhone, TechContactEmail, DeliverName, DeliverAddress, DeliverPhone, CityID, OperName, Status, CustomersType, CustomersCredit FROM T_Customers WHERE (Status = '正常') OR (Status IS NULL) ORDER BY CompanyName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="mydbConnectionString (Settings)" DbObjectName="MYDB_RT_MAT.dbo.T_Customers" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetAllDataByUserId" GetMethodModifier="Public" GetMethodName="GetAllDataByUserId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetAllDataByUserId" UserSourceName="GetAllDataByUserId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -374,7 +390,7 @@ and ((Status = '正常') OR (Status IS NULL))
   <xs:element name="DataSetCustomers" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetCustomers" msprop:Generator_UserDSName="DataSetCustomers">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="T_Customers" msprop:Generator_TableClassName="T_CustomersDataTable" msprop:Generator_TableVarName="tableT_Customers" msprop:Generator_TablePropName="T_Customers" msprop:Generator_RowDeletingName="T_CustomersRowDeleting" msprop:Generator_RowChangingName="T_CustomersRowChanging" msprop:Generator_RowEvHandlerName="T_CustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="T_CustomersRowDeleted" msprop:Generator_UserTableName="T_Customers" msprop:Generator_RowChangedName="T_CustomersRowChanged" msprop:Generator_RowEvArgName="T_CustomersRowChangeEvent" msprop:Generator_RowClassName="T_CustomersRow">
+        <xs:element name="T_Customers" msprop:Generator_TableClassName="T_CustomersDataTable" msprop:Generator_TableVarName="tableT_Customers" msprop:Generator_RowChangedName="T_CustomersRowChanged" msprop:Generator_TablePropName="T_Customers" msprop:Generator_RowDeletingName="T_CustomersRowDeleting" msprop:Generator_RowChangingName="T_CustomersRowChanging" msprop:Generator_RowEvHandlerName="T_CustomersRowChangeEventHandler" msprop:Generator_RowDeletedName="T_CustomersRowDeleted" msprop:Generator_RowClassName="T_CustomersRow" msprop:Generator_UserTableName="T_Customers" msprop:Generator_RowEvArgName="T_CustomersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />

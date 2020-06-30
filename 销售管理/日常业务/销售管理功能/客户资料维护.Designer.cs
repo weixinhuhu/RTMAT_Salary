@@ -197,6 +197,7 @@
             // 
             this.txtComName.Location = new System.Drawing.Point(331, 35);
             this.txtComName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtComName.MaxLength = 100;
             this.txtComName.Name = "txtComName";
             this.txtComName.Size = new System.Drawing.Size(828, 35);
             this.txtComName.TabIndex = 0;
@@ -205,6 +206,7 @@
             // 
             this.txtComAddr.Location = new System.Drawing.Point(331, 126);
             this.txtComAddr.Margin = new System.Windows.Forms.Padding(6);
+            this.txtComAddr.MaxLength = 100;
             this.txtComAddr.Name = "txtComAddr";
             this.txtComAddr.Size = new System.Drawing.Size(828, 35);
             this.txtComAddr.TabIndex = 3;
@@ -213,6 +215,7 @@
             // 
             this.txtBusinessName.Location = new System.Drawing.Point(331, 220);
             this.txtBusinessName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtBusinessName.MaxLength = 12;
             this.txtBusinessName.Name = "txtBusinessName";
             this.txtBusinessName.Size = new System.Drawing.Size(314, 35);
             this.txtBusinessName.TabIndex = 4;
@@ -221,6 +224,7 @@
             // 
             this.txtDeliverAddr.Location = new System.Drawing.Point(331, 361);
             this.txtDeliverAddr.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDeliverAddr.MaxLength = 100;
             this.txtDeliverAddr.Name = "txtDeliverAddr";
             this.txtDeliverAddr.Size = new System.Drawing.Size(828, 35);
             this.txtDeliverAddr.TabIndex = 14;
@@ -229,6 +233,7 @@
             // 
             this.txtBusinessTel.Location = new System.Drawing.Point(845, 220);
             this.txtBusinessTel.Margin = new System.Windows.Forms.Padding(6);
+            this.txtBusinessTel.MaxLength = 12;
             this.txtBusinessTel.Name = "txtBusinessTel";
             this.txtBusinessTel.Size = new System.Drawing.Size(314, 35);
             this.txtBusinessTel.TabIndex = 5;
@@ -237,6 +242,7 @@
             // 
             this.txtBusinessPhone.Location = new System.Drawing.Point(331, 267);
             this.txtBusinessPhone.Margin = new System.Windows.Forms.Padding(6);
+            this.txtBusinessPhone.MaxLength = 11;
             this.txtBusinessPhone.Name = "txtBusinessPhone";
             this.txtBusinessPhone.Size = new System.Drawing.Size(314, 35);
             this.txtBusinessPhone.TabIndex = 6;
@@ -245,6 +251,7 @@
             // 
             this.txtBusinessEmail.Location = new System.Drawing.Point(845, 267);
             this.txtBusinessEmail.Margin = new System.Windows.Forms.Padding(6);
+            this.txtBusinessEmail.MaxLength = 50;
             this.txtBusinessEmail.Name = "txtBusinessEmail";
             this.txtBusinessEmail.Size = new System.Drawing.Size(314, 35);
             this.txtBusinessEmail.TabIndex = 7;
@@ -338,6 +345,7 @@
             // 
             this.txtDeliverName.Location = new System.Drawing.Point(331, 314);
             this.txtDeliverName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDeliverName.MaxLength = 12;
             this.txtDeliverName.Name = "txtDeliverName";
             this.txtDeliverName.Size = new System.Drawing.Size(314, 35);
             this.txtDeliverName.TabIndex = 12;
@@ -346,6 +354,7 @@
             // 
             this.txtDeliverPhone.Location = new System.Drawing.Point(845, 314);
             this.txtDeliverPhone.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDeliverPhone.MaxLength = 11;
             this.txtDeliverPhone.Name = "txtDeliverPhone";
             this.txtDeliverPhone.Size = new System.Drawing.Size(314, 35);
             this.txtDeliverPhone.TabIndex = 13;
@@ -425,9 +434,11 @@
             // 
             this.txtCustomersCredit.Location = new System.Drawing.Point(845, 173);
             this.txtCustomersCredit.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCustomersCredit.MaxLength = 11;
             this.txtCustomersCredit.Name = "txtCustomersCredit";
             this.txtCustomersCredit.Size = new System.Drawing.Size(314, 35);
             this.txtCustomersCredit.TabIndex = 21;
+            this.txtCustomersCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustomersCredit_KeyPress);
             // 
             // label16
             // 

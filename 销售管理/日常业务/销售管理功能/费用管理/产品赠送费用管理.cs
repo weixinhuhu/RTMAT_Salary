@@ -81,7 +81,6 @@ namespace 销售管理.日常业务
                     MessageBox.Show("没有记录");
                     return;
                 }
-
             }
             catch (Exception ex)
             {
@@ -92,24 +91,8 @@ namespace 销售管理.日常业务
         }
 
         private void 销售明细管理_Load(object sender, EventArgs e)
-        {
-            //cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
-            //cmbUserName.DisplayMember = "UserName";
-            //cmbUserName.ValueMember = "id";
-            //cmbUserName.SelectedIndex = -1;
-
-            //CmbDepartmentName.DisplayMember = "VcName";
-            //CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); ;
-            //CmbDepartmentName.SelectedIndex = -1;
-
-            //if (!Common.AuthenticateRight.AuthOperation(110301) && !CommonClass.SttUser.blSuperUser)
-            //{
-            //    cmbUserName.SelectedValue = Classes.PubClass.UserId;
-            //    cmbUserName.Enabled = false;
-            //}       
-
+        {          
             //按配置权限显示数据
-
             if (Common.AuthenticateRight.AuthOperation(111401) || CommonClass.SttUser.blSuperUser) //查看全部
             {
                 cmbUserName.DataSource = new T_UsersTableAdapter().GetData();
@@ -131,7 +114,6 @@ namespace 销售管理.日常业务
                 CmbDepartmentName.DisplayMember = "VcName";
                 CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment] WHERE VcName LIKE '%销售%' ");
                 CmbDepartmentName.SelectedIndex = -1;
-
             }
             else
             {//普通销售人员

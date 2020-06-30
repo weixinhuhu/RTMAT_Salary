@@ -266,5 +266,13 @@ namespace 销售管理.日常业务
         {
 
         }
+
+        private void txtCustomersCredit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (".0123456789".IndexOf(e.KeyChar) < 0 && (int)e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

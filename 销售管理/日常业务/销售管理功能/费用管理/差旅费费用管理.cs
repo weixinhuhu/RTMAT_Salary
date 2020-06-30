@@ -21,7 +21,11 @@ namespace 销售管理.日常业务
 
         private void btnSerch_Click(object sender, EventArgs e)
         {
-            string mSql;          
+            refresh();
+        }
+
+        private void refresh() {
+            string mSql;
             mSql = @" SELECT a.[Id]
                   ,c.[UserName]
                   ,b.[CompanyName]
@@ -33,11 +37,10 @@ namespace 销售管理.日常业务
                 FROM [dbo].[T_TravelExpenses] a
                 LEFT JOIN T_Users c ON a.UserName = c.id
                 LEFT JOIN dbo.T_Customers b ON a.Customername=b.id
-                WHERE 1=1";
-
+                WHERE   a.Status='正常' ";
             if (cmbUserName.Text.Trim() != "")
             {
-                mSql += " and UserName like '%" + cmbUserName.Text.Trim() + "%'";
+                mSql += " and c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
             }
 
             if (txtCusName.Text.Trim() != "")
@@ -66,8 +69,10 @@ namespace 销售管理.日常业务
                 mRow["SumMoney"] = mTable.Compute("sum(SumMoney)", "true");
                 mTable.Rows.Add(mRow);
                 dgvTravelExpenses.DataSource = mTable;
+                dgvTravelExpenses.Rows[dgvTravelExpenses.Rows.Count - 1].Cells["ColDel"] = new DataGridViewTextBoxCell();
+                dgvTravelExpenses.Rows[dgvTravelExpenses.Rows.Count - 1].Cells["ColDel"].Value = "总计";
                 dgvTravelExpenses.Rows[dgvTravelExpenses.Rows.Count - 1].Cells["ColModify"] = new DataGridViewTextBoxCell();
-                dgvTravelExpenses.Rows[dgvTravelExpenses.Rows.Count - 1].Cells["ColModify"].Value = "总计";
+                dgvTravelExpenses.Rows[dgvTravelExpenses.Rows.Count - 1].Cells["ColModify"].Value = "";
 
                 if ((dgvTravelExpenses.DataSource as DataTable).Rows.Count < 0)
                 {
@@ -82,7 +87,7 @@ namespace 销售管理.日常业务
                 return;
             }
         }
-
+        
         private void 销售明细管理_Load(object sender, EventArgs e)
         {         
             cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
@@ -109,28 +114,7 @@ namespace 销售管理.日常业务
                 mForm.ShowDialog();
             }
 
-        }
-       
-
-        private void dgvSaleDetails_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-
-        }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void cmbUserName_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        } 
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -156,6 +140,39 @@ namespace 销售管理.日常业务
         private void llAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Classes.ExcelDeport.Deport(dgvTravelExpenses, 2);
+        }
+
+        private void dgvTravelExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                if (e.RowIndex >= 0)
+                {
+                if (e.ColumnIndex == dgvTravelExpenses.Columns["ColModify"].Index)
+                {
+                    差旅费录入 mForm = new 差旅费录入();
+                    mForm.mId = Convert.ToInt64(dgvTravelExpenses.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
+                    mForm.ShowDialog();
+                }
+
+                if (e.ColumnIndex == dgvTravelExpenses.Columns["ColDel"].Index)//删除
+                    {
+                        if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            string mSql = string.Format("UPDATE T_TravelExpenses SET Status = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvTravelExpenses.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
+                            int ret = SqlHelper.ExecuteNonQuery(mSql);
+                            if (ret > 0)
+                            {
+                                MessageBox.Show("删除成功!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("删除失败!");
+                            }
+                            refresh();
+                        
+                    }
+                }
+            }
         }
     }
 }
