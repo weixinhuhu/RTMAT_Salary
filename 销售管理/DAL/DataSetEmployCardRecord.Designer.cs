@@ -900,7 +900,7 @@ namespace 销售管理.DAL.DataSetEmployCardRecordTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::销售管理.Properties.Settings.Default.mydbConnectionString1;
+            this._connection.ConnectionString = global::销售管理.Properties.Settings.Default.mydbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

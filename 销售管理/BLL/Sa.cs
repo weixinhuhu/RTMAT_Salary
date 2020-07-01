@@ -8,10 +8,11 @@ namespace 销售管理.BLL
     {
         public static int GetGiftLeaderUnAuditCount()
         {
-            using (T_GiftStockOutTableAdapter ad = new T_GiftStockOutTableAdapter())
-            {
-                return Convert.ToInt32(ad.GetLeaderUnAuditCount());
-            }        
+            //using (T_GiftStockOutTableAdapter ad = new T_GiftStockOutTableAdapter())
+            //{
+            //    return Convert.ToInt32(ad.GetLeaderUnAuditCount());
+            //}
+            return 0;
         }
 
         public static int GetMealLeaderUnAuditCount()

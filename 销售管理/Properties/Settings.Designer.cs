@@ -26,33 +26,11 @@ namespace 销售管理.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB;Persist Security Info=True;User ID=sa;" +
-            "Password=sasa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User" +
+            " ID=sa;Password=sasa")]
         public string mydbConnectionString {
             get {
                 return ((string)(this["mydbConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User" +
-            " ID=sa;Password=sasa")]
-        public string mydbConnectionString1 {
-            get {
-                return ((string)(this["mydbConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=MYDB_RT_MAT;Persist Security Info=True;User" +
-            " ID=sa;Password=sasa")]
-        public string DBMeterConnectionString1 {
-            get {
-                return ((string)(this["DBMeterConnectionString1"]));
             }
         }
     }

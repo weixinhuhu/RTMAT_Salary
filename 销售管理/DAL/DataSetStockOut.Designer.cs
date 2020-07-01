@@ -1683,7 +1683,7 @@ SELECT Id, UserName, CustomerName, SaleDate, ProductName, Amount, Price, SumMone
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::销售管理.Properties.Settings.Default.DBMeterConnectionString1;
+            this._connection.ConnectionString = global::销售管理.Properties.Settings.Default.mydbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
