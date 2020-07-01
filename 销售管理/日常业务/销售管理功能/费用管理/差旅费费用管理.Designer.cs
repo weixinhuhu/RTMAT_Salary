@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tSaleDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetSaleDetails = new 销售管理.DAL.DataSetSaleDetails();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -286,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTravelExpenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTravelExpenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
-            this.dgvTravelExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTravelExpenses.ColumnHeadersHeight = 46;
             this.dgvTravelExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColDel,
             this.ColModify,
@@ -359,9 +359,9 @@
             // 产品名称
             // 
             this.产品名称.DataPropertyName = "ProjectName";
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.产品名称.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.产品名称.DefaultCellStyle = dataGridViewCellStyle1;
             this.产品名称.HeaderText = "项目名称";
             this.产品名称.MinimumWidth = 10;
             this.产品名称.Name = "产品名称";
@@ -388,9 +388,9 @@
             // 产品单价
             // 
             this.产品单价.DataPropertyName = "SumMoney";
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.产品单价.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.产品单价.DefaultCellStyle = dataGridViewCellStyle2;
             this.产品单价.HeaderText = "合计金额";
             this.产品单价.MinimumWidth = 10;
             this.产品单价.Name = "产品单价";

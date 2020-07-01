@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace 销售管理.DAL {
+namespace 销售管理 {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace 销售管理.DAL {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSetBusinessFee")]
+    [global::System.Xml.Serialization.XmlRootAttribute("MYDB_RT_MATDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSetBusinessFee : global::System.Data.DataSet {
+    public partial class MYDB_RT_MATDataSet : global::System.Data.DataSet {
         
-        private T_BusinessFeeDataTable tableT_BusinessFee;
+        private T_FeeTypeDataTable tableT_FeeType;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DataSetBusinessFee() {
+        public MYDB_RT_MATDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace 销售管理.DAL {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DataSetBusinessFee(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected MYDB_RT_MATDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace 销售管理.DAL {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["T_BusinessFee"] != null)) {
-                    base.Tables.Add(new T_BusinessFeeDataTable(ds.Tables["T_BusinessFee"]));
+                if ((ds.Tables["T_FeeType"] != null)) {
+                    base.Tables.Add(new T_FeeTypeDataTable(ds.Tables["T_FeeType"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace 销售管理.DAL {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public T_BusinessFeeDataTable T_BusinessFee {
+        public T_FeeTypeDataTable T_FeeType {
             get {
-                return this.tableT_BusinessFee;
+                return this.tableT_FeeType;
             }
         }
         
@@ -127,7 +127,7 @@ namespace 销售管理.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSetBusinessFee cln = ((DataSetBusinessFee)(base.Clone()));
+            MYDB_RT_MATDataSet cln = ((MYDB_RT_MATDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace 销售管理.DAL {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["T_BusinessFee"] != null)) {
-                    base.Tables.Add(new T_BusinessFeeDataTable(ds.Tables["T_BusinessFee"]));
+                if ((ds.Tables["T_FeeType"] != null)) {
+                    base.Tables.Add(new T_FeeTypeDataTable(ds.Tables["T_FeeType"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace 销售管理.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableT_BusinessFee = ((T_BusinessFeeDataTable)(base.Tables["T_BusinessFee"]));
+            this.tableT_FeeType = ((T_FeeTypeDataTable)(base.Tables["T_FeeType"]));
             if ((initTable == true)) {
-                if ((this.tableT_BusinessFee != null)) {
-                    this.tableT_BusinessFee.InitVars();
+                if ((this.tableT_FeeType != null)) {
+                    this.tableT_FeeType.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace 销售管理.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSetBusinessFee";
+            this.DataSetName = "MYDB_RT_MATDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSetBusinessFee.xsd";
+            this.Namespace = "http://tempuri.org/MYDB_RT_MATDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableT_BusinessFee = new T_BusinessFeeDataTable();
-            base.Tables.Add(this.tableT_BusinessFee);
+            this.tableT_FeeType = new T_FeeTypeDataTable();
+            base.Tables.Add(this.tableT_FeeType);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeT_BusinessFee() {
+        private bool ShouldSerializeT_FeeType() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace 销售管理.DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSetBusinessFee ds = new DataSetBusinessFee();
+            MYDB_RT_MATDataSet ds = new MYDB_RT_MATDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,37 +270,25 @@ namespace 销售管理.DAL {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void T_BusinessFeeRowChangeEventHandler(object sender, T_BusinessFeeRowChangeEvent e);
+        public delegate void T_FeeTypeRowChangeEventHandler(object sender, T_FeeTypeRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class T_BusinessFeeDataTable : global::System.Data.TypedTableBase<T_BusinessFeeRow> {
+        public partial class T_FeeTypeDataTable : global::System.Data.TypedTableBase<T_FeeTypeRow> {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnUserName;
+            private global::System.Data.DataColumn columnFeeTypeName;
             
-            private global::System.Data.DataColumn columnFeeType;
-            
-            private global::System.Data.DataColumn columnNotes;
-            
-            private global::System.Data.DataColumn columnSumFee;
-            
-            private global::System.Data.DataColumn columnCreateDate;
-            
-            private global::System.Data.DataColumn columnUpDateDate;
-            
-            private global::System.Data.DataColumn columnIntUsedID;
-            
-            private global::System.Data.DataColumn columnStatus;
+            private global::System.Data.DataColumn columnFeeDiscount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeDataTable() {
-                this.TableName = "T_BusinessFee";
+            public T_FeeTypeDataTable() {
+                this.TableName = "T_FeeType";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +296,7 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal T_BusinessFeeDataTable(global::System.Data.DataTable table) {
+            internal T_FeeTypeDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +313,7 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected T_BusinessFeeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected T_FeeTypeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -340,65 +328,17 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UserNameColumn {
+            public global::System.Data.DataColumn FeeTypeNameColumn {
                 get {
-                    return this.columnUserName;
+                    return this.columnFeeTypeName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FeeTypeColumn {
+            public global::System.Data.DataColumn FeeDiscountColumn {
                 get {
-                    return this.columnFeeType;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NotesColumn {
-                get {
-                    return this.columnNotes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SumFeeColumn {
-                get {
-                    return this.columnSumFee;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CreateDateColumn {
-                get {
-                    return this.columnCreateDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UpDateDateColumn {
-                get {
-                    return this.columnUpDateDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IntUsedIDColumn {
-                get {
-                    return this.columnIntUsedID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn StatusColumn {
-                get {
-                    return this.columnStatus;
+                    return this.columnFeeDiscount;
                 }
             }
             
@@ -413,53 +353,47 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRow this[int index] {
+            public T_FeeTypeRow this[int index] {
                 get {
-                    return ((T_BusinessFeeRow)(this.Rows[index]));
+                    return ((T_FeeTypeRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event T_BusinessFeeRowChangeEventHandler T_BusinessFeeRowChanging;
+            public event T_FeeTypeRowChangeEventHandler T_FeeTypeRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event T_BusinessFeeRowChangeEventHandler T_BusinessFeeRowChanged;
+            public event T_FeeTypeRowChangeEventHandler T_FeeTypeRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event T_BusinessFeeRowChangeEventHandler T_BusinessFeeRowDeleting;
+            public event T_FeeTypeRowChangeEventHandler T_FeeTypeRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event T_BusinessFeeRowChangeEventHandler T_BusinessFeeRowDeleted;
+            public event T_FeeTypeRowChangeEventHandler T_FeeTypeRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddT_BusinessFeeRow(T_BusinessFeeRow row) {
+            public void AddT_FeeTypeRow(T_FeeTypeRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRow AddT_BusinessFeeRow(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status) {
-                T_BusinessFeeRow rowT_BusinessFeeRow = ((T_BusinessFeeRow)(this.NewRow()));
+            public T_FeeTypeRow AddT_FeeTypeRow(string FeeTypeName, decimal FeeDiscount) {
+                T_FeeTypeRow rowT_FeeTypeRow = ((T_FeeTypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        UserName,
-                        FeeType,
-                        Notes,
-                        SumFee,
-                        CreateDate,
-                        UpDateDate,
-                        IntUsedID,
-                        Status};
-                rowT_BusinessFeeRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowT_BusinessFeeRow);
-                return rowT_BusinessFeeRow;
+                        FeeTypeName,
+                        FeeDiscount};
+                rowT_FeeTypeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowT_FeeTypeRow);
+                return rowT_FeeTypeRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                T_BusinessFeeDataTable cln = ((T_BusinessFeeDataTable)(base.Clone()));
+                T_FeeTypeDataTable cln = ((T_FeeTypeDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,84 +401,58 @@ namespace 销售管理.DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new T_BusinessFeeDataTable();
+                return new T_FeeTypeDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnUserName = base.Columns["UserName"];
-                this.columnFeeType = base.Columns["FeeType"];
-                this.columnNotes = base.Columns["Notes"];
-                this.columnSumFee = base.Columns["SumFee"];
-                this.columnCreateDate = base.Columns["CreateDate"];
-                this.columnUpDateDate = base.Columns["UpDateDate"];
-                this.columnIntUsedID = base.Columns["IntUsedID"];
-                this.columnStatus = base.Columns["Status"];
+                this.columnFeeTypeName = base.Columns["FeeTypeName"];
+                this.columnFeeDiscount = base.Columns["FeeDiscount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserName);
-                this.columnFeeType = new global::System.Data.DataColumn("FeeType", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFeeType);
-                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes);
-                this.columnSumFee = new global::System.Data.DataColumn("SumFee", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSumFee);
-                this.columnCreateDate = new global::System.Data.DataColumn("CreateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreateDate);
-                this.columnUpDateDate = new global::System.Data.DataColumn("UpDateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpDateDate);
-                this.columnIntUsedID = new global::System.Data.DataColumn("IntUsedID", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIntUsedID);
-                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatus);
+                this.columnFeeTypeName = new global::System.Data.DataColumn("FeeTypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeTypeName);
+                this.columnFeeDiscount = new global::System.Data.DataColumn("FeeDiscount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeeDiscount);
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
-                this.columnUserName.AllowDBNull = false;
-                this.columnFeeType.AllowDBNull = false;
-                this.columnNotes.AllowDBNull = false;
-                this.columnNotes.MaxLength = 50;
-                this.columnSumFee.AllowDBNull = false;
-                this.columnCreateDate.AllowDBNull = false;
-                this.columnUpDateDate.AllowDBNull = false;
-                this.columnIntUsedID.AllowDBNull = false;
-                this.columnStatus.MaxLength = 10;
+                this.columnFeeTypeName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRow NewT_BusinessFeeRow() {
-                return ((T_BusinessFeeRow)(this.NewRow()));
+            public T_FeeTypeRow NewT_FeeTypeRow() {
+                return ((T_FeeTypeRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new T_BusinessFeeRow(builder);
+                return new T_FeeTypeRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(T_BusinessFeeRow);
+                return typeof(T_FeeTypeRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.T_BusinessFeeRowChanged != null)) {
-                    this.T_BusinessFeeRowChanged(this, new T_BusinessFeeRowChangeEvent(((T_BusinessFeeRow)(e.Row)), e.Action));
+                if ((this.T_FeeTypeRowChanged != null)) {
+                    this.T_FeeTypeRowChanged(this, new T_FeeTypeRowChangeEvent(((T_FeeTypeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -552,8 +460,8 @@ namespace 销售管理.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.T_BusinessFeeRowChanging != null)) {
-                    this.T_BusinessFeeRowChanging(this, new T_BusinessFeeRowChangeEvent(((T_BusinessFeeRow)(e.Row)), e.Action));
+                if ((this.T_FeeTypeRowChanging != null)) {
+                    this.T_FeeTypeRowChanging(this, new T_FeeTypeRowChangeEvent(((T_FeeTypeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -561,8 +469,8 @@ namespace 销售管理.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.T_BusinessFeeRowDeleted != null)) {
-                    this.T_BusinessFeeRowDeleted(this, new T_BusinessFeeRowChangeEvent(((T_BusinessFeeRow)(e.Row)), e.Action));
+                if ((this.T_FeeTypeRowDeleted != null)) {
+                    this.T_FeeTypeRowDeleted(this, new T_FeeTypeRowChangeEvent(((T_FeeTypeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -570,14 +478,14 @@ namespace 销售管理.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.T_BusinessFeeRowDeleting != null)) {
-                    this.T_BusinessFeeRowDeleting(this, new T_BusinessFeeRowChangeEvent(((T_BusinessFeeRow)(e.Row)), e.Action));
+                if ((this.T_FeeTypeRowDeleting != null)) {
+                    this.T_FeeTypeRowDeleting(this, new T_FeeTypeRowChangeEvent(((T_FeeTypeRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveT_BusinessFeeRow(T_BusinessFeeRow row) {
+            public void RemoveT_FeeTypeRow(T_FeeTypeRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -586,7 +494,7 @@ namespace 销售管理.DAL {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetBusinessFee ds = new DataSetBusinessFee();
+                MYDB_RT_MATDataSet ds = new MYDB_RT_MATDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -604,7 +512,7 @@ namespace 销售管理.DAL {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "T_BusinessFeeDataTable";
+                attribute2.FixedValue = "T_FeeTypeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -648,131 +556,82 @@ namespace 销售管理.DAL {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class T_BusinessFeeRow : global::System.Data.DataRow {
+        public partial class T_FeeTypeRow : global::System.Data.DataRow {
             
-            private T_BusinessFeeDataTable tableT_BusinessFee;
+            private T_FeeTypeDataTable tableT_FeeType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal T_BusinessFeeRow(global::System.Data.DataRowBuilder rb) : 
+            internal T_FeeTypeRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableT_BusinessFee = ((T_BusinessFeeDataTable)(this.Table));
+                this.tableT_FeeType = ((T_FeeTypeDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long Id {
+            public int Id {
                 get {
-                    return ((long)(this[this.tableT_BusinessFee.IdColumn]));
+                    return ((int)(this[this.tableT_FeeType.IdColumn]));
                 }
                 set {
-                    this[this.tableT_BusinessFee.IdColumn] = value;
+                    this[this.tableT_FeeType.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long UserName {
-                get {
-                    return ((long)(this[this.tableT_BusinessFee.UserNameColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.UserNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int FeeType {
-                get {
-                    return ((int)(this[this.tableT_BusinessFee.FeeTypeColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.FeeTypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Notes {
-                get {
-                    return ((string)(this[this.tableT_BusinessFee.NotesColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.NotesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal SumFee {
-                get {
-                    return ((decimal)(this[this.tableT_BusinessFee.SumFeeColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.SumFeeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime CreateDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableT_BusinessFee.CreateDateColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.CreateDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime UpDateDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableT_BusinessFee.UpDateDateColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.UpDateDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public long IntUsedID {
-                get {
-                    return ((long)(this[this.tableT_BusinessFee.IntUsedIDColumn]));
-                }
-                set {
-                    this[this.tableT_BusinessFee.IntUsedIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Status {
+            public string FeeTypeName {
                 get {
                     try {
-                        return ((string)(this[this.tableT_BusinessFee.StatusColumn]));
+                        return ((string)(this[this.tableT_FeeType.FeeTypeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“T_BusinessFee”中列“Status”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“T_FeeType”中列“FeeTypeName”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tableT_BusinessFee.StatusColumn] = value;
+                    this[this.tableT_FeeType.FeeTypeNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsStatusNull() {
-                return this.IsNull(this.tableT_BusinessFee.StatusColumn);
+            public decimal FeeDiscount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableT_FeeType.FeeDiscountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“T_FeeType”中列“FeeDiscount”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_FeeType.FeeDiscountColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetStatusNull() {
-                this[this.tableT_BusinessFee.StatusColumn] = global::System.Convert.DBNull;
+            public bool IsFeeTypeNameNull() {
+                return this.IsNull(this.tableT_FeeType.FeeTypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeTypeNameNull() {
+                this[this.tableT_FeeType.FeeTypeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFeeDiscountNull() {
+                return this.IsNull(this.tableT_FeeType.FeeDiscountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFeeDiscountNull() {
+                this[this.tableT_FeeType.FeeDiscountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -780,22 +639,22 @@ namespace 销售管理.DAL {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class T_BusinessFeeRowChangeEvent : global::System.EventArgs {
+        public class T_FeeTypeRowChangeEvent : global::System.EventArgs {
             
-            private T_BusinessFeeRow eventRow;
+            private T_FeeTypeRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRowChangeEvent(T_BusinessFeeRow row, global::System.Data.DataRowAction action) {
+            public T_FeeTypeRowChangeEvent(T_FeeTypeRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRow Row {
+            public T_FeeTypeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -811,7 +670,7 @@ namespace 销售管理.DAL {
         }
     }
 }
-namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
+namespace 销售管理.MYDB_RT_MATDataSetTableAdapters {
     
     
     /// <summary>
@@ -823,7 +682,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class T_BusinessFeeTableAdapter : global::System.ComponentModel.Component {
+    public partial class T_FeeTypeTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -837,7 +696,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public T_BusinessFeeTableAdapter() {
+        public T_FeeTypeTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -934,31 +793,18 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "T_BusinessFee";
+            tableMapping.DataSetTable = "T_FeeType";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("UserName", "UserName");
-            tableMapping.ColumnMappings.Add("FeeType", "FeeType");
-            tableMapping.ColumnMappings.Add("Notes", "Notes");
-            tableMapping.ColumnMappings.Add("SumFee", "SumFee");
-            tableMapping.ColumnMappings.Add("CreateDate", "CreateDate");
-            tableMapping.ColumnMappings.Add("UpDateDate", "UpDateDate");
-            tableMapping.ColumnMappings.Add("IntUsedID", "IntUsedID");
-            tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("FeeTypeName", "FeeTypeName");
+            tableMapping.ColumnMappings.Add("FeeDiscount", "FeeDiscount");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [T_BusinessFee] ([UserName], [FeeType], [Notes], [SumFee], [CreateDat" +
-                "e], [UpDateDate], [IntUsedID], [Status]) VALUES (@UserName, @FeeType, @Notes, @S" +
-                "umFee, @CreateDate, @UpDateDate, @IntUsedID, @Status)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[T_FeeType] ([FeeTypeName], [FeeDiscount]) VALUES (@FeeTypeName" +
+                ", @FeeDiscount)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SumFee", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SumFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpDateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpDateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IntUsedID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IntUsedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeTypeName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeTypeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeDiscount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 3, 1, "FeeDiscount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -971,59 +817,18 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, UserName, FeeType, Notes, SumFee, CreateDate, UpDateDate, IntUsedID, S" +
-                "tatus\r\nFROM   T_BusinessFee";
+            this._commandCollection[0].CommandText = "SELECT Id, FeeTypeName, FeeDiscount FROM dbo.T_FeeType";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM [T_BusinessFee]  WHERE id=@id";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Id, UserName, FeeType, Notes, SumFee, CreateDate, UpDateDate, IntUsedID, S" +
-                "tatus\r\nFROM   T_BusinessFee where id=@id";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO [T_BusinessFee] ([UserName], [FeeType], [Notes], [SumFee], [CreateDat" +
-                "e], [UpDateDate], [IntUsedID], [Status]) VALUES (@UserName, @FeeType, @Notes, @S" +
-                "umFee, @CreateDate, @UpDateDate, @IntUsedID, @Status)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SumFee", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SumFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpDateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UpDateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IntUsedID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "IntUsedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE T_BusinessFee\r\nSET   UserName =@UserName , FeeType=@FeeType , Notes=@Notes" +
-                " , SumFee=@SumFee,\r\n         CreateDate=@CreateDate , UpDateDate=@UpDateDate , I" +
-                "ntUsedID=@IntUsedID , Status=@Status\r\n  where id=@id";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SumFee", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "SumFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpDateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UpDateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IntUsedID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "IntUsedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetBusinessFee.T_BusinessFeeDataTable dataTable) {
+        public virtual int Fill(MYDB_RT_MATDataSet.T_FeeTypeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1036,9 +841,9 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetBusinessFee.T_BusinessFeeDataTable GetData() {
+        public virtual MYDB_RT_MATDataSet.T_FeeTypeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSetBusinessFee.T_BusinessFeeDataTable dataTable = new DataSetBusinessFee.T_BusinessFeeDataTable();
+            MYDB_RT_MATDataSet.T_FeeTypeDataTable dataTable = new MYDB_RT_MATDataSet.T_FeeTypeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1046,41 +851,15 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DataSetBusinessFee.T_BusinessFeeDataTable dataTable, long id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetBusinessFee.T_BusinessFeeDataTable GetDataById(long id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(id));
-            DataSetBusinessFee.T_BusinessFeeDataTable dataTable = new DataSetBusinessFee.T_BusinessFeeDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetBusinessFee.T_BusinessFeeDataTable dataTable) {
+        public virtual int Update(MYDB_RT_MATDataSet.T_FeeTypeDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetBusinessFee dataSet) {
-            return this.Adapter.Update(dataSet, "T_BusinessFee");
+        public virtual int Update(MYDB_RT_MATDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "T_FeeType");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1102,24 +881,18 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(UserName));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(FeeType));
-            if ((Notes == null)) {
-                throw new global::System.ArgumentNullException("Notes");
+        public virtual int Insert(string FeeTypeName, global::System.Nullable<decimal> FeeDiscount) {
+            if ((FeeTypeName == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Notes));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(FeeTypeName));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(SumFee));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(CreateDate));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(UpDateDate));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((long)(IntUsedID));
-            if ((Status == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((FeeDiscount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(FeeDiscount.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Status));
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1136,113 +909,6 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
                 }
             }
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteById(long id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((long)(id));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
-            command.Parameters[0].Value = ((long)(UserName));
-            command.Parameters[1].Value = ((int)(FeeType));
-            if ((Notes == null)) {
-                throw new global::System.ArgumentNullException("Notes");
-            }
-            else {
-                command.Parameters[2].Value = ((string)(Notes));
-            }
-            command.Parameters[3].Value = ((decimal)(SumFee));
-            command.Parameters[4].Value = ((System.DateTime)(CreateDate));
-            command.Parameters[5].Value = ((System.DateTime)(UpDateDate));
-            command.Parameters[6].Value = ((long)(IntUsedID));
-            if ((Status == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(Status));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateById(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status, long id) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            command.Parameters[0].Value = ((long)(UserName));
-            command.Parameters[1].Value = ((int)(FeeType));
-            if ((Notes == null)) {
-                throw new global::System.ArgumentNullException("Notes");
-            }
-            else {
-                command.Parameters[2].Value = ((string)(Notes));
-            }
-            command.Parameters[3].Value = ((decimal)(SumFee));
-            command.Parameters[4].Value = ((System.DateTime)(CreateDate));
-            command.Parameters[5].Value = ((System.DateTime)(UpDateDate));
-            command.Parameters[6].Value = ((long)(IntUsedID));
-            if ((Status == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(Status));
-            }
-            command.Parameters[8].Value = ((long)(id));
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
     }
     
     /// <summary>
@@ -1257,7 +923,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private T_BusinessFeeTableAdapter _t_BusinessFeeTableAdapter;
+        private T_FeeTypeTableAdapter _t_FeeTypeTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1279,12 +945,12 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public T_BusinessFeeTableAdapter T_BusinessFeeTableAdapter {
+        public T_FeeTypeTableAdapter T_FeeTypeTableAdapter {
             get {
-                return this._t_BusinessFeeTableAdapter;
+                return this._t_FeeTypeTableAdapter;
             }
             set {
-                this._t_BusinessFeeTableAdapter = value;
+                this._t_FeeTypeTableAdapter = value;
             }
         }
         
@@ -1307,9 +973,9 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._t_BusinessFeeTableAdapter != null) 
-                            && (this._t_BusinessFeeTableAdapter.Connection != null))) {
-                    return this._t_BusinessFeeTableAdapter.Connection;
+                if (((this._t_FeeTypeTableAdapter != null) 
+                            && (this._t_FeeTypeTableAdapter.Connection != null))) {
+                    return this._t_FeeTypeTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1324,7 +990,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._t_BusinessFeeTableAdapter != null)) {
+                if ((this._t_FeeTypeTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1336,14 +1002,14 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DataSetBusinessFee dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(MYDB_RT_MATDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t_BusinessFeeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.T_BusinessFee.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._t_FeeTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.T_FeeType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._t_BusinessFeeTableAdapter.Update(updatedRows));
+                    result = (result + this._t_FeeTypeTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1355,13 +1021,13 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DataSetBusinessFee dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(MYDB_RT_MATDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t_BusinessFeeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.T_BusinessFee.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._t_FeeTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.T_FeeType.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._t_BusinessFeeTableAdapter.Update(addedRows));
+                    result = (result + this._t_FeeTypeTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1373,13 +1039,13 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DataSetBusinessFee dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(MYDB_RT_MATDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._t_BusinessFeeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.T_BusinessFee.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._t_FeeTypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.T_FeeType.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._t_BusinessFeeTableAdapter.Update(deletedRows));
+                    result = (result + this._t_FeeTypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1415,15 +1081,15 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DataSetBusinessFee dataSet) {
+        public virtual int UpdateAll(MYDB_RT_MATDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._t_BusinessFeeTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._t_BusinessFeeTableAdapter.Connection) == false))) {
+            if (((this._t_FeeTypeTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._t_FeeTypeTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -1457,13 +1123,13 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._t_BusinessFeeTableAdapter != null)) {
-                    revertConnections.Add(this._t_BusinessFeeTableAdapter, this._t_BusinessFeeTableAdapter.Connection);
-                    this._t_BusinessFeeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._t_BusinessFeeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._t_BusinessFeeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._t_BusinessFeeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._t_BusinessFeeTableAdapter.Adapter);
+                if ((this._t_FeeTypeTableAdapter != null)) {
+                    revertConnections.Add(this._t_FeeTypeTableAdapter, this._t_FeeTypeTableAdapter.Connection);
+                    this._t_FeeTypeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._t_FeeTypeTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._t_FeeTypeTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._t_FeeTypeTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._t_FeeTypeTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1524,9 +1190,9 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._t_BusinessFeeTableAdapter != null)) {
-                    this._t_BusinessFeeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_BusinessFeeTableAdapter]));
-                    this._t_BusinessFeeTableAdapter.Transaction = null;
+                if ((this._t_FeeTypeTableAdapter != null)) {
+                    this._t_FeeTypeTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._t_FeeTypeTableAdapter]));
+                    this._t_FeeTypeTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

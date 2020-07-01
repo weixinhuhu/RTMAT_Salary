@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using 销售管理.DAL.DataSetUsersTableAdapters;
 using Common;
 using 销售管理.日常业务.销售管理功能;
+using 销售管理.DAL.DataSetFeeTypeTableAdapters;
+
 namespace 销售管理.日常业务
 {
     public partial class 业务费用管理 : 销售管理.UserControlBase
@@ -15,15 +17,22 @@ namespace 销售管理.日常业务
 
         private void btnSerch_Click(object sender, EventArgs e)
         {
-            string mSql;         
+            refresh();
+        }
+
+        private void refresh() {
+            string mSql;
             mSql = @" SELECT a.[Id]
                   ,c.[UserName]
-                  ,a.[ProjectName]               
-                  ,a.[SumMoney]
-                  ,a.[SalaryDate]
-                FROM [dbo].[T_AdvertisingFee] a
+                  ,F.[FeeTypeName]
+                  ,a.[Notes]   
+                  ,a.[SumFee]   
+                  ,a.[CreateDate]
+                  ,a.[UpDateDate]
+                FROM [dbo].[T_BusinessFee] a
                 LEFT JOIN T_Users c ON a.UserName = c.id
-                WHERE 1=1";
+                LEFT JOIN T_FeeType f ON a.[FeeType]=f.Id
+                WHERE Status='正常'";
 
             if (cmbUserName.Text.Trim() != "")
             {
@@ -35,32 +44,33 @@ namespace 销售管理.日常业务
                 mSql += " and c.DepartmentName ='" + CmbDepartmentName.Text + "'";
             }
 
-            if (TxtPorjectName.Text != string.Empty)
+            if (cmbFeeType.Text != string.Empty)
             {
-                mSql += " and a.ProjectName like '%" + TxtPorjectName.Text + "%'";
+                mSql += " and a.ProjectName like '%" + cmbUserName.Text + "%'";
             }
 
             if (dtpStart.Checked == true)
             {
-                mSql += " and a.SalaryDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
+                mSql += " and a.CreateDate between '" + dtpStart.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.Date.ToString("yyyy-MM-dd") + "'";
             }
 
             try
             {
                 DataTable mTable = SqlHelper.GetData(mSql);
                 DataRow mRow = mTable.NewRow();
-                mRow["SumMoney"] = mTable.Compute("sum(SumMoney)", "true");
+                mRow["SumFee"] = mTable.Compute("sum(SumFee)", "true");
                 mTable.Rows.Add(mRow);
-                dgvAdvertisingFee.DataSource = mTable;
-                dgvAdvertisingFee.Rows[dgvAdvertisingFee.Rows.Count - 1].Cells["ColModify"] = new DataGridViewTextBoxCell();
-                dgvAdvertisingFee.Rows[dgvAdvertisingFee.Rows.Count - 1].Cells["ColModify"].Value = "总计";
+                dgvBusinessFee.DataSource = mTable;
+                dgvBusinessFee.Rows[dgvBusinessFee.Rows.Count - 1].Cells["ColDel"] = new DataGridViewTextBoxCell();
+                dgvBusinessFee.Rows[dgvBusinessFee.Rows.Count - 1].Cells["ColDel"].Value = "总计";
+                dgvBusinessFee.Rows[dgvBusinessFee.Rows.Count - 1].Cells["ColModify"] = new DataGridViewTextBoxCell();
+                dgvBusinessFee.Rows[dgvBusinessFee.Rows.Count - 1].Cells["ColModify"].Value = "";
 
-                if ((dgvAdvertisingFee.DataSource as DataTable).Rows.Count < 0)
+                if ((dgvBusinessFee.DataSource as DataTable).Rows.Count < 0)
                 {
                     MessageBox.Show("没有记录");
                     return;
                 }
-
             }
             catch (Exception ex)
             {
@@ -75,6 +85,12 @@ namespace 销售管理.日常业务
             cmbUserName.DisplayMember = "UserName";
             cmbUserName.ValueMember = "id";
             cmbUserName.SelectedIndex = -1;
+
+            //获取费用类型
+            cmbFeeType.DisplayMember = "FeeTypeName";
+            cmbFeeType.ValueMember = "id";
+            cmbFeeType.DataSource = new T_FeeTypeTableAdapter().GetFeeTypeName();
+            cmbFeeType.SelectedIndex = -1;
 
             CmbDepartmentName.DisplayMember = "VcName";
             CmbDepartmentName.DataSource = SqlHelper.GetData(" SELECT VcName FROM [dbo].[PTDepartment]"); ;
@@ -121,18 +137,41 @@ namespace 销售管理.日常业务
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dgvAdvertisingFee.Columns["ColModify"].Index)
+                if (e.ColumnIndex == dgvBusinessFee.Columns["ColModify"].Index)
                 {
                     业务费用录入 mForm = new 业务费用录入();
-                    mForm.mId = Convert.ToInt64(dgvAdvertisingFee.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
+                    mForm.mId = Convert.ToInt64(dgvBusinessFee.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
                     mForm.ShowDialog();
+                }
+
+                if (e.ColumnIndex == dgvBusinessFee.Columns["ColDel"].Index)//删除
+                {
+                    if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        string mSql = string.Format("UPDATE T_BusinessFee SET Status = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvBusinessFee.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
+                        int ret = SqlHelper.ExecuteNonQuery(mSql);
+                        if (ret > 0)
+                        {
+                            MessageBox.Show("删除成功!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                        refresh();
+                    }
                 }
             }
         }
 
         private void llAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Classes.ExcelDeport.Deport(dgvAdvertisingFee, 2);
+            Classes.ExcelDeport.Deport(dgvBusinessFee, 2);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }

@@ -170,6 +170,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetAdvertisingFee.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DataSetBusinessFee.cs">
+      <DependentUpon>DataSetBusinessFee.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DataSetBusinessFee.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -509,6 +512,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MYDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MYDB_RT_MATDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MYDB_RT_MATDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Print\PrintModelSet.cs">
       <SubType>Form</SubType>
@@ -1869,6 +1877,17 @@
     </None>
     <None Include="DAL\MYDBDataSet.xss">
       <DependentUpon>MYDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MYDB_RT_MATDataSet.xsc">
+      <DependentUpon>MYDB_RT_MATDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MYDB_RT_MATDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MYDB_RT_MATDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MYDB_RT_MATDataSet.xss">
+      <DependentUpon>MYDB_RT_MATDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

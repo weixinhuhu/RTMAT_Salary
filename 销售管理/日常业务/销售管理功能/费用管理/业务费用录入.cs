@@ -59,7 +59,7 @@ namespace 销售管理.日常业务
             }
             else
             {
-                 ret = new T_AdvertisingFeeTableAdapter().UpdateById((long)cmbUserName.SelectedValue, TxtProjectName.Text, Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, mId);
+                 ret = new T_BusinessFeeTableAdapter().UpdateById((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, DateTime.Now, Classes.PubClass.UserId, "正常",mId);
             }
 
             if (ret > 0)
@@ -94,14 +94,15 @@ namespace 销售管理.日常业务
             else
             {
                 DataTable dt = new DataTable();
-                dt = new T_AdvertisingFeeTableAdapter().GetDataById(mId);
+                dt = new T_BusinessFeeTableAdapter().GetDataById(mId);
                 if (dt.Rows.Count > 0)
                 {
-                    var mRow = (销售管理.DAL.DataSetAdvertisingFee.T_AdvertisingFeeRow)dt.Rows[0];
+                    var mRow = (销售管理.DAL.DataSetBusinessFee.T_BusinessFeeRow)dt.Rows[0];
                     cmbUserName.SelectedValue = mRow.UserName;
-                    TxtProjectName.Text = mRow.ProjectName.ToString();                 
-                    TxtSumMoney.Text = mRow.SumMoney.ToString("0.00");
-                    dtpDate1.Value = mRow.SalaryDate;
+                    cmbFeeType.SelectedValue = mRow.FeeType;
+                    TxtProjectName.Text = mRow.Notes.ToString();                 
+                    TxtSumMoney.Text = mRow.SumFee.ToString("0.00");
+                    dtpDate1.Value = mRow.CreateDate;
                 }
             }
 
