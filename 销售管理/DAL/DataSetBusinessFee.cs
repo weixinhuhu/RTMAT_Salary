@@ -4,6 +4,9 @@
 
     partial class DataSetBusinessFee
     {
+        partial class T_BusinessFeeDataTable
+        {
+        }
     }
 }
 

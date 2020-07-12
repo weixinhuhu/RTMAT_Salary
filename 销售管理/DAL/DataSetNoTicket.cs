@@ -4,6 +4,9 @@
 
     partial class DataSetNoTicket
     {
+        partial class T_NoTicketDataTable
+        {
+        }
     }
 }
 

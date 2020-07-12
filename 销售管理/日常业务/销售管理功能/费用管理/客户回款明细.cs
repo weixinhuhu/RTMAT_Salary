@@ -23,25 +23,25 @@ namespace 销售管理.日常业务.销售管理功能
 
         private void Product3List_Load(object sender, EventArgs e)
         {
-            //string mSql;
-            //SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
-            //mSql = @"SELECT Name,id  FROM dbo.T_Products WHERE ParentId=" + Classes.PubClass.Product2Id;
-            //SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);
-            //DataTable mTable = new DataTable();
-            //try
-            //{
-            //    adapter.Fill(mTable);
-            //    dgvProduct.DataSource = mTable;
-            //    if (mTable.Rows.Count < 1)
-            //    {
-            //        MessageBox.Show("没有记录");
-            //        return;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            string mSql;
+            SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
+            mSql = @"SELECT CompanyName,ReturnMoney,Notes,ReturnDate FROM dbo.T_Customers_MoneyReturnList WHERE CompanyName= "+"'"+ Common.CommonClass.CompanyName +"'";
+            SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);
+            DataTable mTable = new DataTable();
+            try
+            {
+                adapter.Fill(mTable);
+                dgvMoneyReturnList.DataSource = mTable;
+                if (mTable.Rows.Count < 1)
+                {
+                    MessageBox.Show("没有记录");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

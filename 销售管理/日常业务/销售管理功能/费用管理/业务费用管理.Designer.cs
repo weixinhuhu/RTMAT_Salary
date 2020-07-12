@@ -58,6 +58,7 @@
             this.ColModify = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FeeTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SumFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +91,7 @@
             this.ColModify,
             this.idDataGridViewTextBoxColumn,
             this.UserName,
+            this.CompanyName,
             this.FeeTypeName,
             this.Notes,
             this.SumFee,
@@ -364,6 +366,15 @@
             this.UserName.ReadOnly = true;
             this.UserName.Width = 127;
             // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CompanyName";
+            this.CompanyName.HeaderText = "客户名称";
+            this.CompanyName.MinimumWidth = 10;
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.ReadOnly = true;
+            this.CompanyName.Width = 151;
+            // 
             // FeeTypeName
             // 
             this.FeeTypeName.DataPropertyName = "FeeTypeName";
@@ -469,6 +480,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn ColModify;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeeTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
         private System.Windows.Forms.DataGridViewTextBoxColumn SumFee;

@@ -24,19 +24,21 @@ namespace 销售管理.日常业务
             string mSql;
             mSql = @" SELECT a.[Id]
                   ,c.[UserName]
+                  ,b.[CompanyName]
                   ,F.[FeeTypeName]
                   ,a.[Notes]   
                   ,a.[SumFee]   
                   ,a.[CreateDate]
                   ,a.[UpDateDate]
-                FROM [dbo].[T_BusinessFee] a
+                FROM [dbo].[T_BusinessFee] a        
+                LEFT JOIN T_Customers b ON a.CustomerName=b.id
                 LEFT JOIN T_Users c ON a.UserName = c.id
                 LEFT JOIN T_FeeType f ON a.[FeeType]=f.Id
-                WHERE Status='正常'";
+                WHERE a.Status='正常'";
 
             if (cmbUserName.Text.Trim() != "")
             {
-                mSql += " and UserName like '%" + cmbUserName.Text.Trim() + "%'";
+                mSql += " and  c.UserName like '%" + cmbUserName.Text.Trim() + "%'";
             }
 
             if (CmbDepartmentName.Text != string.Empty)
@@ -46,7 +48,7 @@ namespace 销售管理.日常业务
 
             if (cmbFeeType.Text != string.Empty)
             {
-                mSql += " and a.ProjectName like '%" + cmbUserName.Text + "%'";
+                mSql += " and F.FeeTypeName = '" + cmbFeeType.Text + "'";
             }
 
             if (dtpStart.Checked == true)

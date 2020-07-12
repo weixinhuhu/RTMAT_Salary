@@ -33,21 +33,19 @@ namespace 销售管理.日常业务
                                 a.CompanyName ,
                                 ISNULL(c.Total_Arrears, 0) AS 历史欠款金额 ,
                                 ISNULL(SUM(SumMoney), 0) AS 总发货金额 ,
-                                ISNULL(SUM(e.ReturnMoney), 0) AS 已回款金额                   
+                                ISNULL(SUM(ReturnMoney), 0) AS 已回款金额                   
                       FROM      T_Customers a
                                 LEFT JOIN dbo.T_Users b ON a.OperName = b.id
                                 LEFT JOIN dbo.T_Customers_billsdue c ON c.CompanyName = a.CompanyName
-                                LEFT JOIN dbo.T_SaleDetails d ON  a.id =d.CustomerName 
-					            AND d.SaleDate>='2018-1-1'
-                                LEFT JOIN dbo.T_Customers_MoneyReturnList e ON a.CompanyName = e.CompanyName 
-			            WHERE a.Status	='正常'		
+                                LEFT JOIN dbo.T_SaleDetails d ON  a.id =d.CustomerName         
+                                LEFT JOIN dbo.T_Customers_MoneyReturnList e ON a.CompanyName = e.CompanyName AND e.Status='正常'
+			            WHERE a.Status	='正常'	
                       GROUP BY  a.CompanyName ,
                                 b.UserName ,
                                 Total_Arrears
-                    ) Temp
-            WHERE   
-                     (历史欠款金额+总发货金额-已回款金额) != 0 ";
-            
+                    ) Temp 
+            WHERE 1=1 ";
+
             if (!Common.AuthenticateRight.AuthOperation(110301) && Common.CommonClass.SttUser.blSuperUser == false)
             {
                 mSql += @" and UserName='" + Classes.PubClass.UserName + "'";
@@ -66,7 +64,7 @@ namespace 销售管理.日常业务
             //{
             //    mSql += " and a.SaleDate between '" + dtp1.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59'";
             //}
-          
+
             SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);
             DataTable mTable = new DataTable();
             try
@@ -87,7 +85,7 @@ namespace 销售管理.日常业务
         }
 
         private void 销售明细管理_Load(object sender, EventArgs e)
-        {         
+        {
             cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
             cmbUserName.DisplayMember = "UserName";
             cmbUserName.ValueMember = "id";
@@ -97,8 +95,8 @@ namespace 销售管理.日常业务
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
                 cmbUserName.Enabled = false;
             }
-           
-            
+
+
             DateTime dt = DateTime.Now;
             dtp1.Value = dt.AddMonths(-dt.Month + 1).AddDays(-dt.Day + 1);
         }
@@ -110,7 +108,7 @@ namespace 销售管理.日常业务
             }
 
         }
-       
+
 
         private void dgvSaleDetails_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -119,12 +117,12 @@ namespace 销售管理.日常业务
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cmbUserName_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,19 +138,89 @@ namespace 销售管理.日常业务
             }
         }
 
-        private void dgvCustomerBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void getMoneyReturnList()
         {
-          if (e.RowIndex >= 0) { 
-            if (dgvCustomerBills.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString() == "客户回款明细查看")
+
+
+        }
+
+        private void dgvCustomerBills_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
+                if (dgvCustomerBills.Rows[e.RowIndex].Cells["已回款金额"].FormattedValue.ToString() == "¥0.00")
+                {
+                    if (dgvMoneyReturnList.Rows.Count > 0) { 
+
+                        //清空回款列表保持列表样式不改变
+                        DataTable dt = (DataTable)dgvMoneyReturnList.DataSource;
+
+                        dt.Rows.Clear();
+
+                        dgvMoneyReturnList.DataSource = dt;
+
+                        return;
+
+                    }
+                }
                 if (dgvCustomerBills.Rows[e.RowIndex].Cells["CompanyName"].FormattedValue.ToString() != "")
                 {
-                   CommonClass.CompanyName = dgvCustomerBills.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString();
-                   客户回款明细 mForm = new 客户回款明细();                     
-                   mForm.ShowDialog();
-                }                                                                           
+                    string mSql;
+                    SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
+                    mSql = @"SELECT id, CompanyName,ReturnMoney,Notes,ReturnDate FROM dbo.T_Customers_MoneyReturnList WHERE CompanyName= " + "'" + dgvCustomerBills.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString() + "' and Status='正常' ";
+                    SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);
+                    DataTable mTable = new DataTable();
+                    try
+                    {
+                        adapter.Fill(mTable);
+                        dgvMoneyReturnList.DataSource = mTable;
+                        if (mTable.Rows.Count < 1)
+                        {
+                            //MessageBox.Show("没有记录");
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
             }
-          }
+        }
+
+        private void dgvCustomerBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvMoneyReturnList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dgvMoneyReturnList.Columns["ColModify"].Index)
+                {
+                    销售回款录入 mForm = new 销售回款录入();
+                    mForm.mId = Convert.ToInt64(dgvMoneyReturnList.Rows[e.RowIndex].Cells["id"].Value);
+                    mForm.ShowDialog();
+                }
+
+                if (e.ColumnIndex == dgvMoneyReturnList.Columns["ColDel"].Index)//删除
+                {
+                    if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        string mSql = string.Format("UPDATE T_Customers_MoneyReturnList SET Status = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvMoneyReturnList.Rows[e.RowIndex].Cells["id"].Value));
+                        int ret = SqlHelper.ExecuteNonQuery(mSql);
+                        if (ret > 0)
+                        {
+                            MessageBox.Show("删除成功!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                    }
+                }
+            }
         }
     }
 }

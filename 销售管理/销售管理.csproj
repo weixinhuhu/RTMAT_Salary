@@ -779,6 +779,12 @@
     <Compile Include="日常业务\销售管理功能\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="日常业务\销售管理功能\申请费用分配 1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\申请费用分配 1.Designer.cs">
+      <DependentUpon>申请费用分配 1.cs</DependentUpon>
+    </Compile>
     <Compile Include="日常业务\销售管理功能\考勤管理\员工档案管理.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -857,10 +863,10 @@
     <Compile Include="日常业务\销售管理功能\费用管理\差旅费费用管理.Designer.cs">
       <DependentUpon>差旅费费用管理.cs</DependentUpon>
     </Compile>
-    <Compile Include="日常业务\销售管理功能\客户回款明细.cs">
+    <Compile Include="日常业务\销售管理功能\费用管理\客户回款明细.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="日常业务\销售管理功能\客户回款明细.Designer.cs">
+    <Compile Include="日常业务\销售管理功能\费用管理\客户回款明细.Designer.cs">
       <DependentUpon>客户回款明细.cs</DependentUpon>
     </Compile>
     <Compile Include="日常业务\销售管理功能\Product3List.cs">
@@ -1352,6 +1358,9 @@
     <EmbeddedResource Include="日常业务\销售管理功能\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\申请费用分配 1.resx">
+      <DependentUpon>申请费用分配 1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\考勤管理\员工档案管理.resx">
       <DependentUpon>员工档案管理.cs</DependentUpon>
     </EmbeddedResource>
@@ -1391,7 +1400,7 @@
     <EmbeddedResource Include="日常业务\销售管理功能\费用管理\差旅费费用管理.resx">
       <DependentUpon>差旅费费用管理.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="日常业务\销售管理功能\客户回款明细.resx">
+    <EmbeddedResource Include="日常业务\销售管理功能\费用管理\客户回款明细.resx">
       <DependentUpon>客户回款明细.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\Product3List.resx">

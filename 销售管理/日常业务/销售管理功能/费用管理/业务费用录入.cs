@@ -6,6 +6,7 @@ using 销售管理.DAL.DataSetAdvertisingFeeTableAdapters;
 using 销售管理.DAL.DataSetFeeTypeTableAdapters;
 using 销售管理.DAL.DataSetBusinessFeeTableAdapters;
 using System.Data;
+using 销售管理.DAL.DataSetCustomersTableAdapters;
 
 namespace 销售管理.日常业务
 {
@@ -55,11 +56,11 @@ namespace 销售管理.日常业务
 
             if (mId == -1)
             {
-                 ret = new T_BusinessFeeTableAdapter().Insert((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date,DateTime.Now,Classes.PubClass.UserId, "正常");
+                 ret = new T_BusinessFeeTableAdapter().Insert((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date,DateTime.Now,Classes.PubClass.UserId, "正常" ,(long)cmbCustomerName.SelectedValue);
             }
             else
             {
-                 ret = new T_BusinessFeeTableAdapter().UpdateById((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, DateTime.Now, Classes.PubClass.UserId, "正常",mId);
+                 ret = new T_BusinessFeeTableAdapter().UpdateById((long)cmbUserName.SelectedValue, (int)cmbFeeType.SelectedValue, TxtProjectName.Text.Trim(), Convert.ToDecimal(TxtSumMoney.Text), dtpDate1.Value.Date, DateTime.Now, Classes.PubClass.UserId, "正常", (long)cmbCustomerName.SelectedValue,mId);
             }
 
             if (ret > 0)
@@ -161,16 +162,6 @@ namespace 销售管理.日常业务
 
         
 
-        private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void cmbCustomerName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -181,6 +172,27 @@ namespace 销售管理.日常业务
             if (".0123456789".IndexOf(e.KeyChar) < 0 && (int)e.KeyChar != 8)
             {
                 e.Handled = true;
+            }
+        }
+        private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCustomerName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbUserName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cmbCustomerName.DataSource = null;
+            if (cmbUserName.SelectedIndex > -1)
+            {
+                cmbCustomerName.DisplayMember = "CompanyName";
+                cmbCustomerName.ValueMember = "id";
+                cmbCustomerName.DataSource = new T_CustomersTableAdapter().GetDataByUserId((long)cmbUserName.SelectedValue);
+                cmbCustomerName.SelectedIndex = -1;
             }
         }
     }

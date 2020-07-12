@@ -297,6 +297,8 @@ namespace 销售管理.DAL {
             
             private global::System.Data.DataColumn columnStatus;
             
+            private global::System.Data.DataColumn columnCustomerName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public T_BusinessFeeDataTable() {
@@ -404,6 +406,14 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CustomerNameColumn {
+                get {
+                    return this.columnCustomerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_BusinessFeeRow AddT_BusinessFeeRow(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status) {
+            public T_BusinessFeeRow AddT_BusinessFeeRow(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status, long CustomerName) {
                 T_BusinessFeeRow rowT_BusinessFeeRow = ((T_BusinessFeeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -450,7 +460,8 @@ namespace 销售管理.DAL {
                         CreateDate,
                         UpDateDate,
                         IntUsedID,
-                        Status};
+                        Status,
+                        CustomerName};
                 rowT_BusinessFeeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_BusinessFeeRow);
                 return rowT_BusinessFeeRow;
@@ -482,6 +493,7 @@ namespace 销售管理.DAL {
                 this.columnUpDateDate = base.Columns["UpDateDate"];
                 this.columnIntUsedID = base.Columns["IntUsedID"];
                 this.columnStatus = base.Columns["Status"];
+                this.columnCustomerName = base.Columns["CustomerName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,6 +517,8 @@ namespace 销售管理.DAL {
                 base.Columns.Add(this.columnIntUsedID);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
+                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerName);
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
@@ -765,6 +779,22 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long CustomerName {
+                get {
+                    try {
+                        return ((long)(this[this.tableT_BusinessFee.CustomerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“T_BusinessFee”中列“CustomerName”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_BusinessFee.CustomerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStatusNull() {
                 return this.IsNull(this.tableT_BusinessFee.StatusColumn);
             }
@@ -773,6 +803,18 @@ namespace 销售管理.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetStatusNull() {
                 this[this.tableT_BusinessFee.StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCustomerNameNull() {
+                return this.IsNull(this.tableT_BusinessFee.CustomerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCustomerNameNull() {
+                this[this.tableT_BusinessFee.CustomerNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -944,12 +986,14 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             tableMapping.ColumnMappings.Add("UpDateDate", "UpDateDate");
             tableMapping.ColumnMappings.Add("IntUsedID", "IntUsedID");
             tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("CustomerName", "CustomerName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [T_BusinessFee] ([UserName], [FeeType], [Notes], [SumFee], [CreateDat" +
-                "e], [UpDateDate], [IntUsedID], [Status]) VALUES (@UserName, @FeeType, @Notes, @S" +
-                "umFee, @CreateDate, @UpDateDate, @IntUsedID, @Status)";
+                "e], [UpDateDate], [IntUsedID], [Status], [CustomerName]) VALUES (@UserName, @Fee" +
+                "Type, @Notes, @SumFee, @CreateDate, @UpDateDate, @IntUsedID, @Status, @CustomerN" +
+                "ame)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -959,6 +1003,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpDateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpDateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IntUsedID", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IntUsedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -975,7 +1020,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, UserName, FeeType, Notes, SumFee, CreateDate, UpDateDate, IntUsedID, S" +
-                "tatus\r\nFROM   T_BusinessFee";
+                "tatus, CustomerName\r\nFROM   T_BusinessFee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -984,15 +1029,15 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Id, UserName, FeeType, Notes, SumFee, CreateDate, UpDateDate, IntUsedID, S" +
-                "tatus\r\nFROM   T_BusinessFee where id=@id";
+            this._commandCollection[2].CommandText = "SELECT CreateDate, CustomerName, FeeType, Id, IntUsedID, Notes, Status, SumFee, U" +
+                "pDateDate, UserName FROM T_BusinessFee WHERE (Id = @id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "INSERT INTO [T_BusinessFee] ([UserName], [FeeType], [Notes], [SumFee], [CreateDat" +
                 "e], [UpDateDate], [IntUsedID], [Status]) VALUES (@UserName, @FeeType, @Notes, @S" +
-                "umFee, @CreateDate, @UpDateDate, @IntUsedID, @Status)";
+                "umFee, @CreateDate, @UpDateDate, @IntUsedID, @Status，@CustomerName)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1004,9 +1049,10 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE T_BusinessFee\r\nSET   UserName =@UserName , FeeType=@FeeType , Notes=@Notes" +
-                " , SumFee=@SumFee,\r\n         CreateDate=@CreateDate , UpDateDate=@UpDateDate , I" +
-                "ntUsedID=@IntUsedID , Status=@Status\r\n  where id=@id";
+            this._commandCollection[4].CommandText = @"UPDATE T_BusinessFee
+SET     UserName = @UserName, FeeType = @FeeType, Notes = @Notes, SumFee = @SumFee, CreateDate = @CreateDate, UpDateDate = @UpDateDate, IntUsedID = @IntUsedID, Status = @Status, 
+          CustomerName = @CustomerName
+WHERE (Id = @id)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeeType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "FeeType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1016,6 +1062,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpDateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UpDateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IntUsedID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "IntUsedID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -1102,7 +1149,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status) {
+        public virtual int Insert(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status, global::System.Nullable<long> CustomerName) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(UserName));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(FeeType));
             if ((Notes == null)) {
@@ -1120,6 +1167,12 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Status));
+            }
+            if ((CustomerName.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((long)(CustomerName.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1206,7 +1259,7 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateById(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status, long id) {
+        public virtual int UpdateById(long UserName, int FeeType, string Notes, decimal SumFee, System.DateTime CreateDate, System.DateTime UpDateDate, long IntUsedID, string Status, global::System.Nullable<long> CustomerName, long id) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((long)(UserName));
             command.Parameters[1].Value = ((int)(FeeType));
@@ -1226,7 +1279,13 @@ namespace 销售管理.DAL.DataSetBusinessFeeTableAdapters {
             else {
                 command.Parameters[7].Value = ((string)(Status));
             }
-            command.Parameters[8].Value = ((long)(id));
+            if ((CustomerName.HasValue == true)) {
+                command.Parameters[8].Value = ((long)(CustomerName.Value));
+            }
+            else {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[9].Value = ((long)(id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

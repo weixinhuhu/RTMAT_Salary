@@ -173,7 +173,7 @@ namespace 销售管理.日常业务
                 {
                     if (dgvSaleDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString() == "申请费用分配")
                     {
-                        using (申请费用分配 mForm = new 申请费用分配())
+                        using (申请费用分配1 mForm = new 申请费用分配1())
                         {
                             mForm.mRow = dgvSaleDetails.Rows[e.RowIndex];
                             if (mForm.ShowDialog() == DialogResult.OK)

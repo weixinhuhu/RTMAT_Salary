@@ -39,11 +39,13 @@
             this.TxtSumMoney = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbCustomerName = new System.Windows.Forms.ComboBox();
+            this.cmbFeeType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtProjectName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmbFeeType = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(561, 251);
+            this.label3.Location = new System.Drawing.Point(561, 304);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 24);
@@ -61,7 +63,7 @@
             // dtpDate1
             // 
             this.dtpDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate1.Location = new System.Drawing.Point(683, 246);
+            this.dtpDate1.Location = new System.Drawing.Point(683, 299);
             this.dtpDate1.Margin = new System.Windows.Forms.Padding(6);
             this.dtpDate1.Name = "dtpDate1";
             this.dtpDate1.Size = new System.Drawing.Size(353, 35);
@@ -71,7 +73,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(88, 251);
+            this.label6.Location = new System.Drawing.Point(88, 304);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 24);
@@ -80,7 +82,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(800, 355);
+            this.btnClose.Location = new System.Drawing.Point(800, 415);
             this.btnClose.Margin = new System.Windows.Forms.Padding(6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(186, 70);
@@ -91,7 +93,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(314, 355);
+            this.btnSave.Location = new System.Drawing.Point(314, 415);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(186, 70);
@@ -122,11 +124,11 @@
             this.cmbUserName.Name = "cmbUserName";
             this.cmbUserName.Size = new System.Drawing.Size(830, 32);
             this.cmbUserName.TabIndex = 8;
-            this.cmbUserName.SelectedIndexChanged += new System.EventHandler(this.cmbUserName_SelectedIndexChanged);
+            this.cmbUserName.SelectionChangeCommitted += new System.EventHandler(this.cmbUserName_SelectionChangeCommitted);
             // 
             // TxtSumMoney
             // 
-            this.TxtSumMoney.Location = new System.Drawing.Point(206, 248);
+            this.TxtSumMoney.Location = new System.Drawing.Point(206, 301);
             this.TxtSumMoney.Margin = new System.Windows.Forms.Padding(6);
             this.TxtSumMoney.Name = "TxtSumMoney";
             this.TxtSumMoney.Size = new System.Drawing.Size(290, 35);
@@ -147,6 +149,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cmbCustomerName);
             this.groupBox1.Controls.Add(this.cmbFeeType);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtProjectName);
@@ -161,29 +165,34 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(1198, 319);
+            this.groupBox1.Size = new System.Drawing.Size(1198, 379);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // TxtProjectName
+            // label5
             // 
-            this.TxtProjectName.Location = new System.Drawing.Point(206, 180);
-            this.TxtProjectName.Margin = new System.Windows.Forms.Padding(6);
-            this.TxtProjectName.Name = "TxtProjectName";
-            this.TxtProjectName.Size = new System.Drawing.Size(830, 35);
-            this.TxtProjectName.TabIndex = 10;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(88, 108);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 24);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "客户名称";
             // 
-            // label4
+            // cmbCustomerName
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(88, 183);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 24);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "费用说明";
+            this.cmbCustomerName.DropDownHeight = 300;
+            this.cmbCustomerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCustomerName.FormattingEnabled = true;
+            this.cmbCustomerName.IntegralHeight = false;
+            this.cmbCustomerName.Location = new System.Drawing.Point(206, 102);
+            this.cmbCustomerName.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbCustomerName.Name = "cmbCustomerName";
+            this.cmbCustomerName.Size = new System.Drawing.Size(830, 32);
+            this.cmbCustomerName.TabIndex = 14;
+            this.cmbCustomerName.SelectionChangeCommitted += new System.EventHandler(this.cmbCustomerName_SelectionChangeCommitted);
             // 
             // cmbFeeType
             // 
@@ -191,7 +200,7 @@
             this.cmbFeeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFeeType.FormattingEnabled = true;
             this.cmbFeeType.IntegralHeight = false;
-            this.cmbFeeType.Location = new System.Drawing.Point(206, 110);
+            this.cmbFeeType.Location = new System.Drawing.Point(206, 163);
             this.cmbFeeType.Margin = new System.Windows.Forms.Padding(6);
             this.cmbFeeType.Name = "cmbFeeType";
             this.cmbFeeType.Size = new System.Drawing.Size(830, 32);
@@ -201,12 +210,31 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(88, 116);
+            this.label1.Location = new System.Drawing.Point(88, 169);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "费用类别";
+            // 
+            // TxtProjectName
+            // 
+            this.TxtProjectName.Location = new System.Drawing.Point(206, 233);
+            this.TxtProjectName.Margin = new System.Windows.Forms.Padding(6);
+            this.TxtProjectName.Name = "TxtProjectName";
+            this.TxtProjectName.Size = new System.Drawing.Size(830, 35);
+            this.TxtProjectName.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(88, 236);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 24);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "费用说明";
             // 
             // 业务费用录入
             // 
@@ -215,7 +243,7 @@
             this.AutoSize = true;
             this.BackgroundImage = global::销售管理.Properties.Resources.smallback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1298, 441);
+            this.ClientSize = new System.Drawing.Size(1298, 500);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
@@ -250,5 +278,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbFeeType;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbCustomerName;
     }
 }

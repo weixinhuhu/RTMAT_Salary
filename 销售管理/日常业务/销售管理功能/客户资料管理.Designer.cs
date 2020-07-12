@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvContact = new System.Windows.Forms.DataGridView();
+            this.tCustomersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetCustomers = new 销售管理.DAL.DataSetCustomers();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CmbCustomersType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtComName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tCustomersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetCustomers = new 销售管理.DAL.DataSetCustomers();
             this.t_CustomersTableAdapter = new 销售管理.DAL.DataSetCustomersTableAdapters.T_CustomersTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColModify = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -65,9 +65,9 @@
             this.DeliverPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliverContactAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContact)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCustomersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCustomers)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -78,8 +78,8 @@
             // 
             this.dgvContact.AllowUserToAddRows = false;
             this.dgvContact.AllowUserToDeleteRows = false;
-            this.dgvContact.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvContact.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvContact.AutoGenerateColumns = false;
             this.dgvContact.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -112,9 +112,19 @@
             this.dgvContact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContact_CellContentClick);
             this.dgvContact.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvContact_RowsAdded);
             // 
+            // tCustomersBindingSource
+            // 
+            this.tCustomersBindingSource.DataMember = "T_Customers";
+            this.tCustomersBindingSource.DataSource = this.dataSetCustomers;
+            // 
+            // dataSetCustomers
+            // 
+            this.dataSetCustomers.DataSetName = "DataSetCustomers";
+            this.dataSetCustomers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.CmbCustomersType);
             this.groupBox1.Controls.Add(this.label15);
@@ -302,16 +312,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "公司名称";
             // 
-            // tCustomersBindingSource
-            // 
-            this.tCustomersBindingSource.DataMember = "T_Customers";
-            this.tCustomersBindingSource.DataSource = this.dataSetCustomers;
-            // 
-            // dataSetCustomers
-            // 
-            this.dataSetCustomers.DataSetName = "DataSetCustomers";
-            this.dataSetCustomers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // t_CustomersTableAdapter
             // 
             this.t_CustomersTableAdapter.ClearBeforeFill = true;
@@ -319,7 +319,6 @@
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
@@ -329,30 +328,29 @@
             // 
             // ColModify
             // 
-            this.ColModify.Frozen = true;
             this.ColModify.HeaderText = "";
             this.ColModify.MinimumWidth = 10;
             this.ColModify.Name = "ColModify";
             this.ColModify.ReadOnly = true;
+            this.ColModify.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColModify.Text = "修改";
             this.ColModify.UseColumnTextForButtonValue = true;
-            this.ColModify.Width = 10;
+            this.ColModify.Width = 37;
             // 
             // ColDel
             // 
-            this.ColDel.Frozen = true;
             this.ColDel.HeaderText = "";
             this.ColDel.MinimumWidth = 10;
             this.ColDel.Name = "ColDel";
             this.ColDel.ReadOnly = true;
+            this.ColDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColDel.Text = "删除";
             this.ColDel.UseColumnTextForButtonValue = true;
-            this.ColDel.Width = 10;
+            this.ColDel.Width = 37;
             // 
             // OperName
             // 
-            this.OperName.DataPropertyName = "OperName1";
-            this.OperName.Frozen = true;
+            this.OperName.DataPropertyName = "opername1";
             this.OperName.HeaderText = "所属销售";
             this.OperName.MinimumWidth = 10;
             this.OperName.Name = "OperName";
@@ -362,7 +360,6 @@
             // companyNameDataGridViewTextBoxColumn
             // 
             this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
-            this.companyNameDataGridViewTextBoxColumn.Frozen = true;
             this.companyNameDataGridViewTextBoxColumn.HeaderText = "公司名称";
             this.companyNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
@@ -372,7 +369,6 @@
             // companyAddressDataGridViewTextBoxColumn
             // 
             this.companyAddressDataGridViewTextBoxColumn.DataPropertyName = "CompanyAddress";
-            this.companyAddressDataGridViewTextBoxColumn.Frozen = true;
             this.companyAddressDataGridViewTextBoxColumn.HeaderText = "公司地址";
             this.companyAddressDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.companyAddressDataGridViewTextBoxColumn.Name = "companyAddressDataGridViewTextBoxColumn";
@@ -387,7 +383,6 @@
             dataGridViewCellStyle1.Format = "C2";
             dataGridViewCellStyle1.NullValue = "-";
             this.CustomersCredit.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CustomersCredit.Frozen = true;
             this.CustomersCredit.HeaderText = "授信额度";
             this.CustomersCredit.MinimumWidth = 10;
             this.CustomersCredit.Name = "CustomersCredit";
@@ -469,10 +464,10 @@
             this.Controls.SetChildIndex(this.dgvContact, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContact)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCustomersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetCustomers)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

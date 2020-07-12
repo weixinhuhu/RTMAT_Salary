@@ -56,10 +56,26 @@ namespace 销售管理.日常业务
             {
                 toolTip1.Show("请输入正确的回款金额！", txtStockOutNo, 0, txtStockOutNo.Height, 2000);
                 return;     
-            }
+            } 
 
             T_Customers_MoneyReturnListTableAdapter adapter = new T_Customers_MoneyReturnListTableAdapter();
-            int ret = adapter.Insert(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value);
+
+            if (mId > 0)
+            {
+               int  ret1 = adapter.UpdateById(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value, "", "正常",(int)mId);
+                if (ret1 > 0)
+                {
+                    MessageBox.Show("修改成功");
+                    btnSave.Enabled = false;
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                    return;
+                }
+            }
+            int ret = adapter.Insert(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value,"","正常");
             if (ret > 0)
             {
                 MessageBox.Show("添加成功");
@@ -80,6 +96,23 @@ namespace 销售管理.日常业务
             cmbUserName.ValueMember = "id";
             cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
             cmbUserName.SelectedIndex = -1;
+
+            if (mId == -1)
+            {
+            }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt = new T_Customers_MoneyReturnListTableAdapter().GetDataById((int)mId);
+                if (dt.Rows.Count > 0)
+                {
+                    var mRow = (销售管理.DAL.DataSetMoneyReturn.T_Customers_MoneyReturnListRow)dt.Rows[0];
+                    cmbUserName.Text = mRow.UserName;
+                    cmbCustomerName.Text = mRow.CompanyName;
+                    txtStockOutNo.Text = mRow.ReturnMoney.ToString("0.00");
+                    dtpDate1.Value = mRow.ReturnDate;
+                }
+            }
         }
 
         public class MyCmbList
@@ -109,17 +142,13 @@ namespace 销售管理.日常业务
                 {
                     return mName;
                 }
-
             }
             public override string ToString()
             {
                 return Name;
             }
         }
-
-      
-      
-    
+ 
         private void cmbCustomerName_DataSourceChanged(object sender, EventArgs e)
         {
             cmbCustomerName.SelectedIndex = -1;

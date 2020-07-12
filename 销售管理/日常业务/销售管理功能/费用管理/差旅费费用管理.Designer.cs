@@ -286,7 +286,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTravelExpenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTravelExpenses.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
-            this.dgvTravelExpenses.ColumnHeadersHeight = 46;
+            this.dgvTravelExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTravelExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColDel,
             this.ColModify,

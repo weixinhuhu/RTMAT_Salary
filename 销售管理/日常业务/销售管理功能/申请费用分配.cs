@@ -241,10 +241,10 @@ namespace 销售管理.日常业务
                 if (mTable.Rows.Count > 0)
                 {
                     销售管理.DAL.DataSetUsers.T_UsersRow mRow = mTable[0];
-                    string mSalerChar = mRow.UserChar;
+                    string mSalerChar ="D";
                     if (type == "个人订单" || type == "部门订单" || type == "跨区域订单")
                     {
-                        mTableNo = "RT-" + mSalerChar + mTableNo;
+                        mTableNo = "RT-MAT" + mSalerChar + mTableNo;
                         if (mSalerChar == "")
                         {
                             MessageBox.Show("请设置个人区域代码");

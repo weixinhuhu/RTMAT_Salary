@@ -31,7 +31,7 @@ namespace 销售管理.日常业务
             //设置授权额度列右对齐
             dgvContact.Columns["CustomersCredit"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            tCustomersBindingSource.DataSource = t_CustomersTableAdapter.GetDataAndCountByUserId(Classes.PubClass.UserId);
+            //tCustomersBindingSource.DataSource = t_CustomersTableAdapter.GetDataAndCountByUserId(Classes.PubClass.UserId);
 
             if (!Common.AuthenticateRight.AuthOperation(110101) && Common.CommonClass.SttUser.blSuperUser == false)
             {
@@ -54,7 +54,7 @@ namespace 销售管理.日常业务
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
 
             //20190328
-            mSql = @"SELECT  A.id ,
+            mSql = @"SELECT A.id ,
                             b.UserName opername1,
                             A.CompanyName ,
                             A.CompanyAddress ,
@@ -176,7 +176,7 @@ namespace 销售管理.日常业务
 
                 if (e.ColumnIndex == 1)
                 {
-                    if ((dgvContact.Rows[e.RowIndex].Cells["OperName"].Value.ToString() == Classes.PubClass.UserName || Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")
+                    if ((Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")
                     {
                         客户资料维护 mForm = new 客户资料维护();
                         mForm.mId = Convert.ToInt64(dgvContact.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
@@ -185,7 +185,7 @@ namespace 销售管理.日常业务
                 }
                 if (e.ColumnIndex == 2)
                 {
-                    if ((dgvContact.Rows[e.RowIndex].Cells["OperName"].Value.ToString() == Classes.PubClass.UserName || Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")
+                    if ((Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")
                     {
                         if (MessageBox.Show("确认删除该客户资料？", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
                         {

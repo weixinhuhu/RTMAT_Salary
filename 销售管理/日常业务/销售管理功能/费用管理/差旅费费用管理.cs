@@ -24,7 +24,8 @@ namespace 销售管理.日常业务
             refresh();
         }
 
-        private void refresh() {
+        private void refresh()
+        {
             string mSql;
             mSql = @" SELECT a.[Id]
                   ,c.[UserName]
@@ -87,9 +88,9 @@ namespace 销售管理.日常业务
                 return;
             }
         }
-        
+
         private void 销售明细管理_Load(object sender, EventArgs e)
-        {         
+        {
             cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
             cmbUserName.DisplayMember = "UserName";
             cmbUserName.ValueMember = "id";
@@ -103,7 +104,7 @@ namespace 销售管理.日常业务
             {
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
                 cmbUserName.Enabled = false;
-            }           
+            }
             DateTime dt = DateTime.Now;
             dtpStart.Value = dt.AddMonths(-dt.Month + 1).AddDays(-dt.Day + 1);
         }
@@ -114,7 +115,7 @@ namespace 销售管理.日常业务
                 mForm.ShowDialog();
             }
 
-        } 
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -144,9 +145,8 @@ namespace 销售管理.日常业务
 
         private void dgvTravelExpenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                if (e.RowIndex >= 0)
-                {
+            if (e.RowIndex >= 0)
+            {
                 if (e.ColumnIndex == dgvTravelExpenses.Columns["ColModify"].Index)
                 {
                     差旅费录入 mForm = new 差旅费录入();
@@ -155,21 +155,21 @@ namespace 销售管理.日常业务
                 }
 
                 if (e.ColumnIndex == dgvTravelExpenses.Columns["ColDel"].Index)//删除
+                {
+                    if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        if (MessageBox.Show("确认要删除该条记录吗?", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        string mSql = string.Format("UPDATE T_TravelExpenses SET Status = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvTravelExpenses.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
+                        int ret = SqlHelper.ExecuteNonQuery(mSql);
+                        if (ret > 0)
                         {
-                            string mSql = string.Format("UPDATE T_TravelExpenses SET Status = '{0}'  WHERE Id = {1}", "删除", Convert.ToInt64(dgvTravelExpenses.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
-                            int ret = SqlHelper.ExecuteNonQuery(mSql);
-                            if (ret > 0)
-                            {
-                                MessageBox.Show("删除成功!");
-                            }
-                            else
-                            {
-                                MessageBox.Show("删除失败!");
-                            }
-                            refresh();
-                        
+                            MessageBox.Show("删除成功!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败!");
+                        }
+                        refresh();
+
                     }
                 }
             }

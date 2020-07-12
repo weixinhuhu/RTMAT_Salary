@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCustomerBills = new System.Windows.Forms.DataGridView();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,10 +57,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.t_SaleDetailsTableAdapter = new 销售管理.DAL.DataSetSaleDetailsTableAdapters.T_SaleDetailsTableAdapter();
+            this.dgvMoneyReturnList = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDel = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColModify = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.公司名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.回款金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.回款日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerBills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetSaleDetails)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMoneyReturnList)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -76,6 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCustomerBills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCustomerBills.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
+            this.dgvCustomerBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
             this.CompanyName,
@@ -84,13 +98,16 @@
             this.已回款金额,
             this.剩余欠款金额,
             this.客户回款明细});
-            this.dgvCustomerBills.Location = new System.Drawing.Point(70, 207);
+            this.dgvCustomerBills.Location = new System.Drawing.Point(9, 37);
             this.dgvCustomerBills.Margin = new System.Windows.Forms.Padding(6);
             this.dgvCustomerBills.Name = "dgvCustomerBills";
+            this.dgvCustomerBills.RowHeadersWidth = 82;
             this.dgvCustomerBills.RowTemplate.Height = 23;
+            this.dgvCustomerBills.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomerBills.ShowEditingIcon = false;
-            this.dgvCustomerBills.Size = new System.Drawing.Size(1870, 1187);
+            this.dgvCustomerBills.Size = new System.Drawing.Size(1830, 659);
             this.dgvCustomerBills.TabIndex = 1;
+            this.dgvCustomerBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerBills_CellClick);
             this.dgvCustomerBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerBills_CellContentClick);
             this.dgvCustomerBills.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvSaleDetails_RowsAdded);
             // 
@@ -98,25 +115,28 @@
             // 
             this.UserName.DataPropertyName = "UserName";
             this.UserName.HeaderText = "销售员";
+            this.UserName.MinimumWidth = 10;
             this.UserName.Name = "UserName";
             this.UserName.ReadOnly = true;
-            this.UserName.Width = 127;
+            this.UserName.Width = 118;
             // 
             // CompanyName
             // 
             this.CompanyName.DataPropertyName = "CompanyName";
             this.CompanyName.HeaderText = "客户名称";
+            this.CompanyName.MinimumWidth = 10;
             this.CompanyName.Name = "CompanyName";
             this.CompanyName.ReadOnly = true;
-            this.CompanyName.Width = 151;
+            this.CompanyName.Width = 118;
             // 
             // 历史欠款金额
             // 
             this.历史欠款金额.DataPropertyName = "历史欠款金额";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.历史欠款金额.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle36.Format = "C2";
+            dataGridViewCellStyle36.NullValue = null;
+            this.历史欠款金额.DefaultCellStyle = dataGridViewCellStyle36;
             this.历史欠款金额.HeaderText = "历史欠款金额";
+            this.历史欠款金额.MinimumWidth = 10;
             this.历史欠款金额.Name = "历史欠款金额";
             this.历史欠款金额.ReadOnly = true;
             this.历史欠款金额.Width = 199;
@@ -124,10 +144,11 @@
             // 总发货金额
             // 
             this.总发货金额.DataPropertyName = "总发货金额";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.总发货金额.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle37.Format = "C2";
+            dataGridViewCellStyle37.NullValue = null;
+            this.总发货金额.DefaultCellStyle = dataGridViewCellStyle37;
             this.总发货金额.HeaderText = "总发货金额";
+            this.总发货金额.MinimumWidth = 10;
             this.总发货金额.Name = "总发货金额";
             this.总发货金额.ReadOnly = true;
             this.总发货金额.Width = 175;
@@ -135,10 +156,11 @@
             // 已回款金额
             // 
             this.已回款金额.DataPropertyName = "已回款金额";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.已回款金额.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle38.Format = "C2";
+            dataGridViewCellStyle38.NullValue = null;
+            this.已回款金额.DefaultCellStyle = dataGridViewCellStyle38;
             this.已回款金额.HeaderText = "已回款金额";
+            this.已回款金额.MinimumWidth = 10;
             this.已回款金额.Name = "已回款金额";
             this.已回款金额.ReadOnly = true;
             this.已回款金额.Width = 175;
@@ -146,24 +168,27 @@
             // 剩余欠款金额
             // 
             this.剩余欠款金额.DataPropertyName = "剩余欠款金额";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.剩余欠款金额.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle39.Format = "C2";
+            dataGridViewCellStyle39.NullValue = null;
+            this.剩余欠款金额.DefaultCellStyle = dataGridViewCellStyle39;
             this.剩余欠款金额.HeaderText = "剩余欠款金额";
+            this.剩余欠款金额.MinimumWidth = 10;
             this.剩余欠款金额.Name = "剩余欠款金额";
             this.剩余欠款金额.ReadOnly = true;
             this.剩余欠款金额.Width = 199;
             // 
             // 客户回款明细
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "客户回款明细查看";
-            this.客户回款明细.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.NullValue = "客户回款明细查看";
+            this.客户回款明细.DefaultCellStyle = dataGridViewCellStyle40;
             this.客户回款明细.HeaderText = "客户回款明细";
+            this.客户回款明细.MinimumWidth = 10;
             this.客户回款明细.Name = "客户回款明细";
             this.客户回款明细.ReadOnly = true;
             this.客户回款明细.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.客户回款明细.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.客户回款明细.Visible = false;
             this.客户回款明细.Width = 199;
             // 
             // tSaleDetailsBindingSource
@@ -319,23 +344,148 @@
             // 
             this.t_SaleDetailsTableAdapter.ClearBeforeFill = true;
             // 
+            // dgvMoneyReturnList
+            // 
+            this.dgvMoneyReturnList.AllowUserToAddRows = false;
+            this.dgvMoneyReturnList.AllowUserToDeleteRows = false;
+            this.dgvMoneyReturnList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMoneyReturnList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvMoneyReturnList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
+            this.dgvMoneyReturnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMoneyReturnList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.ColDel,
+            this.ColModify,
+            this.公司名称,
+            this.回款金额,
+            this.备注,
+            this.回款日期});
+            this.dgvMoneyReturnList.Location = new System.Drawing.Point(9, 28);
+            this.dgvMoneyReturnList.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvMoneyReturnList.Name = "dgvMoneyReturnList";
+            this.dgvMoneyReturnList.RowHeadersWidth = 82;
+            this.dgvMoneyReturnList.RowTemplate.Height = 23;
+            this.dgvMoneyReturnList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvMoneyReturnList.ShowEditingIcon = false;
+            this.dgvMoneyReturnList.Size = new System.Drawing.Size(1830, 247);
+            this.dgvMoneyReturnList.TabIndex = 3;
+            this.dgvMoneyReturnList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMoneyReturnList_CellContentClick);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.dgvCustomerBills);
+            this.groupBox2.Location = new System.Drawing.Point(70, 204);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1870, 705);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "客户货款台账";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.AutoSize = true;
+            this.groupBox3.Controls.Add(this.dgvMoneyReturnList);
+            this.groupBox3.Location = new System.Drawing.Point(70, 915);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1870, 284);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "客户回款明细";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 10;
+            this.id.Name = "id";
+            this.id.Visible = false;
+            this.id.Width = 40;
+            // 
+            // ColDel
+            // 
+            this.ColDel.HeaderText = "删除";
+            this.ColDel.MinimumWidth = 10;
+            this.ColDel.Name = "ColDel";
+            this.ColDel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColDel.Text = "删除";
+            this.ColDel.UseColumnTextForButtonValue = true;
+            this.ColDel.Width = 103;
+            // 
+            // ColModify
+            // 
+            this.ColModify.HeaderText = "修改";
+            this.ColModify.MinimumWidth = 10;
+            this.ColModify.Name = "ColModify";
+            this.ColModify.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColModify.Text = "修改";
+            this.ColModify.UseColumnTextForButtonValue = true;
+            this.ColModify.Width = 103;
+            // 
+            // 公司名称
+            // 
+            this.公司名称.DataPropertyName = "CompanyName";
+            this.公司名称.HeaderText = "公司名称";
+            this.公司名称.MinimumWidth = 10;
+            this.公司名称.Name = "公司名称";
+            this.公司名称.Width = 151;
+            // 
+            // 回款金额
+            // 
+            this.回款金额.DataPropertyName = "ReturnMoney";
+            this.回款金额.HeaderText = "回款金额";
+            this.回款金额.MinimumWidth = 10;
+            this.回款金额.Name = "回款金额";
+            this.回款金额.Width = 151;
+            // 
+            // 备注
+            // 
+            this.备注.DataPropertyName = "Notes";
+            this.备注.HeaderText = "备注";
+            this.备注.MinimumWidth = 10;
+            this.备注.Name = "备注";
+            this.备注.Width = 103;
+            // 
+            // 回款日期
+            // 
+            this.回款日期.DataPropertyName = "ReturnDate";
+            this.回款日期.HeaderText = "回款日期";
+            this.回款日期.MinimumWidth = 10;
+            this.回款日期.Name = "回款日期";
+            this.回款日期.Width = 151;
+            // 
             // 销售回款管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvCustomerBills);
             this.Margin = new System.Windows.Forms.Padding(12);
             this.Name = "销售回款管理";
+            this.Size = new System.Drawing.Size(2000, 1242);
             this.Load += new System.EventHandler(this.销售明细管理_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
-            this.Controls.SetChildIndex(this.dgvCustomerBills, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerBills)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetSaleDetails)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMoneyReturnList)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -358,6 +508,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtp2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvMoneyReturnList;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn 历史欠款金额;
@@ -365,5 +516,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 已回款金额;
         private System.Windows.Forms.DataGridViewTextBoxColumn 剩余欠款金额;
         private System.Windows.Forms.DataGridViewButtonColumn 客户回款明细;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewButtonColumn ColDel;
+        private System.Windows.Forms.DataGridViewButtonColumn ColModify;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 公司名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 回款金额;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 回款日期;
     }
 }
