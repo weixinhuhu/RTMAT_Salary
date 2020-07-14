@@ -52,25 +52,32 @@ namespace 销售管理.日常业务
                     }
 
                     var mSaleDetailsTable = new T_SaleDetailsTableAdapter().GetDataByExId(ExId);
+
                     if (mSaleDetailsTable.Rows.Count > 0)
                     {
                         DeliverDate = mSaleDetailsTable[0].SaleDate;
+                        //付款方式
+                        cmbSettlementModes.Text = mSaleDetailsTable[0].SettlementModes.ToString();
+                        dtpDate1.Text = mSaleDetailsTable[0].SaleDate.ToString();
                     }
+
                     txtProductName.Tag = mDataRow.ProductName;
                     txtCustomerName.Tag = mDataRow.CustomerName;
 
                     txtAmount.Text = mDataRow.Amount.ToString();
-                    txtDeliverPrice.Text = mDataRow.DeliverPrice.ToString();
-                    txtSalePrice.Text = txtDeliverPrice.Text;
-                    txtDeliverSum.Text = mDataRow.DeliverSum.ToString();
-                    txtSaleSum.Text = mDataRow.SaleSum.ToString();
-                    txtSaleWages.Text = mDataRow.SaleWages.ToString();
-                    txtCommissionPrice.Text = mDataRow.CommissionPrice.ToString();
-                    txtCommissionSum.Text = mDataRow.CommissionSum.ToString();
-                    txtSaleCommission.Text = mDataRow.SaleComission.ToString();
-                    txtAgent.Text = mDataRow.AgentPrice.ToString();
-
-                    txtAgentCommission.Text = mDataRow.AgentCommission.ToString();
+                    var DeliverPrice = mDataRow.DeliverPrice.ToString("0.00");
+                    txtDeliverPrice.Text = DeliverPrice;
+                    txtSalePrice.Text = DeliverPrice;
+                    txtDeliverSum.Text = mDataRow.DeliverSum.ToString("0.00");
+                    txtSaleSum.Text = mDataRow.SaleSum.ToString("0.00");
+                    txtSaleWages.Text = mDataRow.SaleWages.ToString("0.00");
+                    txtCommissionPrice.Text = mDataRow.CommissionPrice.ToString("0.00");
+                    var CommissionSum = mDataRow.CommissionSum.ToString("0.00");
+                    txtCommissionSum.Text = CommissionSum;
+                    txtSaleCommission.Text = mDataRow.SaleComission.ToString("0.00");
+                    agentSum = mDataRow.AgentSum;
+                    txtAgent.Text = agentSum.ToString("0.00");
+                    txtAgentCommission.Text = mDataRow.AgentCommission.ToString("0.00");
 
                     SalerId = mDataRow.UserName;
                     DataTable mTable = new T_UsersTableAdapter().GetDataById(SalerId);
@@ -80,11 +87,12 @@ namespace 销售管理.日常业务
                         txtUserName.Text = mDataRow1.UserName;
                     }
 
-                    if (mDataRow.type == "个人订单")
+                    if (mDataRow.type == "A类订单")
                     {
                         rbPersonal.Checked = true;
                     }
-                    else if (mDataRow.type == "部门订单")
+
+                    else if (mDataRow.type == "B类订单")
                     {
                         rbDepart.Checked = true;
                     }
@@ -106,18 +114,16 @@ namespace 销售管理.日常业务
                         cbIsPaid.Checked = false;
                     }
 
-                    //label12.Visible = true;
-                    //dtpPaidDate.Visible = true;
                     cbIsPaid.Visible = true;
 
-                    if (mDataRow.Status.Contains("不通过") == true && isModify == true)
+                    if (mDataRow.Status.Contains("不通过") == true && isModify == true && Classes.PubClass.UserRight == "客服")
                     {
                         btnApply.Enabled = true;
                         btnApply.Text = "重新申请";
                         cbIsPaid.Visible = false;
                     }
                     else
-                    {
+                    {                        
                         btnApply.Enabled = false;
                     }
                     //groupBox1.Enabled = false;
@@ -129,26 +135,35 @@ namespace 销售管理.日常业务
                     return;
                 }
 
-                if (Classes.PubClass.UserRight == "领导" || Classes.PubClass.UserRight == "超级管理员" || Classes.PubClass.UserRight == "商务经理")
-                {
+                if (Classes.PubClass.UserRight == "领导" && agentSum > 0)
+                {                  
                     btnModifyPaid.Visible = true;
                 }
                 else
-                {
+                {            
                     btnModifyPaid.Visible = false;
                 }
             }
             else  //申请费用分配
                 if (mRow != null)
             {
-                DeliverDate = Convert.ToDateTime(mRow.Cells["saleDateDataGridViewTextBoxColumn"].Value);
+                //判断 如果是销售只能查看不能申请
+                if (Classes.PubClass.UserRight == "销售")
+                {
+                    this.Close();
+                    return;
+                }
+
                 txtCustomerName.Text = mRow.Cells["customerNameDataGridViewTextBoxColumn"].Value.ToString();
                 txtProductName.Text = mRow.Cells["productNameDataGridViewTextBoxColumn"].Value.ToString();
                 txtAmount.Text = mRow.Cells["amountDataGridViewTextBoxColumn"].Value.ToString();
-                //cmbMonth.SelectedItem = mRow.Cells["saleMonthDataGridViewTextBoxColumn"].Value.ToString();
-                txtDeliverPrice.Text = mRow.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
+
                 //销售价格20200712
-                txtSalePrice.Text = mRow.Cells["priceDataGridViewTextBoxColumn"].Value.ToString();
+                var DeliverPrice = Convert.ToDecimal(mRow.Cells["priceDataGridViewTextBoxColumn"].Value).ToString("0.00");
+                txtDeliverPrice.Text = DeliverPrice;
+                txtSalePrice.Text = DeliverPrice;
+                var Agent = Convert.ToDecimal(mRow.Cells["AgentSum"].Value).ToString("0.00");
+                txtAgent.Text = Agent;
                 long SaleDetailsId = Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value);
                 var SaleDetailsTable = new T_SaleDetailsTableAdapter().GetDataById(SaleDetailsId);
                 if (SaleDetailsTable.Rows.Count > 0)
@@ -164,10 +179,21 @@ namespace 销售管理.日常业务
                     SetTableNo();
                 }
                 btnModifyPaid.Visible = false;
-
             }
 
             isLoading = false;
+        }
+
+        private void cmbSettlementModes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSettlementModes.Text == "自定义天数")
+            {
+                txtDays.Visible = true;
+            }
+            else
+            {
+                txtDays.Visible = false;
+            }
         }
 
         public void SetTableNo()
@@ -175,13 +201,13 @@ namespace 销售管理.日常业务
             if (SalerId > 0)
             {
                 string mTableNo;
-                if (DeliverDate.Year.ToString() == "1")
+                if (DateTime.Now.Year.ToString() == "1")
                 {
                     mTableNo = DateTime.Now.Year.ToString("0000") + DateTime.Now.Month.ToString("00");
                 }
                 else
                 {
-                    mTableNo = DeliverDate.Year.ToString("0000") + DeliverDate.Month.ToString("00");
+                    mTableNo = DateTime.Now.Year.ToString("0000") + DateTime.Now.Month.ToString("00");
                 }
 
                 if (type == "A类订单")
@@ -212,6 +238,46 @@ namespace 销售管理.日常业务
                 MessageBox.Show("佣金占售价比例超过 5%！");
                 return;
             }
+
+            //判断又没选择结款方式
+            if (cmbSettlementModes.SelectedIndex == -1)
+            {
+                MessageBox.Show("请选择结款方式");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(txtCommissionPrice.Text.Trim())) {
+                MessageBox.Show("请输入实际价格");
+                return;
+            }
+
+            //计算结算日期
+            var exDate = ExpireDate(cmbSettlementModes.Text.Trim(), dtpDate1.Value, Convert.ToInt32(txtDays.Text.Trim()));
+
+            var Paid = agentSum > 0 ? "未付款" : "无佣金";
+
+            object ret;
+            try
+            {
+                //插入分配表
+                ret = new T_ExpenseAllocationTableAdapter().MyInsert("", SalerId, txtTableNo.Text, Convert.ToInt64(txtCustomerName.Tag), txtProjectName.Text, Convert.ToInt64(txtProductName.Tag), "", Amount, deliverPrice, Math.Round(deliverSum, 2), salePrice, Math.Round(SaleSum, 2), 0, Math.Round(saleWages, 2), commissionPrice, Math.Round(commissionSum, 2), Math.Round(saleCommission, 2), 0, Math.Round(agentSum, 2), Math.Round(agentCommission, 2), Paid, null, "客服已确认等待财务审核", null, null, null, null, null, null, null, null, null, Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value), type, SalerId, 0, 0, "含税", 0, 0, 0);
+
+                if ((long)ret > 0)
+                {
+                    //插入发货时间和付款方式
+                    ret = new T_SaleDetailsTableAdapter().UpdateSaleDateAndSettlementModesById(dtpDate1.Value, cmbSettlementModes.Text.ToString(), (long)ret, exDate, Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value));
+                    MessageBox.Show("已提交");
+                    btnApply.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("提交失败");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtAmount_Leave(object sender, EventArgs e)
@@ -220,13 +286,41 @@ namespace 销售管理.日常业务
             ComputeNums();
         }
 
+        private DateTime ExpireDate(String settlementModes, DateTime datetime, int days)
+        {
+            var expiredate = DateTime.Now;
+            //计算发货日期最后一天
+            var LastDay = datetime.AddDays(1 - datetime.Day).Date.AddMonths(1).AddSeconds(-1);
+            switch (settlementModes)
+            {
+                case "月结30天":
+                    expiredate = LastDay.AddDays(30 + 1);
+                    break;
+                case "月结45天":
+                    expiredate = LastDay.AddDays(45 + 1);
+                    break;
+                case "月结60天":
+                    expiredate = LastDay.AddDays(60 + 1);
+                    break;
+                case "月结90天":
+                    expiredate = LastDay.AddDays(90 + 1);
+                    break;
+                case "月结120天":
+                    expiredate = LastDay.AddDays(120 + 1);
+                    break;
+                case "自定义天数":
+                    expiredate = LastDay.AddDays(days + 1);
+                    break;
+            }
+            return expiredate;
+        }
+
         private int ComputeNums() //自动计算界面数值
         {
             if (string.IsNullOrEmpty(txtAmount.Text) == false)
             {
                 try
                 {
-
                     Amount = Convert.ToInt64(txtAmount.Text);
                     if (string.IsNullOrEmpty(txtDeliverPrice.Text) == false)
                     {
@@ -234,7 +328,6 @@ namespace 销售管理.日常业务
                         deliverSum = deliverPrice * Amount;                    //发货额
                         txtDeliverSum.Text = deliverSum.ToString("0.00");
                     }
-
 
                     if (txtSalePrice.Text == "") //销售单价
                     {

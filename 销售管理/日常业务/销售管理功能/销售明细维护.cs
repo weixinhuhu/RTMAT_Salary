@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 销售管理.DAL.DataSetCustomersTableAdapters;
 using 销售管理.DAL.DataSetSaleDetailsTableAdapters;
@@ -64,16 +59,16 @@ namespace 销售管理.日常业务
                 MessageBox.Show("请输入金额");
                 return;
             }
-            if (cmbSettlementModes.Text.Trim() == "")
-            {
-                MessageBox.Show("请输入结款方式");
-                return;
-            }
-            if (txtStockOutNo.Text.Trim() == "")
-            {
-                MessageBox.Show("出库单编号不能为空");
-                return;
-            }
+            //if (cmbSettlementModes.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("请输入结款方式");
+            //    return;
+            //}
+            //if (txtStockOutNo.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("出库单编号不能为空");
+            //    return;
+            //}
             if (cmbUnit.Text.Trim() == "")
             {
                 MessageBox.Show("单位不能为空");
@@ -89,9 +84,8 @@ namespace 销售管理.日常业务
             try
             {
                 if (mId == -1)
-                {
-                    //int ret = new T_SaleDetailsTableAdapter().Insert((long)cmbUserName.SelectedValue, cmbCustomerName.Text.Trim(), "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, null, makeInvoice, txtInvoiceContent.Text.Trim(), "", dtpInvioceDate.Value.Date, cmbInvoiceType.Text, txtInvoiceNo.Text.Trim(), (cmbCustomerName.SelectedValue.ToString() == "" ? -1 : (long)cmbCustomerName.SelectedValue));
-                    int ret = new T_SaleDetailsTableAdapter().Insert((long)cmbUserName.SelectedValue, cmbCustomerName.SelectedValue.ToString(), "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, CityId, null,txtStockOutNo.Text.Trim(),cmbUnit.Text.Trim(),"");
+                {                    
+                    int ret = new T_SaleDetailsTableAdapter().Insert((long)cmbUserName.SelectedValue, cmbCustomerName.SelectedValue.ToString(), "", null, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, CityId, null,txtStockOutNo.Text.Trim(),cmbUnit.Text.Trim(),"", Convert.ToDecimal(txtAgentSum.Text.Trim()), DateTime.Now,null);
                     if (ret > 0)
                     {
                         MessageBox.Show("保存成功");
@@ -105,10 +99,7 @@ namespace 销售管理.日常业务
                 }
                 else
                 {
-                    //int ret = new T_SaleDetailsTableAdapter().UpdateById(cmbCustomerName.Text, "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, makeInvoice, txtInvoiceContent.Text, "", dtpInvioceDate.Value.Date, cmbInvoiceType.Text, txtInvoiceNo.Text, (long)cmbUserName.SelectedValue, (cmbCustomerName.SelectedValue.ToString() == "" ? -1 : (long)cmbCustomerName.SelectedValue), mId);
-                 
-                    // int ret = new T_SaleDetailsTableAdapter().UpdateById(cmbCustomerName.SelectedValue.ToString(), "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, (long)cmbUserName.SelectedValue, CityId,txtStockOutNo.Text.Trim(),cmbUnit.Text.Trim(), mId);
-                    int ret = new T_SaleDetailsTableAdapter().UpdateById(cmbCustomerName.SelectedValue.ToString(), "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, (long)cmbUserName.SelectedValue, CityId, txtStockOutNo.Text.Trim(), cmbUnit.Text.Trim(), CmbInvoiceFlag.Text.Trim(), mId);
+                    int ret = new T_SaleDetailsTableAdapter().UpdateById(cmbCustomerName.SelectedValue.ToString(), "", null, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, (long)cmbUserName.SelectedValue, CityId, txtStockOutNo.Text.Trim(), cmbUnit.Text.Trim(), CmbInvoiceFlag.Text.Trim(), Convert.ToDecimal(txtAgentSum.Text), mId);
 
                     if (ret > 0)
                     {
@@ -139,13 +130,10 @@ namespace 销售管理.日常业务
             var mTable = new T_ProductsTableAdapter().GetDataByLevel(1); //获取level1的产品
             cmbProduct1.DataSource = mTable;
             cmbProduct1.SelectedIndex = -1;
-            //foreach (销售管理.DAL.DataSetProducts.T_ProductsRow mRow in mTable.Rows)
-            //{
-            //    MyCmbList mCmblist = new MyCmbList();
-            //    mCmblist.Id = mRow.Id;
-            //    mCmblist.Name = mRow.Name;
-            //    cmbProduct1.Items.Add(mCmblist);
-            //}
+
+            //默认开票
+            CmbInvoiceFlag.SelectedIndex = 0;
+          
             if (mId == -1)
             {
                 //获取出库单编号
@@ -182,44 +170,22 @@ namespace 销售管理.日常业务
                     if (mTableProduct.Rows.Count > 0)
                     {
                         销售管理.DAL.DataSetProducts.T_ProductsRow mProductRow = mTableProduct[0];
-                        //    for (int i = mProductRow.Level; i > 1; i--)
-                        //    {
-                        //        var mParentTable = new T_ProductsTableAdapter().GetDataByID(mProductRow.ParentId);
-                        //    }
-                        //设置产品
                         SetProduct(mProductRow);
                     }
 
                     //cmbMonth.SelectedItem = mRow.SaleMonth;
-                    dtpDate1.Value = mRow.SaleDate;
+                    //dtpDate1.Value = mRow.SaleDate;
                     //txtProductName.Text = mRow.ProductName;
                     txtAmount.Text = mRow.Amount.ToString();
-                    txtPrice.Text = mRow.Price.ToString();
-                    txtSum.Text = mRow.SumMoney.ToString();
+                    txtPrice.Text = mRow.Price.ToString("0.00");
+                    txtSum.Text = mRow.SumMoney.ToString("0.00");
                     txtStockOutNo.Text = mRow.StockOutNo.ToString();
                     cmbUnit.Text = mRow.Unit.ToString();
-                    if (mRow.IsSettlementModesNull() == false) cmbSettlementModes.SelectedText = mRow.SettlementModes;
-                    //if (mRow.IsMakeInvoiceNull() == false)
-                    //{
-                    //    if (mRow.MakeInvoice.ToString() == "是")
-                    //    {
-                    //        cbInvoice.Checked = true;
-                    //    }
-                    //    else
-                    //    {
-                    //        cbInvoice.Checked = false;
-                    //    }
-                    //}
-                    //if (mRow.IsInvoiceContentNull() == false) txtInvoiceContent.Text = mRow.InvoiceContent;
-                    ////cmbInvoiceMonth.SelectedItem = mRow.InvoiceMonth;
-                    //if (mRow.IsInvoiceDateNull() == false) dtpInvioceDate.Value = mRow.InvoiceDate;
-                    //if (mRow.IsInvoiceTypeNull() == false) cmbInvoiceType.SelectedItem = mRow.InvoiceType;
-                    //if (mRow.IsInvoiceNoNull() == false) txtInvoiceNo.Text = mRow.InvoiceNo;
+                    txtAgentSum.Text = mRow.AgentSum.ToString("0.00");
+                    //if (mRow.IsSettlementModesNull() == false) cmbSettlementModes.SelectedText = mRow.SettlementModes;
+                  
                 }
             }
-
-
-
         }
 
         public void SetProduct(销售管理.DAL.DataSetProducts.T_ProductsRow mRow)

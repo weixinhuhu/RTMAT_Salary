@@ -71,6 +71,7 @@
             this.rbDepart = new System.Windows.Forms.RadioButton();
             this.dtpDate1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDays = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSettlementModes = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -78,7 +79,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(414, 806);
+            this.btnApply.Location = new System.Drawing.Point(415, 745);
             this.btnApply.Margin = new System.Windows.Forms.Padding(6);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(175, 78);
@@ -89,7 +90,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(804, 806);
+            this.btnClose.Location = new System.Drawing.Point(805, 745);
             this.btnClose.Margin = new System.Windows.Forms.Padding(6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(175, 78);
@@ -100,7 +101,7 @@
             // 
             // btnModifyPaid
             // 
-            this.btnModifyPaid.Location = new System.Drawing.Point(602, 806);
+            this.btnModifyPaid.Location = new System.Drawing.Point(603, 745);
             this.btnModifyPaid.Margin = new System.Windows.Forms.Padding(6);
             this.btnModifyPaid.Name = "btnModifyPaid";
             this.btnModifyPaid.Size = new System.Drawing.Size(189, 78);
@@ -146,18 +147,20 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(56, 224);
+            this.label5.Location = new System.Drawing.Point(92, 889);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 24);
             this.label5.TabIndex = 17;
             this.label5.Text = "所属项目";
+            this.label5.Visible = false;
             // 
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(174, 110);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(6);
             this.txtUserName.Name = "txtUserName";
+            this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(526, 35);
             this.txtUserName.TabIndex = 0;
             // 
@@ -165,7 +168,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(56, 278);
+            this.label6.Location = new System.Drawing.Point(56, 238);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 24);
@@ -177,6 +180,7 @@
             this.txtCustomerName.Location = new System.Drawing.Point(174, 164);
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.ReadOnly = true;
             this.txtCustomerName.Size = new System.Drawing.Size(1108, 35);
             this.txtCustomerName.TabIndex = 2;
             // 
@@ -184,7 +188,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(56, 341);
+            this.label7.Location = new System.Drawing.Point(56, 301);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 24);
@@ -193,17 +197,18 @@
             // 
             // txtProjectName
             // 
-            this.txtProjectName.Location = new System.Drawing.Point(174, 218);
+            this.txtProjectName.Location = new System.Drawing.Point(210, 883);
             this.txtProjectName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProjectName.Name = "txtProjectName";
             this.txtProjectName.Size = new System.Drawing.Size(1108, 35);
             this.txtProjectName.TabIndex = 3;
+            this.txtProjectName.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(104, 403);
+            this.label8.Location = new System.Drawing.Point(104, 363);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 24);
@@ -212,9 +217,10 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(174, 272);
+            this.txtProductName.Location = new System.Drawing.Point(174, 232);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductName.Name = "txtProductName";
+            this.txtProductName.ReadOnly = true;
             this.txtProductName.Size = new System.Drawing.Size(670, 35);
             this.txtProductName.TabIndex = 4;
             // 
@@ -222,7 +228,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(482, 403);
+            this.label9.Location = new System.Drawing.Point(482, 363);
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(106, 24);
@@ -233,7 +239,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(942, 403);
+            this.label14.Location = new System.Drawing.Point(942, 363);
             this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(82, 24);
@@ -244,7 +250,7 @@
             // 
             this.labSalePrice.AutoSize = true;
             this.labSalePrice.BackColor = System.Drawing.Color.Transparent;
-            this.labSalePrice.Location = new System.Drawing.Point(56, 459);
+            this.labSalePrice.Location = new System.Drawing.Point(56, 419);
             this.labSalePrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labSalePrice.Name = "labSalePrice";
             this.labSalePrice.Size = new System.Drawing.Size(106, 24);
@@ -255,7 +261,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Location = new System.Drawing.Point(482, 627);
+            this.label12.Location = new System.Drawing.Point(482, 587);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(106, 24);
@@ -267,7 +273,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(460, 459);
+            this.label15.Location = new System.Drawing.Point(460, 419);
             this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(130, 24);
@@ -276,7 +282,7 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(174, 397);
+            this.txtAmount.Location = new System.Drawing.Point(174, 357);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(6);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
@@ -288,7 +294,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Location = new System.Drawing.Point(918, 459);
+            this.label20.Location = new System.Drawing.Point(918, 419);
             this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(106, 24);
@@ -299,7 +305,7 @@
             // 
             this.labCommissionPrice.AutoSize = true;
             this.labCommissionPrice.BackColor = System.Drawing.Color.Transparent;
-            this.labCommissionPrice.Location = new System.Drawing.Point(56, 515);
+            this.labCommissionPrice.Location = new System.Drawing.Point(56, 475);
             this.labCommissionPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labCommissionPrice.Name = "labCommissionPrice";
             this.labCommissionPrice.Size = new System.Drawing.Size(106, 24);
@@ -308,7 +314,7 @@
             // 
             // txtDeliverPrice
             // 
-            this.txtDeliverPrice.Location = new System.Drawing.Point(598, 397);
+            this.txtDeliverPrice.Location = new System.Drawing.Point(598, 357);
             this.txtDeliverPrice.Margin = new System.Windows.Forms.Padding(6);
             this.txtDeliverPrice.Name = "txtDeliverPrice";
             this.txtDeliverPrice.ReadOnly = true;
@@ -320,7 +326,7 @@
             // 
             this.labCommissionSum.AutoSize = true;
             this.labCommissionSum.BackColor = System.Drawing.Color.Transparent;
-            this.labCommissionSum.Location = new System.Drawing.Point(454, 515);
+            this.labCommissionSum.Location = new System.Drawing.Point(454, 475);
             this.labCommissionSum.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labCommissionSum.Name = "labCommissionSum";
             this.labCommissionSum.Size = new System.Drawing.Size(130, 24);
@@ -329,7 +335,7 @@
             // 
             // txtDeliverSum
             // 
-            this.txtDeliverSum.Location = new System.Drawing.Point(1036, 397);
+            this.txtDeliverSum.Location = new System.Drawing.Point(1036, 357);
             this.txtDeliverSum.Margin = new System.Windows.Forms.Padding(6);
             this.txtDeliverSum.Name = "txtDeliverSum";
             this.txtDeliverSum.ReadOnly = true;
@@ -340,7 +346,7 @@
             // 
             this.labSaleCommission.AutoSize = true;
             this.labSaleCommission.BackColor = System.Drawing.Color.Transparent;
-            this.labSaleCommission.Location = new System.Drawing.Point(918, 515);
+            this.labSaleCommission.Location = new System.Drawing.Point(918, 475);
             this.labSaleCommission.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labSaleCommission.Name = "labSaleCommission";
             this.labSaleCommission.Size = new System.Drawing.Size(106, 24);
@@ -351,7 +357,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(104, 568);
+            this.label10.Location = new System.Drawing.Point(104, 528);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 24);
@@ -360,16 +366,17 @@
             // 
             // txtSalePrice
             // 
-            this.txtSalePrice.Location = new System.Drawing.Point(174, 453);
+            this.txtSalePrice.Location = new System.Drawing.Point(174, 413);
             this.txtSalePrice.Margin = new System.Windows.Forms.Padding(6);
             this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.ReadOnly = true;
             this.txtSalePrice.Size = new System.Drawing.Size(246, 35);
             this.txtSalePrice.TabIndex = 9;
             this.txtSalePrice.TextChanged += new System.EventHandler(this.txtAmount_Leave);
             // 
             // txtSaleSum
             // 
-            this.txtSaleSum.Location = new System.Drawing.Point(598, 453);
+            this.txtSaleSum.Location = new System.Drawing.Point(598, 413);
             this.txtSaleSum.Margin = new System.Windows.Forms.Padding(6);
             this.txtSaleSum.Name = "txtSaleSum";
             this.txtSaleSum.ReadOnly = true;
@@ -378,7 +385,7 @@
             // 
             // txtSaleWages
             // 
-            this.txtSaleWages.Location = new System.Drawing.Point(1036, 453);
+            this.txtSaleWages.Location = new System.Drawing.Point(1036, 413);
             this.txtSaleWages.Margin = new System.Windows.Forms.Padding(6);
             this.txtSaleWages.Name = "txtSaleWages";
             this.txtSaleWages.ReadOnly = true;
@@ -389,7 +396,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Location = new System.Drawing.Point(469, 568);
+            this.label19.Location = new System.Drawing.Point(469, 528);
             this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(106, 24);
@@ -398,17 +405,16 @@
             // 
             // txtCommissionPrice
             // 
-            this.txtCommissionPrice.Location = new System.Drawing.Point(174, 509);
+            this.txtCommissionPrice.Location = new System.Drawing.Point(174, 469);
             this.txtCommissionPrice.Margin = new System.Windows.Forms.Padding(6);
             this.txtCommissionPrice.Name = "txtCommissionPrice";
             this.txtCommissionPrice.Size = new System.Drawing.Size(246, 35);
             this.txtCommissionPrice.TabIndex = 12;
-            this.txtCommissionPrice.Text = "0";
             this.txtCommissionPrice.TextChanged += new System.EventHandler(this.txtAmount_Leave);
             // 
             // txtCommissionSum
             // 
-            this.txtCommissionSum.Location = new System.Drawing.Point(598, 509);
+            this.txtCommissionSum.Location = new System.Drawing.Point(598, 469);
             this.txtCommissionSum.Margin = new System.Windows.Forms.Padding(6);
             this.txtCommissionSum.Name = "txtCommissionSum";
             this.txtCommissionSum.ReadOnly = true;
@@ -417,7 +423,7 @@
             // 
             // txtSaleCommission
             // 
-            this.txtSaleCommission.Location = new System.Drawing.Point(1036, 509);
+            this.txtSaleCommission.Location = new System.Drawing.Point(1036, 469);
             this.txtSaleCommission.Margin = new System.Windows.Forms.Padding(6);
             this.txtSaleCommission.Name = "txtSaleCommission";
             this.txtSaleCommission.ReadOnly = true;
@@ -426,9 +432,10 @@
             // 
             // txtAgent
             // 
-            this.txtAgent.Location = new System.Drawing.Point(174, 565);
+            this.txtAgent.Location = new System.Drawing.Point(174, 525);
             this.txtAgent.Margin = new System.Windows.Forms.Padding(6);
             this.txtAgent.Name = "txtAgent";
+            this.txtAgent.ReadOnly = true;
             this.txtAgent.Size = new System.Drawing.Size(246, 35);
             this.txtAgent.TabIndex = 15;
             this.txtAgent.Text = "0";
@@ -436,7 +443,7 @@
             // 
             // txtAgentCommission
             // 
-            this.txtAgentCommission.Location = new System.Drawing.Point(598, 568);
+            this.txtAgentCommission.Location = new System.Drawing.Point(598, 528);
             this.txtAgentCommission.Margin = new System.Windows.Forms.Padding(6);
             this.txtAgentCommission.Name = "txtAgentCommission";
             this.txtAgentCommission.ReadOnly = true;
@@ -448,12 +455,13 @@
             this.txtTableNo.Location = new System.Drawing.Point(844, 106);
             this.txtTableNo.Margin = new System.Windows.Forms.Padding(6);
             this.txtTableNo.Name = "txtTableNo";
+            this.txtTableNo.ReadOnly = true;
             this.txtTableNo.Size = new System.Drawing.Size(438, 35);
             this.txtTableNo.TabIndex = 1;
             // 
             // dtpPaidDate
             // 
-            this.dtpPaidDate.Location = new System.Drawing.Point(598, 619);
+            this.dtpPaidDate.Location = new System.Drawing.Point(598, 579);
             this.dtpPaidDate.Margin = new System.Windows.Forms.Padding(6);
             this.dtpPaidDate.Name = "dtpPaidDate";
             this.dtpPaidDate.Size = new System.Drawing.Size(246, 35);
@@ -464,7 +472,7 @@
             // 
             this.cbIsPaid.AutoSize = true;
             this.cbIsPaid.BackColor = System.Drawing.Color.Transparent;
-            this.cbIsPaid.Location = new System.Drawing.Point(258, 627);
+            this.cbIsPaid.Location = new System.Drawing.Point(258, 587);
             this.cbIsPaid.Margin = new System.Windows.Forms.Padding(6);
             this.cbIsPaid.Name = "cbIsPaid";
             this.cbIsPaid.Size = new System.Drawing.Size(162, 28);
@@ -502,7 +510,7 @@
             // 
             // dtpDate1
             // 
-            this.dtpDate1.Location = new System.Drawing.Point(174, 334);
+            this.dtpDate1.Location = new System.Drawing.Point(174, 294);
             this.dtpDate1.Margin = new System.Windows.Forms.Padding(6);
             this.dtpDate1.Name = "dtpDate1";
             this.dtpDate1.Size = new System.Drawing.Size(246, 35);
@@ -511,6 +519,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.txtDays);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbSettlementModes);
             this.groupBox1.Controls.Add(this.dtpDate1);
@@ -543,12 +552,10 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtProductName);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtProjectName);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCustomerName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtUserName);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
@@ -556,15 +563,26 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(1332, 770);
+            this.groupBox1.Size = new System.Drawing.Size(1332, 678);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+            // 
+            // txtDays
+            // 
+            this.txtDays.Location = new System.Drawing.Point(844, 297);
+            this.txtDays.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDays.MaxLength = 3;
+            this.txtDays.Name = "txtDays";
+            this.txtDays.Size = new System.Drawing.Size(246, 35);
+            this.txtDays.TabIndex = 29;
+            this.txtDays.Text = "0";
+            this.txtDays.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(484, 345);
+            this.label2.Location = new System.Drawing.Point(484, 305);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 24);
@@ -573,21 +591,22 @@
             // 
             // cmbSettlementModes
             // 
+            this.cmbSettlementModes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSettlementModes.FormattingEnabled = true;
             this.cmbSettlementModes.Items.AddRange(new object[] {
-            "月结",
-            "货到付款",
-            "支票",
-            "已回款",
-            "现金",
-            "发票到后付款",
             "款到发货",
-            "已回款不开票"});
-            this.cmbSettlementModes.Location = new System.Drawing.Point(598, 337);
+            "月结30天",
+            "月结45天",
+            "月结60天",
+            "月结90天",
+            "月结120天",
+            "自定义天数"});
+            this.cmbSettlementModes.Location = new System.Drawing.Point(598, 297);
             this.cmbSettlementModes.Margin = new System.Windows.Forms.Padding(6);
             this.cmbSettlementModes.Name = "cmbSettlementModes";
             this.cmbSettlementModes.Size = new System.Drawing.Size(242, 32);
             this.cmbSettlementModes.TabIndex = 28;
+            this.cmbSettlementModes.SelectedIndexChanged += new System.EventHandler(this.cmbSettlementModes_SelectedIndexChanged);
             // 
             // 申请费用分配1
             // 
@@ -596,12 +615,14 @@
             this.AutoSize = true;
             this.BackgroundImage = global::销售管理.Properties.Resources.smallback;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1404, 933);
+            this.ClientSize = new System.Drawing.Size(1404, 853);
             this.ControlBox = false;
             this.Controls.Add(this.btnModifyPaid);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnApply);
+            this.Controls.Add(this.txtProjectName);
+            this.Controls.Add(this.label5);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -613,6 +634,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -663,5 +685,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbSettlementModes;
+        private System.Windows.Forms.TextBox txtDays;
     }
 }

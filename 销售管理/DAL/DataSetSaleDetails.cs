@@ -8,9 +8,12 @@
     }
 }
 
-namespace 销售管理.DAL.DataSetSaleDetailsTableAdapters {
-    
-    
+namespace 销售管理.DAL.DataSetSaleDetailsTableAdapters
+{
+    partial class T_InvoiceNumTableAdapter
+    {
+    }
+
     public partial class T_SaleDetailsTableAdapter {
     }
 }

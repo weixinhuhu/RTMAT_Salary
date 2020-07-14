@@ -22,12 +22,46 @@ namespace 销售管理.日常业务
         private void btnSerch_Click(object sender, EventArgs e)
         {
             string mSql;
-
-           // mSql = @"SELECT a.Id, c.UserName,e.companyname customername, e.CompanyName, a.SaleMonth, a.SaleDate, d.name as ProductName, a.Amount, a.Price, a.SumMoney, a.SettlementModes, a.ExpenseAllocation, a.MakeInvoice, a.SubmitDate, a.InvoiceContent, a.InvoiceMonth, a.InvoiceDate, a.InvoiceType, a.InvoiceNo,b.TableNo,b.status exstatus,isnull(f.hasInvoice,0) hasInvoice,isnull(g.Invoicing,0) Invoicing,a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0) caninvoice,a.stockoutno FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_customers e on a.customername = e.id left join (select saledetailsid,isnull(sum(amount),0) hasInvoice from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status = '财务已开票' group by saledetailsid) f on a. id = f.saledetailsid left join (select saledetailsid,isnull(sum(amount),0) Invoicing from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status like '%等待%' group by saledetailsid) g on g.saledetailsid = a.id where ascii(a.CustomerName) < 123 and  1=1 ";
-           
             //添加备注
-            mSql = @"SELECT a.Id, c.UserName,e.companyname customername, e.CompanyName, a.SaleMonth, a.SaleDate, d.name as ProductName, a.Amount, a.Price, a.SumMoney, a.SettlementModes, a.ExpenseAllocation, a.MakeInvoice, a.SubmitDate, a.InvoiceContent, a.InvoiceMonth, a.InvoiceDate, a.InvoiceType, a.InvoiceNo,b.TableNo,b.status exstatus,b.BusinessRemark,isnull(f.hasInvoice,0) hasInvoice,isnull(g.Invoicing,0) Invoicing,a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0) caninvoice,a.stockoutno FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_customers e on a.customername = e.id left join (select saledetailsid,isnull(sum(amount),0) hasInvoice from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status = '财务已开票' group by saledetailsid) f on a. id = f.saledetailsid left join (select saledetailsid,isnull(sum(amount),0) Invoicing from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status like '%等待%' group by saledetailsid) g on g.saledetailsid = a.id where ascii(a.CustomerName) < 123 and  1=1 ";
-            
+            //mSql = @"SELECT a.Id, c.UserName,e.companyname customername, e.CompanyName, a.SaleMonth, a.SaleDate, d.name as ProductName, a.Amount, a.Price, a.SumMoney, a.SettlementModes, a.ExpenseAllocation, a.MakeInvoice, a.SubmitDate, a.InvoiceContent, a.InvoiceMonth, a.InvoiceDate, a.InvoiceType, a.InvoiceNo,b.TableNo,b.status exstatus,b.BusinessRemark,isnull(f.hasInvoice,0) hasInvoice,isnull(g.Invoicing,0) Invoicing,a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0) caninvoice,a.stockoutno FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_customers e on a.customername = e.id left join (select saledetailsid,isnull(sum(amount),0) hasInvoice from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status = '财务已开票' group by saledetailsid) f on a. id = f.saledetailsid left join (select saledetailsid,isnull(sum(amount),0) Invoicing from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status like '%等待%' group by saledetailsid) g on g.saledetailsid = a.id where ascii(a.CustomerName) < 123 and  1=1 ";
+
+            mSql = @"SELECT a.Id,
+                           c.UserName,
+                           e.CompanyName customername,
+                           e.CompanyName,
+                           a.SaleMonth,
+                           a.SaleDate,
+                           d.Name AS ProductName,
+                           a.Amount,
+                           a.Price,
+                           a.SumMoney,
+                           a.SettlementModes,
+                           a.ExpenseAllocation,
+                           a.MakeInvoice,
+                           a.SubmitDate,
+                           a.InvoiceContent,
+                           a.InvoiceMonth,
+                           a.InvoiceDate,
+                           a.InvoiceType,
+                           a.InvoiceNo,
+                           b.TableNo,
+                           b.Status exstatus,
+                           b.BusinessRemark,
+                           a.StockOutNo,
+                           a.AgentSum,
+                           a.ExpDate
+                    FROM dbo.T_SaleDetails a
+                        LEFT JOIN T_Users c
+                            ON a.UserName = c.id
+                        LEFT JOIN T_ExpenseAllocation b
+                            ON a.ExpenseAllocation = b.Id
+                        LEFT JOIN T_Products d
+                            ON a.ProductName = d.Id
+                        LEFT JOIN T_Customers e
+                            ON a.CustomerName = e.id
+                    WHERE ASCII(a.CustomerName) < 123
+                          AND 1 = 1";
+
             if (!Common.AuthenticateRight.AuthOperation(110301)&& Common.CommonClass.SttUser.blSuperUser==false)
             {
                 mSql += @" and a.UserName='" + Classes.PubClass.UserId + "'";
@@ -42,22 +76,22 @@ namespace 销售管理.日常业务
             {
                 mSql += " and e.CompanyName like '%" + txtCusName.Text.Trim() + "%'";
             }
-            //if (txtMonth.Text.Trim() != "")
-            //{
-            //    mSql += " and a.SaleMonth = '" + txtMonth.Text.Trim() + "'";
-            //}
+      
             if (dtp1.Checked == true)
             {
-                mSql += " and a.SaleDate between '" + dtp1.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59'";
+                mSql += " and a.SubmitDate between '" + dtp1.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59'";
             }
+
             if (txtProductName.Text.Trim() != "")
             {
                 mSql += " and d.Name like '%" + txtProductName.Text.Trim() + "%'";
             }
+
             if (txtStockNo.Text.Trim() != "")
             {
                 mSql += " and a.StockOutNo = '" + txtStockNo.Text.Trim() + "'";
             }
+
             if (cmbInvoice.Text != "")
             {
                 //添加不开票选项
@@ -69,13 +103,6 @@ namespace 销售管理.日常业务
 
                 if (cmbInvoice.Text == "已开票")
                     mSql += "  and a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0)=0 ";
-
-                //if (cmbInvoice.Text == "未开票")
-                //    mSql += " and a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0)>0";
-                //else
-                //    mSql += " and a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0)=0";
-
-                
             }
 
             switch (cmbStatus.Text)
@@ -96,29 +123,12 @@ namespace 销售管理.日常业务
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
             //dgvSaleDetails.DataSource = tSaleDetailsBindingSource;
             dgvNav1.Conn = conn;
-            dgvNav1.OrderField = "saledate";
+            dgvNav1.OrderField = "a.id";
             dgvNav1.OrderDirection = "desc";
             // dgvNav1.PrimaryKey = "a.Id";
             dgvNav1.MyBs = tSaleDetailsBindingSource;
             dgvNav1.OriginSql = mSql;
-            //SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);
-            //DataTable mTable = new DataTable();
-            //try
-            //{
-            //    adapter.Fill(mTable);
-            //    dgvSaleDetails.DataSource = mTable;
-            //    if (mTable.Rows.Count < 1)
-            //    {
-            //        MessageBox.Show("没有记录");
-            //        return;
-            //    }
-            //    //MessageBox.Show("查询成功");
-            //    return;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message.ToString());
-            //}
+   
         }
 
         private void 销售明细管理_Load(object sender, EventArgs e)
@@ -156,7 +166,6 @@ namespace 销售管理.日常业务
         {
             if (e.RowIndex >= 0)
             {
-
                 if (e.ColumnIndex == dgvSaleDetails.Columns["ColModify"].Index && Classes.PubClass.UserStatus == "正常")
                 {
                     if (dgvSaleDetails.Rows[e.RowIndex].Cells["expenseStatus"].Value.ToString() == "领导审核通过")
@@ -187,7 +196,7 @@ namespace 销售管理.日常业务
                     else
                     {
                         //MessageBox.Show(dgvSaleDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString());
-                        using (申请费用分配 mForm = new 申请费用分配())
+                        using (申请费用分配1 mForm = new 申请费用分配1())
                         {
                             mForm.isModify = true;
                             mForm.mRow = dgvSaleDetails.Rows[e.RowIndex];
@@ -197,7 +206,6 @@ namespace 销售管理.日常业务
                             {
                                 btnSerch_Click(sender, e);
                             }
-
                             //  mForm.ShowDialog();
                         }
                     }
@@ -236,27 +244,6 @@ namespace 销售管理.日常业务
                         mCell.Value = mCell.FormattedValue;
                     }
                 }
-                //if (e.ColumnIndex == 2)
-                //{
-                //    if (dgvSaleDetails.Rows[e.RowIndex].Cells["operNameDataGridViewTextBoxColumn"].Value.ToString() == Classes.PubClass.LoginName)
-                //    {
-                //        if (MessageBox.Show("确认删除该客户资料？", "警告", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                //        {
-                //            long mId = Convert.ToInt64(dgvSaleDetails.Rows[e.RowIndex].Cells[0].Value);
-                //            int ret = new T_SaleDetailsTableAdapter().DeleteById(mId);
-                //            if (ret > 0)
-                //            {
-                //                dgvSaleDetails.Rows.RemoveAt(e.RowIndex);
-                //            }
-                //            else
-                //            {
-                //                MessageBox.Show("删除失败");
-                //            }
-
-                //        }
-                //    }
-
-                //}
             }
         }
 

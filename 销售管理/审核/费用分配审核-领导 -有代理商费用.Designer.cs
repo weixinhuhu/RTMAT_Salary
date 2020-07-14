@@ -119,9 +119,9 @@
             // 
             this.dgvExAllocation.AllowUserToAddRows = false;
             this.dgvExAllocation.AllowUserToDeleteRows = false;
-            this.dgvExAllocation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvExAllocation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvExAllocation.AutoGenerateColumns = false;
             this.dgvExAllocation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvExAllocation.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
@@ -168,20 +168,22 @@
             this.recDateDataGridViewTextBoxColumn,
             this.saleDetailsIdDataGridViewTextBoxColumn});
             this.dgvExAllocation.DataSource = this.tExpenseAllocationBindingSource;
-            this.dgvExAllocation.Location = new System.Drawing.Point(36, 125);
+            this.dgvExAllocation.Location = new System.Drawing.Point(72, 250);
+            this.dgvExAllocation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvExAllocation.Name = "dgvExAllocation";
+            this.dgvExAllocation.RowHeadersWidth = 82;
             this.dgvExAllocation.RowTemplate.Height = 23;
             this.dgvExAllocation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExAllocation.ShowEditingIcon = false;
-            this.dgvExAllocation.Size = new System.Drawing.Size(934, 538);
+            this.dgvExAllocation.Size = new System.Drawing.Size(1868, 1076);
             this.dgvExAllocation.TabIndex = 6;
             this.dgvExAllocation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExAllocation_CellContentClick);
             this.dgvExAllocation.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExAllocation_CellDoubleClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cmbMoney);
             this.groupBox1.Controls.Add(this.btnAudit2);
             this.groupBox1.Controls.Add(this.btnAudit);
@@ -197,9 +199,11 @@
             this.groupBox1.Controls.Add(this.cmbUserName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(36, 41);
+            this.groupBox1.Location = new System.Drawing.Point(72, 82);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(934, 78);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(1868, 156);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速搜索";
@@ -212,16 +216,18 @@
             "全部",
             "已付款",
             "未付款"});
-            this.cmbMoney.Location = new System.Drawing.Point(783, 50);
+            this.cmbMoney.Location = new System.Drawing.Point(1566, 100);
+            this.cmbMoney.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbMoney.Name = "cmbMoney";
-            this.cmbMoney.Size = new System.Drawing.Size(71, 20);
+            this.cmbMoney.Size = new System.Drawing.Size(138, 32);
             this.cmbMoney.TabIndex = 8;
             // 
             // btnAudit2
             // 
-            this.btnAudit2.Location = new System.Drawing.Point(140, 50);
+            this.btnAudit2.Location = new System.Drawing.Point(280, 100);
+            this.btnAudit2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAudit2.Name = "btnAudit2";
-            this.btnAudit2.Size = new System.Drawing.Size(104, 24);
+            this.btnAudit2.Size = new System.Drawing.Size(208, 48);
             this.btnAudit2.TabIndex = 7;
             this.btnAudit2.Text = "批量审核不通过";
             this.btnAudit2.UseVisualStyleBackColor = true;
@@ -229,9 +235,10 @@
             // 
             // btnAudit
             // 
-            this.btnAudit.Location = new System.Drawing.Point(23, 50);
+            this.btnAudit.Location = new System.Drawing.Point(46, 100);
+            this.btnAudit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAudit.Name = "btnAudit";
-            this.btnAudit.Size = new System.Drawing.Size(111, 24);
+            this.btnAudit.Size = new System.Drawing.Size(222, 48);
             this.btnAudit.TabIndex = 7;
             this.btnAudit.Text = "批量审核通过";
             this.btnAudit.UseVisualStyleBackColor = true;
@@ -245,17 +252,19 @@
             "未审核",
             "审核已通过",
             "审核未通过"});
-            this.cmbHasAudit.Location = new System.Drawing.Point(783, 24);
+            this.cmbHasAudit.Location = new System.Drawing.Point(1566, 48);
+            this.cmbHasAudit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbHasAudit.Name = "cmbHasAudit";
-            this.cmbHasAudit.Size = new System.Drawing.Size(71, 20);
+            this.cmbHasAudit.Size = new System.Drawing.Size(138, 32);
             this.cmbHasAudit.TabIndex = 6;
             // 
             // btnSerch
             // 
             this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSerch.Location = new System.Drawing.Point(844, 20);
+            this.btnSerch.Location = new System.Drawing.Point(1688, 40);
+            this.btnSerch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSerch.Name = "btnSerch";
-            this.btnSerch.Size = new System.Drawing.Size(84, 26);
+            this.btnSerch.Size = new System.Drawing.Size(168, 52);
             this.btnSerch.TabIndex = 3;
             this.btnSerch.Text = "查找";
             this.btnSerch.UseVisualStyleBackColor = true;
@@ -263,58 +272,65 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(623, 24);
+            this.txtProductName.Location = new System.Drawing.Point(1246, 48);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(100, 21);
+            this.txtProductName.Size = new System.Drawing.Size(196, 35);
             this.txtProductName.TabIndex = 2;
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(457, 24);
+            this.txtCustomerName.Location = new System.Drawing.Point(914, 48);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(100, 21);
+            this.txtCustomerName.Size = new System.Drawing.Size(196, 35);
             this.txtCustomerName.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(717, 53);
+            this.label6.Location = new System.Drawing.Point(1434, 106);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.Size = new System.Drawing.Size(130, 24);
             this.label6.TabIndex = 0;
             this.label6.Text = "是否付佣金";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(729, 28);
+            this.label5.Location = new System.Drawing.Point(1458, 56);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.Size = new System.Drawing.Size(106, 24);
             this.label5.TabIndex = 0;
             this.label5.Text = "审核状态";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(564, 27);
+            this.label4.Location = new System.Drawing.Point(1128, 54);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(106, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "产品名称";
             // 
             // txtTableNo
             // 
-            this.txtTableNo.Location = new System.Drawing.Point(287, 24);
+            this.txtTableNo.Location = new System.Drawing.Point(574, 48);
+            this.txtTableNo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtTableNo.Name = "txtTableNo";
-            this.txtTableNo.Size = new System.Drawing.Size(100, 21);
+            this.txtTableNo.Size = new System.Drawing.Size(196, 35);
             this.txtTableNo.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(398, 27);
+            this.label3.Location = new System.Drawing.Point(796, 54);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(106, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "客户名称";
             // 
@@ -324,26 +340,29 @@
             this.cmbUserName.DropDownWidth = 200;
             this.cmbUserName.FormattingEnabled = true;
             this.cmbUserName.IntegralHeight = false;
-            this.cmbUserName.Location = new System.Drawing.Point(68, 24);
+            this.cmbUserName.Location = new System.Drawing.Point(136, 48);
+            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(121, 20);
+            this.cmbUserName.Size = new System.Drawing.Size(238, 32);
             this.cmbUserName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 27);
+            this.label2.Location = new System.Drawing.Point(408, 54);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(154, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "费用分配表号";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 27);
+            this.label1.Location = new System.Drawing.Point(42, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "销售员";
             // 
@@ -352,19 +371,21 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 42;
+            this.idDataGridViewTextBoxColumn.Width = 40;
             // 
             // ColumnChecked
             // 
             this.ColumnChecked.Frozen = true;
             this.ColumnChecked.HeaderText = "选择";
+            this.ColumnChecked.MinimumWidth = 10;
             this.ColumnChecked.Name = "ColumnChecked";
             this.ColumnChecked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnChecked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnChecked.Width = 54;
+            this.ColumnChecked.Width = 103;
             // 
             // ColAudit
             // 
@@ -373,10 +394,11 @@
             this.ColAudit.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColAudit.Frozen = true;
             this.ColAudit.HeaderText = "审核通过";
+            this.ColAudit.MinimumWidth = 10;
             this.ColAudit.Name = "ColAudit";
             this.ColAudit.UseColumnTextForButtonValue = true;
             this.ColAudit.Visible = false;
-            this.ColAudit.Width = 59;
+            this.ColAudit.Width = 112;
             // 
             // ColAudit1
             // 
@@ -385,310 +407,359 @@
             this.ColAudit1.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColAudit1.Frozen = true;
             this.ColAudit1.HeaderText = "审核不通过";
+            this.ColAudit1.MinimumWidth = 10;
             this.ColAudit1.Name = "ColAudit1";
             this.ColAudit1.UseColumnTextForButtonValue = true;
             this.ColAudit1.Visible = false;
-            this.ColAudit1.Width = 71;
+            this.ColAudit1.Width = 136;
             // 
             // userNameDataGridViewTextBoxColumn
             // 
             this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
             this.userNameDataGridViewTextBoxColumn.Frozen = true;
             this.userNameDataGridViewTextBoxColumn.HeaderText = "销售员";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
             this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.userNameDataGridViewTextBoxColumn.Width = 66;
+            this.userNameDataGridViewTextBoxColumn.Width = 127;
             // 
             // customerNameDataGridViewTextBoxColumn
             // 
             this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
             this.customerNameDataGridViewTextBoxColumn.Frozen = true;
             this.customerNameDataGridViewTextBoxColumn.HeaderText = "客户名称";
+            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
             this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNameDataGridViewTextBoxColumn.Width = 78;
+            this.customerNameDataGridViewTextBoxColumn.Width = 151;
             // 
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
             this.productNameDataGridViewTextBoxColumn.Frozen = true;
             this.productNameDataGridViewTextBoxColumn.HeaderText = "产品名称";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 78;
+            this.productNameDataGridViewTextBoxColumn.Width = 151;
             // 
             // productTypeDataGridViewTextBoxColumn
             // 
             this.productTypeDataGridViewTextBoxColumn.DataPropertyName = "ProductType";
             this.productTypeDataGridViewTextBoxColumn.Frozen = true;
             this.productTypeDataGridViewTextBoxColumn.HeaderText = "类别";
+            this.productTypeDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.productTypeDataGridViewTextBoxColumn.Name = "productTypeDataGridViewTextBoxColumn";
             this.productTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productTypeDataGridViewTextBoxColumn.Width = 54;
+            this.productTypeDataGridViewTextBoxColumn.Width = 103;
             // 
             // projectNameDataGridViewTextBoxColumn
             // 
             this.projectNameDataGridViewTextBoxColumn.DataPropertyName = "ProjectName";
             this.projectNameDataGridViewTextBoxColumn.HeaderText = "项目名称";
+            this.projectNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.projectNameDataGridViewTextBoxColumn.Name = "projectNameDataGridViewTextBoxColumn";
             this.projectNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.projectNameDataGridViewTextBoxColumn.Visible = false;
-            this.projectNameDataGridViewTextBoxColumn.Width = 78;
+            this.projectNameDataGridViewTextBoxColumn.Width = 151;
             // 
             // tableNoDataGridViewTextBoxColumn
             // 
             this.tableNoDataGridViewTextBoxColumn.DataPropertyName = "TableNo";
             this.tableNoDataGridViewTextBoxColumn.HeaderText = "费用分配表号";
+            this.tableNoDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.tableNoDataGridViewTextBoxColumn.Name = "tableNoDataGridViewTextBoxColumn";
             this.tableNoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tableNoDataGridViewTextBoxColumn.Width = 72;
+            this.tableNoDataGridViewTextBoxColumn.Width = 140;
             // 
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
             this.amountDataGridViewTextBoxColumn.HeaderText = "数目";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.amountDataGridViewTextBoxColumn.Width = 51;
+            this.amountDataGridViewTextBoxColumn.Width = 97;
             // 
             // deliverPriceDataGridViewTextBoxColumn
             // 
             this.deliverPriceDataGridViewTextBoxColumn.DataPropertyName = "DeliverPrice";
             this.deliverPriceDataGridViewTextBoxColumn.HeaderText = "发货价格";
+            this.deliverPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.deliverPriceDataGridViewTextBoxColumn.Name = "deliverPriceDataGridViewTextBoxColumn";
             this.deliverPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deliverPriceDataGridViewTextBoxColumn.Width = 61;
+            this.deliverPriceDataGridViewTextBoxColumn.Width = 118;
             // 
             // deliverSumDataGridViewTextBoxColumn
             // 
             this.deliverSumDataGridViewTextBoxColumn.DataPropertyName = "DeliverSum";
             this.deliverSumDataGridViewTextBoxColumn.HeaderText = "发货额";
+            this.deliverSumDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.deliverSumDataGridViewTextBoxColumn.Name = "deliverSumDataGridViewTextBoxColumn";
             this.deliverSumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deliverSumDataGridViewTextBoxColumn.Width = 61;
+            this.deliverSumDataGridViewTextBoxColumn.Width = 118;
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
             this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
-            this.salePriceDataGridViewTextBoxColumn.HeaderText = "销售单价";
+            this.salePriceDataGridViewTextBoxColumn.HeaderText = "实际单价";
+            this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
             this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.salePriceDataGridViewTextBoxColumn.Width = 61;
+            this.salePriceDataGridViewTextBoxColumn.Width = 118;
             // 
             // saleSumDataGridViewTextBoxColumn
             // 
             this.saleSumDataGridViewTextBoxColumn.DataPropertyName = "SaleSum";
             this.saleSumDataGridViewTextBoxColumn.HeaderText = "个人销售额";
+            this.saleSumDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.saleSumDataGridViewTextBoxColumn.Name = "saleSumDataGridViewTextBoxColumn";
             this.saleSumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleSumDataGridViewTextBoxColumn.Width = 72;
+            this.saleSumDataGridViewTextBoxColumn.Width = 140;
             // 
             // departSumDataGridViewTextBoxColumn
             // 
             this.departSumDataGridViewTextBoxColumn.DataPropertyName = "DepartSum";
             this.departSumDataGridViewTextBoxColumn.HeaderText = "部门销售额";
+            this.departSumDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.departSumDataGridViewTextBoxColumn.Name = "departSumDataGridViewTextBoxColumn";
             this.departSumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.departSumDataGridViewTextBoxColumn.Width = 72;
+            this.departSumDataGridViewTextBoxColumn.Visible = false;
+            this.departSumDataGridViewTextBoxColumn.Width = 140;
             // 
             // saleWagesDataGridViewTextBoxColumn
             // 
             this.saleWagesDataGridViewTextBoxColumn.DataPropertyName = "SaleWages";
             this.saleWagesDataGridViewTextBoxColumn.HeaderText = "销售工资";
+            this.saleWagesDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.saleWagesDataGridViewTextBoxColumn.Name = "saleWagesDataGridViewTextBoxColumn";
             this.saleWagesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleWagesDataGridViewTextBoxColumn.Width = 61;
+            this.saleWagesDataGridViewTextBoxColumn.Visible = false;
+            this.saleWagesDataGridViewTextBoxColumn.Width = 118;
             // 
             // commissionPriceDataGridViewTextBoxColumn
             // 
             this.commissionPriceDataGridViewTextBoxColumn.DataPropertyName = "CommissionPrice";
             this.commissionPriceDataGridViewTextBoxColumn.HeaderText = "提成单价";
+            this.commissionPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.commissionPriceDataGridViewTextBoxColumn.Name = "commissionPriceDataGridViewTextBoxColumn";
             this.commissionPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.commissionPriceDataGridViewTextBoxColumn.Width = 61;
+            this.commissionPriceDataGridViewTextBoxColumn.Visible = false;
+            this.commissionPriceDataGridViewTextBoxColumn.Width = 118;
             // 
             // commissionSumDataGridViewTextBoxColumn
             // 
             this.commissionSumDataGridViewTextBoxColumn.DataPropertyName = "CommissionSum";
             this.commissionSumDataGridViewTextBoxColumn.HeaderText = "提成销售额";
+            this.commissionSumDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.commissionSumDataGridViewTextBoxColumn.Name = "commissionSumDataGridViewTextBoxColumn";
             this.commissionSumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.commissionSumDataGridViewTextBoxColumn.Width = 72;
+            this.commissionSumDataGridViewTextBoxColumn.Visible = false;
+            this.commissionSumDataGridViewTextBoxColumn.Width = 140;
             // 
             // saleComissionDataGridViewTextBoxColumn
             // 
             this.saleComissionDataGridViewTextBoxColumn.DataPropertyName = "SaleComission";
             this.saleComissionDataGridViewTextBoxColumn.HeaderText = "销售提成";
+            this.saleComissionDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.saleComissionDataGridViewTextBoxColumn.Name = "saleComissionDataGridViewTextBoxColumn";
             this.saleComissionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleComissionDataGridViewTextBoxColumn.Width = 61;
+            this.saleComissionDataGridViewTextBoxColumn.Width = 118;
             // 
             // agentPriceDataGridViewTextBoxColumn
             // 
             this.agentPriceDataGridViewTextBoxColumn.DataPropertyName = "AgentPrice";
             this.agentPriceDataGridViewTextBoxColumn.HeaderText = "代理商单价";
+            this.agentPriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.agentPriceDataGridViewTextBoxColumn.Name = "agentPriceDataGridViewTextBoxColumn";
             this.agentPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentPriceDataGridViewTextBoxColumn.Width = 72;
+            this.agentPriceDataGridViewTextBoxColumn.Visible = false;
+            this.agentPriceDataGridViewTextBoxColumn.Width = 140;
             // 
             // agentSumDataGridViewTextBoxColumn
             // 
             this.agentSumDataGridViewTextBoxColumn.DataPropertyName = "AgentSum";
-            this.agentSumDataGridViewTextBoxColumn.HeaderText = "代理商额度";
+            this.agentSumDataGridViewTextBoxColumn.HeaderText = "佣金";
+            this.agentSumDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.agentSumDataGridViewTextBoxColumn.Name = "agentSumDataGridViewTextBoxColumn";
             this.agentSumDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentSumDataGridViewTextBoxColumn.Width = 72;
+            this.agentSumDataGridViewTextBoxColumn.Width = 97;
             // 
             // agentCommissionDataGridViewTextBoxColumn
             // 
             this.agentCommissionDataGridViewTextBoxColumn.DataPropertyName = "AgentCommission";
-            this.agentCommissionDataGridViewTextBoxColumn.HeaderText = "代理商税后佣金";
+            this.agentCommissionDataGridViewTextBoxColumn.HeaderText = "税后佣金";
+            this.agentCommissionDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.agentCommissionDataGridViewTextBoxColumn.Name = "agentCommissionDataGridViewTextBoxColumn";
             this.agentCommissionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.agentCommissionDataGridViewTextBoxColumn.Width = 83;
+            this.agentCommissionDataGridViewTextBoxColumn.Width = 118;
             // 
             // CitySaler
             // 
             this.CitySaler.DataPropertyName = "CitySaler";
             this.CitySaler.HeaderText = "跨区域销售";
+            this.CitySaler.MinimumWidth = 10;
             this.CitySaler.Name = "CitySaler";
             this.CitySaler.ReadOnly = true;
-            this.CitySaler.Width = 72;
+            this.CitySaler.Visible = false;
+            this.CitySaler.Width = 140;
             // 
             // CitySum
             // 
             this.CitySum.DataPropertyName = "CitySum";
             this.CitySum.HeaderText = "跨区域销售额";
+            this.CitySum.MinimumWidth = 10;
             this.CitySum.Name = "CitySum";
             this.CitySum.ReadOnly = true;
-            this.CitySum.Width = 72;
+            this.CitySum.Visible = false;
+            this.CitySum.Width = 140;
             // 
             // CityWages
             // 
             this.CityWages.DataPropertyName = "CityWages";
             this.CityWages.HeaderText = "跨区域销售工资";
+            this.CityWages.MinimumWidth = 10;
             this.CityWages.Name = "CityWages";
             this.CityWages.ReadOnly = true;
-            this.CityWages.Width = 83;
+            this.CityWages.Visible = false;
+            this.CityWages.Width = 161;
             // 
             // CitySalePrice
             // 
             this.CitySalePrice.DataPropertyName = "CitySalePrice";
             this.CitySalePrice.HeaderText = "跨区销售提成单价";
+            this.CitySalePrice.MinimumWidth = 10;
             this.CitySalePrice.Name = "CitySalePrice";
             this.CitySalePrice.ReadOnly = true;
-            this.CitySalePrice.Width = 83;
+            this.CitySalePrice.Visible = false;
+            this.CitySalePrice.Width = 161;
             // 
             // CitySaleSum
             // 
             this.CitySaleSum.DataPropertyName = "CitySaleSum";
             this.CitySaleSum.HeaderText = "跨区销售提成额";
+            this.CitySaleSum.MinimumWidth = 10;
             this.CitySaleSum.Name = "CitySaleSum";
             this.CitySaleSum.ReadOnly = true;
-            this.CitySaleSum.Width = 83;
+            this.CitySaleSum.Visible = false;
+            this.CitySaleSum.Width = 161;
             // 
             // CitySaleCommission
             // 
             this.CitySaleCommission.DataPropertyName = "CitySaleCommission";
             this.CitySaleCommission.HeaderText = "跨区销售提成";
+            this.CitySaleCommission.MinimumWidth = 10;
             this.CitySaleCommission.Name = "CitySaleCommission";
             this.CitySaleCommission.ReadOnly = true;
-            this.CitySaleCommission.Width = 72;
+            this.CitySaleCommission.Visible = false;
+            this.CitySaleCommission.Width = 140;
             // 
             // isPaidDataGridViewTextBoxColumn
             // 
             this.isPaidDataGridViewTextBoxColumn.DataPropertyName = "IsPaid";
             this.isPaidDataGridViewTextBoxColumn.HeaderText = "是否付佣金";
+            this.isPaidDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.isPaidDataGridViewTextBoxColumn.Name = "isPaidDataGridViewTextBoxColumn";
             this.isPaidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isPaidDataGridViewTextBoxColumn.Width = 72;
+            this.isPaidDataGridViewTextBoxColumn.Width = 140;
             // 
             // paidDateDataGridViewTextBoxColumn
             // 
             this.paidDateDataGridViewTextBoxColumn.DataPropertyName = "PaidDate";
             this.paidDateDataGridViewTextBoxColumn.HeaderText = "付款日期";
+            this.paidDateDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.paidDateDataGridViewTextBoxColumn.Name = "paidDateDataGridViewTextBoxColumn";
             this.paidDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.paidDateDataGridViewTextBoxColumn.Width = 61;
+            this.paidDateDataGridViewTextBoxColumn.Width = 118;
             // 
             // statusDataGridViewTextBoxColumn
             // 
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
             this.statusDataGridViewTextBoxColumn.HeaderText = "订单状态";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.statusDataGridViewTextBoxColumn.Width = 61;
+            this.statusDataGridViewTextBoxColumn.Width = 118;
             // 
             // businessAuditDataGridViewTextBoxColumn
             // 
             this.businessAuditDataGridViewTextBoxColumn.DataPropertyName = "BusinessAudit";
             this.businessAuditDataGridViewTextBoxColumn.HeaderText = "商务审核人";
+            this.businessAuditDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.businessAuditDataGridViewTextBoxColumn.Name = "businessAuditDataGridViewTextBoxColumn";
             this.businessAuditDataGridViewTextBoxColumn.ReadOnly = true;
-            this.businessAuditDataGridViewTextBoxColumn.Width = 72;
+            this.businessAuditDataGridViewTextBoxColumn.Width = 140;
             // 
             // businessDateDataGridViewTextBoxColumn
             // 
             this.businessDateDataGridViewTextBoxColumn.DataPropertyName = "BusinessDate";
             this.businessDateDataGridViewTextBoxColumn.HeaderText = "商务审核日期";
+            this.businessDateDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.businessDateDataGridViewTextBoxColumn.Name = "businessDateDataGridViewTextBoxColumn";
             this.businessDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.businessDateDataGridViewTextBoxColumn.Width = 72;
+            this.businessDateDataGridViewTextBoxColumn.Width = 140;
             // 
             // FinanceAudit
             // 
             this.FinanceAudit.DataPropertyName = "FinanceAudit";
             this.FinanceAudit.HeaderText = "财务审核人";
+            this.FinanceAudit.MinimumWidth = 10;
             this.FinanceAudit.Name = "FinanceAudit";
             this.FinanceAudit.ReadOnly = true;
-            this.FinanceAudit.Width = 72;
+            this.FinanceAudit.Width = 140;
             // 
             // FinanceDate
             // 
             this.FinanceDate.DataPropertyName = "FinanceDate";
             this.FinanceDate.HeaderText = "财务审核日期";
+            this.FinanceDate.MinimumWidth = 10;
             this.FinanceDate.Name = "FinanceDate";
             this.FinanceDate.ReadOnly = true;
-            this.FinanceDate.Width = 72;
+            this.FinanceDate.Width = 140;
             // 
             // LeaderAudit
             // 
             this.LeaderAudit.DataPropertyName = "LeaderAudit";
             this.LeaderAudit.HeaderText = "领导审核人";
+            this.LeaderAudit.MinimumWidth = 10;
             this.LeaderAudit.Name = "LeaderAudit";
             this.LeaderAudit.ReadOnly = true;
-            this.LeaderAudit.Width = 72;
+            this.LeaderAudit.Width = 140;
             // 
             // LeaderDate
             // 
             this.LeaderDate.DataPropertyName = "LeaderDate";
             this.LeaderDate.HeaderText = "领导审核日期";
+            this.LeaderDate.MinimumWidth = 10;
             this.LeaderDate.Name = "LeaderDate";
             this.LeaderDate.ReadOnly = true;
-            this.LeaderDate.Width = 72;
+            this.LeaderDate.Width = 140;
             // 
             // recDateDataGridViewTextBoxColumn
             // 
             this.recDateDataGridViewTextBoxColumn.DataPropertyName = "RecDate";
             this.recDateDataGridViewTextBoxColumn.HeaderText = "申请时间";
+            this.recDateDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.recDateDataGridViewTextBoxColumn.Name = "recDateDataGridViewTextBoxColumn";
             this.recDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.recDateDataGridViewTextBoxColumn.Width = 61;
+            this.recDateDataGridViewTextBoxColumn.Width = 118;
             // 
             // saleDetailsIdDataGridViewTextBoxColumn
             // 
             this.saleDetailsIdDataGridViewTextBoxColumn.DataPropertyName = "SaleDetailsId";
             this.saleDetailsIdDataGridViewTextBoxColumn.HeaderText = "SaleDetailsId";
+            this.saleDetailsIdDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.saleDetailsIdDataGridViewTextBoxColumn.Name = "saleDetailsIdDataGridViewTextBoxColumn";
             this.saleDetailsIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.saleDetailsIdDataGridViewTextBoxColumn.Visible = false;
-            this.saleDetailsIdDataGridViewTextBoxColumn.Width = 108;
+            this.saleDetailsIdDataGridViewTextBoxColumn.Width = 211;
             // 
-            // 费用分配审核_领导
+            // 费用分配审核_领导_有代理商费用
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.Controls.Add(this.dgvExAllocation);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.Name = "费用分配审核_领导_有代理商费用";
             this.Load += new System.EventHandler(this.费用分配审核_领导_有代理商费用_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);

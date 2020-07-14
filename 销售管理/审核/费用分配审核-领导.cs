@@ -23,25 +23,25 @@ namespace 销售管理.日常业务
             string mSql;
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
 
-            mSql = @"SELECT a.Id, a.Month, b.UserName, a.TableNo, f.CompanyName as CustomerName, a.ProjectName, p.name as ProductName,pt.name ProductType, a.Amount, a.DeliverPrice, a.DeliverSum, a.SalePrice, a.SaleSum, a.DepartSum, a.SaleWages, a.CommissionPrice, a.CommissionSum, a.SaleComission, a.AgentPrice, a.AgentSum, a.AgentCommission, a.IsPaid, a.PaidDate, a.Status, c.username as BusinessAudit, a.BusinessDate, a.BusinessRemark, d.username as FinanceAudit, a.FinanceDate, a.FinanceRemark, e.username as LeaderAudit, a.LeaderDate, a.LeaderRemark, a.RecDate, a.SaleDetailsId,cs.username citysaler,a.citysum,a.citywages,a.citysaleprice,a.citysalesum,a.citysalecommission FROM T_ExpenseAllocation a left join t_users b on a.username = b.id left join t_users c on a.businessaudit = c.id left join t_users d on a.financeaudit =d.id left join t_users e on a.leaderaudit=e.id left join t_customers f on a.customername = f.id left join t_products p on a.productname = p.id left join t_products pt on p.parentid= pt.id left join t_users cs on cs.id = a.CitySaler";
+            mSql = @"SELECT type, a.Id, a.Month, b.UserName, a.TableNo, f.CompanyName as CustomerName, a.ProjectName, p.name as ProductName,pt.name ProductType, a.Amount, a.DeliverPrice, a.DeliverSum, a.SalePrice, a.SaleSum, a.DepartSum, a.SaleWages, a.CommissionPrice, a.CommissionSum, a.SaleComission, a.AgentPrice, a.AgentSum, a.AgentCommission, a.IsPaid, a.PaidDate, a.Status, c.username as BusinessAudit, a.BusinessDate, a.BusinessRemark, d.username as FinanceAudit, a.FinanceDate, a.FinanceRemark, e.username as LeaderAudit, a.LeaderDate, a.LeaderRemark, a.RecDate, a.SaleDetailsId,cs.username citysaler,a.citysum,a.citywages,a.citysaleprice,a.citysalesum,a.citysalecommission FROM T_ExpenseAllocation a left join t_users b on a.username = b.id left join t_users c on a.businessaudit = c.id left join t_users d on a.financeaudit =d.id left join t_users e on a.leaderaudit=e.id left join t_customers f on a.customername = f.id left join t_products p on a.productname = p.id left join t_products pt on p.parentid= pt.id left join t_users cs on cs.id = a.CitySaler";
 
             if (cmbHasAudit.Text == "未审核")
             {
-                mSql += "  where a.status = '财务已审核等待领导审核'";
+                mSql += "  where a.status = '财务已审核等待领导审核' And a.IsPaid <>'无佣金'";
                 //dgvExAllocation.Columns["ColAudit"].Visible = true;
                 //dgvExAllocation.Columns["ColAudit1"].Visible = true;
                 dgvExAllocation.Columns["ColumnChecked"].Visible = true;
             }
             else if (cmbHasAudit.Text == "审核已通过")
             {
-                mSql += "  where a.status = '领导审核通过'";
+                mSql += "  where a.status = '领导审核通过' And a.IsPaid <>'无佣金'";
                 dgvExAllocation.Columns["ColumnChecked"].Visible = false;
                 //dgvExAllocation.Columns["ColAudit"].Visible = false;
                 //dgvExAllocation.Columns["ColAudit1"].Visible = false;
             }
             else
             {
-                mSql += "  where a.status = '领导审核不通过'";
+                mSql += "  where a.status = '领导审核不通过' And a.IsPaid <>'无佣金'";
                 dgvExAllocation.Columns["ColumnChecked"].Visible = false;
             }
 
@@ -155,7 +155,7 @@ namespace 销售管理.日常业务
             if (e.ColumnIndex == dgvExAllocation.Columns["ColumnChecked"].Index) return;
             if (e.RowIndex > -1)
             {
-                using (申请费用分配 mForm = new 申请费用分配())
+                using (申请费用分配1 mForm = new 申请费用分配1())
                 {
                     mForm.mRow = dgvExAllocation.Rows[e.RowIndex];
                     mForm.ExId = Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);

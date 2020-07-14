@@ -21,13 +21,13 @@ namespace 销售管理.日常业务
         {
             string mSql;
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
-            mSql = @"SELECT a.Id, a.Month, b.UserName, a.TableNo, e.companyname as CustomerName, a.ProjectName, p.name as ProductName, pt.name ProductType, a.Amount, a.DeliverPrice, a.DeliverSum, a.SalePrice, a.SaleSum, a.DepartSum, a.SaleWages, a.CommissionPrice, a.CommissionSum, a.SaleComission, a.AgentPrice, a.AgentSum, a.AgentCommission, a.IsPaid, a.PaidDate, a.Status, c.username as BusinessAudit, a.BusinessDate, a.BusinessRemark, d.username as FinanceAudit, a.FinanceDate, a.FinanceRemark, a.LeaderAudit, a.LeaderDate, a.LeaderRemark, a.RecDate, a.SaleDetailsId,cs.username citysaler,a.citysum,a.citywages,a.citysaleprice,a.citysalesum,a.citysalecommission FROM T_ExpenseAllocation a left join t_users b on a.username = b.id left join t_users c on a.businessAudit = c.id left join t_users d on a.FinanceAudit = d.id left join t_customers e on a.customername = e.id left join t_products p on a.productname = p.id left join t_products pt on p.parentid= pt.id left join t_users cs on cs.id = a.CitySaler";
+            mSql = @"SELECT type, a.Id, a.Month, b.UserName, a.TableNo, e.companyname as CustomerName, a.ProjectName, p.name as ProductName, pt.name ProductType, a.Amount, a.DeliverPrice, a.DeliverSum, a.SalePrice, a.SaleSum, a.DepartSum, a.SaleWages, a.CommissionPrice, a.CommissionSum, a.SaleComission, a.AgentPrice, a.AgentSum, a.AgentCommission, a.IsPaid, a.PaidDate, a.Status, c.username as BusinessAudit, a.BusinessDate, a.BusinessRemark, d.username as FinanceAudit, a.FinanceDate, a.FinanceRemark, a.LeaderAudit, a.LeaderDate, a.LeaderRemark, a.RecDate, a.SaleDetailsId,cs.username citysaler,a.citysum,a.citywages,a.citysaleprice,a.citysalesum,a.citysalecommission FROM T_ExpenseAllocation a left join t_users b on a.username = b.id left join t_users c on a.businessAudit = c.id left join t_users d on a.FinanceAudit = d.id left join t_customers e on a.customername = e.id left join t_products p on a.productname = p.id left join t_products pt on p.parentid= pt.id left join t_users cs on cs.id = a.CitySaler";
             if (cmbHasAudit.Text == "未审核")
             {
-                mSql += "  where a.status = '商务已审核等待财务审核'";
+                mSql += "  where a.status = '客服已确认等待财务审核'";
                 dgvExAllocation.Columns["ColAudit"].Visible = true;
                 dgvExAllocation.Columns["ColAudit1"].Visible = true;
-            } 
+            }
             else
             {
                 //if (Classes.PubClass.UserRight == "领导")
@@ -96,7 +96,16 @@ namespace 销售管理.日常业务
                 {
                     if (DialogResult.Yes == MessageBox.Show("确认审核通过？", "提示", MessageBoxButtons.YesNo))
                     {
-                        int ret = t_ExpenseAllocationTableAdapter.UpdateFinanceAudit("财务已审核等待领导审核", Classes.PubClass.UserId, "", Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
+                        var status = "财务已审核等待领导审核";
+                        if (Convert.ToDecimal(dgvExAllocation.Rows[e.RowIndex].Cells["agentSumDataGridViewTextBoxColumn"].Value) > 0)
+                        {
+                            status = "财务已审核等待领导审核";
+                        }
+                        else
+                        {
+                            status = "领导审核通过";
+                        }
+                        int ret = t_ExpenseAllocationTableAdapter.UpdateFinanceAudit(status, Classes.PubClass.UserId, "", Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
                         if (ret > 0)
                         {
                             MessageBox.Show("提交成功");
@@ -112,24 +121,24 @@ namespace 销售管理.日常业务
                 {
                     if (DialogResult.Yes == MessageBox.Show("确认审核不通过？", "提示", MessageBoxButtons.YesNo))
                     {
-                       // using (审核备注 mForm = new 审核备注())
-                       // {
-                            //if (DialogResult.OK == mForm.ShowDialog())
-                            //{
-                                
-                            //}
-                            int ret = t_ExpenseAllocationTableAdapter.UpdateFinanceAudit("财务审核不通过", Classes.PubClass.UserId, "", Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
-                            if (ret > 0)
-                            {
-                                MessageBox.Show("提交成功");
-                                dgvExAllocation.Rows.RemoveAt(e.RowIndex);
-                            }
-                            else
-                            {
-                                MessageBox.Show("提交失败");
-                            }
+                        // using (审核备注 mForm = new 审核备注())
+                        // {
+                        //if (DialogResult.OK == mForm.ShowDialog())
+                        //{
 
-                       // }
+                        //}
+                        int ret = t_ExpenseAllocationTableAdapter.UpdateFinanceAudit("财务审核不通过", Classes.PubClass.UserId, "", Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value));
+                        if (ret > 0)
+                        {
+                            MessageBox.Show("提交成功");
+                            dgvExAllocation.Rows.RemoveAt(e.RowIndex);
+                        }
+                        else
+                        {
+                            MessageBox.Show("提交失败");
+                        }
+
+                        // }
                     }
                 }
             }
@@ -143,7 +152,7 @@ namespace 销售管理.日常业务
         {
             if (e.RowIndex > -1)
             {
-                using (申请费用分配 mForm = new 申请费用分配())
+                using (申请费用分配1 mForm = new 申请费用分配1())
                 {
                     mForm.mRow = dgvExAllocation.Rows[e.RowIndex];
                     mForm.ExId = Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);

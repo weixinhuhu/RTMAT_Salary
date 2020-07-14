@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using 销售管理.DAL.DataSetCustomersTableAdapters;
 using 销售管理.DAL.DataSetSaleDetailsTableAdapters;
@@ -35,7 +29,7 @@ namespace 销售管理.日常业务
 
             if (CityId < 0)
             {
-                if (Classes.PubClass.CompanyId ==0)
+                if (Classes.PubClass.CompanyId == 0)
                 {
                     MessageBox.Show("请选择客户");
                     return;
@@ -47,16 +41,17 @@ namespace 销售管理.日常业务
                 }
             }
 
-            if (cmbSettlementModes.Text.Trim() == "")
-            {
-                MessageBox.Show("请输入结款方式");
-                return;
-            }
-            if (txtStockOutNo.Text.Trim() == "")
-            {
-                MessageBox.Show("出库单编号不能为空");
-                return;
-            }
+            //if (cmbSettlementModes.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("请输入结款方式");
+            //    return;
+            //}
+            //if (txtStockOutNo.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("出库单编号不能为空");
+            //    return;
+            //}
+
             if (dgvDetails.Rows.Count < 1)
             {
                 MessageBox.Show("出库内容不能为空");
@@ -65,9 +60,6 @@ namespace 销售管理.日常业务
             try
             {
                 int ret = 0;
-                //if (mId == -1)
-                //{
-                //int ret = new T_SaleDetailsTableAdapter().Insert((long)cmbUserName.SelectedValue, cmbCustomerName.Text.Trim(), "", dtpDate1.Value.Date, ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), cmbSettlementModes.Text, null, makeInvoice, txtInvoiceContent.Text.Trim(), "", dtpInvioceDate.Value.Date, cmbInvoiceType.Text, txtInvoiceNo.Text.Trim(), (cmbCustomerName.SelectedValue.ToString() == "" ? -1 : (long)cmbCustomerName.SelectedValue));
 
                 using (SqlConnection mconn = new SqlConnection(Common.CommonClass.SqlConnStr))
                 {
@@ -82,10 +74,8 @@ namespace 销售管理.日常业务
 
                             foreach (DataGridViewRow mRow in dgvDetails.Rows)
                             {
-                               // ret = adapter.Insert((long)cmbUserName.SelectedValue, cmbCustomerName.SelectedValue.ToString(), "", dtpDate1.Value.Date, Convert.ToInt64(mRow.Cells["ColumnProductId"].Value), Convert.ToDecimal(mRow.Cells["ColumnAmount"].Value), Convert.ToDecimal(mRow.Cells["ColumnPrice"].Value), Convert.ToDecimal(mRow.Cells["ColumnSumMoney"].Value), cmbSettlementModes.Text, CityId, null, txtStockOutNo.Text.Trim(), mRow.Cells["InvoiceFlag"].Value.ToString(), mRow.Cells["ColumnUnit"].Value.ToString());
-                               
-                                ret = adapter.Insert((long)cmbUserName.SelectedValue, Classes.PubClass.CompanyId.ToString(), "", dtpDate1.Value.Date, Convert.ToInt64(mRow.Cells["ColumnProductId"].Value), Convert.ToDecimal(mRow.Cells["ColumnAmount"].Value), Convert.ToDecimal(mRow.Cells["ColumnPrice"].Value), Convert.ToDecimal(mRow.Cells["ColumnSumMoney"].Value), cmbSettlementModes.Text, CityId, null, txtStockOutNo.Text.Trim(), mRow.Cells["InvoiceFlag"].Value.ToString(), mRow.Cells["ColumnUnit"].Value.ToString());
-                               
+                                ret = adapter.Insert((long)cmbUserName.SelectedValue,               Classes.PubClass.CompanyId.ToString(), "", null, Convert.ToInt64(mRow.Cells["ColumnProductId"].Value), Convert.ToDecimal(mRow.Cells["ColumnAmount"].Value), Convert.ToDecimal(mRow.Cells["ColumnPrice"].Value), Convert.ToDecimal(mRow.Cells["ColumnSumMoney"].Value), cmbSettlementModes.Text, CityId, null, txtStockOutNo.Text.Trim(), mRow.Cells["InvoiceFlag"].Value.ToString(), mRow.Cells["ColumnUnit"].Value.ToString(), Convert.ToDecimal(mRow.Cells["AgentSum"].Value),DateTime.Now,null);
+
                                 if (ret == 0)
                                 {
                                     MessageBox.Show("第" + mRow.Index.ToString() + "项插入失败");
@@ -101,9 +91,7 @@ namespace 销售管理.日常业务
                             return;
                         }
                     }
-
                 }
-
                 MessageBox.Show("保存成功");
                 btnSave.Enabled = false;
 
@@ -128,84 +116,6 @@ namespace 销售管理.日常业务
             var mTable = new T_ProductsTableAdapter().GetDataByLevel(1); //获取level1的产品
             cmbProduct1.DataSource = mTable;
             cmbProduct1.SelectedIndex = -1;
-            //foreach (销售管理.DAL.DataSetProducts.T_ProductsRow mRow in mTable.Rows)
-            //{
-            //    MyCmbList mCmblist = new MyCmbList();
-            //    mCmblist.Id = mRow.Id;
-            //    mCmblist.Name = mRow.Name;
-            //    cmbProduct1.Items.Add(mCmblist);
-            //}
-            //if (mId == -1)
-            //{
-            //    //获取出库单编号
-            //    //string m_date = DateTime.Now.ToString("yyyyMM");
-            //    //txtStockOutNo.Text = new T_SaleDetailsTableAdapter().GetNextStockOutNo(m_date).ToString();
-
-            //}
-            //else
-            //{
-            //    DataTable dt = new DataTable();
-            //    dt = new T_SaleDetailsTableAdapter().GetDataById(mId);
-
-            //    if (dt.Rows.Count > 0)
-            //    {
-            //        var mRow = (销售管理.DAL.DataSetSaleDetails.T_SaleDetailsRow)dt.Rows[0];
-
-            //        cmbUserName.SelectedValue = mRow.UserName;
-            //        //cmbCustomerName.DisplayMember = "customername";
-            //        //cmbCustomerName.DataSource = new T_CustomersTableAdapter().GetDataByUserId(mRow.UserName);
-            //        cmbUserName_SelectionChangeCommitted(sender, e);
-            //        if (mRow.IsCustomerNameNull() == false)
-            //        {
-            //            long mCustomerId;
-            //            if (Int64.TryParse(mRow.CustomerName, out mCustomerId) == true)
-            //                cmbCustomerName.SelectedValue = Convert.ToInt64(mRow.CustomerName);
-            //            else
-            //                cmbCustomerName.SelectedIndex = cmbCustomerName.FindStringExact(mRow.CustomerName);
-            //        }
-            //        cmbCustomerName_SelectionChangeCommitted(sender, e); //设置客户所在城市ID
-
-            //        //获取产品信息
-            //        //long pLevel, pId;
-            //        var mTableProduct = new T_ProductsTableAdapter().GetDataByID(mRow.ProductName);
-            //        if (mTableProduct.Rows.Count > 0)
-            //        {
-            //            销售管理.DAL.DataSetProducts.T_ProductsRow mProductRow = mTableProduct[0];
-            //            //    for (int i = mProductRow.Level; i > 1; i--)
-            //            //    {
-            //            //        var mParentTable = new T_ProductsTableAdapter().GetDataByID(mProductRow.ParentId);
-            //            //    }
-            //            //设置产品
-            //            SetProduct(mProductRow);
-            //        }
-
-            //        //cmbMonth.SelectedItem = mRow.SaleMonth;
-            //        dtpDate1.Value = mRow.SaleDate;
-            //        //txtProductName.Text = mRow.ProductName;
-            //        txtAmount.Text = mRow.Amount.ToString();
-            //        txtPrice.Text = mRow.Price.ToString();
-            //        txtSum.Text = mRow.SumMoney.ToString();
-            //        txtStockOutNo.Text = mRow.StockOutNo.ToString();
-            //        if (mRow.IsSettlementModesNull() == false) cmbSettlementModes.SelectedText = mRow.SettlementModes;
-            //        //if (mRow.IsMakeInvoiceNull() == false)
-            //        //{
-            //        //    if (mRow.MakeInvoice.ToString() == "是")
-            //        //    {
-            //        //        cbInvoice.Checked = true;
-            //        //    }
-            //        //    else
-            //        //    {
-            //        //        cbInvoice.Checked = false;
-            //        //    }
-            //        //}
-            //        //if (mRow.IsInvoiceContentNull() == false) txtInvoiceContent.Text = mRow.InvoiceContent;
-            //        ////cmbInvoiceMonth.SelectedItem = mRow.InvoiceMonth;
-            //        //if (mRow.IsInvoiceDateNull() == false) dtpInvioceDate.Value = mRow.InvoiceDate;
-            //        //if (mRow.IsInvoiceTypeNull() == false) cmbInvoiceType.SelectedItem = mRow.InvoiceType;
-            //        //if (mRow.IsInvoiceNoNull() == false) txtInvoiceNo.Text = mRow.InvoiceNo;
-            //    }
-            //}
-
         }
 
         public void SetProduct(销售管理.DAL.DataSetProducts.T_ProductsRow mRow)
@@ -336,7 +246,7 @@ namespace 销售管理.日常业务
                 ProductId = (long)cmbProduct2.SelectedValue;
             }
         }
-      
+
         private void cmbProduct3_SelectedIndexChanged(object sender, EventArgs e)
         {
             //ProductId = ((MyCmbList)cmbProduct3.SelectedItem).Id;
@@ -370,8 +280,9 @@ namespace 销售管理.日常业务
                 CustomerNameList mForm = new CustomerNameList();
                 mForm.ShowDialog();
             }
-            
-            if(Classes.PubClass.CompanyName!=""){
+
+            if (Classes.PubClass.CompanyName != "")
+            {
                 cmbCustomerName.Text = Classes.PubClass.CompanyName;
                 var table = new T_CustomersTableAdapter().GetDataById((long)Classes.PubClass.CompanyId);
                 if (table.Rows.Count > 0)
@@ -387,7 +298,7 @@ namespace 销售管理.日常业务
                 else
                 {
                     CityId = -1;
-                }        
+                }
             }
 
         }
@@ -477,12 +388,14 @@ namespace 销售管理.日常业务
             dgvDetails.Rows[index].Cells["ColumnUnit"].Value = cmbUnit.Text.Trim();
             //添加是否开票
             dgvDetails.Rows[index].Cells["InvoiceFlag"].Value = CmbInvoiceFlag.Text.Trim();
+            //佣金
+            dgvDetails.Rows[index].Cells["AgentSum"].Value = txtAgentSum.Text.Trim();
 
         }
 
         private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cmbCustomerName_SelectedIndexChanged(object sender, EventArgs e)
@@ -498,21 +411,37 @@ namespace 销售管理.日常业务
         private void cmbProduct2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //  如果没有3级菜单返回
-            if (cmbProduct3.Visible == false) {
+            if (cmbProduct3.Visible == false)
+            {
                 return;
             }
 
-            if (cmbProduct2.SelectedIndex > -1) { 
+            if (cmbProduct2.SelectedIndex > -1)
+            {
                 Classes.PubClass.Product2Id = (long)cmbProduct2.SelectedValue;
                 Product3List mForm = new Product3List();
                 mForm.ShowDialog();
             }
 
-            if (Classes.PubClass.Product3Name != "") {
+            if (Classes.PubClass.Product3Name != "")
+            {
                 cmbProduct3.Text = Classes.PubClass.Product3Name;
                 ProductId = Classes.PubClass.Product3Id;
             }
-           
+
+        }
+
+        private void txtAgentSum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAgentSum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (".0123456789".IndexOf(e.KeyChar) < 0 && (int)e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

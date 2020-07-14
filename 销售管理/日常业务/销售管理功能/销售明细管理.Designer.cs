@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(销售明细管理));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSaleDetails = new System.Windows.Forms.DataGridView();
             this.tSaleDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetSaleDetails = new 销售管理.DAL.DataSetSaleDetails();
@@ -53,7 +58,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.t_SaleDetailsTableAdapter = new 销售管理.DAL.DataSetSaleDetailsTableAdapters.T_SaleDetailsTableAdapter();
             this.dgvNav1 = new WinFormPager.DgvNav(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -66,25 +70,27 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.t_SaleDetailsTableAdapter = new 销售管理.DAL.DataSetSaleDetailsTableAdapters.T_SaleDetailsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColModify = new System.Windows.Forms.DataGridViewButtonColumn();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumMoneyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AgentSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.settlementModesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SettlementModes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableNo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.expenseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockOutNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpenseAllocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHasInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInvoicing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCanInvoice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSaleDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetSaleDetails)).BeginInit();
@@ -107,30 +113,35 @@
             this.dgvSaleDetails.AutoGenerateColumns = false;
             this.dgvSaleDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSaleDetails.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
+            this.dgvSaleDetails.CausesValidation = false;
+            this.dgvSaleDetails.ColumnHeadersHeight = 32;
+            this.dgvSaleDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSaleDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.ColPrint,
             this.ColModify,
             this.userNameDataGridViewTextBoxColumn,
             this.customerNameDataGridViewTextBoxColumn,
-            this.saleDateDataGridViewTextBoxColumn,
             this.productNameDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.sumMoneyDataGridViewTextBoxColumn,
+            this.AgentSum,
             this.settlementModesDataGridViewTextBoxColumn,
+            this.SaleDate,
+            this.ExpDate,
+            this.SettlementModes,
             this.TableNo,
             this.expenseStatus,
             this.BusinessRemark,
             this.StockOutNo,
             this.ExpenseAllocation,
-            this.ColumnHasInvoice,
-            this.ColumnInvoicing,
-            this.ColumnCanInvoice});
+            this.saleDateDataGridViewTextBoxColumn});
             this.dgvSaleDetails.DataSource = this.tSaleDetailsBindingSource;
             this.dgvSaleDetails.Location = new System.Drawing.Point(70, 320);
             this.dgvSaleDetails.Margin = new System.Windows.Forms.Padding(6);
             this.dgvSaleDetails.Name = "dgvSaleDetails";
+            this.dgvSaleDetails.RowHeadersWidth = 82;
             this.dgvSaleDetails.RowTemplate.Height = 23;
             this.dgvSaleDetails.ShowEditingIcon = false;
             this.dgvSaleDetails.Size = new System.Drawing.Size(1870, 1034);
@@ -194,6 +205,7 @@
             this.cmbInvoice.Name = "cmbInvoice";
             this.cmbInvoice.Size = new System.Drawing.Size(238, 32);
             this.cmbInvoice.TabIndex = 9;
+            this.cmbInvoice.Visible = false;
             // 
             // label7
             // 
@@ -223,13 +235,14 @@
             // btnPrint
             // 
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.Location = new System.Drawing.Point(1492, 62);
+            this.btnPrint.Location = new System.Drawing.Point(1700, 120);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(6);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(170, 66);
             this.btnPrint.TabIndex = 6;
             this.btnPrint.Text = "打印收货单";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Visible = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // cmbUserName
@@ -246,10 +259,10 @@
             // btnSerch
             // 
             this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSerch.Location = new System.Drawing.Point(1702, 58);
+            this.btnSerch.Location = new System.Drawing.Point(1512, 74);
             this.btnSerch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSerch.Name = "btnSerch";
-            this.btnSerch.Size = new System.Drawing.Size(126, 72);
+            this.btnSerch.Size = new System.Drawing.Size(166, 92);
             this.btnSerch.TabIndex = 3;
             this.btnSerch.Text = "快速查找";
             this.btnSerch.UseVisualStyleBackColor = true;
@@ -356,6 +369,7 @@
             this.label8.Size = new System.Drawing.Size(58, 24);
             this.label8.TabIndex = 0;
             this.label8.Text = "开票";
+            this.label8.Visible = false;
             // 
             // label1
             // 
@@ -366,10 +380,6 @@
             this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "销售员";
-            // 
-            // t_SaleDetailsTableAdapter
-            // 
-            this.t_SaleDetailsTableAdapter.ClearBeforeFill = true;
             // 
             // dgvNav1
             // 
@@ -406,7 +416,6 @@
             this.dgvNav1.OrderDirection = null;
             this.dgvNav1.OrderField = null;
             this.dgvNav1.OriginSql = null;
-            this.dgvNav1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.dgvNav1.PageSize = 100;
             this.dgvNav1.PageSizeItem = this.bindingNavigatorPageSizeItem;
             this.dgvNav1.PositionItem = this.bindingNavigatorPositionItem;
@@ -422,14 +431,14 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(36, 47);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(46, 44);
             this.bindingNavigatorAddNewItem.Text = "添加";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(61, 47);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(61, 44);
             this.bindingNavigatorCountItem.Text = "/ {0}";
             this.bindingNavigatorCountItem.ToolTipText = "总页数";
             // 
@@ -439,7 +448,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(36, 47);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(46, 44);
             this.bindingNavigatorMoveFirstItem.Text = "第一页";
             // 
             // bindingNavigatorMovePreviousItem
@@ -448,7 +457,7 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(36, 47);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(46, 44);
             this.bindingNavigatorMovePreviousItem.Text = "上一页";
             // 
             // bindingNavigatorSeparator
@@ -484,7 +493,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(36, 47);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(46, 44);
             this.bindingNavigatorMoveNextItem.Text = "下一页";
             // 
             // bindingNavigatorMoveLastItem
@@ -493,7 +502,7 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(36, 47);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(46, 44);
             this.bindingNavigatorMoveLastItem.Text = "最后一页";
             // 
             // bindingNavigatorSeparator2
@@ -501,11 +510,16 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 50);
             // 
+            // t_SaleDetailsTableAdapter
+            // 
+            this.t_SaleDetailsTableAdapter.ClearBeforeFill = true;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
@@ -515,15 +529,18 @@
             // 
             this.ColPrint.Frozen = true;
             this.ColPrint.HeaderText = "打印收货单";
+            this.ColPrint.MinimumWidth = 10;
             this.ColPrint.Name = "ColPrint";
             this.ColPrint.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColPrint.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColPrint.Visible = false;
             this.ColPrint.Width = 175;
             // 
             // ColModify
             // 
             this.ColModify.Frozen = true;
             this.ColModify.HeaderText = "修改";
+            this.ColModify.MinimumWidth = 10;
             this.ColModify.Name = "ColModify";
             this.ColModify.Text = "修改";
             this.ColModify.UseColumnTextForButtonValue = true;
@@ -534,6 +551,7 @@
             this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
             this.userNameDataGridViewTextBoxColumn.Frozen = true;
             this.userNameDataGridViewTextBoxColumn.HeaderText = "销售员";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
             this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.userNameDataGridViewTextBoxColumn.Width = 127;
@@ -543,22 +561,17 @@
             this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
             this.customerNameDataGridViewTextBoxColumn.Frozen = true;
             this.customerNameDataGridViewTextBoxColumn.HeaderText = "客户名称";
+            this.customerNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
             this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.customerNameDataGridViewTextBoxColumn.Width = 151;
             // 
-            // saleDateDataGridViewTextBoxColumn
-            // 
-            this.saleDateDataGridViewTextBoxColumn.DataPropertyName = "SaleDate";
-            this.saleDateDataGridViewTextBoxColumn.HeaderText = "日期";
-            this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
-            this.saleDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saleDateDataGridViewTextBoxColumn.Width = 103;
-            // 
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.Frozen = true;
             this.productNameDataGridViewTextBoxColumn.HeaderText = "产品名称";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.productNameDataGridViewTextBoxColumn.Width = 151;
@@ -566,7 +579,9 @@
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn.Frozen = true;
             this.amountDataGridViewTextBoxColumn.HeaderText = "数量";
+            this.amountDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
             this.amountDataGridViewTextBoxColumn.Width = 103;
@@ -574,7 +589,12 @@
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0.00";
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.priceDataGridViewTextBoxColumn.Frozen = true;
             this.priceDataGridViewTextBoxColumn.HeaderText = "单价";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 103;
@@ -582,26 +602,78 @@
             // sumMoneyDataGridViewTextBoxColumn
             // 
             this.sumMoneyDataGridViewTextBoxColumn.DataPropertyName = "SumMoney";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.sumMoneyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.sumMoneyDataGridViewTextBoxColumn.Frozen = true;
             this.sumMoneyDataGridViewTextBoxColumn.HeaderText = "金额";
+            this.sumMoneyDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.sumMoneyDataGridViewTextBoxColumn.Name = "sumMoneyDataGridViewTextBoxColumn";
             this.sumMoneyDataGridViewTextBoxColumn.ReadOnly = true;
             this.sumMoneyDataGridViewTextBoxColumn.Width = 103;
             // 
+            // AgentSum
+            // 
+            this.AgentSum.DataPropertyName = "AgentSum";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.AgentSum.DefaultCellStyle = dataGridViewCellStyle3;
+            this.AgentSum.Frozen = true;
+            this.AgentSum.HeaderText = "佣金";
+            this.AgentSum.MinimumWidth = 10;
+            this.AgentSum.Name = "AgentSum";
+            this.AgentSum.Width = 103;
+            // 
             // settlementModesDataGridViewTextBoxColumn
             // 
             this.settlementModesDataGridViewTextBoxColumn.DataPropertyName = "SettlementModes";
+            this.settlementModesDataGridViewTextBoxColumn.Frozen = true;
             this.settlementModesDataGridViewTextBoxColumn.HeaderText = "结款方式";
+            this.settlementModesDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.settlementModesDataGridViewTextBoxColumn.Name = "settlementModesDataGridViewTextBoxColumn";
             this.settlementModesDataGridViewTextBoxColumn.ReadOnly = true;
             this.settlementModesDataGridViewTextBoxColumn.Width = 151;
             // 
+            // SaleDate
+            // 
+            this.SaleDate.DataPropertyName = "SaleDate";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.SaleDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.SaleDate.Frozen = true;
+            this.SaleDate.HeaderText = "发货日期";
+            this.SaleDate.MinimumWidth = 10;
+            this.SaleDate.Name = "SaleDate";
+            this.SaleDate.Width = 151;
+            // 
+            // ExpDate
+            // 
+            this.ExpDate.DataPropertyName = "ExpDate";
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ExpDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ExpDate.Frozen = true;
+            this.ExpDate.HeaderText = "结算日期";
+            this.ExpDate.MinimumWidth = 10;
+            this.ExpDate.Name = "ExpDate";
+            this.ExpDate.Width = 151;
+            // 
+            // SettlementModes
+            // 
+            this.SettlementModes.DataPropertyName = "SettlementModes";
+            this.SettlementModes.HeaderText = "结款方式";
+            this.SettlementModes.MinimumWidth = 10;
+            this.SettlementModes.Name = "SettlementModes";
+            this.SettlementModes.Width = 151;
+            // 
             // TableNo
             // 
             this.TableNo.DataPropertyName = "TableNo";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "申请费用分配";
-            this.TableNo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = "申请费用分配";
+            this.TableNo.DefaultCellStyle = dataGridViewCellStyle6;
             this.TableNo.HeaderText = "费用分配表号";
+            this.TableNo.MinimumWidth = 10;
             this.TableNo.Name = "TableNo";
             this.TableNo.ReadOnly = true;
             this.TableNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -612,57 +684,47 @@
             // 
             this.expenseStatus.DataPropertyName = "exstatus";
             this.expenseStatus.HeaderText = "费用分配状态";
+            this.expenseStatus.MinimumWidth = 10;
             this.expenseStatus.Name = "expenseStatus";
             this.expenseStatus.ReadOnly = true;
             this.expenseStatus.Width = 199;
             // 
             // BusinessRemark
             // 
-            this.BusinessRemark.DataPropertyName = "BusinessRemark";
             this.BusinessRemark.HeaderText = "备注";
+            this.BusinessRemark.MinimumWidth = 10;
             this.BusinessRemark.Name = "BusinessRemark";
+            this.BusinessRemark.Visible = false;
             this.BusinessRemark.Width = 103;
             // 
             // StockOutNo
             // 
             this.StockOutNo.DataPropertyName = "StockOutNo";
             this.StockOutNo.HeaderText = "出库单编号";
+            this.StockOutNo.MinimumWidth = 10;
             this.StockOutNo.Name = "StockOutNo";
             this.StockOutNo.ReadOnly = true;
+            this.StockOutNo.Visible = false;
             this.StockOutNo.Width = 175;
             // 
             // ExpenseAllocation
             // 
             this.ExpenseAllocation.DataPropertyName = "ExpenseAllocation";
             this.ExpenseAllocation.HeaderText = "费用分配id";
+            this.ExpenseAllocation.MinimumWidth = 10;
             this.ExpenseAllocation.Name = "ExpenseAllocation";
             this.ExpenseAllocation.ReadOnly = true;
             this.ExpenseAllocation.Visible = false;
             this.ExpenseAllocation.Width = 175;
             // 
-            // ColumnHasInvoice
+            // saleDateDataGridViewTextBoxColumn
             // 
-            this.ColumnHasInvoice.DataPropertyName = "hasInvoice";
-            this.ColumnHasInvoice.HeaderText = "已开票数量";
-            this.ColumnHasInvoice.Name = "ColumnHasInvoice";
-            this.ColumnHasInvoice.ReadOnly = true;
-            this.ColumnHasInvoice.Width = 175;
-            // 
-            // ColumnInvoicing
-            // 
-            this.ColumnInvoicing.DataPropertyName = "Invoicing";
-            this.ColumnInvoicing.HeaderText = "审核中数量";
-            this.ColumnInvoicing.Name = "ColumnInvoicing";
-            this.ColumnInvoicing.ReadOnly = true;
-            this.ColumnInvoicing.Width = 175;
-            // 
-            // ColumnCanInvoice
-            // 
-            this.ColumnCanInvoice.DataPropertyName = "CanInvoice";
-            this.ColumnCanInvoice.HeaderText = "剩余开票数量";
-            this.ColumnCanInvoice.Name = "ColumnCanInvoice";
-            this.ColumnCanInvoice.ReadOnly = true;
-            this.ColumnCanInvoice.Width = 199;
+            this.saleDateDataGridViewTextBoxColumn.DataPropertyName = "SubmitDate";
+            this.saleDateDataGridViewTextBoxColumn.HeaderText = "录入时间";
+            this.saleDateDataGridViewTextBoxColumn.MinimumWidth = 10;
+            this.saleDateDataGridViewTextBoxColumn.Name = "saleDateDataGridViewTextBoxColumn";
+            this.saleDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saleDateDataGridViewTextBoxColumn.Width = 151;
             // 
             // 销售明细管理
             // 
@@ -732,19 +794,20 @@
         private System.Windows.Forms.DataGridViewButtonColumn ColModify;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saleDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumMoneyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AgentSum;
         private System.Windows.Forms.DataGridViewTextBoxColumn settlementModesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaleDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SettlementModes;
         private System.Windows.Forms.DataGridViewButtonColumn TableNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn expenseStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn BusinessRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockOutNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpenseAllocation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHasInvoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInvoicing;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCanInvoice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saleDateDataGridViewTextBoxColumn;
     }
 }

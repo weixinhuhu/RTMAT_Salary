@@ -36,7 +36,7 @@ namespace 销售管理.日常业务
             if (!Common.AuthenticateRight.AuthOperation(110101) && Common.CommonClass.SttUser.blSuperUser == false)
             {
                 cmbUserName.Items.Add(Classes.PubClass.UserName);
-                cmbUserName.Items.Add("全部");
+               // cmbUserName.Items.Add("全部");
                 cmbUserName.SelectedIndex = 0;
             }
             else
@@ -173,16 +173,16 @@ namespace 销售管理.日常业务
         {
             if (e.RowIndex >= 0)
             {
-
+                // 修改客户资料
                 if (e.ColumnIndex == 1)
                 {
-                    if ((Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")
-                    {
-                        客户资料维护 mForm = new 客户资料维护();
-                        mForm.mId = Convert.ToInt64(dgvContact.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
-                        mForm.ShowDialog();
-                    }
+
+                    客户资料维护 mForm = new 客户资料维护();
+                    mForm.mId = Convert.ToInt64(dgvContact.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
+                    mForm.ShowDialog();
+
                 }
+                //删除客户资料
                 if (e.ColumnIndex == 2)
                 {
                     if ((Common.AuthenticateRight.AuthOperation(110101) || CommonClass.SttUser.blSuperUser) && Classes.PubClass.UserStatus == "正常")

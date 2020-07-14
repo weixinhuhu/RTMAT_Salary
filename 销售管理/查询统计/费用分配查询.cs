@@ -23,56 +23,79 @@ namespace 销售管理.查询统计
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-             string mSql = "", mSql1 = "",mSql2="",mSql3="";
+            string mSql = "", mSql1 = "", mSql2 = "", mSql3 = "";
             if (rbDetails.Checked == true)
             {
-                mSql = @"SELECT b.UserName 销售员, a.TableNo 费用分配表号, cu.CompanyName 客户名称,  c.name 产品名称, pt.name 产品类型, a.Amount 数量, Convert(decimal(18,2),a.DeliverPrice) 发货单价, Convert(decimal(18,2),a.DeliverSum) 发货额, Convert(decimal(18,2),a.SalePrice) 销售单价, Convert(decimal(18,2),a.SaleSum) 个人销售额,Convert(decimal(18,2),a.DepartSum) 部门销售额,  Convert(decimal(18,2),a.SaleWages) 销售工资,d.username 跨区销售,Convert(decimal(18,2),a.CitySum) 跨区销售额,Convert(decimal(18,2),a.CityWages) 跨区销售工资,Convert(decimal(18,2),a.CitySalePrice) 跨区销售单价,Convert(decimal(18,2),a.CitySaleSum) 跨区提成销售额,Convert(decimal(18,2),a.CitySaleCommission) 跨区销售提成, Convert(decimal(18,2),a.CommissionPrice) 提成单价, Convert(decimal(18,2),a.CommissionSum) 提成销售额, Convert(decimal(18,2),a.SaleComission) 销售提成,  Convert(decimal(18,2),a.AgentPrice) 代理商单价,Convert(decimal(18,2),a.AgentSum) 代理商额度, Convert(decimal(18,2),a.AgentCommission) 代理商税后佣金, a.IsPaid 是否付佣金, a.PaidDate 付款日期, a.Status 状态,ts.saledate 销售日期, a.RecDate 提交日期 ,a.type 订单类型  FROM    T_ExpenseAllocation a
-                left join T_Users b on a.UserName=b.id 
-                left join t_products c on a.productname = c.id 
-                left join t_products pt on c.parentid=pt.id 
-                left join T_Users d on a.CitySaler = d.id left 
-                join t_customers cu on cu.id = a.customername 
-                left join t_saledetails ts on a.saledetailsid= ts.id where a.Status='领导审核通过'";
-                mSql2 = @"union all SELECT '总计', null, null, null, null,  null, 
-                null, Convert(decimal(18,2),sum(DeliverSum)), null, Convert(decimal(18,2),sum(SaleSum)),Convert(decimal(18,2),sum(DepartSum)),  Convert(decimal(18,2),sum(SaleWages)),null,Convert(decimal(18,2),max(b.Citysum)),Convert(decimal(18,2),max(b.CityWages)), null,Convert(decimal(18,2),max(b.CitySaleSum)),Convert(decimal(18,2),max(b.CitySaleCommission)),null, Convert(decimal(18,2),sum(CommissionSum)), 
-                Convert(decimal(18,2),sum(SaleComission)), null,sum(AgentSum), Convert(decimal(18,2),sum(AgentCommission)), null, null, null,  
-                       null,null,null                
-FROM      T_ExpenseAllocation t,t_saledetails ts ,(select max(citysaler) citysaler,sum(citySum) citysum,sum(cityWages) cityWages,sum(citysaleSum) citysalesum,sum(citysalecommission) citysalecommission from T_ExpenseAllocation a,t_saledetails ts ,t_products c where c.id = a.productname and a.saledetailsid = ts.id and a.Status='领导审核通过' ";
+                mSql = @"SELECT b.UserName 销售员,
+                               a.TableNo 费用分配表号,
+                               cu.CompanyName 客户名称,
+                               c.Name 产品名称,
+                               pt.Name 产品类型,
+                               a.Amount 数量,
+                               CONVERT(DECIMAL(18, 2), a.DeliverPrice) 发货单价,
+                               CONVERT(DECIMAL(18, 2), a.DeliverSum) 发货额,
+                               CONVERT(DECIMAL(18, 2), a.SalePrice) 实际单价,
+                               CONVERT(DECIMAL(18, 2), a.SaleComission) 销售提成,
+                               CONVERT(DECIMAL(18, 2), a.AgentSum) 佣金,
+                               CONVERT(DECIMAL(18, 2), a.AgentCommission) 税后佣金,
+                               a.IsPaid 是否付佣金,
+                               a.PaidDate 付款日期,
+                               a.Status 状态,
+                               ts.SaleDate 销售日期,
+                               a.RecDate 提交日期,
+                               a.type 订单类型
+                        FROM T_ExpenseAllocation a
+                            LEFT JOIN T_Users b
+                                ON a.UserName = b.id
+                            LEFT JOIN T_Products c
+                                ON a.ProductName = c.Id
+                            LEFT JOIN T_Products pt
+                                ON c.ParentId = pt.Id
+                            LEFT JOIN T_Users d
+                                ON a.CitySaler = d.id
+                            LEFT JOIN T_Customers cu
+                                ON cu.id = a.CustomerName
+                            LEFT JOIN T_SaleDetails ts
+                                ON a.SaleDetailsId = ts.Id
+                        WHERE a.Status = '领导审核通过'";
+
+                mSql2 = @"UNION ALL
+                        SELECT '总计',
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL,
+                               CONVERT(DECIMAL(18, 2), SUM(DeliverSum)),
+                               NULL,
+                               CONVERT(DECIMAL(18, 2), SUM(SaleComission)),
+                               SUM(t.AgentSum),
+                               CONVERT(DECIMAL(18, 2), SUM(AgentCommission)),
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL,
+                               NULL
+                        FROM T_ExpenseAllocation t,
+                             T_SaleDetails ts,
+                        (
+                            SELECT MAX(CitySaler) citysaler,
+                                   SUM(CitySum) citysum,
+                                   SUM(CityWages) cityWages,
+                                   SUM(CitySaleSum) citysalesum,
+                                   SUM(CitySaleCommission) citysalecommission
+                            FROM T_ExpenseAllocation a,
+                                 T_SaleDetails ts,
+                                 T_Products c
+                            WHERE c.Id = a.ProductName
+                                  AND a.SaleDetailsId = ts.Id
+                                  AND a.Status = '领导审核通过' ";
                 mSql1 = ") b,t_products c where t.productname = c.id and t.saledetailsid = ts.id and t.Status='领导审核通过'";// t.username =b.citysaler and 
             }
             else if (rbUserSum.Checked == true)
             {
-//                @"SELECT b.UserName AS 销售员, a_1.DeliverSum AS 发货额, a_1.SaleSum AS 个销售额, 
-//      a_1.DepartSum AS 部门销售额, a_1.SaleWages AS 销售工资, 
-//      c.citysum AS 跨区销售额, c.cityWages AS 跨区销售工资, 
-//      a_1.CommissionSum AS 提成销售额, a_1.SaleComission AS 销售提成, 
-//      a_1.AgentSum AS 代理商额度, a_1.AgentCommission AS 代理商税后佣金
-//FROM T_Users AS b LEFT OUTER JOIN
-//          (SELECT UserName AS username, SUM(DeliverSum) AS DeliverSum, 
-//               SUM(SaleSum) AS SaleSum, SUM(DepartSum) AS DepartSum, 
-//               SUM(SaleWages) AS SaleWages, SUM(CommissionSum) 
-//               AS CommissionSum, SUM(SaleComission) AS SaleComission, 
-//               SUM(AgentSum) AS AgentSum, SUM(AgentCommission) 
-//               AS AgentCommission
-//         FROM T_ExpenseAllocation
-//         WHERE (Status = '领导审核通过')
-//         GROUP BY UserName) AS a_1 ON a_1.username = b.id LEFT OUTER JOIN
-//          (SELECT CitySaler, SUM(CitySum) AS citysum, SUM(CityWages) 
-//               AS cityWages
-//         FROM T_ExpenseAllocation AS T_ExpenseAllocation_1
-//         WHERE (Status = '领导审核通过')
-//         GROUP BY CitySaler) AS c ON b.id = c.CitySaler
-//WHERE (1 = 1)
-//UNION ALL
-//SELECT '总计' AS Expr1, SUM(DeliverSum) AS Expr2, SUM(SaleSum) AS Expr3, 
-//      SUM(DepartSum) AS Expr4, SUM(SaleWages) AS Expr5, SUM(CitySum) AS Expr6, 
-//      SUM(CityWages) AS Expr7, SUM(CommissionSum) AS Expr8, SUM(SaleComission) 
-//      AS Expr9, SUM(AgentSum) AS Expr10, SUM(AgentCommission) AS Expr11
-//FROM T_ExpenseAllocation AS a
-//WHERE (Status = '领导审核通过')";
-                //mSql = @"SELECT b.UserName 销售员,  sum(DeliverSum) 发货额,  sum(SaleSum) 个销售额,sum(DepartSum) 部门销售额,  sum(SaleWages) 销售工资,max(c.CitySum) 跨区销售额,max(c.CityWages) 跨区销售工资,  sum(CommissionSum) 提成销售额, sum(SaleComission) 销售提成,sum(AgentSum) 代理商额度, sum(AgentCommission) 代理商税后佣金 FROM  T_Users b left join T_ExpenseAllocation a on a.UserName=b.id , (select citysaler,sum(citySum) citysum,sum(cityWages) cityWages from T_ExpenseAllocation where status='领导审核通过' ";
-                //mSql2 = " group by citysaler) c where a.username = c.citysaler and Status='领导审核通过'";
-                //mSql1 = @" group by a.username union all SELECT '总计',  sum(DeliverSum),  sum(SaleSum),sum(departsum),  sum(SaleWages),sum(citysum),sum(citywages), sum(CommissionSum), sum(SaleComission),sum(AgentSum), sum(AgentCommission) FROM T_ExpenseAllocation a where Status='领导审核通过'";
                 mSql = @"SELECT b.UserName AS 销售员, Convert(decimal(18,2),a_1.DeliverSum) AS 发货额, Convert(decimal(18,2),a_1.SaleSum) AS 个销售额, 
       Convert(decimal(18,2),a_1.DepartSum) AS 部门销售额, Convert(decimal(18,2),a_1.SaleWages) AS 销售工资, 
       Convert(decimal(18,2),c.citysum) AS 跨区销售额, Convert(decimal(18,2),c.cityWages) AS 跨区销售工资, 
@@ -109,7 +132,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
             }
 
 
-            if (cmbUsername.Text != "查询所有" && rbDetails.Checked==true)
+            if (cmbUsername.Text != "查询所有" && rbDetails.Checked == true)
             {
                 mSql += " and (a.username = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "' or a.CitySaler = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "' )";
                 mSql1 += " and t.username = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "'";
@@ -118,9 +141,9 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
 
             if (txtProductName.Text.Trim() != "" && rbDetails.Checked == true)
             {
-                mSql += " and c.name like '%" + txtProductName.Text.Trim().Replace(" ","%") + "%'";
+                mSql += " and c.name like '%" + txtProductName.Text.Trim().Replace(" ", "%") + "%'";
                 mSql1 += " and c.name like '%" + txtProductName.Text.Trim().Replace(" ", "%") + "%'";
-                mSql2 += " and c.name like '%" + txtProductName.Text.Trim().Replace(" ","%") + "%'";
+                mSql2 += " and c.name like '%" + txtProductName.Text.Trim().Replace(" ", "%") + "%'";
             }
 
             if (cbDate.Checked == true)
@@ -191,7 +214,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
         private void 费用分配查询_Load(object sender, EventArgs e)
         {
             rbDetails.Checked = true;
-            var mTable1 = new T_UsersTableAdapter().GetSalers(); 
+            var mTable1 = new T_UsersTableAdapter().GetSalers();
             foreach (销售管理.DAL.DataSetUsers.T_UsersRow mRow in mTable1.Rows)
             {
                 cmbUsername.Items.Add(new Classes.PubClass.MyCmbList(mRow.id, mRow.UserName));
@@ -216,7 +239,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
                 rbUserSum.Visible = false;
                 rbDepartSum.Visible = false;
             }
-            
+
         }
 
         private void rbUserSum_CheckedChanged(object sender, EventArgs e)
@@ -239,7 +262,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
                     cmbUsername.Enabled = true;
                 }
             }
-            
+
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -328,7 +351,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
             }
             else
             {
-                mTable= new T_CustomersTableAdapter().GetData();
+                mTable = new T_CustomersTableAdapter().GetData();
             }
             销售管理.DAL.DataSetCustomers.T_CustomersRow mDataRow = (销售管理.DAL.DataSetCustomers.T_CustomersRow)mTable.NewRow();
             mDataRow.id = 0;

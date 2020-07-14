@@ -234,23 +234,10 @@ namespace 销售管理.查询统计
 
             if (rbDetails.Checked == true) //查询详细
             {
-                mSql = "SELECT c.UserName 销售员, cu.companyname 客户名称, a.SaleDate 日期, d.name as 产品名称, a.Amount 数量, Convert(decimal(18,2),a.Price) 单价, Convert(decimal(18,2),a.SumMoney) 金额, a.SettlementModes 结款方式, b.TableNo 费用分配表号, a.InvoiceFlag 是否开票, a.SubmitDate 提交日期, a.InvoiceContent 开票内容,  a.InvoiceDate 开票日期, a.InvoiceType 发票类型, a.InvoiceNo 发票号 FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_Customers cu on a.customername = cu.id where 1=1 ";
-                mSql1 = " union all select '总计',null,null,null,isnull(sum(a.Amount),0),null,Convert(decimal(18,2),isnull(sum(a.summoney),0)),null,null,null,null,null,null,null,null from t_saledetails a left join t_customers cu on a.customername = cu.id where 1=1";
+                mSql = "SELECT c.UserName 销售员, cu.companyname 客户名称, a.SaleDate 日期, d.name as 产品名称, a.Amount 数量, Convert(decimal(18,2),a.Price) 单价, Convert(decimal(18,2),a.SumMoney) 金额, a.SettlementModes 结款方式, b.TableNo 费用分配表号, a.InvoiceFlag 是否开票, a.SubmitDate 提交日期 FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_Customers cu on a.customername = cu.id where 1=1 ";
+                mSql1 = " union all select '总计',null,null,null,isnull(sum(a.Amount),0),null,Convert(decimal(18,2),isnull(sum(a.summoney),0)),null,null,null,null from t_saledetails a left join t_customers cu on a.customername = cu.id where 1=1";
 
-               //是否开票
                 
-                if (CmbInvoiceFlag.SelectedIndex == 1)
-                {
-                    mSql += " and a.InvoiceFlag ='不开票' ";
-                    mSql1 += " and a.InvoiceFlag ='不开票' ";
-                }
-                if (CmbInvoiceFlag.SelectedIndex == 2)
-                {
-                    mSql += " and a.InvoiceFlag ='开票' ";
-                    mSql1 += " and a.InvoiceFlag ='开票' ";
-                }
-              
-              
                 if (cmbUsername.Text != "查询所有") //选择销售
                 {
                     mSql += " and a.username='" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "'";
