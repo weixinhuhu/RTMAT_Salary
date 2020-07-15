@@ -411,6 +411,7 @@
             this.txtCommissionPrice.Size = new System.Drawing.Size(246, 35);
             this.txtCommissionPrice.TabIndex = 12;
             this.txtCommissionPrice.TextChanged += new System.EventHandler(this.txtAmount_Leave);
+            this.txtCommissionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCommissionPrice_KeyPress);
             // 
             // txtCommissionSum
             // 

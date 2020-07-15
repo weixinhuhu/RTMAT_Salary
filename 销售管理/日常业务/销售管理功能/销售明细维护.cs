@@ -31,19 +31,21 @@ namespace 销售管理.日常业务
                 MessageBox.Show("请选择产品类型");
                 return;
             }
-            if (CityId < 0)
-            {
-                if (cmbCustomerName.SelectedIndex == -1)
-                {
-                    MessageBox.Show("请选择客户");
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("请先设置该客户所在地区");
-                    return;
-                }
-            }
+
+            //if (CityId < 0)
+            //{
+            //    if (cmbCustomerName.SelectedIndex == -1)
+            //    {
+            //        MessageBox.Show("请选择客户");
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("请先设置该客户所在地区");
+            //        return;
+            //    }
+            //}
+
             if (txtAmount.Text.Trim() == "")
             {
                 MessageBox.Show("请输入数量");
@@ -105,6 +107,8 @@ namespace 销售管理.日常业务
                     {
                         new T_ExpenseAllocationTableAdapter().UpdateSaleDatabySaleDetailsId(ProductId, Convert.ToDecimal(txtAmount.Text), Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSum.Text), mId);
                         MessageBox.Show("保存成功");
+
+                        this.Close();
                     }
                     else
                     {
@@ -347,20 +351,24 @@ namespace 销售管理.日常业务
             if (cmbCustomerName.SelectedIndex > -1)
             {
                 var table = new T_CustomersTableAdapter().GetDataById((long)cmbCustomerName.SelectedValue);
-                if (table.Rows.Count > 0)
-                {
-                    if (((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true)
-                    {
-                        MessageBox.Show("请先设置该客户所在地区");
-                        btnSave.Enabled = false;
-                    }
-                    else btnSave.Enabled = true;
-                    CityId = ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true ? -1:((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).CityID;
-                }
-                else
-                {
-                    CityId = -1;
-                }
+
+                CityId = ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true ? -1 : ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).CityID;
+                //if (table.Rows.Count > 0)
+                //{
+                //    if (((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true)
+                //    {
+                //        CityId = -1;
+                //        MessageBox.Show("请先设置该客户所在地区");
+                //        btnSave.Enabled = false;
+                //    }
+                //    else btnSave.Enabled = true;
+                //    CityId = ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true ? -1 : ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).CityID;
+                //}
+                //else
+                //{
+                //    CityId = -1;
+                //}
+
             }
         }
 

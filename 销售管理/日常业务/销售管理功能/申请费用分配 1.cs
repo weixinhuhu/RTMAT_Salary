@@ -28,7 +28,7 @@ namespace 销售管理.日常业务
         long Amount;
         private void 申请费用分配_Load(object sender, EventArgs e)
         {
-            //rbPersonal.Checked = true;
+            rbPersonal.Checked = true;
             isLoading = true;
 
             if (ExId > -1)   //如果费用分配ID大于-1,查看费用分配信息
@@ -55,8 +55,21 @@ namespace 销售管理.日常业务
                     if (mSaleDetailsTable.Rows.Count > 0)
                     {
                         DeliverDate = mSaleDetailsTable[0].SaleDate;
+
                         //付款方式
-                        cmbSettlementModes.Text = mSaleDetailsTable[0].SettlementModes.ToString();
+                        var SettlementModes = mSaleDetailsTable[0].SettlementModes.ToString();
+
+                        if (SettlementModes.Contains("自定义天数"))
+                        {
+                            var sm = SettlementModes.Split('-');
+                            cmbSettlementModes.Text = sm[0];
+                            txtDays.Text = sm[1];
+                        }
+                        else
+                        {
+                            cmbSettlementModes.Text = SettlementModes;
+                        }
+
                         dtpDate1.Text = mSaleDetailsTable[0].SaleDate.ToString();
                     }
 
@@ -223,6 +236,14 @@ namespace 销售管理.日常业务
 
         }
 
+        private void txtCommissionPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (".0123456789".IndexOf(e.KeyChar) < 0 && (int)e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -263,7 +284,8 @@ namespace 销售管理.日常业务
                 if ((long)ret > 0)
                 {
                     //插入发货时间和付款方式
-                    ret = new T_SaleDetailsTableAdapter().UpdateSaleDateAndSettlementModesById(dtpDate1.Value, cmbSettlementModes.Text.ToString(), (long)ret, exDate, Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value));
+                    var SettlementModes = cmbSettlementModes.Text.ToString() == "自定义天数" ? cmbSettlementModes.Text.ToString()+"-"+txtDays.Text.ToString() : cmbSettlementModes.Text.ToString();
+                    ret = new T_SaleDetailsTableAdapter().UpdateSaleDateAndSettlementModesById(dtpDate1.Value, SettlementModes, (long)ret, exDate, Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value));
                     MessageBox.Show("已提交");
                     btnApply.Enabled = false;
                     this.DialogResult = DialogResult.OK;

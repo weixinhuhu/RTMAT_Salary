@@ -167,14 +167,23 @@ namespace 销售管理.日常业务
             {
                 if (e.ColumnIndex == dgvSaleDetails.Columns["ColModify"].Index && Classes.PubClass.UserStatus == "正常")
                 {
-                    if (dgvSaleDetails.Rows[e.RowIndex].Cells["expenseStatus"].Value.ToString() == "领导审核通过")
+                    //if (dgvSaleDetails.Rows[e.RowIndex].Cells["expenseStatus"].Value.ToString() == "领导审核通过")
+                    //{
+                    //    MessageBox.Show("领导审核通过的订单不能修改");
+                    //    return;
+                    //}
+
+                    if (dgvSaleDetails.Rows[e.RowIndex].Cells["expenseStatus"].Value.ToString() != "")
                     {
-                        MessageBox.Show("领导审核通过的订单不能修改");
+                        MessageBox.Show("订单审核中，不允许修改！");
                         return;
                     }
+
+
                     销售明细维护 mForm = new 销售明细维护();
                     mForm.mId = Convert.ToInt64(dgvSaleDetails.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
                     mForm.ShowDialog();
+                    btnSerch_Click(sender,e);
 
                 }
                 if (e.ColumnIndex == dgvSaleDetails.Columns["TableNo"].Index && Classes.PubClass.UserStatus == "正常")
