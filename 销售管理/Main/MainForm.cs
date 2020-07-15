@@ -197,17 +197,17 @@ namespace 销售管理
             //initOper();
             if (Common.AuthenticateRight.AuthOperation(130601) || CommonClass.SttUser.blSuperUser)
             {
-                int giftUnAuditCount = BLL.Sa.GetGiftLeaderUnAuditCount();
-                int mealUnAuditCount = BLL.Sa.GetMealLeaderUnAuditCount();
-                int NoTicketUnAuditCount = BLL.Sa.GetNoTicketUnAuditCount();
-                int NoTicketUnFAuditCount = BLL.Sa.GetNoTicketUnFAuditCount();
-                if (giftUnAuditCount > 0 || mealUnAuditCount > 0 || NoTicketUnAuditCount > 0 || NoTicketUnFAuditCount > 0)
-                {
-                    using (提示 mForm = new 提示())
-                    {
-                        mForm.ShowDialog();
-                    }
-                }
+                //int giftUnAuditCount = BLL.Sa.GetGiftLeaderUnAuditCount();
+                //int mealUnAuditCount = BLL.Sa.GetMealLeaderUnAuditCount();
+                //int NoTicketUnAuditCount = BLL.Sa.GetNoTicketUnAuditCount();
+                //int NoTicketUnFAuditCount = BLL.Sa.GetNoTicketUnFAuditCount();
+                //if (giftUnAuditCount > 0 || mealUnAuditCount > 0 || NoTicketUnAuditCount > 0 || NoTicketUnFAuditCount > 0)
+                //{
+                //    using (提示 mForm = new 提示())
+                //    {
+                //        mForm.ShowDialog();
+                //    }
+                //}
             }
         }
 

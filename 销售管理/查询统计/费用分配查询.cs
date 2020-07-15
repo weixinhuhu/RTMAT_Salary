@@ -70,7 +70,7 @@ namespace 销售管理.查询统计
                                CONVERT(DECIMAL(18, 2), SUM(DeliverSum)),
                                NULL,
                                CONVERT(DECIMAL(18, 2), SUM(SaleComission)),
-                               SUM(t.AgentSum),
+                               CONVERT(DECIMAL(18, 2),  SUM(t.AgentSum)),                             
                                CONVERT(DECIMAL(18, 2), SUM(AgentCommission)),
                                NULL,
                                NULL,
@@ -96,41 +96,43 @@ namespace 销售管理.查询统计
             }
             else if (rbUserSum.Checked == true)
             {
-                mSql = @"SELECT b.UserName AS 销售员, Convert(decimal(18,2),a_1.DeliverSum) AS 发货额, Convert(decimal(18,2),a_1.SaleSum) AS 个销售额, 
-      Convert(decimal(18,2),a_1.DepartSum) AS 部门销售额, Convert(decimal(18,2),a_1.SaleWages) AS 销售工资, 
-      Convert(decimal(18,2),c.citysum) AS 跨区销售额, Convert(decimal(18,2),c.cityWages) AS 跨区销售工资, 
-      Convert(decimal(18,2),a_1.CommissionSum) AS 提成销售额, Convert(decimal(18,2),a_1.SaleComission) AS 销售提成, 
-      Convert(decimal(18,2),a_1.AgentSum) AS 代理商额度, Convert(decimal(18,2),a_1.AgentCommission) AS 代理商税后佣金
-FROM T_Users AS b LEFT OUTER JOIN
-          (SELECT t.UserName AS username, SUM(DeliverSum) AS DeliverSum, 
-               SUM(SaleSum) AS SaleSum, SUM(DepartSum) AS DepartSum, 
-               SUM(SaleWages) AS SaleWages, SUM(CommissionSum) 
-               AS CommissionSum, SUM(SaleComission) AS SaleComission, 
-               SUM(AgentSum) AS AgentSum, SUM(AgentCommission) 
-               AS AgentCommission
-         FROM T_ExpenseAllocation t,t_saledetails ts
-         WHERE (Status = '领导审核通过') and t.saledetailsid = ts.id";
-                mSql2 = @" GROUP BY t.UserName) AS a_1 ON a_1.username = b.id LEFT OUTER JOIN
-          (SELECT CitySaler, SUM(CitySum) AS citysum, SUM(CityWages) 
-               AS cityWages
-         FROM T_ExpenseAllocation AS T_ExpenseAllocation_1,t_saledetails ts
-         WHERE (Status = '领导审核通过') and T_ExpenseAllocation_1.saledetailsid = ts.id";
-                mSql3 = @" GROUP BY CitySaler) AS c ON b.id = c.CitySaler
-WHERE b.operright = '销售' ";
-                mSql1 = @" UNION ALL
-SELECT '总计' AS Expr1, SUM(DeliverSum) AS Expr2, SUM(SaleSum) AS Expr3, 
-      SUM(DepartSum) AS Expr4, SUM(SaleWages) AS Expr5, SUM(CitySum) AS Expr6, 
-      SUM(CityWages) AS Expr7, SUM(CommissionSum) AS Expr8, SUM(SaleComission) 
-      AS Expr9, SUM(AgentSum) AS Expr10, SUM(AgentCommission) AS Expr11
-FROM T_ExpenseAllocation AS a ,t_saledetails ts
-WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
+                mSql = @"SELECT b.UserName AS 销售员,
+                               CONVERT(DECIMAL(18, 2), ISNULL((a_1.DeliverSum),0)) AS 发货额,
+                               CONVERT(DECIMAL(18, 2), ISNULL((a_1.SaleSum),0)) AS 个销售额,
+                               CONVERT(DECIMAL(18, 2), ISNULL((a_1.SaleComission),0)) AS 销售提成,
+                               CONVERT(DECIMAL(18, 2), ISNULL((a_1.AgentSum),0)) AS 佣金,
+                               CONVERT(DECIMAL(18, 2), ISNULL((a_1.AgentCommission),0)) AS 税后佣金
+                        FROM T_Users AS b
+                            LEFT OUTER JOIN
+                            (
+                                SELECT t.UserName AS username,
+                                       CONVERT(DECIMAL(18, 2),ISNULL((SUM(DeliverSum)),0)) AS DeliverSum,
+                                       CONVERT(DECIMAL(18, 2),ISNULL((SUM(SaleSum)),0)) AS SaleSum,
+			                           CONVERT(DECIMAL(18, 2),ISNULL((SUM(SaleComission)),0)) AS SaleComission,
+                                       CONVERT(DECIMAL(18, 2),ISNULL((SUM(ts.AgentSum)),0)) AS AgentSum,
+                                       CONVERT(DECIMAL(18, 2),ISNULL((SUM(AgentCommission)),0)) AS AgentCommission
+                                FROM T_ExpenseAllocation t,
+                                     T_SaleDetails ts
+                                WHERE (Status = '领导审核通过')
+                                      AND t.SaleDetailsId = ts.Id";
+    
+               mSql1 = @" UNION ALL
+                            SELECT '总计' AS Expr1,
+                                   CONVERT(DECIMAL(18, 2),ISNULL((SUM(DeliverSum)),0)) AS Expr2,
+                                   CONVERT(DECIMAL(18, 2),ISNULL((SUM(SaleSum)),0)) AS Expr3,
+                                   CONVERT(DECIMAL(18, 2),ISNULL((SUM(SaleComission)),0)) AS Expr9,
+	                               CONVERT(DECIMAL(18, 2), ISNULL((SUM(a.AgentSum)),0)) AS Expr10,
+                                   CONVERT(DECIMAL(18, 2),ISNULL((SUM(AgentCommission)),0)) AS Expr11
+                            FROM T_ExpenseAllocation AS a,
+                                 T_SaleDetails ts
+                            WHERE (Status = '领导审核通过')
+                                  AND a.SaleDetailsId = ts.Id";
             }
             else
             {
                 mSql = @"SELECT min(b.UserName) 销售员,  sum(DeliverSum) 发货额,  sum(SaleSum) 个销售额,sum(DepartSum) 部门销售额 FROM  T_ExpenseAllocation a left join T_Users b on a.UserName=b.id left join t_saledetails ts on a.saledetailsid = ts.id where Status='领导审核通过'";
                 mSql1 = @" group by a.username union all SELECT '部门总销售额', null,null,sum(SaleSum)+sum(departsum) FROM T_ExpenseAllocation a,t_saledetails ts where a.saledetailsid = ts.id and Status='领导审核通过'";
             }
-
 
             if (cmbUsername.Text != "查询所有" && rbDetails.Checked == true)
             {
@@ -152,9 +154,7 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
 
                 mSql1 += @" and ts.saleDate between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.ToString("yyyy-MM-dd") + " 23:59:59' ";
                 mSql2 += @" and ts.saleDate between '" + dtpStart.Value.ToString("yyyy-MM-dd") + "' and '" + dtpEnd.Value.ToString("yyyy-MM-dd") + " 23:59:59' ";
-
             }
-
 
             //+加订单类型
             if (cmbType.Text != "查询所有")
@@ -176,15 +176,14 @@ WHERE (Status = '领导审核通过') and a.saledetailsid = ts.id";
                 mSql1 += " and t.customername = " + cmbCompanyName.SelectedValue.ToString();
                 mSql2 += " and a.customername = " + cmbCompanyName.SelectedValue.ToString(); ;
             }
-            ////加权限
-            //if (!(Classes.PubClass.UserRight == "领导" || Classes.PubClass.UserRight == "超级管理员" || Classes.PubClass.UserRight == "商务经理"))
-            //{
-            //    mSql += " and a.username = " + Classes.PubClass.UserId;
-            //    mSql1 += " and username = " + Classes.PubClass.UserId;
-            //}
+
             if (rbDepartSum.Checked == true)
             {
                 mSql += mSql1;
+            }
+            if (rbUserSum.Checked == true)
+            {
+                mSql += @" GROUP BY t.UserName) AS a_1 ON a_1.username = b.id " + mSql1;
             }
             else
             {

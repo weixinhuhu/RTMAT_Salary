@@ -231,10 +231,52 @@ namespace 销售管理.查询统计
 
             if (rbDetails.Checked == true) //查询详细
             {
-                mSql = "SELECT c.UserName 销售员, cu.companyname 客户名称, a.SaleDate 日期, d.name as 产品名称, a.Amount 数量, Convert(decimal(18,2),a.Price) 单价, Convert(decimal(18,2),a.SumMoney) 金额, a.SettlementModes 结款方式, b.TableNo 费用分配表号, a.InvoiceFlag 是否开票, a.SubmitDate 提交日期 FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_Customers cu on a.customername = cu.id where 1=1 ";
-                mSql1 = " union all select '总计',null,null,null,isnull(sum(a.Amount),0),null,Convert(decimal(18,2),isnull(sum(a.summoney),0)),null,null,null,null from t_saledetails a left join t_customers cu on a.customername = cu.id where 1=1";
-
-                
+                mSql = @"SELECT c.UserName 销售员,
+                               cu.CompanyName 客户名称,
+                               d.Name AS 产品名称,
+                               a.Amount 数量,
+                               CONVERT(DECIMAL(18, 2), a.Price) 发货单价,
+                               CONVERT(DECIMAL(18, 2), a.SumMoney) 金额,
+                               Convert(DECIMAL(18,2), ISNULL(a.AgentSum ,0.00)) 佣金,
+                               Convert(DECIMAL(18,2), ISNULL(b.AgentCommission ,0.00))  税后佣金,
+                               a.SettlementModes 结款方式,
+                               CONVERT(VARCHAR(100), a.SaleDate, 23) 发货日期,
+                               CONVERT(VARCHAR(100), a.ExpDate, 23) 结算日期,
+                               b.TableNo 费用分配表号,
+                               a.InvoiceFlag 是否开票,
+                               CONVERT(VARCHAR(100), a.SubmitDate, 23) 提交日期
+                        FROM dbo.T_SaleDetails a
+                            LEFT JOIN T_Users c
+                                ON a.UserName = c.id
+                            LEFT JOIN T_ExpenseAllocation b
+                                ON a.ExpenseAllocation = b.Id
+                            LEFT JOIN T_Products d
+                                ON a.ProductName = d.Id
+                            LEFT JOIN T_Customers cu
+                                ON a.CustomerName = cu.id
+                        WHERE 1 = 1";
+                mSql1 = @" UNION ALL
+                            SELECT '总计',
+                                   NULL,
+                                   NULL,
+                                   ISNULL(SUM(a.Amount), 0),
+                                   NULL,
+                                   CONVERT(DECIMAL(18, 2), ISNULL(SUM(a.SumMoney), 0)),
+                                   CONVERT(DECIMAL(18, 2), ISNULL(SUM(a.AgentSum), 0)),
+                                   CONVERT(DECIMAL(18, 2), ISNULL(SUM(b.AgentCommission), 0)),
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   NULL,
+                                   NULL
+                            FROM T_SaleDetails a
+                                LEFT JOIN T_Customers cu
+                                    ON a.CustomerName = cu.id
+                                LEFT JOIN T_ExpenseAllocation b
+                                    ON a.ExpenseAllocation = b.Id
+                            WHERE 1 = 1";
+               
                 if (cmbUsername.Text != "查询所有") //选择销售
                 {
                     mSql += " and a.username='" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "'";
@@ -252,24 +294,19 @@ namespace 销售管理.查询统计
                                                             WHERE   (T_Products_1.ParentId = subQur_2.id)) " + mSql + @" and a.ProductName in (  SELECT   id  FROM      subQur AS subQur_1)";
                     mSql1 += " and a.ProductName in (  SELECT   id  FROM      subQur AS subQur_1)";
                 }
-
-
             }
             else if (rbSum.Checked == true) //汇总
             {
-
                 if (mProductId > 0) //选择产品
                 {
                     if (cmbUsername.Text != "查询所有") //选择指定产品和销售员
                     {
-                        mSql = "SELECT  (select username from t_users where id = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "') 销售员,(select name from t_products where id='" + mProductId + "') 产品名称,isnull(sum(a.Amount),0) 数量, isnull(sum(a.SumMoney),0) 总计 FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_Products d on a.productName = d.id where 1=1 and a.username = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "'";
-                       
+                        mSql = "SELECT  (select username from t_users where id = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "') 销售员,(select name from t_products where id='" + mProductId + "') 产品名称,isnull(sum(a.Amount),0) 数量, isnull(sum(a.SumMoney),0) 总计 FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_Products d on a.productName = d.id where 1=1 and a.username = '" + ((Classes.PubClass.MyCmbList)cmbUsername.SelectedItem).Id + "'";                      
                     }
                     else //查询指定产品不指定销售员
                     {
                         mSql = "SELECT  (select name from t_products where id='" + mProductId + "') 产品名称,min(c.username) 销售员,isnull(sum(a.Amount),0) 数量,isnull(sum(a.SumMoney),0) 总计 FROM dbo.T_SaleDetails a left join t_users c on a.username=c.id left join T_Products d on a.productName = d.id where a.username <> '19'";
                         mSql1 = " group by a.username union all select '','总计',isnull(sum(amount),0),isnull(sum(summoney),0) from t_saledetails a where username <> '19' and productname in (select  id  FROM subQur AS subQur_1)";
-
                     }
 
                     mSql = @" WITH subQur(id, name, parentid) AS (SELECT   Id, Name, ParentId
@@ -453,9 +490,13 @@ FROM T_Users AS d LEFT OUTER JOIN
                 cmbProducts1.Enabled = false;
                 cmbProducts2.Enabled = false;
                 cmbProducts3.Enabled = false;
+
                 //是否开票选项
                 lbInvoiceFlag.Visible = false; ;
                 CmbInvoiceFlag.Visible = false;
+
+                //公司名称
+                txtCustomer.Enabled = false;
             }
         }
 
@@ -514,6 +555,9 @@ FROM T_Users AS d LEFT OUTER JOIN
                 //是否开票选项
                 lbInvoiceFlag.Visible = true;
                 CmbInvoiceFlag.Visible = true;
+
+                //公司名称
+                txtCustomer.Enabled = true;
             }
         }
 
@@ -614,6 +658,9 @@ left join (select b.ProductName,sum(b.summoney) lssummoney from t_saleDetails b 
 
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

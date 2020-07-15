@@ -72,7 +72,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(6, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,13 +106,14 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(34, 26);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1896, 286);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速查找";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lbInvoiceFlag
             // 
@@ -136,7 +137,7 @@
             "不开票",
             "开票"});
             this.CmbInvoiceFlag.Location = new System.Drawing.Point(208, 220);
-            this.CmbInvoiceFlag.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CmbInvoiceFlag.Margin = new System.Windows.Forms.Padding(6);
             this.CmbInvoiceFlag.Name = "CmbInvoiceFlag";
             this.CmbInvoiceFlag.Size = new System.Drawing.Size(238, 32);
             this.CmbInvoiceFlag.TabIndex = 13;
@@ -167,7 +168,7 @@
             // 
             this.rbProductSum.AutoSize = true;
             this.rbProductSum.Location = new System.Drawing.Point(332, 162);
-            this.rbProductSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbProductSum.Margin = new System.Windows.Forms.Padding(6);
             this.rbProductSum.Name = "rbProductSum";
             this.rbProductSum.Size = new System.Drawing.Size(209, 28);
             this.rbProductSum.TabIndex = 4;
@@ -180,7 +181,7 @@
             // 
             this.rbSalerSum.AutoSize = true;
             this.rbSalerSum.Location = new System.Drawing.Point(94, 162);
-            this.rbSalerSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbSalerSum.Margin = new System.Windows.Forms.Padding(6);
             this.rbSalerSum.Name = "rbSalerSum";
             this.rbSalerSum.Size = new System.Drawing.Size(209, 28);
             this.rbSalerSum.TabIndex = 4;
@@ -193,7 +194,7 @@
             // 
             this.rbSum.AutoSize = true;
             this.rbSum.Location = new System.Drawing.Point(332, 116);
-            this.rbSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbSum.Margin = new System.Windows.Forms.Padding(6);
             this.rbSum.Name = "rbSum";
             this.rbSum.Size = new System.Drawing.Size(113, 28);
             this.rbSum.TabIndex = 4;
@@ -206,7 +207,7 @@
             // 
             this.rbDetails.AutoSize = true;
             this.rbDetails.Location = new System.Drawing.Point(94, 120);
-            this.rbDetails.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbDetails.Margin = new System.Windows.Forms.Padding(6);
             this.rbDetails.Name = "rbDetails";
             this.rbDetails.Size = new System.Drawing.Size(161, 28);
             this.rbDetails.TabIndex = 4;
@@ -219,7 +220,7 @@
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcel.Location = new System.Drawing.Point(1740, 76);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(6);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(144, 86);
             this.btnExcel.TabIndex = 3;
@@ -231,7 +232,7 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(1580, 76);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(148, 86);
             this.btnSearch.TabIndex = 3;
@@ -245,9 +246,9 @@
             this.groupBox2.Controls.Add(this.dtpEnd);
             this.groupBox2.Controls.Add(this.dtpStart);
             this.groupBox2.Location = new System.Drawing.Point(1196, 26);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox2.Size = new System.Drawing.Size(532, 168);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -257,7 +258,7 @@
             // 
             this.cbDate.AutoSize = true;
             this.cbDate.Location = new System.Drawing.Point(12, 40);
-            this.cbDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDate.Margin = new System.Windows.Forms.Padding(6);
             this.cbDate.Name = "cbDate";
             this.cbDate.Size = new System.Drawing.Size(138, 28);
             this.cbDate.TabIndex = 1;
@@ -267,7 +268,7 @@
             // dtpEnd
             // 
             this.dtpEnd.Location = new System.Drawing.Point(166, 94);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(6);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(250, 35);
             this.dtpEnd.TabIndex = 0;
@@ -275,7 +276,7 @@
             // dtpStart
             // 
             this.dtpStart.Location = new System.Drawing.Point(166, 40);
-            this.dtpStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(6);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(250, 35);
             this.dtpStart.TabIndex = 0;
@@ -288,7 +289,7 @@
             this.cmbProducts3.FormattingEnabled = true;
             this.cmbProducts3.IntegralHeight = false;
             this.cmbProducts3.Location = new System.Drawing.Point(580, 154);
-            this.cmbProducts3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbProducts3.Margin = new System.Windows.Forms.Padding(6);
             this.cmbProducts3.Name = "cmbProducts3";
             this.cmbProducts3.Size = new System.Drawing.Size(238, 32);
             this.cmbProducts3.TabIndex = 1;
@@ -302,7 +303,7 @@
             this.cmbProducts2.FormattingEnabled = true;
             this.cmbProducts2.IntegralHeight = false;
             this.cmbProducts2.Location = new System.Drawing.Point(580, 108);
-            this.cmbProducts2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbProducts2.Margin = new System.Windows.Forms.Padding(6);
             this.cmbProducts2.Name = "cmbProducts2";
             this.cmbProducts2.Size = new System.Drawing.Size(238, 32);
             this.cmbProducts2.TabIndex = 1;
@@ -316,7 +317,7 @@
             this.cmbCity.FormattingEnabled = true;
             this.cmbCity.IntegralHeight = false;
             this.cmbCity.Location = new System.Drawing.Point(942, 108);
-            this.cmbCity.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbCity.Margin = new System.Windows.Forms.Padding(6);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(238, 32);
             this.cmbCity.TabIndex = 1;
@@ -330,7 +331,7 @@
             this.cmbPromary.FormattingEnabled = true;
             this.cmbPromary.IntegralHeight = false;
             this.cmbPromary.Location = new System.Drawing.Point(942, 56);
-            this.cmbPromary.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbPromary.Margin = new System.Windows.Forms.Padding(6);
             this.cmbPromary.Name = "cmbPromary";
             this.cmbPromary.Size = new System.Drawing.Size(238, 32);
             this.cmbPromary.TabIndex = 1;
@@ -344,7 +345,7 @@
             this.txtCustomer.FormattingEnabled = true;
             this.txtCustomer.IntegralHeight = false;
             this.txtCustomer.Location = new System.Drawing.Point(942, 154);
-            this.txtCustomer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCustomer.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(238, 32);
             this.txtCustomer.TabIndex = 1;
@@ -359,7 +360,7 @@
             this.cmbProducts1.FormattingEnabled = true;
             this.cmbProducts1.IntegralHeight = false;
             this.cmbProducts1.Location = new System.Drawing.Point(580, 56);
-            this.cmbProducts1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbProducts1.Margin = new System.Windows.Forms.Padding(6);
             this.cmbProducts1.Name = "cmbProducts1";
             this.cmbProducts1.Size = new System.Drawing.Size(238, 32);
             this.cmbProducts1.TabIndex = 1;
@@ -373,7 +374,7 @@
             this.cmbUsername.FormattingEnabled = true;
             this.cmbUsername.IntegralHeight = false;
             this.cmbUsername.Location = new System.Drawing.Point(208, 56);
-            this.cmbUsername.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbUsername.Margin = new System.Windows.Forms.Padding(6);
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(238, 32);
             this.cmbUsername.TabIndex = 1;
@@ -410,7 +411,7 @@
             this.dgvReport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(237)))), ((int)(((byte)(204)))));
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Location = new System.Drawing.Point(34, 324);
-            this.dgvReport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvReport.Margin = new System.Windows.Forms.Padding(6);
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.ReadOnly = true;
             this.dgvReport.RowHeadersWidth = 82;
@@ -424,7 +425,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvReport);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.Margin = new System.Windows.Forms.Padding(14);
             this.Name = "销售记录查询";
             this.Load += new System.EventHandler(this.销售记录查询_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);
