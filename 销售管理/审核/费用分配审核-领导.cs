@@ -159,7 +159,9 @@ namespace 销售管理.日常业务
                 {
                     mForm.mRow = dgvExAllocation.Rows[e.RowIndex];
                     mForm.ExId = Convert.ToInt64(dgvExAllocation.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
-                    mForm.ShowDialog();
+                    mForm.ShowDialog();    
+                    //刷新数据
+                    btnSerch_Click(sender, e);                  
                 }
             }
         }

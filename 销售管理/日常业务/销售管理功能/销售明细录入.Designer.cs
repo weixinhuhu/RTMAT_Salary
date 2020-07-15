@@ -88,7 +88,7 @@
             // cmbCustomerName
             // 
             this.cmbCustomerName.DropDownHeight = 300;
-            this.cmbCustomerName.Enabled = false;
+            this.cmbCustomerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomerName.FormattingEnabled = true;
             this.cmbCustomerName.IntegralHeight = false;
             this.cmbCustomerName.Location = new System.Drawing.Point(206, 92);
@@ -366,8 +366,8 @@
             // 
             this.cmbProduct3.DisplayMember = "name";
             this.cmbProduct3.DropDownHeight = 300;
+            this.cmbProduct3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProduct3.DropDownWidth = 200;
-            this.cmbProduct3.Enabled = false;
             this.cmbProduct3.FormattingEnabled = true;
             this.cmbProduct3.IntegralHeight = false;
             this.cmbProduct3.Location = new System.Drawing.Point(763, 147);
@@ -376,7 +376,6 @@
             this.cmbProduct3.Size = new System.Drawing.Size(274, 32);
             this.cmbProduct3.TabIndex = 7;
             this.cmbProduct3.ValueMember = "Id";
-            this.cmbProduct3.Visible = false;
             this.cmbProduct3.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerName_DataSourceChanged);
             // 
             // groupBox1
@@ -507,6 +506,7 @@
             this.dgvDetails.RowTemplate.Height = 23;
             this.dgvDetails.Size = new System.Drawing.Size(1256, 438);
             this.dgvDetails.TabIndex = 0;
+            this.dgvDetails.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetails_CellContentClick);
             // 
             // ColumnProductName
             // 

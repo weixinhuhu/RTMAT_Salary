@@ -66,13 +66,10 @@ namespace 销售管理.查询统计
                 cmbUsername.SelectedIndex = cmbUsername.FindStringExact(Classes.PubClass.UserName);
                 cmbUsername.Enabled = false;
                 rbSalerSum.Visible = false;
-
             }
 
             //是否开票
             CmbInvoiceFlag.SelectedIndex = 0;
-
-
 
         }
         private void MakeLineChart(DataTable mDataTable)//string[] DataName,string[] Data,string[] Data1, string[] Data2)
@@ -354,9 +351,7 @@ FROM T_Users AS d LEFT OUTER JOIN
                 mSql += " and a.username = " + Classes.PubClass.UserId;
                 mSql1 += " and a.username = " + Classes.PubClass.UserId;
             }
-
-
-         
+            
             mSql += mSql1;
 
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);

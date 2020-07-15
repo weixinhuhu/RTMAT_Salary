@@ -28,9 +28,8 @@ namespace 销售管理.日常业务
         long Amount;
         private void 申请费用分配_Load(object sender, EventArgs e)
         {
-            rbPersonal.Checked = true;
+            //rbPersonal.Checked = true;
             isLoading = true;
-
 
             if (ExId > -1)   //如果费用分配ID大于-1,查看费用分配信息
             {
@@ -63,7 +62,6 @@ namespace 销售管理.日常业务
 
                     txtProductName.Tag = mDataRow.ProductName;
                     txtCustomerName.Tag = mDataRow.CustomerName;
-
                     txtAmount.Text = mDataRow.Amount.ToString();
                     var DeliverPrice = mDataRow.DeliverPrice.ToString("0.00");
                     txtDeliverPrice.Text = DeliverPrice;
@@ -268,6 +266,8 @@ namespace 销售管理.日常业务
                     ret = new T_SaleDetailsTableAdapter().UpdateSaleDateAndSettlementModesById(dtpDate1.Value, cmbSettlementModes.Text.ToString(), (long)ret, exDate, Convert.ToInt64(mRow.Cells["idDataGridViewTextBoxColumn"].Value));
                     MessageBox.Show("已提交");
                     btnApply.Enabled = false;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
@@ -282,7 +282,10 @@ namespace 销售管理.日常业务
 
         private void txtAmount_Leave(object sender, EventArgs e)
         {
-            if (isLoading == true) return; //窗口加载时不引发事件
+            if (isLoading == true) return; 
+
+            if (String.IsNullOrEmpty(txtCommissionPrice.Text)) return;
+
             ComputeNums();
         }
 
@@ -335,14 +338,7 @@ namespace 销售管理.日常业务
                         txtSalePrice.SelectionStart = 0;
                         txtSalePrice.SelectionLength = 1;
                     }
-
-                    if (txtCommissionPrice.Text == "") //提成单价
-                    {
-                        txtCommissionPrice.Text = "0";
-                        txtCommissionPrice.SelectionStart = 0;
-                        txtCommissionPrice.SelectionLength = 1;
-                    }
-
+            
                     if (type == "A类订单")
                     {
                         if (string.IsNullOrEmpty(txtSalePrice.Text) == false)
@@ -409,8 +405,7 @@ namespace 销售管理.日常业务
                                 SaleSum = salePrice * Amount;
                                 txtSaleSum.Text = SaleSum.ToString("0.00");
 
-                                //提成价格
-
+                                //提成
                                 commissionSum = 0;
                                 saleCommission = 0;
                                 txtCommissionSum.Text = commissionSum.ToString("0.00");
@@ -480,6 +475,8 @@ namespace 销售管理.日常业务
                 if (ret > 0)
                 {
                     MessageBox.Show("付款信息修改成功");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
@@ -507,13 +504,7 @@ namespace 销售管理.日常业务
         }
 
         private void rbDepart_CheckedChanged(object sender, EventArgs e)
-        {
-            labCommissionPrice.Visible = false;
-            labCommissionSum.Visible = false;
-            labSaleCommission.Visible = false;
-            txtCommissionPrice.Visible = false;
-            txtCommissionSum.Visible = false;
-            txtSaleCommission.Visible = false;
+        {                 
             type = rbDepart.Text;
             txtAmount_Leave(sender, e);
             SetTableNo();

@@ -22,9 +22,6 @@ namespace 销售管理.日常业务
         private void btnSerch_Click(object sender, EventArgs e)
         {
             string mSql;
-            //添加备注
-            //mSql = @"SELECT a.Id, c.UserName,e.companyname customername, e.CompanyName, a.SaleMonth, a.SaleDate, d.name as ProductName, a.Amount, a.Price, a.SumMoney, a.SettlementModes, a.ExpenseAllocation, a.MakeInvoice, a.SubmitDate, a.InvoiceContent, a.InvoiceMonth, a.InvoiceDate, a.InvoiceType, a.InvoiceNo,b.TableNo,b.status exstatus,b.BusinessRemark,isnull(f.hasInvoice,0) hasInvoice,isnull(g.Invoicing,0) Invoicing,a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0) caninvoice,a.stockoutno FROM dbo.T_SaleDetails a left join T_Users c on a.UserName = c.Id left join T_ExpenseAllocation b on a.ExpenseAllocation=b.Id left join T_Products d on a.productName = d.id left join t_customers e on a.customername = e.id left join (select saledetailsid,isnull(sum(amount),0) hasInvoice from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status = '财务已开票' group by saledetailsid) f on a. id = f.saledetailsid left join (select saledetailsid,isnull(sum(amount),0) Invoicing from t_invoiceoutstock a left join t_invoice b on a.invoiceid = b.id where b.status like '%等待%' group by saledetailsid) g on g.saledetailsid = a.id where ascii(a.CustomerName) < 123 and  1=1 ";
-
             mSql = @"SELECT a.Id,
                            c.UserName,
                            e.CompanyName customername,
@@ -160,6 +157,8 @@ namespace 销售管理.日常业务
             using (销售明细录入 mForm = new 销售明细录入())
             {
                 mForm.ShowDialog();
+                //刷新数据
+                btnSerch_Click(sender, e);              
             }
         }
         private void dgvSaleDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -195,18 +194,15 @@ namespace 销售管理.日常业务
                     }
                     else
                     {
-                        //MessageBox.Show(dgvSaleDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString());
                         using (申请费用分配1 mForm = new 申请费用分配1())
                         {
                             mForm.isModify = true;
                             mForm.mRow = dgvSaleDetails.Rows[e.RowIndex];
                             mForm.ExId = Convert.ToInt64(dgvSaleDetails.Rows[e.RowIndex].Cells["ExpenseAllocation"].Value);
-
                             if (mForm.ShowDialog() == DialogResult.OK)
                             {
-                                btnSerch_Click(sender, e);
-                            }
-                            //  mForm.ShowDialog();
+                                btnSerch_Click(sender, e);                                
+                            }                        
                         }
                     }
                 }
@@ -289,6 +285,9 @@ namespace 销售管理.日常业务
             using (销售明细录入 mForm = new 销售明细录入())
             {
                 mForm.ShowDialog();
+                //刷新数据
+                btnSerch_Click(sender, e);
+
             }
         }
     }
