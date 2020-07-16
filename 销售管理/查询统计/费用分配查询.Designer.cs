@@ -78,7 +78,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReport.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReport.Location = new System.Drawing.Point(38, 260);
-            this.dgvReport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dgvReport.Margin = new System.Windows.Forms.Padding(6);
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.ReadOnly = true;
             this.dgvReport.RowHeadersWidth = 82;
@@ -108,9 +108,9 @@
             this.groupBox1.Controls.Add(this.cmbUsername);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(38, 38);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox1.Size = new System.Drawing.Size(1896, 206);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -119,7 +119,7 @@
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(1368, 152);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(162, 35);
             this.txtProductName.TabIndex = 12;
@@ -153,7 +153,7 @@
             "已付款",
             "未付款"});
             this.cmbYongJin.Location = new System.Drawing.Point(1368, 80);
-            this.cmbYongJin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbYongJin.Margin = new System.Windows.Forms.Padding(6);
             this.cmbYongJin.Name = "cmbYongJin";
             this.cmbYongJin.Size = new System.Drawing.Size(162, 32);
             this.cmbYongJin.TabIndex = 9;
@@ -172,7 +172,7 @@
             "公司跟单",
             "跨区域订单"});
             this.cmbCompanyName.Location = new System.Drawing.Point(144, 148);
-            this.cmbCompanyName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbCompanyName.Margin = new System.Windows.Forms.Padding(6);
             this.cmbCompanyName.Name = "cmbCompanyName";
             this.cmbCompanyName.Size = new System.Drawing.Size(350, 32);
             this.cmbCompanyName.TabIndex = 8;
@@ -198,7 +198,7 @@
             "A类订单",
             "B类订单"});
             this.cmbType.Location = new System.Drawing.Point(144, 90);
-            this.cmbType.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(350, 32);
             this.cmbType.TabIndex = 8;
@@ -217,7 +217,7 @@
             // 
             this.rbUserSum.AutoSize = true;
             this.rbUserSum.Location = new System.Drawing.Point(694, 64);
-            this.rbUserSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbUserSum.Margin = new System.Windows.Forms.Padding(6);
             this.rbUserSum.Name = "rbUserSum";
             this.rbUserSum.Size = new System.Drawing.Size(209, 28);
             this.rbUserSum.TabIndex = 4;
@@ -230,19 +230,20 @@
             // 
             this.rbDepartSum.AutoSize = true;
             this.rbDepartSum.Location = new System.Drawing.Point(510, 136);
-            this.rbDepartSum.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbDepartSum.Margin = new System.Windows.Forms.Padding(6);
             this.rbDepartSum.Name = "rbDepartSum";
             this.rbDepartSum.Size = new System.Drawing.Size(185, 28);
             this.rbDepartSum.TabIndex = 4;
             this.rbDepartSum.TabStop = true;
             this.rbDepartSum.Text = "部门总销售额";
             this.rbDepartSum.UseVisualStyleBackColor = true;
+            this.rbDepartSum.Visible = false;
             // 
             // rbDetails
             // 
             this.rbDetails.AutoSize = true;
             this.rbDetails.Location = new System.Drawing.Point(510, 64);
-            this.rbDetails.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.rbDetails.Margin = new System.Windows.Forms.Padding(6);
             this.rbDetails.Name = "rbDetails";
             this.rbDetails.Size = new System.Drawing.Size(113, 28);
             this.rbDetails.TabIndex = 4;
@@ -255,7 +256,7 @@
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcel.Location = new System.Drawing.Point(1706, 76);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(6);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(144, 86);
             this.btnExcel.TabIndex = 3;
@@ -267,7 +268,7 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Location = new System.Drawing.Point(1546, 76);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(148, 86);
             this.btnSearch.TabIndex = 3;
@@ -281,9 +282,9 @@
             this.groupBox2.Controls.Add(this.dtpEnd);
             this.groupBox2.Controls.Add(this.dtpStart);
             this.groupBox2.Location = new System.Drawing.Point(908, 26);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox2.Size = new System.Drawing.Size(440, 168);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -293,7 +294,7 @@
             // 
             this.cbDate.AutoSize = true;
             this.cbDate.Location = new System.Drawing.Point(12, 40);
-            this.cbDate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbDate.Margin = new System.Windows.Forms.Padding(6);
             this.cbDate.Name = "cbDate";
             this.cbDate.Size = new System.Drawing.Size(138, 28);
             this.cbDate.TabIndex = 1;
@@ -303,7 +304,7 @@
             // dtpEnd
             // 
             this.dtpEnd.Location = new System.Drawing.Point(166, 94);
-            this.dtpEnd.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(6);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(250, 35);
             this.dtpEnd.TabIndex = 0;
@@ -311,7 +312,7 @@
             // dtpStart
             // 
             this.dtpStart.Location = new System.Drawing.Point(166, 40);
-            this.dtpStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(6);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(250, 35);
             this.dtpStart.TabIndex = 0;
@@ -324,7 +325,7 @@
             this.cmbUsername.FormattingEnabled = true;
             this.cmbUsername.IntegralHeight = false;
             this.cmbUsername.Location = new System.Drawing.Point(144, 30);
-            this.cmbUsername.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbUsername.Margin = new System.Windows.Forms.Padding(6);
             this.cmbUsername.Name = "cmbUsername";
             this.cmbUsername.Size = new System.Drawing.Size(350, 32);
             this.cmbUsername.TabIndex = 1;
@@ -345,7 +346,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvReport);
-            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.Margin = new System.Windows.Forms.Padding(12);
             this.Name = "费用分配查询";
             this.Load += new System.EventHandler(this.费用分配查询_Load);
             this.Controls.SetChildIndex(this.btnClose, 0);

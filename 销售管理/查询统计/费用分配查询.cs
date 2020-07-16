@@ -34,7 +34,7 @@ namespace 销售管理.查询统计
                                a.Amount 数量,
                                CONVERT(DECIMAL(18, 2), a.DeliverPrice) 发货单价,
                                CONVERT(DECIMAL(18, 2), a.DeliverSum) 发货额,
-                               CONVERT(DECIMAL(18, 2), a.SalePrice) 实际单价,
+                               CONVERT(DECIMAL(18, 2), a.SaleComission) 实际单价,
                                CONVERT(DECIMAL(18, 2), a.SaleComission) 销售提成,
                                CONVERT(DECIMAL(18, 2), a.AgentSum) 佣金,
                                CONVERT(DECIMAL(18, 2), a.AgentCommission) 税后佣金,
@@ -102,7 +102,7 @@ namespace 销售管理.查询统计
                                CONVERT(DECIMAL(18, 2), ISNULL((a_1.SaleComission),0)) AS 销售提成,
                                CONVERT(DECIMAL(18, 2), ISNULL((a_1.AgentSum),0)) AS 佣金,
                                CONVERT(DECIMAL(18, 2), ISNULL((a_1.AgentCommission),0)) AS 税后佣金
-                        FROM T_Users AS b
+                        FROM T_Users AS b 
                             LEFT OUTER JOIN
                             (
                                 SELECT t.UserName AS username,
@@ -114,7 +114,7 @@ namespace 销售管理.查询统计
                                 FROM T_ExpenseAllocation t,
                                      T_SaleDetails ts
                                 WHERE (Status = '领导审核通过')
-                                      AND t.SaleDetailsId = ts.Id";
+                                      AND t.SaleDetailsId = ts.Id ";
     
                mSql1 = @" UNION ALL
                             SELECT '总计' AS Expr1,

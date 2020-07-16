@@ -35,22 +35,6 @@
             this.dataSetExpenseAllocation = new 销售管理.DAL.DataSetExpenseAllocation();
             this.tExpenseAllocationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvExAllocation = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbMoney = new System.Windows.Forms.ComboBox();
-            this.btnAudit2 = new System.Windows.Forms.Button();
-            this.btnAudit = new System.Windows.Forms.Button();
-            this.cmbHasAudit = new System.Windows.Forms.ComboBox();
-            this.btnSerch = new System.Windows.Forms.Button();
-            this.txtProductName = new System.Windows.Forms.TextBox();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTableNo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbUserName = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +76,24 @@
             this.LeaderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDetailsIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbMoney = new System.Windows.Forms.ComboBox();
+            this.btnAudit2 = new System.Windows.Forms.Button();
+            this.btnAudit = new System.Windows.Forms.Button();
+            this.cmbHasAudit = new System.Windows.Forms.ComboBox();
+            this.btnSerch = new System.Windows.Forms.Button();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTableNo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbUserName = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetExpenseAllocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tExpenseAllocationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExAllocation)).BeginInit();
@@ -182,192 +184,6 @@
             this.dgvExAllocation.TabIndex = 6;
             this.dgvExAllocation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExAllocation_CellContentClick);
             this.dgvExAllocation.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExAllocation_CellDoubleClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cmbMoney);
-            this.groupBox1.Controls.Add(this.btnAudit2);
-            this.groupBox1.Controls.Add(this.btnAudit);
-            this.groupBox1.Controls.Add(this.cmbHasAudit);
-            this.groupBox1.Controls.Add(this.btnSerch);
-            this.groupBox1.Controls.Add(this.txtProductName);
-            this.groupBox1.Controls.Add(this.txtCustomerName);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtTableNo);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cmbUserName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(72, 82);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(1868, 156);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "快速搜索";
-            // 
-            // cmbMoney
-            // 
-            this.cmbMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMoney.FormattingEnabled = true;
-            this.cmbMoney.Items.AddRange(new object[] {
-            "全部",
-            "已付款",
-            "未付款"});
-            this.cmbMoney.Location = new System.Drawing.Point(1566, 100);
-            this.cmbMoney.Margin = new System.Windows.Forms.Padding(6);
-            this.cmbMoney.Name = "cmbMoney";
-            this.cmbMoney.Size = new System.Drawing.Size(138, 32);
-            this.cmbMoney.TabIndex = 8;
-            // 
-            // btnAudit2
-            // 
-            this.btnAudit2.Location = new System.Drawing.Point(280, 100);
-            this.btnAudit2.Margin = new System.Windows.Forms.Padding(6);
-            this.btnAudit2.Name = "btnAudit2";
-            this.btnAudit2.Size = new System.Drawing.Size(208, 48);
-            this.btnAudit2.TabIndex = 7;
-            this.btnAudit2.Text = "批量审核不通过";
-            this.btnAudit2.UseVisualStyleBackColor = true;
-            this.btnAudit2.Click += new System.EventHandler(this.btnAudit2_Click);
-            // 
-            // btnAudit
-            // 
-            this.btnAudit.Location = new System.Drawing.Point(46, 100);
-            this.btnAudit.Margin = new System.Windows.Forms.Padding(6);
-            this.btnAudit.Name = "btnAudit";
-            this.btnAudit.Size = new System.Drawing.Size(222, 48);
-            this.btnAudit.TabIndex = 7;
-            this.btnAudit.Text = "批量审核通过";
-            this.btnAudit.UseVisualStyleBackColor = true;
-            this.btnAudit.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cmbHasAudit
-            // 
-            this.cmbHasAudit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHasAudit.FormattingEnabled = true;
-            this.cmbHasAudit.Items.AddRange(new object[] {
-            "未审核",
-            "审核已通过",
-            "审核未通过"});
-            this.cmbHasAudit.Location = new System.Drawing.Point(1566, 48);
-            this.cmbHasAudit.Margin = new System.Windows.Forms.Padding(6);
-            this.cmbHasAudit.Name = "cmbHasAudit";
-            this.cmbHasAudit.Size = new System.Drawing.Size(138, 32);
-            this.cmbHasAudit.TabIndex = 6;
-            // 
-            // btnSerch
-            // 
-            this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSerch.Location = new System.Drawing.Point(1688, 40);
-            this.btnSerch.Margin = new System.Windows.Forms.Padding(6);
-            this.btnSerch.Name = "btnSerch";
-            this.btnSerch.Size = new System.Drawing.Size(168, 52);
-            this.btnSerch.TabIndex = 3;
-            this.btnSerch.Text = "查找";
-            this.btnSerch.UseVisualStyleBackColor = true;
-            this.btnSerch.Click += new System.EventHandler(this.btnSerch_Click);
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(1246, 48);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(196, 35);
-            this.txtProductName.TabIndex = 2;
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Location = new System.Drawing.Point(914, 48);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(6);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(196, 35);
-            this.txtCustomerName.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1434, 106);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 24);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "是否付佣金";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1458, 56);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 24);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "审核状态";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1128, 54);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "产品名称";
-            // 
-            // txtTableNo
-            // 
-            this.txtTableNo.Location = new System.Drawing.Point(574, 48);
-            this.txtTableNo.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTableNo.Name = "txtTableNo";
-            this.txtTableNo.Size = new System.Drawing.Size(196, 35);
-            this.txtTableNo.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(796, 54);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "客户名称";
-            // 
-            // cmbUserName
-            // 
-            this.cmbUserName.DropDownHeight = 300;
-            this.cmbUserName.DropDownWidth = 200;
-            this.cmbUserName.FormattingEnabled = true;
-            this.cmbUserName.IntegralHeight = false;
-            this.cmbUserName.Location = new System.Drawing.Point(136, 48);
-            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6);
-            this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(238, 32);
-            this.cmbUserName.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(408, 54);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "费用分配表号";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "销售员";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -513,7 +329,7 @@
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
-            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
+            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "CommissionPrice";
             this.salePriceDataGridViewTextBoxColumn.HeaderText = "实际价格";
             this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
@@ -769,6 +585,221 @@
             this.saleDetailsIdDataGridViewTextBoxColumn.Visible = false;
             this.saleDetailsIdDataGridViewTextBoxColumn.Width = 211;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cmbType);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cmbMoney);
+            this.groupBox1.Controls.Add(this.btnAudit2);
+            this.groupBox1.Controls.Add(this.btnAudit);
+            this.groupBox1.Controls.Add(this.cmbHasAudit);
+            this.groupBox1.Controls.Add(this.btnSerch);
+            this.groupBox1.Controls.Add(this.txtProductName);
+            this.groupBox1.Controls.Add(this.txtCustomerName);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtTableNo);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmbUserName);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(72, 28);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBox1.Size = new System.Drawing.Size(1868, 210);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "快速搜索";
+            // 
+            // cmbMoney
+            // 
+            this.cmbMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoney.FormattingEnabled = true;
+            this.cmbMoney.Items.AddRange(new object[] {
+            "全部",
+            "已付款",
+            "未付款"});
+            this.cmbMoney.Location = new System.Drawing.Point(1566, 100);
+            this.cmbMoney.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbMoney.Name = "cmbMoney";
+            this.cmbMoney.Size = new System.Drawing.Size(138, 32);
+            this.cmbMoney.TabIndex = 8;
+            // 
+            // btnAudit2
+            // 
+            this.btnAudit2.Location = new System.Drawing.Point(280, 150);
+            this.btnAudit2.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAudit2.Name = "btnAudit2";
+            this.btnAudit2.Size = new System.Drawing.Size(208, 48);
+            this.btnAudit2.TabIndex = 7;
+            this.btnAudit2.Text = "批量审核不通过";
+            this.btnAudit2.UseVisualStyleBackColor = true;
+            this.btnAudit2.Click += new System.EventHandler(this.btnAudit2_Click);
+            // 
+            // btnAudit
+            // 
+            this.btnAudit.Location = new System.Drawing.Point(46, 150);
+            this.btnAudit.Margin = new System.Windows.Forms.Padding(6);
+            this.btnAudit.Name = "btnAudit";
+            this.btnAudit.Size = new System.Drawing.Size(222, 48);
+            this.btnAudit.TabIndex = 7;
+            this.btnAudit.Text = "批量审核通过";
+            this.btnAudit.UseVisualStyleBackColor = true;
+            this.btnAudit.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmbHasAudit
+            // 
+            this.cmbHasAudit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHasAudit.FormattingEnabled = true;
+            this.cmbHasAudit.Items.AddRange(new object[] {
+            "未审核",
+            "审核已通过",
+            "审核未通过"});
+            this.cmbHasAudit.Location = new System.Drawing.Point(1566, 48);
+            this.cmbHasAudit.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbHasAudit.Name = "cmbHasAudit";
+            this.cmbHasAudit.Size = new System.Drawing.Size(138, 32);
+            this.cmbHasAudit.TabIndex = 6;
+            // 
+            // btnSerch
+            // 
+            this.btnSerch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSerch.Location = new System.Drawing.Point(1688, 40);
+            this.btnSerch.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSerch.Name = "btnSerch";
+            this.btnSerch.Size = new System.Drawing.Size(168, 52);
+            this.btnSerch.TabIndex = 3;
+            this.btnSerch.Text = "查找";
+            this.btnSerch.UseVisualStyleBackColor = true;
+            this.btnSerch.Click += new System.EventHandler(this.btnSerch_Click);
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Location = new System.Drawing.Point(574, 97);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(196, 35);
+            this.txtProductName.TabIndex = 2;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(136, 95);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(196, 35);
+            this.txtCustomerName.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1434, 106);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 24);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "是否付佣金";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1458, 56);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 24);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "审核状态";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(456, 103);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "产品名称";
+            // 
+            // txtTableNo
+            // 
+            this.txtTableNo.Location = new System.Drawing.Point(1000, 46);
+            this.txtTableNo.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTableNo.Name = "txtTableNo";
+            this.txtTableNo.Size = new System.Drawing.Size(196, 35);
+            this.txtTableNo.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "客户名称";
+            // 
+            // cmbUserName
+            // 
+            this.cmbUserName.DropDownHeight = 300;
+            this.cmbUserName.DropDownWidth = 200;
+            this.cmbUserName.FormattingEnabled = true;
+            this.cmbUserName.IntegralHeight = false;
+            this.cmbUserName.Location = new System.Drawing.Point(136, 48);
+            this.cmbUserName.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbUserName.Name = "cmbUserName";
+            this.cmbUserName.Size = new System.Drawing.Size(196, 32);
+            this.cmbUserName.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(834, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "费用分配表号";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "销售员";
+            // 
+            // cmbType
+            // 
+            this.cmbType.DropDownHeight = 300;
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownWidth = 200;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.IntegralHeight = false;
+            this.cmbType.Items.AddRange(new object[] {
+            "全部",
+            "A类订单",
+            "B类订单"});
+            this.cmbType.Location = new System.Drawing.Point(574, 46);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(196, 32);
+            this.cmbType.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(456, 49);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 24);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "订单类型";
+            // 
             // 费用分配审核_领导
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -852,5 +883,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LeaderDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn recDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleDetailsIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Label label7;
     }
 }

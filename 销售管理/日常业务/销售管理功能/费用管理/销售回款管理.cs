@@ -10,6 +10,8 @@ using 销售管理.DAL.DataSetSaleDetailsTableAdapters;
 using 销售管理.DAL.DataSetUsersTableAdapters;
 using Common;
 using 销售管理.日常业务.销售管理功能;
+using 销售管理.DAL.DataSetCustomersTableAdapters;
+
 namespace 销售管理.日常业务
 {
     public partial class 销售回款管理 : 销售管理.UserControlBase
@@ -50,14 +52,14 @@ namespace 销售管理.日常业务
             {
                 mSql += @" and UserName='" + Classes.PubClass.UserName + "'";
             }
-            else if (cmbUserName.Text.Trim() != "")
+            else if (cmbUserName.Text.Trim() != "查询所有")
             {
                 mSql += " and UserName like '%" + cmbUserName.Text.Trim() + "%'";
             }
 
-            if (txtCusName.Text.Trim() != "")
+            if (txtCustomer.Text.Trim() != "")
             {
-                mSql += " and CompanyName like '%" + txtCusName.Text.Trim() + "%'";
+                mSql += " and CompanyName like '%" + txtCustomer.Text.Trim() + "%'";
             }
 
             //if (dtp1.Checked == true)
@@ -86,10 +88,19 @@ namespace 销售管理.日常业务
 
         private void 销售明细管理_Load(object sender, EventArgs e)
         {
-            cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
-            cmbUserName.DisplayMember = "UserName";
-            cmbUserName.ValueMember = "id";
-            cmbUserName.SelectedIndex = -1;
+            //cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
+            //cmbUserName.DisplayMember = "UserName";
+            //cmbUserName.ValueMember = "id";
+            //cmbUserName.SelectedIndex = -1;
+            //获取销售列表
+            var mTable1 = new T_UsersTableAdapter().GetSalers();
+            foreach (销售管理.DAL.DataSetUsers.T_UsersRow mRow in mTable1.Rows)
+            {
+                cmbUserName.Items.Add(new Classes.PubClass.MyCmbList(mRow.id, mRow.UserName));
+            }
+            cmbUserName.Items.Insert(0, "查询所有");
+            cmbUserName.SelectedIndex = 0;
+
             if (!Common.AuthenticateRight.AuthOperation(110301) && !CommonClass.SttUser.blSuperUser)
             {
                 cmbUserName.SelectedValue = Classes.PubClass.UserId;
@@ -127,7 +138,18 @@ namespace 销售管理.日常业务
 
         private void cmbUserName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DataTable mTable = null;
+            if (cmbUserName.SelectedIndex > 0)
+            {
+                long saleId = ((销售管理.Classes.PubClass.MyCmbList)cmbUserName.SelectedItem).Id;
+                mTable = new T_CustomersTableAdapter().GetDataByUserId(saleId);
+            }
+            else
+            {
+                mTable = new T_CustomersTableAdapter().GetData();
+            }
+            txtCustomer.DataSource = mTable;
+            txtCustomer.SelectedIndex = -1;
         }
 
         private void button1_Click(object sender, EventArgs e)

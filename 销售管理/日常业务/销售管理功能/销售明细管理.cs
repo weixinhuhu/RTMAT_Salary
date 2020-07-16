@@ -59,7 +59,7 @@ namespace 销售管理.日常业务
                     WHERE ASCII(a.CustomerName) < 123
                           AND 1 = 1";
 
-            if (!Common.AuthenticateRight.AuthOperation(110301)&& Common.CommonClass.SttUser.blSuperUser==false)
+            if (!Common.AuthenticateRight.AuthOperation(110301) && Common.CommonClass.SttUser.blSuperUser == false)
             {
                 mSql += @" and a.UserName='" + Classes.PubClass.UserId + "'";
             }
@@ -73,7 +73,7 @@ namespace 销售管理.日常业务
             {
                 mSql += " and e.CompanyName like '%" + txtCusName.Text.Trim() + "%'";
             }
-      
+
             if (dtp1.Checked == true)
             {
                 mSql += " and a.SubmitDate between '" + dtp1.Value.Date.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.Date.ToString("yyyy-MM-dd") + " 23:59:59'";
@@ -94,7 +94,7 @@ namespace 销售管理.日常业务
                 //添加不开票选项
                 if (cmbInvoice.Text == "不开票")
                     mSql += "and a.InvoiceFlag='不开票'";
-               
+
                 if (cmbInvoice.Text == "未开票")
                     mSql += " and a.amount - isnull(f.hasinvoice,0) - isnull(g.invoicing,0)>0 ";
 
@@ -125,7 +125,7 @@ namespace 销售管理.日常业务
             // dgvNav1.PrimaryKey = "a.Id";
             dgvNav1.MyBs = tSaleDetailsBindingSource;
             dgvNav1.OriginSql = mSql;
-   
+
         }
 
         private void 销售明细管理_Load(object sender, EventArgs e)
@@ -158,7 +158,7 @@ namespace 销售管理.日常业务
             {
                 mForm.ShowDialog();
                 //刷新数据
-                btnSerch_Click(sender, e);              
+                btnSerch_Click(sender, e);
             }
         }
         private void dgvSaleDetails_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -179,17 +179,20 @@ namespace 销售管理.日常业务
                         return;
                     }
 
-
                     销售明细维护 mForm = new 销售明细维护();
                     mForm.mId = Convert.ToInt64(dgvSaleDetails.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
                     mForm.ShowDialog();
-                    btnSerch_Click(sender,e);
-
+                    btnSerch_Click(sender, e);
                 }
                 if (e.ColumnIndex == dgvSaleDetails.Columns["TableNo"].Index && Classes.PubClass.UserStatus == "正常")
                 {
                     if (dgvSaleDetails.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString() == "申请费用分配")
                     {
+                        if (Classes.PubClass.UserRight == "销售")
+                        {
+                            MessageBox.Show("销售人员无此操作权限！");
+                            return;
+                        }
                         using (申请费用分配1 mForm = new 申请费用分配1())
                         {
                             mForm.mRow = dgvSaleDetails.Rows[e.RowIndex];
@@ -210,8 +213,8 @@ namespace 销售管理.日常业务
                             mForm.ExId = Convert.ToInt64(dgvSaleDetails.Rows[e.RowIndex].Cells["ExpenseAllocation"].Value);
                             if (mForm.ShowDialog() == DialogResult.OK)
                             {
-                                btnSerch_Click(sender, e);                                
-                            }                        
+                                btnSerch_Click(sender, e);
+                            }
                         }
                     }
                 }

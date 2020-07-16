@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbHasAudit = new System.Windows.Forms.ComboBox();
             this.btnSerch = new System.Windows.Forms.Button();
@@ -84,6 +84,8 @@
             this.FinanceAudit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinanceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleDetailsIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tExpenseAllocationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetExpenseAllocation)).BeginInit();
@@ -98,6 +100,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cmbType);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbHasAudit);
             this.groupBox1.Controls.Add(this.btnSerch);
             this.groupBox1.Controls.Add(this.txtProductName);
@@ -108,11 +112,11 @@
             this.groupBox1.Controls.Add(this.cmbUserName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(72, 82);
+            this.groupBox1.Location = new System.Drawing.Point(72, 31);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(1860, 156);
+            this.groupBox1.Size = new System.Drawing.Size(1860, 207);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速搜索";
@@ -144,7 +148,7 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(1272, 70);
+            this.txtProductName.Location = new System.Drawing.Point(600, 138);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(6);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(196, 35);
@@ -152,7 +156,7 @@
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(940, 70);
+            this.txtCustomerName.Location = new System.Drawing.Point(162, 132);
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(6);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(196, 35);
@@ -161,7 +165,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1154, 76);
+            this.label4.Location = new System.Drawing.Point(482, 143);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 24);
@@ -170,7 +174,7 @@
             // 
             // txtTableNo
             // 
-            this.txtTableNo.Location = new System.Drawing.Point(600, 70);
+            this.txtTableNo.Location = new System.Drawing.Point(1085, 68);
             this.txtTableNo.Margin = new System.Windows.Forms.Padding(6);
             this.txtTableNo.Name = "txtTableNo";
             this.txtTableNo.Size = new System.Drawing.Size(196, 35);
@@ -179,7 +183,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(822, 76);
+            this.label3.Location = new System.Drawing.Point(44, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 24);
@@ -195,13 +199,13 @@
             this.cmbUserName.Location = new System.Drawing.Point(162, 70);
             this.cmbUserName.Margin = new System.Windows.Forms.Padding(6);
             this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(238, 32);
+            this.cmbUserName.Size = new System.Drawing.Size(196, 32);
             this.cmbUserName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(434, 76);
+            this.label2.Location = new System.Drawing.Point(919, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 24);
@@ -308,9 +312,9 @@
             // 
             // ColAudit
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "审核通过";
-            this.ColAudit.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "审核通过";
+            this.ColAudit.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColAudit.Frozen = true;
             this.ColAudit.HeaderText = "审核通过";
             this.ColAudit.MinimumWidth = 10;
@@ -321,9 +325,9 @@
             // 
             // ColAudit1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "审核不通过";
-            this.ColAudit1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = "审核不通过";
+            this.ColAudit1.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColAudit1.Frozen = true;
             this.ColAudit1.HeaderText = "审核不通过";
             this.ColAudit1.MinimumWidth = 10;
@@ -428,7 +432,7 @@
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
-            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "SalePrice";
+            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "CommissionPrice";
             this.salePriceDataGridViewTextBoxColumn.HeaderText = "实际价格";
             this.salePriceDataGridViewTextBoxColumn.MinimumWidth = 10;
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
@@ -666,6 +670,33 @@
             this.saleDetailsIdDataGridViewTextBoxColumn.Visible = false;
             this.saleDetailsIdDataGridViewTextBoxColumn.Width = 211;
             // 
+            // cmbType
+            // 
+            this.cmbType.DropDownHeight = 300;
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownWidth = 200;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.IntegralHeight = false;
+            this.cmbType.Items.AddRange(new object[] {
+            "全部",
+            "A类订单",
+            "B类订单"});
+            this.cmbType.Location = new System.Drawing.Point(600, 68);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(196, 32);
+            this.cmbType.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(482, 76);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 24);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "订单类型";
+            // 
             // 费用分配审核_财务
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
@@ -741,5 +772,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FinanceAudit;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinanceDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleDetailsIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Label label5;
     }
 }

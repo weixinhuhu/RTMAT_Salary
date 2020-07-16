@@ -81,10 +81,9 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumMoneyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgentSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.settlementModesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SettlementModes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TableNo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.expenseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,10 +126,9 @@
             this.priceDataGridViewTextBoxColumn,
             this.sumMoneyDataGridViewTextBoxColumn,
             this.AgentSum,
-            this.settlementModesDataGridViewTextBoxColumn,
             this.SaleDate,
-            this.ExpDate,
             this.SettlementModes,
+            this.ExpDate,
             this.TableNo,
             this.expenseStatus,
             this.BusinessRemark,
@@ -469,6 +467,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "BindingNavigatorPositionAccessibleName";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(96, 38);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -477,6 +476,7 @@
             // bindingNavigatorPageSizeItem
             // 
             this.bindingNavigatorPageSizeItem.AutoSize = false;
+            this.bindingNavigatorPageSizeItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bindingNavigatorPageSizeItem.Name = "bindingNavigatorPageSizeItem";
             this.bindingNavigatorPageSizeItem.Size = new System.Drawing.Size(96, 38);
             this.bindingNavigatorPageSizeItem.Text = "100";
@@ -624,16 +624,6 @@
             this.AgentSum.Name = "AgentSum";
             this.AgentSum.Width = 103;
             // 
-            // settlementModesDataGridViewTextBoxColumn
-            // 
-            this.settlementModesDataGridViewTextBoxColumn.DataPropertyName = "SettlementModes";
-            this.settlementModesDataGridViewTextBoxColumn.Frozen = true;
-            this.settlementModesDataGridViewTextBoxColumn.HeaderText = "结款方式";
-            this.settlementModesDataGridViewTextBoxColumn.MinimumWidth = 10;
-            this.settlementModesDataGridViewTextBoxColumn.Name = "settlementModesDataGridViewTextBoxColumn";
-            this.settlementModesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.settlementModesDataGridViewTextBoxColumn.Width = 151;
-            // 
             // SaleDate
             // 
             this.SaleDate.DataPropertyName = "SaleDate";
@@ -646,18 +636,6 @@
             this.SaleDate.Name = "SaleDate";
             this.SaleDate.Width = 151;
             // 
-            // ExpDate
-            // 
-            this.ExpDate.DataPropertyName = "ExpDate";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ExpDate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ExpDate.Frozen = true;
-            this.ExpDate.HeaderText = "结算日期";
-            this.ExpDate.MinimumWidth = 10;
-            this.ExpDate.Name = "ExpDate";
-            this.ExpDate.Width = 151;
-            // 
             // SettlementModes
             // 
             this.SettlementModes.DataPropertyName = "SettlementModes";
@@ -665,6 +643,17 @@
             this.SettlementModes.MinimumWidth = 10;
             this.SettlementModes.Name = "SettlementModes";
             this.SettlementModes.Width = 151;
+            // 
+            // ExpDate
+            // 
+            this.ExpDate.DataPropertyName = "ExpDate";
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ExpDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ExpDate.HeaderText = "结算日期";
+            this.ExpDate.MinimumWidth = 10;
+            this.ExpDate.Name = "ExpDate";
+            this.ExpDate.Width = 151;
             // 
             // TableNo
             // 
@@ -799,10 +788,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumMoneyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AgentSum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn settlementModesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaleDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn SettlementModes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpDate;
         private System.Windows.Forms.DataGridViewButtonColumn TableNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn expenseStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn BusinessRemark;

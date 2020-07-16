@@ -23,7 +23,65 @@ namespace 销售管理.日常业务
             string mSql;
             SqlConnection conn = new SqlConnection(global::Common.CommonClass.SqlConnStr);
 
-            mSql = @"SELECT type, a.Id, a.Month, b.UserName, a.TableNo, f.CompanyName as CustomerName, a.ProjectName, p.name as ProductName,pt.name ProductType, a.Amount, a.DeliverPrice, a.DeliverSum, a.SalePrice, a.SaleSum, a.DepartSum, a.SaleWages, a.CommissionPrice, a.CommissionSum, a.SaleComission, a.AgentPrice, a.AgentSum, a.AgentCommission, a.IsPaid, a.PaidDate, a.Status, c.username as BusinessAudit, a.BusinessDate, a.BusinessRemark, d.username as FinanceAudit, a.FinanceDate, a.FinanceRemark, e.username as LeaderAudit, a.LeaderDate, a.LeaderRemark, a.RecDate, a.SaleDetailsId,cs.username citysaler,a.citysum,a.citywages,a.citysaleprice,a.citysalesum,a.citysalecommission FROM T_ExpenseAllocation a left join t_users b on a.username = b.id left join t_users c on a.businessaudit = c.id left join t_users d on a.financeaudit =d.id left join t_users e on a.leaderaudit=e.id left join t_customers f on a.customername = f.id left join t_products p on a.productname = p.id left join t_products pt on p.parentid= pt.id left join t_users cs on cs.id = a.CitySaler";
+            mSql = @"SELECT type,
+                           a.Id,
+                           a.Month,
+                           b.UserName,
+                           a.TableNo,
+                           f.CompanyName AS CustomerName,
+                           a.ProjectName,
+                           p.Name AS ProductName,
+                           pt.Name ProductType,
+                           a.Amount,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.DeliverPrice, 0)) DeliverPrice,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.DeliverSum, 0)) DeliverSum,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.SalePrice, 0)) SalePrice,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.SaleSum, 0)) SaleSum,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.DepartSum, 0)) DepartSum,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.SaleWages, 0)) SaleWages,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.CommissionPrice, 0)) CommissionPrice,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.CommissionSum, 0)) CommissionSum,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.SaleComission, 0)) SaleComission,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.AgentPrice, 0)) AgentPrice,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.AgentSum, 0)) AgentSum,
+                           CONVERT(DECIMAL(20, 2), ISNULL(a.AgentCommission, 0)) AgentCommission,
+                           a.IsPaid,
+                           a.PaidDate,
+                           a.Status,
+                           c.UserName AS BusinessAudit,
+                           a.BusinessDate,
+                           a.BusinessRemark,
+                           d.UserName AS FinanceAudit,
+                           a.FinanceDate,
+                           a.FinanceRemark,
+                           e.UserName AS LeaderAudit,
+                           a.LeaderDate,
+                           a.LeaderRemark,
+                           a.RecDate,
+                           a.SaleDetailsId,
+                           cs.UserName citysaler,
+                           a.CitySum,
+                           a.CityWages,
+                           a.CitySalePrice,
+                           a.CitySaleSum,
+                           a.CitySaleCommission
+                    FROM T_ExpenseAllocation a
+                        LEFT JOIN T_Users b
+                            ON a.UserName = b.id
+                        LEFT JOIN T_Users c
+                            ON a.BusinessAudit = c.id
+                        LEFT JOIN T_Users d
+                            ON a.FinanceAudit = d.id
+                        LEFT JOIN T_Users e
+                            ON a.LeaderAudit = e.id
+                        LEFT JOIN T_Customers f
+                            ON a.CustomerName = f.id
+                        LEFT JOIN T_Products p
+                            ON a.ProductName = p.Id
+                        LEFT JOIN T_Products pt
+                            ON p.ParentId = pt.Id
+                        LEFT JOIN T_Users cs
+                            ON cs.id = a.CitySaler";
 
             if (cmbHasAudit.Text == "未审核")
             {
@@ -69,6 +127,14 @@ namespace 销售管理.日常业务
             {
                 mSql += " and a.IsPaid = '未付款'";
 
+            }
+
+            if (!String.IsNullOrEmpty(cmbType.Text))
+            {
+                if (cmbType.Text != "全部")
+                {
+                    mSql += " and a.type ='" + cmbType.Text + "'";
+                }
             }
 
             SqlDataAdapter adapter = new SqlDataAdapter(mSql, conn);

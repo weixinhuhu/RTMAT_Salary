@@ -173,8 +173,8 @@ namespace 销售管理.日常业务
                 {
                     if (((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true)
                     {
-                        MessageBox.Show("请先设置该客户所在地区");
-                        btnSave.Enabled = false;
+                        //MessageBox.Show("请先设置该客户所在地区");
+                        //btnSave.Enabled = false;
                     }
                     else btnSave.Enabled = true;
                     CityId = ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).IsCityIDNull() == true ? -1 : ((销售管理.DAL.DataSetCustomers.T_CustomersRow)table.Rows[0]).CityID;
