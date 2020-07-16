@@ -15,15 +15,18 @@ using 销售管理.日常业务.销售管理功能;
 
 namespace 销售管理.日常业务
 {
-    public partial class 销售回款录入 : Form
+    public partial class 销售回款录入1 : Form
     {
-        public 销售回款录入()
+        public 销售回款录入1()
         {
             InitializeComponent();
         }
         public long mId = -1;
-        private long ProductId = -1;
         private long CityId = -1;
+        public String CompanyName = "";
+        public String Username = "";
+        public long SaleDetailsId = -1;
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -32,7 +35,7 @@ namespace 销售管理.日常业务
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmbUserName.SelectedIndex == -1)
+            if (String.IsNullOrEmpty(cmbUserName.Text))
             {
                 toolTip1.Show("请选择销售名称！", cmbUserName, 0, cmbUserName.Height, 2000);
                 return;
@@ -60,59 +63,23 @@ namespace 销售管理.日常业务
 
             T_Customers_MoneyReturnListTableAdapter adapter = new T_Customers_MoneyReturnListTableAdapter();
 
-            if (mId > 0)
+            int ret = adapter.Insert(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value,txtNotes.Text.Trim(),"正常",SaleDetailsId);
+            if (ret > 0)
             {
-               int  ret1 = adapter.UpdateById(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value, "", "正常",(int)mId);
-                if (ret1 > 0)
-                {
-                    MessageBox.Show("修改成功");
-                    btnSave.Enabled = false;
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("修改失败");
-                    return;
-                }
-            }
-            //int ret = adapter.Insert(cmbUserName.Text, cmbCustomerName.Text, Convert.ToDecimal(txtStockOutNo.Text), dtpDate1.Value,"","正常");
-            //if (ret > 0)
-            //{
-            //    MessageBox.Show("添加成功");
-            //    btnSave.Enabled = false;
-            //    return;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("添加失败");
-            //    return;
-            //}
-        }
-
-        private void 销售明细维护_Load(object sender, EventArgs e)
-        {    
-            //获取销售名单
-            cmbUserName.DisplayMember = "UserName";
-            cmbUserName.ValueMember = "id";
-            cmbUserName.DataSource = new T_UsersTableAdapter().GetSalers();
-            cmbUserName.SelectedIndex = -1;
-
-            if (mId == -1)
-            {
+                MessageBox.Show("添加成功");
+                this.Close();
             }
             else
             {
-                DataTable dt = new DataTable();
-                dt = new T_Customers_MoneyReturnListTableAdapter().GetDataById((int)mId);
-                if (dt.Rows.Count > 0)
-                {
-                    var mRow = (销售管理.DAL.DataSetMoneyReturn.T_Customers_MoneyReturnListRow)dt.Rows[0];
-                    cmbUserName.Text = mRow.Username;
-                    cmbCustomerName.Text = mRow.CompanyName;
-                    txtStockOutNo.Text = mRow.ReturnMoney.ToString("0.00");
-                    dtpDate1.Value = mRow.ReturnDate;
-                }
+                MessageBox.Show("添加失败");
+                return;
             }
+        }
+
+        private void 销售明细维护_Load(object sender, EventArgs e)
+        {
+            cmbCustomerName.Text = CompanyName;
+            cmbUserName.Text = Username;
         }
 
         public class MyCmbList

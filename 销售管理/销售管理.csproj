@@ -851,6 +851,18 @@
     <Compile Include="日常业务\销售管理功能\费用管理\产品赠送明细维护.Designer.cs">
       <DependentUpon>产品赠送明细维护.cs</DependentUpon>
     </Compile>
+    <Compile Include="日常业务\销售管理功能\费用管理\销售回款录入1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\费用管理\销售回款录入1.Designer.cs">
+      <DependentUpon>销售回款录入1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\费用管理\销售回款管理1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="日常业务\销售管理功能\费用管理\销售回款管理1.Designer.cs">
+      <DependentUpon>销售回款管理1.cs</DependentUpon>
+    </Compile>
     <Compile Include="日常业务\销售管理功能\费用管理\销售薪资费用管理.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1393,6 +1405,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\费用管理\产品赠送明细维护.resx">
       <DependentUpon>产品赠送明细维护.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\费用管理\销售回款录入1.resx">
+      <DependentUpon>销售回款录入1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日常业务\销售管理功能\费用管理\销售回款管理1.resx">
+      <DependentUpon>销售回款管理1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="日常业务\销售管理功能\费用管理\销售薪资费用管理.resx">
       <DependentUpon>销售薪资费用管理.cs</DependentUpon>

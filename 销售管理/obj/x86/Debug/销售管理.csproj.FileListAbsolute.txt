@@ -3028,3 +3028,5 @@ C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销�
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.csproj.CopyComplete
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.exe
 C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.pdb
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.销售回款管理1.resources
+C:\Users\weixin\Desktop\销售管理系统20190320\销售管理系统最新\销售管理系统最新\销售管理\obj\x86\Debug\销售管理.日常业务.销售回款录入1.resources

@@ -279,8 +279,6 @@ namespace 销售管理.DAL {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class T_Customers_MoneyReturnListDataTable : global::System.Data.TypedTableBase<T_Customers_MoneyReturnListRow> {
             
-            private global::System.Data.DataColumn columnUserName;
-            
             private global::System.Data.DataColumn columnCompanyName;
             
             private global::System.Data.DataColumn columnReturnMoney;
@@ -292,6 +290,10 @@ namespace 销售管理.DAL {
             private global::System.Data.DataColumn columnNotes;
             
             private global::System.Data.DataColumn columnStatus;
+            
+            private global::System.Data.DataColumn columnUsername;
+            
+            private global::System.Data.DataColumn columnSaleDetailsId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -324,14 +326,6 @@ namespace 销售管理.DAL {
             protected T_Customers_MoneyReturnListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UserNameColumn {
-                get {
-                    return this.columnUserName;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -384,6 +378,22 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UsernameColumn {
+                get {
+                    return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SaleDetailsIdColumn {
+                get {
+                    return this.columnSaleDetailsId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,16 +429,17 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public T_Customers_MoneyReturnListRow AddT_Customers_MoneyReturnListRow(string UserName, string CompanyName, decimal ReturnMoney, System.DateTime ReturnDate, string Notes, string Status) {
+            public T_Customers_MoneyReturnListRow AddT_Customers_MoneyReturnListRow(string CompanyName, decimal ReturnMoney, System.DateTime ReturnDate, string Notes, string Status, string Username, long SaleDetailsId) {
                 T_Customers_MoneyReturnListRow rowT_Customers_MoneyReturnListRow = ((T_Customers_MoneyReturnListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        UserName,
                         CompanyName,
                         ReturnMoney,
                         ReturnDate,
                         null,
                         Notes,
-                        Status};
+                        Status,
+                        Username,
+                        SaleDetailsId};
                 rowT_Customers_MoneyReturnListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowT_Customers_MoneyReturnListRow);
                 return rowT_Customers_MoneyReturnListRow;
@@ -458,20 +469,19 @@ namespace 销售管理.DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnUserName = base.Columns["UserName"];
                 this.columnCompanyName = base.Columns["CompanyName"];
                 this.columnReturnMoney = base.Columns["ReturnMoney"];
                 this.columnReturnDate = base.Columns["ReturnDate"];
                 this.columnid = base.Columns["id"];
                 this.columnNotes = base.Columns["Notes"];
                 this.columnStatus = base.Columns["Status"];
+                this.columnUsername = base.Columns["Username"];
+                this.columnSaleDetailsId = base.Columns["SaleDetailsId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserName);
                 this.columnCompanyName = new global::System.Data.DataColumn("CompanyName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompanyName);
                 this.columnReturnMoney = new global::System.Data.DataColumn("ReturnMoney", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -484,10 +494,12 @@ namespace 销售管理.DAL {
                 base.Columns.Add(this.columnNotes);
                 this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStatus);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
+                this.columnSaleDetailsId = new global::System.Data.DataColumn("SaleDetailsId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaleDetailsId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("T_Customers_MoneyReturnListKey1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
-                this.columnUserName.AllowDBNull = false;
-                this.columnUserName.MaxLength = 50;
                 this.columnCompanyName.AllowDBNull = false;
                 this.columnCompanyName.MaxLength = 50;
                 this.columnReturnMoney.AllowDBNull = false;
@@ -500,6 +512,8 @@ namespace 销售管理.DAL {
                 this.columnid.Unique = true;
                 this.columnNotes.MaxLength = 50;
                 this.columnStatus.MaxLength = 10;
+                this.columnUsername.AllowDBNull = false;
+                this.columnUsername.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -642,17 +656,6 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string UserName {
-                get {
-                    return ((string)(this[this.tableT_Customers_MoneyReturnList.UserNameColumn]));
-                }
-                set {
-                    this[this.tableT_Customers_MoneyReturnList.UserNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string CompanyName {
                 get {
                     return ((string)(this[this.tableT_Customers_MoneyReturnList.CompanyNameColumn]));
@@ -729,6 +732,33 @@ namespace 销售管理.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Username {
+                get {
+                    return ((string)(this[this.tableT_Customers_MoneyReturnList.UsernameColumn]));
+                }
+                set {
+                    this[this.tableT_Customers_MoneyReturnList.UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long SaleDetailsId {
+                get {
+                    try {
+                        return ((long)(this[this.tableT_Customers_MoneyReturnList.SaleDetailsIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“T_Customers_MoneyReturnList”中列“SaleDetailsId”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableT_Customers_MoneyReturnList.SaleDetailsIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNotesNull() {
                 return this.IsNull(this.tableT_Customers_MoneyReturnList.NotesColumn);
             }
@@ -749,6 +779,18 @@ namespace 销售管理.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetStatusNull() {
                 this[this.tableT_Customers_MoneyReturnList.StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSaleDetailsIdNull() {
+                return this.IsNull(this.tableT_Customers_MoneyReturnList.SaleDetailsIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSaleDetailsIdNull() {
+                this[this.tableT_Customers_MoneyReturnList.SaleDetailsIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -911,26 +953,28 @@ namespace 销售管理.DAL.DataSetMoneyReturnTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "T_Customers_MoneyReturnList";
-            tableMapping.ColumnMappings.Add("UserName", "UserName");
             tableMapping.ColumnMappings.Add("CompanyName", "CompanyName");
             tableMapping.ColumnMappings.Add("ReturnMoney", "ReturnMoney");
             tableMapping.ColumnMappings.Add("ReturnDate", "ReturnDate");
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("Notes", "Notes");
             tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.ColumnMappings.Add("SaleDetailsId", "SaleDetailsId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[T_Customers_MoneyReturnList] ([UserName], [CompanyName], [Retu" +
-                "rnMoney], [ReturnDate], [Notes], [Status]) VALUES (@UserName, @CompanyName, @Ret" +
-                "urnMoney, @ReturnDate, @Notes, @Status)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [T_Customers_MoneyReturnList] ([Username], [CompanyName], [ReturnMone" +
+                "y], [ReturnDate], [Notes], [Status], [SaleDetailsId]) VALUES (@Username, @Compan" +
+                "yName, @ReturnMoney, @ReturnDate, @Notes, @Status, @SaleDetailsId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnMoney", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnMoney", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReturnDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReturnDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SaleDetailsId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SaleDetailsId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -946,13 +990,13 @@ namespace 销售管理.DAL.DataSetMoneyReturnTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, UserName, CompanyName, ReturnMoney, ReturnDate, Notes, Status FROM dbo" +
-                ".T_Customers_MoneyReturnList";
+            this._commandCollection[0].CommandText = "SELECT id, Username, CompanyName, ReturnMoney, ReturnDate, Notes, Status, SaleDet" +
+                "ailsId\r\nFROM   T_Customers_MoneyReturnList";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT id, UserName, CompanyName, ReturnMoney, ReturnDate, Notes, Status FROM dbo" +
-                ".T_Customers_MoneyReturnList where id=@id";
+            this._commandCollection[1].CommandText = "SELECT CompanyName, Notes, ReturnDate, ReturnMoney, SaleDetailsId, Status, Userna" +
+                "me, id FROM T_Customers_MoneyReturnList WHERE (id = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -1066,12 +1110,12 @@ namespace 销售管理.DAL.DataSetMoneyReturnTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string UserName, string CompanyName, decimal ReturnMoney, System.DateTime ReturnDate, string Notes, string Status) {
-            if ((UserName == null)) {
-                throw new global::System.ArgumentNullException("UserName");
+        public virtual int Insert(string Username, string CompanyName, decimal ReturnMoney, System.DateTime ReturnDate, string Notes, string Status, global::System.Nullable<long> SaleDetailsId) {
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(UserName));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Username));
             }
             if ((CompanyName == null)) {
                 throw new global::System.ArgumentNullException("CompanyName");
@@ -1092,6 +1136,12 @@ namespace 销售管理.DAL.DataSetMoneyReturnTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Status));
+            }
+            if ((SaleDetailsId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((long)(SaleDetailsId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
